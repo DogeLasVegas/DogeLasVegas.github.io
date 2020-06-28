@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  <title>CSS预处理语言less和Sass基础教程 ~ 性感咸鱼，在线翻身</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>性感咸鱼，在线翻身</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  一月 9日 2020, 星期四
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    2.6k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      9 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>因为CSS是一门描述性语言，代码中基本没有逻辑性，所以会存在大量重复代码，不便于维护和扩展。因此CSS预处理器就诞生了：less和Sass都是CSS的预处理语言，先用预编译语言进行样式设计，然后再进行编译，生成CSS文件来使用，这些语言的出现让CSS编写起来更加方便快捷，更易于维护。</p>
+<h2 id="less的基础教程"><a href="#less的基础教程" class="headerlink" title="less的基础教程"></a>less的基础教程</h2><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。<br>Less 可以运行在 Node 或浏览器端。</p>
+<h3 id="less变量"><a href="#less变量" class="headerlink" title="less变量"></a>less变量</h3><p>声明变量：使用@变量名: 变量值<br>使用变量：@变量名<br>举例：</p>
+<pre><code class="less">$length: 100px;
+$color: red;</code></pre>
+<p><strong>less中变量的类型：</strong></p>
+<ul>
+<li>数字类：10px；10</li>
+<li>字符串：<br>​        有引号字符串：”red”<br>​        无引号字符串：哈哈</li>
+<li>颜色类：<br>  颜色名称，如red；<br>  RGB格式，rgb(0,0,0)；<br>  十六进制，如#ffffff</li>
+<li>值列表类型：用逗号或空格分隔</li>
+</ul>
+<p><strong>变量使用原则</strong>：多次频繁出现的值设为变量，还有需要修改的值也可设为变量</p>
+<p> <strong>混合（Mixins）：</strong></p>
+<ul>
+<li>无参混合<br>声明：.name{} ；选择器中调用：.name</li>
+<li>带参混合<br>无默认值声明：.name(@param){} 调用：.name(paramValue);<br>有默认值声明： .name(@param:value){} 调用：.name(paramValue);paramValue可省略</li>
+</ul>
+<p>如果声明时没有默认值，则调用时必须赋值，否则报错<br>无参混合会在css中编译出同名的class选择器，有参的不会</p>
+<p><strong>示例</strong>：</p>
+<pre><code class="less">.class{
+    padding: 10px;
+}
+@mixin hong{
+    color: blue;
+}
+#div1{
+    width: $length;
+    background-color: red;
+    @extend.class;
+    border-#{$left}:10px solid blue ;
+    @include hong;
+}</code></pre>
+<h3 id="less匹配模式"><a href="#less匹配模式" class="headerlink" title="less匹配模式"></a>less匹配模式</h3><p>使用混合进行匹配，类似if结构：<br><strong>声明：</strong>.name(条件一，参数){} .name(条件二，参数){} .name(条件三，参数){}<br><strong>调用：</strong>.name(条件值，参数值)<br><strong>匹配规则</strong>：根据调用时提供的条件值，寻找与之匹配的Mixins执行，其中@_表示永远需要执行的部分</p>
+<h3 id="less的运算与嵌套"><a href="#less的运算与嵌套" class="headerlink" title="less的运算与嵌套"></a>less的运算与嵌套</h3><p><strong>LESS中的运算</strong>：<br>使用运算符+、-、/、* 计算，可以带单位也可不带<br> 进行颜色（十六进制形式）运算时，红绿蓝分开计算，即每组两位之间可以进位，组间不可进位<br><strong>LESS中的嵌套</strong>：<br>保留html中的代码结构，嵌套默认是后代选择器，如果需要子代选择器，则在子代前面加&gt;<br>&amp;表示上一层，&amp;:hover表示上一层的hover事件，&amp;主要用来进行伪类事件的设置</p>
+<p><strong>代码嵌套示例</strong>：</p>
+<pre><code class="less">section{
+    p{
+        color: red;
+        background-color: cyan;
+    }
+    ul{
+        padding: 0;
+        list-style: none;
+        li{
+            float: left;
+            width: 100px;
+            margin: 10px;
+            border: {
+                color: green;
+                style:solid;
+                width: 5px;
+            };
+            &amp;:hover{
+                background-color: yellow;
+            }
+        }
+    }
+}</code></pre>
+<h3 id="less注释方式"><a href="#less注释方式" class="headerlink" title="less注释方式"></a>less注释方式</h3><p>less的注释方式有两种：<br>一种是使用双斜杠（//）来注释，使用这种方式注释的内容不会被编译<br>另一种是使用/**/，但可以被编译</p>
+<h2 id="Sass的基础教程"><a href="#Sass的基础教程" class="headerlink" title="Sass的基础教程"></a>Sass的基础教程</h2><blockquote>
+<p>世界上最成熟、最稳定、最强大的专业级CSS扩展语言</p>
+</blockquote>
+<p>sass是最早的css预处理语言，有比less更为强大的功能。但因其一开始的缩进式语法并不能被开发者们接受，所以使用率不高，不过由于其强大的功能和Ruby on Rails 的大力推动，逐渐被更多开发者使用。</p>
+<p>sass是采用的Ruby语言编写的一款css预处理语言，它诞生于2007年，是最早成熟css预处理语言。最初它是为了配合haml而设计的，因此有着和haml一样的缩进式风格。</p>
+<p>sass从第三代开始，放弃了缩进式风格，并且完全向下兼容普通的css代码，这一代的sass也被称为scss。</p>
+<p><strong>特色功能 (Features)</strong></p>
+<ul>
+<li>完全兼容 CSS3</li>
+<li>在 CSS 基础上增加变量、嵌套 (nesting)、混合 (mixins) 等功能</li>
+<li>通过<em>函数</em>进行颜色值与属性值的运算</li>
+<li>提供<em>控制指令 (control directives)</em>等高级功能</li>
+<li>自定义输出格式</li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>使用$变量名:变量值 来声明变量，即变量以$开头<br>如果变量需要在字符串中嵌套，则需要使用#{}包括，如</p>
+<pre><code class="scss">$left:left;
+.div1 {
+    border-#{$left}-radius: 5px;
+}</code></pre>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><pre><code class="scss">body {
+    margin: (14px/2);
+    top: 50px + 100px;
+    right: $var * 10%;
+}</code></pre>
+<p>需要注意的是，计算时会将单位也进行运算，所以使用时需注意<strong>最终单位</strong>：100px*10px = 1000 px<sup>2</sup></p>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><ul>
+<li><p><strong>选择器嵌套</strong>　<code>ul{ li{} }</code> 后代选择、<code>ul{ &gt;li{} }</code> 子代选择、</p>
+<p>&amp;表示外层的父选择器 <code>div{ ul{ li{ &amp;==&quot;div ul li&quot; } } }</code></p>
+</li>
+<li><p><strong>属性嵌套</strong>　　<code>p{border:{color: green;style:solid;width: 5px;}}</code>，注意里面的border要加上冒号</p>
+</li>
+<li><p><strong>伪类嵌套</strong>　　<code>ul{ li{ &amp;:hover{} } }</code></p>
+</li>
+</ul>
+<h3 id="混合、继承、占位符"><a href="#混合、继承、占位符" class="headerlink" title="混合、继承、占位符"></a>混合、继承、占位符</h3><p><strong>混合宏</strong>：<br>声明：@mixin name($param:value){} 调用：@include name(value);<br> 声明时可以有参可以无参，可以带默认值也可不带，但调用时必须符合声明规范，同less<br>优点：可以传参；缺点：会将混合宏中代码，copy到对应的选择器中，产生冗余代码<br><strong>继承</strong>：<br>声明：.class{} 调用:@extend .class;<br>优点：继承的相同代码，会提取到并集选择器中，减少冗余代码；<br>缺点：无法进行传参，会在CSS中生成一个同名class<br><strong>占位符</strong>：<br>声明：%class{} 调用：@extend %class;<br>优点：继承的相同代码，会提取到并集选择器中，减少冗余代码，不会在CSS中生成一个同名class；<br>缺点：无法进行传参<br><strong>综上，当需要传递参数时用混合宏，当有现成class时用继承，当不需要参数也不需要class时用占位符</strong></p>
+<h3 id="控制指令"><a href="#控制指令" class="headerlink" title="控制指令"></a>控制指令</h3><p><strong>if条件结构</strong>：<br> <code>@if条件{} @else{}</code><br><strong>for 循环结构</strong>:<br><code>@for $i from 1 to/through 10;</code> (to不包括10，through包括10 )<br><strong>whlie 循环结构</strong>：</p>
+<pre><code>$j;
+@while $j&lt;10{.while #{$j}{
+background-color: red;
+}$j:$j+1;}</code></pre><p><strong>each循环遍历</strong><br><code>@each item in a,b,c,d{}</code></p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>Sass允许用户自己编写函数使用</p>
+<pre><code class="scss">　　@function double($n) {
+　　　　@return $n * 2;
+　　}
+　　#sidebar {
+　　　　width: double(5px);
+　　}</code></pre>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>Sass和less一样，有两种注释方法</p>
+<p>一种是单行注释，<code>//注释一</code> 不会被输出到编译后的CSS文件中；<br>另一种是多行注释，<code>/*注释二*/</code> 这种注释会保留在编译后的文件中；<br>另外还有一种算是多行注释的升级版，<code>/*!注释三 重要注释*/</code> 这种注释即使是压缩模式编译，也会被保留，通常可以用于声明版权信息。</p>
+<h2 id="两种预处理语言的编译方式"><a href="#两种预处理语言的编译方式" class="headerlink" title="两种预处理语言的编译方式"></a>两种预处理语言的编译方式</h2><p>less和Sass的编译方式大同小异，他们可以通过下面几种方式进行编译：</p>
+<h3 id="1、命令行方式"><a href="#1、命令行方式" class="headerlink" title="1、命令行方式"></a>1、命令行方式</h3><p>使用这种方式编译需要先安装less和Sass，less可以通过npm安装，Sass的安装方式比较多，不仅可以通过npm安装，也可以通过Ruby安装，更多安装方式可以去<a href="https://sass-lang.com/install" target="_blank" rel="noopener">官网</a>查看。安装成功后就能使用命令行直接编译文件了。</p>
+<p>less的编译命令</p>
+<pre><code>lessc styles.less styles.css</code></pre><p>Sass的编译命令</p>
+<pre><code>sass test.scss test.css</code></pre><p>SASS提供四个<a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#output_style" target="_blank" rel="noopener">编译风格</a>的选项：</p>
+<ul>
+<li>nested：嵌套缩进的css代码，它是默认值。</li>
+<li>expanded：没有缩进的、扩展的css代码。</li>
+<li>compact：简洁格式的css代码。</li>
+<li>compressed：压缩后的css代码。</li>
+</ul>
+<p>生产环境当中，一般使用最后一个选项。</p>
+<pre><code>sass --style compressed test.sass test.css</code></pre><p>命令行方式也可以对某个文件或者目录进行监听，在源文件产生变动时自动生成编译后版本，less可以通过安装一个插件watcher-lessc来监听编译，Sass直接使用命令行就能实现：</p>
+<pre><code>　　// 监听一个文件
+　　sass --watch input.scss:output.css
+
+　　// 监听一个文件夹目录
+　　sass --watch app/sass:public/stylesheets</code></pre><h3 id="2、使用编译软件Koala编译"><a href="#2、使用编译软件Koala编译" class="headerlink" title="2、使用编译软件Koala编译"></a>2、使用编译软件Koala编译</h3><p>Koala是一个国产免费前端预处理器语言图形编译工具，支持Less、Sass、Compass、CoffeeScript，帮助web开发者更高效地使用它们进行开发。跨平台运行，完美兼容windows、linux、mac。</p>
+<p>前往<a href="http://koala-app.com/index-zh.html" target="_blank" rel="noopener">官网</a>下载安装，安装完成打开显示如下界面：</p>
+<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>点击左侧的+号添加需要编译的文件夹，也可以直接将文件夹拖动进来，添加完成后就可以对文件进行编译了，点击一个文件可以设置编译选项。编译时软件默认是将less文件编译到同级目录下，如果想要改变可以在文件上进行单个文件的改变；缺点是不能实现批量的改变。使用koala的好处是有错误提示，可以比较方便的获取错误信息。</p>
+<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<h3 id="3、使用开发工具编译"><a href="#3、使用开发工具编译" class="headerlink" title="3、使用开发工具编译"></a>3、使用开发工具编译</h3><p>可以使用一些常用的开发工具或开发工具中的某些插件来直接自动编译，如webstorm、sublime插件SASS-Build、vscode插件easy sass等等，具体操作方法自行搜索。</p>
+<h3 id="4、使用JS文件"><a href="#4、使用JS文件" class="headerlink" title="4、使用JS文件"></a>4、使用JS文件</h3><p>这一条针对的是less文件，因为less基于js。去官网下载less.js文件，然后在文件中引入，或者直接使用CDN引入：</p>
+<pre><code class="HTML">&lt;link rel=&quot;stylesheet&quot; href=&quot;less/test.less&quot; type=&quot;text/less&quot;&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>使用时注意以下几点：<br>link引入的是less文件，路径直接是less所在位置即可；<br>link内一定要注明type类型，因为默认为css；<br>顺序一定要是引入的less文件在less.js文件上面。</p>
+<h3 id="5、其他编译方式"><a href="#5、其他编译方式" class="headerlink" title="5、其他编译方式"></a>5、其他编译方式</h3><p>前端自动化软件codekit、Grunt打造前端自动化工作流grunt-sass、Gulp打造前端自动化工作流gulp-ruby-sass等，具体用法自行搜索。</p>
+<h2 id="less与Sass的区别"><a href="#less与Sass的区别" class="headerlink" title="less与Sass的区别"></a>less与Sass的区别</h2><table>
+<thead>
+<tr>
+<th align="center">区别</th>
+<th align="center">Sass</th>
+<th align="center">less</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">环境</td>
+<td align="center">Sass基于Ruby，需要安装Ruby。属于服务端处理。</td>
+<td align="center">Less和Sass在Ruby中构建相似，但它已被移植到JavaScript中。less编译通过引入less.js文件或通过编译软件编译成css文件再将css文件放入项目中。属于客户端处理。</td>
+</tr>
+<tr>
+<td align="center">声明变量</td>
+<td align="center">Sass使用$</td>
+<td align="center">Less使用@</td>
+</tr>
+<tr>
+<td align="center">输出格式</td>
+<td align="center">nested：嵌套缩进的css代码；expanded：展开的多行css代码；compact：简洁格式的css代码；compressed：压缩后的css代码</td>
+<td align="center">Less无输出格式</td>
+</tr>
+<tr>
+<td align="center">继承</td>
+<td align="center">sass的继承：@extend</td>
+<td align="center">less的继承：类似于mixins .block</td>
+</tr>
+</tbody></table>
+<p>以上是部分Sass和less的区别，仅供参考。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://lesscss.org/" target="_blank" rel="noopener">less官网</a></p>
+<p><a href="https://less.bootcss.com/" target="_blank" rel="noopener">less中文网</a></p>
+<p><a href="http://koala-app.com/index-zh.html" target="_blank" rel="noopener">Koala官网</a></p>
+<p><a href="https://www.sass.hk/" target="_blank" rel="noopener">Sass中文网</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">SASS用法指南 - 阮一峰的网络日志</a></p>
+<p><a href="https://www.jianshu.com/p/96430f2e5161" target="_blank" rel="noopener">sass和less的区别</a></p>
+<p><a href="https://blog.csdn.net/gaomengwang/article/details/80573915" target="_blank" rel="noopener">Sass与Less区别</a></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/CSS">CSS</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/CSS">CSS</a>
+                
+                  <a class="hover-with-bg" href="/tags/Web">Web</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "CSS预处理语言less和Sass基础教程&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":0,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>
