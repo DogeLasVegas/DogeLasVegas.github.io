@@ -133,6 +133,261 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/get-url-id/">
+        <p class="h4 index-header">获取URL地址最后的id值</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">有时候项目常常要获取id，有的id就在url的最后面，那么问题来了，怎么才能拿到这个id值呢，经过一番思考之后就有了下面这个方法。
+获取方法和思路代码：
+function GetUrlParam(paraName) {
+    var url = document.location.toString();
+    var arrObj = url.split(&quot;?&quot;);
+　　　　if (arrObj.length &gt; 1) {
+　　　　　　var arrPara = arrObj[1].split(&quot;&amp;&quot;);
+　　　　　　var arr;
+　　　　　　for (var i = 0; i &lt; arrPara.length; i++) {
+　　　　　　　　arr = arrPara[i].split(&quot;=&quot;);
+　　　　　　　　if (arr != null &amp;&amp; arr[0] == paraName) {
+　　　　　　　　　　return arr[1];
+　　　　　　　　}
+　　　　　　}
+　</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/three-js-3D-TheAviator/">
+        <p class="h4 index-header">【转】利用Three.js制作一个3D动画飞行场景</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。
+" srcset="/img/loading.gif
+DEMO     源码下载
+今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Three.js，在浏览器中 3D 的实现变得简单。
+
+(译者注：WebGL 是一项利用 JavaScriptAPI 渲染交互式 3D 电脑图形和 2D 图形的技术，可兼容任何的网页浏览器，无需加装插件。通过 WebGL 的技术，只需要编写网页代码即可实现 3D 图像的展示。GLSL-OpenGL Shading Language 也称作 GLslang ，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。详细麻烦谷歌或百度一下～)
+
+在本教程中，我们将创建一个简单的 3D 场景, 在两个主要的部分会有一</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/HTML">HTML</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Web">Web</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+            <a href="/tags/Three-js">Three.js</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/less-sass/">
+        <p class="h4 index-header">CSS预处理语言less和Sass基础教程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">因为CSS是一门描述性语言，代码中基本没有逻辑性，所以会存在大量重复代码，不便于维护和扩展。因此CSS预处理器就诞生了：less和Sass都是CSS的预处理语言，先用预编译语言进行样式设计，然后再进行编译，生成CSS文件来使用，这些语言的出现让CSS编写起来更加方便快捷，更易于维护。
+less的基础教程Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。Less 可以运行在 Node 或浏览器端。
+less变量声明变量：使用@变量名: 变量值使用变量：@变量名举例：
+$length: 100px;
+$color: red;
+less中变量的类型：
+
+数字类：10px；10
+字符串：​        有引号字符串：”red”​        无引号字符串：哈哈
+颜色类：  颜色名称，如red；  RGB格式，rgb(0,0,0)；  十六进制，如#ffffff
+值列表类型：用逗号或空格分隔
+
+变量使用原则：多次频繁出现的值设为变量，还有需要修改的值也可设为变量
+ 混合（Mixins）：
+
+无参混合声明：.name{</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/CSS">CSS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CSS">CSS</a>&nbsp;
+          
+            <a href="/tags/Web">Web</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/gufeng/">
+        <p class="h4 index-header">【转】恶俗古风自动生成器</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">转自 传送门
+原 po：
+关键词：朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城
+ 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 
+一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 
+微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 
+公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌情深缘浅 情深不寿 
+莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安
+基本句式：
+1.xx，xx，xx了xx。 
+2.xxxx，xxxx，不过是一场xxxx。
+3.你说xxxx，我说xxxx，最后不过xxxx。
+4.xx，xx，许我一场xxxx。
+5一x一x一xx，半x半x半xx。
+6.你说xxxx xxxx，后来xxxx xxxx。
+7.xxxx，xxxx，终不敌xxxx。
+注意事项：
+1.使用一</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA">奇奇怪怪</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA">奇奇怪怪</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/flex-layout/">
+        <p class="h4 index-header">【转】弹性盒子（Flex Box）布局语法教程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">网页布局（layout）是 CSS 的一个重点应用。
+
+布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+
+2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+
+Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
+以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
+一、Flex 布局是什么？Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。
+任何一个容器都可以指定为 Flex 布局。
+
+.box{
+  display: flex;
+}
+
+行内元素也可以使用</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/HTML">HTML</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/CSS">CSS</a>&nbsp;
+          
+            <a href="/tags/Web">Web</a>&nbsp;
+          
+            <a href="/tags/Flex%20Box">Flex Box</a>&nbsp;
+          
+            <a href="/tags/%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80">弹性布局</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/mobile-develop/">
         <p class="h4 index-header">网页移动开发的一些知识</p>
         
@@ -384,125 +639,11 @@ permalink: :year/:month/:title/
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/hexo/">
-        <p class="h4 index-header">Hexo博客搭建</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">推荐去看另外一篇从零开始的Hexo博客搭建（一）
-现在市面上的博客平台有很多，比方说博客园、简书、CSDN等等，功能完善，专注写作即可，而且还有社区，用户交流也很方便，但是这些平台都或多或少有一定限制，还有各种广告。由此，我们可以自己搭建一个博客网站，但是自己搭建又要买服务器还有域名，还要自己制作网站，而且还要定期进行维护，不光花钱还费时间，不过还有一个办法，就是把博客放到GitHub page上面，这样只要专注写作就行了，不需要定期维护，然后再套上Hexo这个博客框架，可以直接生成一个漂亮的网站，这样搭建一个博客就容易多了。
-Hexo简介Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。官网对Hexo的介绍是快速、简洁且高效的博客框架。
-环境搭建安装Node.js
-Node.js 为大多数平台提供了官方的安装程序。可以去官网下载 | Node.js下载
-安装完成后打开命令行查看是否安装成功：
-node -v
-npm -v安装Git
-Git是目前世界上最先进的分布式版本控制系统，我们用它来</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-24&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/hexo">hexo</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/hexo">hexo</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/test/">
-        <p class="h4 index-header">test</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-More info: Writing
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-20&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB">未分类</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/hexo">hexo</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server$ hexo server
-More info: Server
-Generate static files$ hexo generate
-More info: Generating
-Deploy to remote sites$ hexo deploy
-More info: Deployment
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-01&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

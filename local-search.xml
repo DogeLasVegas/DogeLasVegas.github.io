@@ -4,6 +4,71 @@
   
   
   <entry>
+    <title>live2d点击下载没反应解决办法</title>
+    <link href="/2020/06/live2d-download/"/>
+    <url>/2020/06/live2d-download/</url>
+    
+    <content type="html"><![CDATA[<p>在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。</p><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jquery，而按钮被点击时的行为是通过jquery的函数定义的。由于众所周知的原因，我们没法直接访问谷歌CDN。这就导致按钮失效，我们无法通过点击按钮获取下载链接。</p><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在浏览器中按F12或者鼠标右键检查，打开控制台，点击“console”一项，然后在下面输入以下代码：</p><pre><code>genFileURL(LATEST_VERSION_WIN, &quot;zh&quot;, &quot;exe&quot;)</code></pre><p>如果是Mac用户，把<code>LATEST_VERSION_WIN</code>改成<code>LATEST_VERSION_MAC</code>，把<code>exe</code>改成<code>pkg</code>；</p><p>如果想用日文版、英文版，把zh改成jp或者en然后回车，把返回的链接放到浏览器地址栏里就能下载最新的Live2D安装包。</p><p>如果要下载以前版本的安装包，只要把上面的<code>LATEST_VERSION_XXX</code>改成<code>OLDER_VERSIONS_XXX</code>，然后在后面加一个英文的点，控制台就会列出之前可下载的版本，然后移动方向键选择，按回车键确认。</p><p>最后完整命令看起来像是这样：</p><pre><code>genFileURL(OLDER_VERSIONS_WIN.v4_00_02,&quot;zh&quot;,&quot;exe&quot;)</code></pre><p>再按一次回车就可以看到下载链接了。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>add-live2d</title>
+    <link href="/2020/06/add-live2d/"/>
+    <url>/2020/06/add-live2d/</url>
+    
+    <content type="html"><![CDATA[<p>1，3，19，20，26</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>用markdown画图（流程图、序列图等等）</title>
+    <link href="/2020/06/markdown-diagrams/"/>
+    <url>/2020/06/markdown-diagrams/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>网页自动播放问题</title>
+    <link href="/2020/06/media-autoplay/"/>
+    <url>/2020/06/media-autoplay/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>【转】JS工厂模式</title>
+    <link href="/2020/06/js-factory/"/>
+    <url>/2020/06/js-factory/</url>
+    
+    <content type="html"><![CDATA[<p>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。</p><h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br>" srcset="/img/loading.gif<img src="" alt="图9-9 JS工厂模式"></p><p>假设有一个UI工厂，我们要创建一个UI组件的类型。不需要直接使用new运算符或者通过另一个创建型构造函数创建这个组件，而是要求Factory对象创建一个新的组件。我们通知Factory需要什么类型的对象（如“按钮”、“面板”），它会进行实例化，然后将它返回给我们使用。</p><p>如果对象创建过程相对比较复杂，这种方法特别有用，例如，如果它强烈依赖于动态因素或应用程序配置的话。</p><p>可以在ExtJS等UI库中找到此模式的示例，其中创建对象或组件的方法也有可能被归入子类了。</p><p>下面这个示例构建在之前的代码片段之上，使用Constructor模式逻辑来定义汽车。它展示了如何使用Factory模式来实现vehicle工厂：</p><p>// Types.js –本例构造函数的存放文件<br>// 定义Car构造函数</p><pre><code class="javascript">function Car(options) {  // 默认值  this.doors = options.doors || 4;  this.state = options.state || &quot;brand new&quot;;  this.color = options.color || &quot;silver&quot;;}</code></pre><p>// 定义Truck构造函数</p><pre><code class="javascript">function Truck(options) {   this.state = options.state || &quot;used&quot;;   this.wheelSize = options.wheelSize || &quot;large&quot;;   this.color = options.color || &quot;blue&quot;;}</code></pre><p>// FactoryExample.js<br>// 定义vehicle工厂的大体代码</p><pre><code class="javascript">function VehicleFactory() { }</code></pre><p>// 定义该工厂factory的原型和试用工具，默认的vehicleClass是Car</p><pre><code class="javascript">VehicleFactory.prototype.vehicleClass = Car;</code></pre><p>// 创建新Vehicle实例的工厂方法</p><pre><code class="javascript">VehicleFactory.prototype.createVehicle = function (options) {   if (options.vehicleType === &quot;car&quot;) {       this.vehicleClass = Car;   } else {       this.vehicleClass = Truck;   }   return new this.vehicleClass(options);};</code></pre><p>// 创建生成汽车的工厂实例</p><pre><code class="javascript">var carFactory = new VehicleFactory();var car = carFactory.createVehicle({               vehicleType: &quot;car&quot;,               color: &quot;yellow&quot;,               doors: 6});</code></pre><p>// 测试汽车是由vehicleClass的原型prototype里的Car创建的<br>// 输出: true</p><pre><code class="javascript">console.log(car instanceof Car);</code></pre><p>// 输出: Car对象，color: “yellow”, doors: 6,state:”brand new”</p><pre><code class="javascript">console.log(car);</code></pre><p>在方法 1 中，我们修改了VehicleFactory实例来使用Truck类：</p><pre><code class="javascript">var movingTruck = carFactory.createVehicle({                      vehicleType: &quot;truck&quot;,                      state: &quot;like new&quot;,                      color: &quot;red&quot;,                      wheelSize: &quot;small&quot;});</code></pre><p>// 测试卡车是由vehicleClass的原型prototype里的Truck创建的<br>// 输出: true</p><pre><code class="javascript">console.log(movingTruck instanceof Truck);</code></pre><p>// 输出: Truck对象，color ：”red”, state：”like new” ，wheelSize：”small”</p><pre><code class="javascript">console.log(movingTruck);</code></pre><p>在方法2中，我们把VehicleFactory归入子类来创建一个构建Truck的工厂类：</p><pre><code class="javascript">function TruckFactory() { }TruckFactory.prototype = new VehicleFactory();TruckFactory.prototype.vehicleClass = Truck;var truckFactory = new TruckFactory();var myBigTruck = truckFactory.createVehicle({                      state: &quot;omg..so bad.&quot;,                      color: &quot;pink&quot;,                      wheelSize: &quot;so big&quot;});</code></pre><p>// 确认myBigTruck是由原型Truck创建的<br>// 输出: true</p><pre><code class="javascript">console.log(myBigTruck instanceof Truck);</code></pre><p>// 输出：Truck对象，color: pink”, wheelSize: “so big”, state: “omg. so bad”</p><pre><code class="javascript">console.log(myBigTruck);</code></pre><h3 id="9-10-1-何时使用Factory模式"><a href="#9-10-1-何时使用Factory模式" class="headerlink" title="9.10.1 何时使用Factory模式"></a>9.10.1 何时使用Factory模式</h3><p>Factory模式应用于如下场景时是特别有用的：</p><p>当对象或组件设置涉及高复杂性时<br>当需要根据所在的不同环境轻松生成对象的不同实例时<br>当处理很多共享相同属性的小型对象或组件时<br>在编写只需要满足一个API契约（亦称鸭子类型）的其他对象的实例对象时。对于解耦是很有用的。</p><h3 id="9-10-2-何时不应使用Factory模式"><a href="#9-10-2-何时不应使用Factory模式" class="headerlink" title="9.10.2 何时不应使用Factory模式"></a>9.10.2 何时不应使用Factory模式</h3><p>如果应用错误，这种模式会为应用程序带来大量不必要的复杂性。除非为创建对象提供一个接口是我们正在编写的库或框架的设计目标，否则我建议坚持使用显式构造函数，以避免不必要的开销。</p><p>由于对象创建的过程实际上是藏身接口之后抽象出来的，单元测试也可能带来问题，这取决于对象创建的过程有多复杂。</p><h3 id="9-10-3-Abstract-Factory（抽象工厂）"><a href="#9-10-3-Abstract-Factory（抽象工厂）" class="headerlink" title="9.10.3 Abstract Factory（抽象工厂）"></a>9.10.3 Abstract Factory（抽象工厂）</h3><p>了解抽象工厂模式也是有用的，它用于封装一组具有共同目标的单个工厂。它能够将一组对象的实现细节从一般用法中分离出来。</p><p>应当使用抽象工厂模式的情况是：一个系统必须独立于它所创建的对象的生成方式，或它需要与多种对象类型一起工作。</p><p>既简单又容易理解的示例是车辆工厂，它定义了获取或注册车辆类型的方法。抽象工厂可以命名为AbstractVehicleFactory。抽象工厂将允许对像car或truck这样的车辆类型进行定义，具体工厂只需要实现履行车辆契约的类（如Vehicle.prototype.drive和Vehicle.prototype.breakDown）。</p><pre><code class="javascript">var AbstractVehicleFactory = (function () {// 存储车辆类型  var types = {};  return {       getVehicle: function ( type, customizations ) {            var Vehicle = types[type];            return (Vehicle) ? return new Vehicle(customizations) : null;       },       registerVehicle: function ( type, Vehicle ) {            var proto = Vehicle.prototype;            // 只注册实现车辆契约的类            if ( proto.drive &amp;&amp; proto.breakDown ) {                  types[type] = Vehicle;            }            return AbstractVehicleFactory;        }  };})();// 用法:AbstractVehicleFactory.registerVehicle( &quot;car&quot;, Car );AbstractVehicleFactory.registerVehicle( &quot;truck&quot;, Truck );// 基于抽象车辆类型实例化一个新car对象var car = AbstractVehicleFactory.getVehicle( &quot;car&quot; , {             color: &quot;lime green&quot;,             state: &quot;like new&quot; } );// 同理实例化一个新truck对象var truck = AbstractVehicleFactory.getVehicle( &quot;truck&quot; , {                wheelSize: &quot;medium&quot;,                color: &quot;neon yellow&quot; } );</code></pre><h2 id="完整示例代码："><a href="#完整示例代码：" class="headerlink" title="完整示例代码："></a>完整示例代码：</h2><pre><code class="html">&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot;&gt;    &lt;title&gt;Document&lt;/title&gt;&lt;/head&gt;&lt;body&gt;    &lt;script&gt;        //先定义几种车 构造函数  工厂方法        function Car(options) {            this.doors = options.doors || 4;            this.state = options.state || &quot;brand&quot;;            this.color = options.color || &quot;silver&quot;;        }        function Truck(options) {            this.state = options.state || &quot;used&quot;;            this.wheelSize = options.wheelSize || &quot;large&quot;;            this.color = options.color || &quot;blue&quot;;        }        //再定义生产车辆的工厂        function VehicleFactory() {}        //定义该工厂生产的默认汽车类型        VehicleFactory.prototype.vehicleClass = Car; //Car是函数        //定义生产汽车的具体过程        VehicleFactory.prototype.createVehicle = function(options) {            if(options.vehicleType === &quot;car&quot;){                this.vehicleClass = Car;            }else{                this.vehicleClass = Truck;            }            return new this.vehicleClass(options);         };        //建造工厂并命名        var carFactory = new VehicleFactory();        //开始生产汽车        var car = carFactory.createVehicle({            vehicleType: &quot;car&quot;,            color: &quot;yellow&quot;,            doors: 6        });        //验证车是否是这个Car类型的车        console.log(car instanceof Car);        //验验车，看看货        console.log(car);        //再生产另一部车        var movingTruck = carFactory.createVehicle({            vehicleType: &quot;truck&quot;,            state: &quot;like new&quot;,            color: &quot;red&quot;,            wheelSize: &quot;small&quot;        });        //验证车是否是Track类型的车        console.log(movingTruck instanceof Truck);        //验验车，看看货        console.log(movingTruck);        //-----------------------------------------------        //定义第二个工厂  是上面那个工厂的子工厂        function TruckFactory() {}        TruckFactory.prototype = new VehicleFactory();        TruckFactory.prototype.vehicleClass = Truck;        //创建工厂        var TruckFactory = new TruckFactory();        //生产卡车        var myBigTruck = TruckFactory.createVehicle({            state: &quot;omg..so bad.&quot;,            color: &quot;pink&quot;,            wheelSize: &quot;so big&quot;        });        //验验车        console.log(myBigTruck instanceof Truck);        //看看货        console.log(myBigTruck);    &lt;/script&gt;&lt;/body&gt;&lt;/html&gt;</code></pre><h2 id="原文链接："><a href="#原文链接：" class="headerlink" title="原文链接："></a>原文链接：</h2><p><a href="https://yq.aliyun.com/articles/91494?spm=a2c4e.11153940.0.0.5d4630f9s89vDO&type=2" target="_blank" rel="noopener">《JavaScript设计模式》——9.10 Factory（工厂）模式</a></p><p><a href="https://blog.csdn.net/spflinux/article/details/78437032" target="_blank" rel="noopener">JS——Factory(工厂)模式</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>一台电脑多git账号如何部署hexo博客</title>
     <link href="/2020/06/gits-hexo-d/"/>
     <url>/2020/06/gits-hexo-d/</url>
@@ -48,7 +113,7 @@
   
   
   <entry>
-    <title>收藏</title>
+    <title>恰独食</title>
     <link href="/2020/06/collect/"/>
     <url>/2020/06/collect/</url>
     
@@ -187,11 +252,11 @@
   
   
   <entry>
-    <title>LocalStorage过期删除</title>
+    <title>【转】LocalStorage过期删除</title>
     <link href="/2020/06/localstorage-expire/"/>
     <url>/2020/06/localstorage-expire/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p><h2 id="方案一：ES5扩展Storage"><a href="#方案一：ES5扩展Storage" class="headerlink" title="方案一：ES5扩展Storage"></a>方案一：ES5扩展Storage</h2><p>思路很简单，存储的值加一个时间戳，下次取值时验证时间戳。<br><strong>注意：</strong> <code>localStorage</code>只能存储字符，存入时将对象转为<code>json</code>字符串,读取时也要解析</p><pre><code class="js">CopyStorage.prototype.setExpire = (key, value, expire) =&gt; {    let obj = {    data: value,    time: Date.now(),    expire: expire    };    //localStorage 设置的值不能为对象,转为json字符串    localStorage.setItem(key, JSON.stringify(obj));}Storage.prototype.getExpire = key =&gt; {    let val = localStorage.getItem(key);    if (!val) {        return val;    }    val = JSON.parse(val);    if (Date.now() - val.time &gt; val.expire) {        localStorage.removeItem(key);        return null;    }    return val.data;}</code></pre><p>测试一下：</p><pre><code class="javascript">CopylocalStorage.setExpire(&#39;userId&#39;,&#39;zhangsan&#39;,5000);window.setInterval(()=&gt;{    console.log(localStorage.getExpire(&quot;userId&quot;));},1000)</code></pre><p>前5秒还是有值的，之后即为<code>null</code></p><p><a href="https://images.cnblogs.com/cnblogs_com/ricolee/1504807/o_190119-localStorage.png" target="_blank" rel="noopener"><img src="https://images.cnblogs.com/cnblogs_com/ricolee/1504807/o_190119-localStorage.png" srcset="/img/loading.gif" alt="image"></a></p><h2 id="方案二：ES6扩展Storage"><a href="#方案二：ES6扩展Storage" class="headerlink" title="方案二：ES6扩展Storage"></a>方案二：ES6扩展Storage</h2><p>大体思路和方案一是一样的只不过是用了ES6的最新语法实现。</p><pre><code class="javascript">Copyclass Storage {    constructor(props) {        this.props = props || {}        this.source = this.props.source || window.localStorage        this.initRun();    }    initRun(){        /*        * set 存储方法        * @ param {String}     key 键        * @ param {String}     value 值，存储的值可能是数组/对象，不能直接存储，需要转换 JSON.stringify        * @ param {String}     expired 过期时间，以分钟为单位        */        const reg = new RegExp(&quot;__expires__&quot;);        let data = this.source;        let list = Object.keys(data);        if(list.length &gt; 0){            list.map((key,v)=&gt;{                if( !reg.test(key )){                    let now = Date.now();                    let expires = data[`${key}__expires__`]||Date.now+1;                    if (now &gt;= expires ) {                        this.remove(key);                    };                };                return key;            });        };    }    set(key, value, expired) {        /*        * set 存储方法        * @ param {String}     key 键        * @ param {String}     value 值，        * @ param {String}     expired 过期时间，以毫秒为单位，非必须        */        let source = this.source;        source[key] = JSON.stringify(value);        if (expired){            source[`${key}__expires__`] = Date.now() + expired        };        return value;    }    get(key) {        /*        * get 获取方法        * @ param {String}     key 键        * @ param {String}     expired 存储时为非必须字段，所以有可能取不到，默认为 Date.now+1        */        const source = this.source,        expired = source[`${key}__expires__`]||Date.now+1;        const now = Date.now();        if ( now &gt;= expired ) {            this.remove(key);            return;        }        const value = source[key] ? JSON.parse(source[key]) : source[key];        return value;    }    remove(key) {        const data = this.source,            value = data[key];        delete data[key];        delete data[`${key}__expires__`];        return value;    }}</code></pre><p>其中<code>set()</code>,<code>get()</code>,<code>remove()</code>方法可以理解用来存、取、删, <code>initRun()</code>做什么用呢？过期的值只有取时才能知道是不是过期，不取一直存着。<code>initRun()</code>和<code>constructor</code>只是在初始化时实现清理，也不是一定即时。另外写一个定时器去清理貌似也不值当，所以觉得做到这样已经够用了。</p><p>使用如下代码进行测试一下,效果和方案一相同</p><pre><code class="javascript">Copyvar ls=new Storage();ls.set(&#39;userId&#39;,&#39;zhangsan&#39;,5000);window.setInterval(()=&gt;{    console.log(ls.get(&quot;userId&quot;));},1000)</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://blog.csdn.net/qq_20343517/article/details/83656450" target="_blank" rel="noopener">localStorage 设置过期时间</a></li><li><a href="https://segmentfault.com/a/1190000016892019" target="_blank" rel="noopener">如何给localStorage设置一个过期时间？</a></li><li>原文链接：<a href="https://www.cnblogs.com/ricolee/p/localstorage-expiretime.html" target="_blank" rel="noopener">localStorage设置过期时间</a></li></ul>]]></content>
     
     
     <categories>
@@ -291,11 +356,11 @@
   
   
   <entry>
-    <title>网页选择图片并显示预览</title>
+    <title>网页选择上传图片并预览显示</title>
     <link href="/2020/06/select-and-show-img/"/>
     <url>/2020/06/select-and-show-img/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="选择图片并显示"><a href="#选择图片并显示" class="headerlink" title="选择图片并显示"></a>选择图片并显示</h2><h2 id="图片旋转和压缩"><a href="#图片旋转和压缩" class="headerlink" title="图片旋转和压缩"></a>图片旋转和压缩</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://zhuanlan.zhihu.com/p/27627436" target="_blank" rel="noopener">移动端图片上传旋转、压缩的解决方案</a></p>]]></content>
     
     
     <categories>

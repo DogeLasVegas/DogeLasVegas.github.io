@@ -133,6 +133,208 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/summernote/">
+        <p class="h4 index-header">富文本编辑器 Summernote 的使用教程（从入门到放弃）</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"></div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/HTML">HTML</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/HTML">HTML</a>&nbsp;
+          
+            <a href="/tags/CSS">CSS</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+            <a href="/tags/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8">富文本编辑器</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/bootstrap-datepicker/">
+        <p class="h4 index-header">Bootstrap-Datepicker的基本用法</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">之前用过一个日期时间选择插件，同样也是基于Bootstrap的，可以选择日期和时间，但是好像有些小bug，所以再就没有用过，后来又找了一款日期选择插件，对没错，只能选择日期，不能选择时间，但是在不需要输入具体时间的地方足够了，并且目前还没有发现什么问题。
+安装和依赖Bootstrap-datepicker是一款Bootstrap样式的datepicker小部件。
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Bootstrap">Bootstrap</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Bootstrap">Bootstrap</a>&nbsp;
+          
+            <a href="/tags/HTML">HTML</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/bootstrap-table/">
+        <p class="h4 index-header">Bootstrap-Table的基本使用教程</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"></div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Bootstrap">Bootstrap</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Bootstrap">Bootstrap</a>&nbsp;
+          
+            <a href="/tags/HTML">HTML</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/05/bootstrap-modals-problem/">
+        <p class="h4 index-header">Bootstrap多个模态框（modals）重叠嵌套问题</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">如何实现多个模态框嵌套最近做项目的时候用到了Bootstrap的模态框插件，官方文档里面 特别清楚提示了一条：
+" srcset="/img/loading.gif
+但是我就想模态框上叠模态框怎么办呢，机智如我的想到可以给上面的模态框加一个更大的z-index值，这样不就可以显示在上面了 吗，我这里因为只有两个模态框嵌套，所以直接修改最上面那个模态框的z-index的值就好，那如果需要更多的模态框嵌套该怎么办呢，一个一个去修改太麻烦了，然后我就在网上找到这样一个方法：
+$(document).ready(function () {
+    // 通过该方法来为每次弹出的模态框设置最新的zIndex值，从而使最新的modal显示在最前面
+    $(document).on(&#39;show.bs.modal&#39;, &#39;.modal&#39;, function (event) {
+         var zIndex = 1040 + (10 * $(&#39;.modal:visible&#39;).length);
+         $(this).css(&#39</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-05-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Bootstrap">Bootstrap</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Bootstrap">Bootstrap</a>&nbsp;
+          
+            <a href="/tags/HTML">HTML</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/01/js-OOP/">
+        <p class="h4 index-header">JavaScript OOP proto与prototype原型图</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1.prototype(函数的原型):函数才有prototype.prototype是一个对象，指向了当前构造函数的引用地址。
+2._proto_(对象的原型对象)：所有对象都有_proto_属性。当用构造函数实例化一个对象时，会将新对象的_proto_属性指上构造函数的prototype. zhangsan._proto_==Person.prototype 所有对象，最终都会指向Object()的prototype
+【原型链】 1.通过构造函数 new出的对象，新对象的_proto_指向构造函数的prototype 2.所有函数的_proto_指上Function的prototype 3.非构造函数 new出的对象（{} new Object() 对象的prototype）的_proto_指向Object的prototype 4.Object的_proto_指向null
+" srcset="/img/loading.gif
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/JS">JS</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Web">Web</a>&nbsp;
+          
+            <a href="/tags/JS">JS</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/01/js-this/">
         <p class="h4 index-header">JS中this详解</p>
         
@@ -376,266 +578,11 @@ while (num&gt;0){
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/get-url-id/">
-        <p class="h4 index-header">获取URL地址最后的id值</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">有时候项目常常要获取id，有的id就在url的最后面，那么问题来了，怎么才能拿到这个id值呢，经过一番思考之后就有了下面这个方法。
-获取方法和思路代码：
-function GetUrlParam(paraName) {
-    var url = document.location.toString();
-    var arrObj = url.split(&quot;?&quot;);
-　　　　if (arrObj.length &gt; 1) {
-　　　　　　var arrPara = arrObj[1].split(&quot;&amp;&quot;);
-　　　　　　var arr;
-　　　　　　for (var i = 0; i &lt; arrPara.length; i++) {
-　　　　　　　　arr = arrPara[i].split(&quot;=&quot;);
-　　　　　　　　if (arr != null &amp;&amp; arr[0] == paraName) {
-　　　　　　　　　　return arr[1];
-　　　　　　　　}
-　　　　　　}
-　</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/JS">JS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/three-js-3D-TheAviator/">
-        <p class="h4 index-header">【转】利用Three.js制作一个3D动画飞行场景</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。
-" srcset="/img/loading.gif
-DEMO     源码下载
-今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Three.js，在浏览器中 3D 的实现变得简单。
-
-(译者注：WebGL 是一项利用 JavaScriptAPI 渲染交互式 3D 电脑图形和 2D 图形的技术，可兼容任何的网页浏览器，无需加装插件。通过 WebGL 的技术，只需要编写网页代码即可实现 3D 图像的展示。GLSL-OpenGL Shading Language 也称作 GLslang ，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。详细麻烦谷歌或百度一下～)
-
-在本教程中，我们将创建一个简单的 3D 场景, 在两个主要的部分会有一</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/HTML">HTML</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Web">Web</a>&nbsp;
-          
-            <a href="/tags/JS">JS</a>&nbsp;
-          
-            <a href="/tags/Three-js">Three.js</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/less-sass/">
-        <p class="h4 index-header">CSS预处理语言less和Sass基础教程</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">因为CSS是一门描述性语言，代码中基本没有逻辑性，所以会存在大量重复代码，不便于维护和扩展。因此CSS预处理器就诞生了：less和Sass都是CSS的预处理语言，先用预编译语言进行样式设计，然后再进行编译，生成CSS文件来使用，这些语言的出现让CSS编写起来更加方便快捷，更易于维护。
-less的基础教程Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。Less 可以运行在 Node 或浏览器端。
-less变量声明变量：使用@变量名: 变量值使用变量：@变量名举例：
-$length: 100px;
-$color: red;
-less中变量的类型：
-
-数字类：10px；10
-字符串：​        有引号字符串：”red”​        无引号字符串：哈哈
-颜色类：  颜色名称，如red；  RGB格式，rgb(0,0,0)；  十六进制，如#ffffff
-值列表类型：用逗号或空格分隔
-
-变量使用原则：多次频繁出现的值设为变量，还有需要修改的值也可设为变量
- 混合（Mixins）：
-
-无参混合声明：.name{</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/CSS">CSS</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/CSS">CSS</a>&nbsp;
-          
-            <a href="/tags/Web">Web</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/gufeng/">
-        <p class="h4 index-header">【转】恶俗古风自动生成器</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">转自 传送门
-原 po：
-关键词：朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城
- 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 
-一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 
-微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 
-公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌情深缘浅 情深不寿 
-莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安
-基本句式：
-1.xx，xx，xx了xx。 
-2.xxxx，xxxx，不过是一场xxxx。
-3.你说xxxx，我说xxxx，最后不过xxxx。
-4.xx，xx，许我一场xxxx。
-5一x一x一xx，半x半x半xx。
-6.你说xxxx xxxx，后来xxxx xxxx。
-7.xxxx，xxxx，终不敌xxxx。
-注意事项：
-1.使用一</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA">奇奇怪怪</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%A5%87%E5%A5%87%E6%80%AA%E6%80%AA">奇奇怪怪</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/01/flex-layout/">
-        <p class="h4 index-header">【转】弹性盒子（Flex Box）布局语法教程</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">网页布局（layout）是 CSS 的一个重点应用。
-
-布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
-
-2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
-
-Flex 布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的 Flex 写法。网友 JailBreak 为本文的所有示例制作了 Demo，也可以参考。
-以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。
-一、Flex 布局是什么？Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。
-任何一个容器都可以指定为 Flex 布局。
-
-.box{
-  display: flex;
-}
-
-行内元素也可以使用</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/HTML">HTML</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/CSS">CSS</a>&nbsp;
-          
-            <a href="/tags/Web">Web</a>&nbsp;
-          
-            <a href="/tags/Flex%20Box">Flex Box</a>&nbsp;
-          
-            <a href="/tags/%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80">弹性布局</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

@@ -16,7 +16,7 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
-  <title>标签 - HTML ~ 性感咸鱼，在线翻身</title>
+  <title>live2d点击下载没反应解决办法 ~ 性感咸鱼，在线翻身</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -110,6 +110,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  六月 29日 2020, 星期一
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    351 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      1 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -120,72 +155,60 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 7 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/06/p-div/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">由&lt;p&gt;嵌套&lt;div&gt;想到内联元素和块级元素包含关系</span>
-      <span style="float: right;">06-18</span>
-    </a>
-  
-    
-    <a href="/2020/06/select-and-show-img/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">网页选择上传图片并预览显示</span>
-      <span style="float: right;">06-11</span>
-    </a>
-  
-    
-    <a href="/2020/06/list-rolling/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">基于jQuery的简单列表滚动</span>
-      <span style="float: right;">06-11</span>
-    </a>
-  
-    
-    <a href="/2020/05/summernote/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">富文本编辑器 Summernote 的使用教程（从入门到放弃）</span>
-      <span style="float: right;">05-18</span>
-    </a>
-  
-    
-    <a href="/2020/05/bootstrap-datepicker/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Bootstrap-Datepicker的基本用法</span>
-      <span style="float: right;">05-16</span>
-    </a>
-  
-    
-    <a href="/2020/05/bootstrap-table/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Bootstrap-Table的基本使用教程</span>
-      <span style="float: right;">05-16</span>
-    </a>
-  
-    
-    <a href="/2020/05/bootstrap-modals-problem/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Bootstrap多个模态框（modals）重叠嵌套问题</span>
-      <span style="float: right;">05-11</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jquery，而按钮被点击时的行为是通过jquery的函数定义的。由于众所周知的原因，我们没法直接访问谷歌CDN。这就导致按钮失效，我们无法通过点击按钮获取下载链接。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在浏览器中按F12或者鼠标右键检查，打开控制台，点击“console”一项，然后在下面输入以下代码：</p>
+<pre><code>genFileURL(LATEST_VERSION_WIN, &quot;zh&quot;, &quot;exe&quot;)</code></pre><p>如果是Mac用户，把<code>LATEST_VERSION_WIN</code>改成<code>LATEST_VERSION_MAC</code>，把<code>exe</code>改成<code>pkg</code>；</p>
+<p>如果想用日文版、英文版，把zh改成jp或者en然后回车，把返回的链接放到浏览器地址栏里就能下载最新的Live2D安装包。</p>
+<p>如果要下载以前版本的安装包，只要把上面的<code>LATEST_VERSION_XXX</code>改成<code>OLDER_VERSIONS_XXX</code>，然后在后面加一个英文的点，控制台就会列出之前可下载的版本，然后移动方向键选择，按回车键确认。</p>
+<p>最后完整命令看起来像是这样：</p>
+<pre><code>genFileURL(OLDER_VERSIONS_WIN.v4_00_02,&quot;zh&quot;,&quot;exe&quot;)</code></pre><p>再按一次回车就可以看到下载链接了。</p>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -264,6 +287,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -304,7 +332,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - HTML&nbsp;",
+        "live2d点击下载没反应解决办法&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
