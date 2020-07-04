@@ -7,43 +7,55 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/ad50e6818678688.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
-  <title>从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客 ~ 性感咸鱼，在线翻身</title>
+  <title>从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客 - 性感咸鱼，在线翻身</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+  
 
-<link rel="stylesheet" href="/css/main.css"  >
+  
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
 
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>性感咸鱼，在线翻身</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -59,33 +71,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/collect/">
+                <i class="iconfont icon-brush"></i>
+                恰独食
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
@@ -98,55 +150,56 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
             </span>
 
             
-              <br>
               
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  一月 3日 2020, 星期五
-                </p>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-01-03 15:43">
+      2020年1月3日 下午
+    </time>
+  </div>
 
-              <p>
-                
-                  
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
-                    1.4k 字
-                  </span>&nbsp;
-                
 
-                
-                  
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
-                      5 分钟
-                  </span>&nbsp;
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
 
-                
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>&nbsp;
-                
-              </p>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
             
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -161,203 +214,229 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto" id="post">
-          <div class="markdown-body">
-            <h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><h3 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h3><p>这里搜索功能我用的是本地搜索，也有一些其他的搜索方法，比如Aloglia，使用前需要注册账号，具体操作因为没有实践所以跳过，下面说一下添加本地搜索功能的方法：</p>
-<ol>
-<li><p>安装 <code>hexo-generator-searchdb</code>，在站点的根目录下执行以下命令：</p>
-<pre><code class="bash">npm install hexo-generator-searchdb --save</code></pre>
-</li>
-<li><p>编辑站点配置文件<code>_config.yml</code>，新增以下内容到任意位置：</p>
-<pre><code class="yaml">search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000</code></pre>
-</li>
-<li><p>编辑主题配置文件<code>themes/next/_config.yml</code>，启用本地搜索功能：</p>
-<pre><code class="yaml"># Local search
-local_search:
-  enable: true</code></pre>
-</li>
-</ol>
-<h3 id="添加评论和统计功能"><a href="#添加评论和统计功能" class="headerlink" title="添加评论和统计功能"></a>添加评论和统计功能</h3><p>略，没有实际添加这两个功能，想添加的话看下面参考链接。</p>
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年1月3日 下午
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><p>本篇主要添加一些主题中没有提供的功能。</p>
 <h3 id="添加网页看板娘（Live2D）"><a href="#添加网页看板娘（Live2D）" class="headerlink" title="添加网页看板娘（Live2D）"></a>添加网页看板娘（Live2D）</h3><p>首先安装Live2D插件，在站点根目录下运行以下命令：</p>
-<pre><code class="bash">npm install --save hexo-helper-live2d</code></pre>
+<pre><code class="hljs bash">npm install --save hexo-helper-live2d</code></pre>
+
 <p>然后选择自己喜欢的模型，复制名字。</p>
 <p>Epsilon2.1</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>Gantzert_Felixander</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>haru</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>miku</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>ni-j</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>nico</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>nietzche</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>nipsilon</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>nito</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>shizuku</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>tsumiki</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>wanko</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>z16</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>hibiki</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>koharu</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>haruto</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>Unitychan</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>tororo</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>hijiki</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
 <p>将下面的代码添加到站点配置文件<code>_config.yml</code>中，修改&lt;模型名字&gt;（有教程说放在主题配置文件中，但是实际测试放在主题文件中并不好用，不管使用哪个模型网页中都不生效，都显示默认的<code>shizuku</code>这个模型，但是把代码放在站点配置文件中就好用了，不知道是什么原因）</p>
-<pre><code class="yaml"># Live2D
-## https://github.com/EYHN/hexo-helper-live2d
-live2d:
-  # enable: true
-  enable: false
-  scriptFrom: local # 默认
-  pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
-  pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
-  pluginModelPath: assets/ # 模型文件相对与插件根目录路径
-  # scriptFrom: jsdelivr # jsdelivr CDN
-  # scriptFrom: unpkg # unpkg CDN
-  # scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
-  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
-  debug: false # 调试, 是否在控制台输出日志
-  model:
-    use: live2d-widget-model-&lt;模型名字&gt; # npm-module package name
-    # use: wanko # 博客根目录/live2d_models/ 下的目录名
-    # use: ./wives/wanko # 相对于博客根目录的路径
-    # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
-    scale: 1
-    hHeadPos: 0.5
-    vHeadPos: 0.618
-  display:
-    superSample: 2
-    width: 250
-    height: 500
-    position: right
-    hOffset: 0
-    vOffset: -20
-  mobile:
-    show: false
-    scale: 0.5
-  react:
-    opacity: 0.7
-  dialog: 
-    enable: true
-    hitokoto: true</code></pre>
+<pre><code class="hljs yaml"><span class="hljs-comment"># Live2D</span>
+<span class="hljs-comment">## https://github.com/EYHN/hexo-helper-live2d</span>
+<span class="hljs-attr">live2d:</span>
+  <span class="hljs-comment"># enable: true</span>
+  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">scriptFrom:</span> <span class="hljs-string">local</span> <span class="hljs-comment"># 默认</span>
+  <span class="hljs-attr">pluginRootPath:</span> <span class="hljs-string">live2dw/</span> <span class="hljs-comment"># 插件在站点上的根目录(相对路径)</span>
+  <span class="hljs-attr">pluginJsPath:</span> <span class="hljs-string">lib/</span> <span class="hljs-comment"># 脚本文件相对与插件根目录路径</span>
+  <span class="hljs-attr">pluginModelPath:</span> <span class="hljs-string">assets/</span> <span class="hljs-comment"># 模型文件相对与插件根目录路径</span>
+  <span class="hljs-comment"># scriptFrom: jsdelivr # jsdelivr CDN</span>
+  <span class="hljs-comment"># scriptFrom: unpkg # unpkg CDN</span>
+  <span class="hljs-comment"># scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url</span>
+  <span class="hljs-attr">tagMode:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中</span>
+  <span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 调试, 是否在控制台输出日志</span>
+  <span class="hljs-attr">model:</span>
+    <span class="hljs-attr">use:</span> <span class="hljs-string">live2d-widget-model-&lt;模型名字&gt;</span> <span class="hljs-comment"># npm-module package name</span>
+    <span class="hljs-comment"># use: wanko # 博客根目录/live2d_models/ 下的目录名</span>
+    <span class="hljs-comment"># use: ./wives/wanko # 相对于博客根目录的路径</span>
+    <span class="hljs-comment"># use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url</span>
+    <span class="hljs-attr">scale:</span> <span class="hljs-number">1</span>
+    <span class="hljs-attr">hHeadPos:</span> <span class="hljs-number">0.5</span>
+    <span class="hljs-attr">vHeadPos:</span> <span class="hljs-number">0.618</span>
+  <span class="hljs-attr">display:</span>
+    <span class="hljs-attr">superSample:</span> <span class="hljs-number">2</span>
+    <span class="hljs-attr">width:</span> <span class="hljs-number">250</span>
+    <span class="hljs-attr">height:</span> <span class="hljs-number">500</span>
+    <span class="hljs-attr">position:</span> <span class="hljs-string">right</span>
+    <span class="hljs-attr">hOffset:</span> <span class="hljs-number">0</span>
+    <span class="hljs-attr">vOffset:</span> <span class="hljs-number">-20</span>
+  <span class="hljs-attr">mobile:</span>
+    <span class="hljs-attr">show:</span> <span class="hljs-literal">false</span>
+    <span class="hljs-attr">scale:</span> <span class="hljs-number">0.5</span>
+  <span class="hljs-attr">react:</span>
+    <span class="hljs-attr">opacity:</span> <span class="hljs-number">0.7</span>
+  <span class="hljs-attr">dialog:</span> 
+    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">hitokoto:</span> <span class="hljs-literal">true</span></code></pre>
+
 <p>安装你选择的模型，在命令行运行下面的命令：</p>
-<pre><code class="bash">npm install --save live2d-widget-model-&lt;你选择的模型名字&gt;</code></pre>
+<pre><code class="hljs bash">npm install --save live2d-widget-model-&lt;你选择的模型名字&gt;</code></pre>
+
 <p>然后在命令行运行以下命令，在浏览器里访问<code>localhost:4000</code>查看效果</p>
-<pre><code class="bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></pre>
+<pre><code class="hljs bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></pre>
+
 <p>上面的配置都完成以后就可以开始写博客了。</p>
-<h2 id="利用GitHub备份博客源文件并且进行多终端操作"><a href="#利用GitHub备份博客源文件并且进行多终端操作" class="headerlink" title="利用GitHub备份博客源文件并且进行多终端操作"></a>利用GitHub备份博客源文件并且进行多终端操作</h2><p>在你换电脑或者重装系统的时候万一不小心把博客的站点文件夹删了或者弄丢了那就什么都没了，所以为了防止发生这样的情况，就可以用GitHub来保存博客的源文件。</p>
+<h2 id="利用GitHub备份博客源文件并且在不同电脑操作"><a href="#利用GitHub备份博客源文件并且在不同电脑操作" class="headerlink" title="利用GitHub备份博客源文件并且在不同电脑操作"></a>利用GitHub备份博客源文件并且在不同电脑操作</h2><p>在你换电脑或者重装系统的时候万一不小心把博客的站点文件夹删了或者弄丢了那就什么都没了，所以为了防止发生这样的情况，就可以用GitHub来保存博客的源文件。</p>
 <h3 id="用命令行操作"><a href="#用命令行操作" class="headerlink" title="用命令行操作"></a>用命令行操作</h3><p>具体操作是在你的GitHub中新建一个仓库或者在你的博客仓库内新建一个分支，个人推荐新建一个仓库，和博客的静态文件分开管理比较好，然后在本地找一个空文件夹，运行下面的命令：</p>
-<pre><code class="bash">git clone git@github.com:你的项目地址</code></pre>
+<pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:你的项目地址</code></pre>
+
 <p>把仓库克隆到本地，然后把你的博客源文件全部复制过来，除了<code>.deploy_git</code>，注意复制过来的文件里面应该有一个叫<code>.gitignore</code>的文件，用来忽略一些不要提交到Git的文件，如果没有可以自己新建一个，在里面加上下面的内容：</p>
-<pre><code>.DS_Store
-Thumbs.db
-db.json
+<pre><code class="hljs x86asm"><span class="hljs-meta">.DS_Store</span>
+Thumbs<span class="hljs-number">.</span><span class="hljs-built_in">db</span>
+<span class="hljs-built_in">db</span><span class="hljs-number">.</span>json
 *.log
 node_modules/
-public/
-.deploy*/</code></pre><p>如果还有其他自己不想提交的文件也可以加到这个文件中。</p>
+<span class="hljs-meta">public</span>/
+<span class="hljs-meta">.deploy</span>*/</code></pre>
+
+<p>如果还有其他自己不想提交的文件也可以加到这个文件中。</p>
 <p>然后再在命令行中执行以下命令：</p>
-<pre><code class="bash">git add .
-git commit –m &quot;commit message&quot;
-git push </code></pre>
+<pre><code class="hljs bash">git add .
+git commit –m <span class="hljs-string">"commit message"</span>
+git push</code></pre>
+
 <p>可以在网页中查看是否上传成功。</p>
 <p>当你换了电脑或者重装系统后想把博客下回来怎么操作？</p>
 <p>首先前面的都一样，下载安装node，Git，然后设置git全局邮箱和用户名，设置SHH，安装hexo，然后在任意一个文件夹内，执行<code>git clone git@你的博客源文件仓库地址</code>，进入克隆下来的文件夹，运行下面的命令：</p>
-<pre><code class="bash">npm install
+<pre><code class="hljs bash">npm install
 npm install hexo-deployer-git --save</code></pre>
+
 <p>然后就可以继续写博客了，写完之后运行<code>hexo g &amp;&amp; hexo d</code>，就可以部署到GitHub Pages上了。而且现在可以每次写完博客都把源文件备份一下了：</p>
-<pre><code class="bash">git add .
-git commit –m &quot;commit message&quot;
-git push </code></pre>
+<pre><code class="hljs bash">git add .
+git commit –m <span class="hljs-string">"commit message"</span>
+git push</code></pre>
+
 <h3 id="用GitHub-Desktop操作"><a href="#用GitHub-Desktop操作" class="headerlink" title="用GitHub Desktop操作"></a>用GitHub Desktop操作</h3><p>下载安装GitHub Desktop然后登陆GitHub，把对应的作为保存博客源文件的仓库克隆到本地，然后把除了<code>.deploy_git</code>以外的博客源文件复制进来，注意有没有<code>.gitignore</code>这个文件，没有按上面方法加上，然后再写上备注信息，，提交推送到Git上就行了。</p>
 <h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/" target="_blank" rel="noopener">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
 <p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程</a></p>
 <p><a href="https://uchuhimo.me/2017/04/11/genesis/" target="_blank" rel="noopener">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
 <p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo中文文档</a></p>
 
+            </article>
             <hr>
-          </div>
-          <br>
-          <div>
-            <p>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Hexo/">Hexo</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
+                    
+                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/mobile-develop/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">网页移动开发的一些知识</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/01/blog-config/">
+                        <span class="hidden-mobile">从零开始的Hexo博客搭建（二）—— 网站设置和主题优化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
             
-              <span>
-                <i class="iconfont icon-inbox"></i>
+              <!-- Comments -->
+              <div class="comments" id="comments">
                 
-                  <a class="hover-with-bg" href="/categories/Hexo">Hexo</a>
-                  &nbsp;
                 
-              </span>&nbsp;&nbsp;
-            
-            
-              <span>
-                <i class="iconfont icon-tag"></i>
-                
-                  <a class="hover-with-bg" href="/tags/Hexo">Hexo</a>
-                
-                  <a class="hover-with-bg" href="/tags/hexo">hexo</a>
-                
-                  <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>
-                
-              </span>
-            
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+
+              </div>
             
           </div>
         </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
-      
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
-
-    </div>
-  </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
 </div>
 
-<!-- custom -->
-
-
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+      </div>
     
   </div>
 </div>
+
+<!-- Custom -->
+
 
     
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -385,92 +464,126 @@ git push </code></pre>
 </div>
   
 
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"name","artist":"artist","url":"/songs/test.mp3","cover":"/img/cover.jpg"},{"name":"name","artist":"artist","url":"https://...url.mp3","cover":"https://...cover.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
-
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-  
-    <!-- 不蒜子统计PV -->
+  <div class="statistics">
     
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
-
     
 
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
 
-    <!-- cnzz Analytics icon -->
+
     
 
+    
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
-
-
-  <script src="/js/lazyload.js" ></script>
-
-
-
-  
-    <script src="/lib/tocbot/tocbot.min.js" ></script>
-  
-  <script src="/js/post.js" ></script>
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
-
-
-
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
 
 <!-- Plugins -->
 
 
   
-
-  
-
-  
-
-  
-
-  <!-- cnzz Analytics -->
+    
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
   </script>
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -490,11 +603,11 @@ git push </code></pre>
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -507,29 +620,33 @@ git push </code></pre>
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -584,6 +701,13 @@ git push </code></pre>
       ;
     </script>
   
+
+
+
+
+
+
+
 
 
 

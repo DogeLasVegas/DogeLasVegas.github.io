@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/ad50e6818678688.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  <title>【转】Git常用的几个命令详解 - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/collect/">
+                <i class="iconfont icon-brush"></i>
+                恰独食
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-06-28 12:00">
+      2020年6月28日 中午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年6月28日 中午
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="查看、添加、提交、删除、找回，重置修改文件"><a href="#查看、添加、提交、删除、找回，重置修改文件" class="headerlink" title="查看、添加、提交、删除、找回，重置修改文件"></a>查看、添加、提交、删除、找回，重置修改文件</h2><p>git help <command> # 显示command的help</p>
+<p>git show # 显示某次提交的内容 git show $id</p>
+<p>git co – <file> # 抛弃工作区修改</p>
+<p>git co . # 抛弃工作区修改</p>
+<p>git add <file> # 将工作文件修改提交到本地暂存区</p>
+<p>git add . # 将所有修改过的工作文件提交暂存区</p>
+<p>git rm <file> # 从版本库中删除文件</p>
+<p>git rm <file> –cached # 从版本库中删除文件，但不删除文件</p>
+<p>git reset <file> # 从暂存区恢复到工作文件</p>
+<p>git reset – . # 从暂存区恢复到工作文件</p>
+<p>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改</p>
+<p>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</p>
+<p>git ci -am “some comments”</p>
+<p>git ci –amend # 修改最后一次提交记录</p>
+<p>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象</p>
+<p>git revert HEAD # 恢复最后一次提交的状态</p>
+<h2 id="git-tag-—-标签相关操作"><a href="#git-tag-—-标签相关操作" class="headerlink" title="git tag — 标签相关操作"></a>git tag — 标签相关操作</h2><p>标签可以针对某一时间点的版本做标记，常用于版本发布。</p>
+<h4 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h4><p>$ git tag # 在控制台打印出当前仓库的所有标签</p>
+<p>$ git tag -l ‘v0.1.*’ # 搜索符合模式的标签</p>
+<h4 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h4><p>git标签分为两种类型：轻量标签和附注标签。轻量标签是指向提交对象的引用，附注标签则是仓库中的一个独立对象。建议使用附注标签。</p>
+<p><strong>创建轻量标签</strong></p>
+<p>$ git tag v0.1.2-light</p>
+<p><strong>创建附注标签</strong></p>
+<p>$ git tag -a v0.1.2 -m “0.1.2版本”</p>
+<p>创建轻量标签不需要传递参数，直接指定标签名称即可。<br>创建附注标签时，参数a即annotated的缩写，指定标签类型，后附标签名。参数m指定标签说明，说明信息会保存在标签对象中。</p>
+<h4 id="切换到标签"><a href="#切换到标签" class="headerlink" title="切换到标签"></a>切换到标签</h4><p>与切换分支命令相同，用git checkout [tagname]<br>查看标签信息<br>用git show命令可以查看标签的版本信息：<br>$ git show v0.1.2</p>
+<h4 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h4><p>误打或需要修改标签时，需要先将标签删除，再打新标签。<br>$ git tag -d v0.1.2 # 删除标签</p>
+<p>参数d即delete的缩写，意为删除其后指定的标签。</p>
+<h4 id="给指定的commit打标签"><a href="#给指定的commit打标签" class="headerlink" title="给指定的commit打标签"></a>给指定的commit打标签</h4><p>打标签不必要在head之上，也可在之前的版本上打，这需要你知道某个提交对象的校验和（通过git log获取）。</p>
+<p><strong>补打标签</strong></p>
+<p>$ git tag -a v0.1.1 9fbc3d0</p>
+<h4 id="标签发布"><a href="#标签发布" class="headerlink" title="标签发布"></a>标签发布</h4><p>通常的git push不会将标签对象提交到git服务器，我们需要进行显式的操作：<br>git push origin v0.1.2 # 将v0.1.2标签提交到git服务器 </p>
+<p>git push origin –tags # 将本地所有标签一次性提交到git服务器</p>
+<p><strong>注意：</strong>如果想看之前某个标签状态下的文件，可以这样操作</p>
+<p>1.git tag   查看当前分支下的标签</p>
+<p>2.git  checkout v0.21   此时会指向打v0.21标签时的代码状态，（但现在处于一个空的分支上）</p>
+<p>3.cat  test.txt   查看某个文件</p>
+<h2 id="查看文件diff"><a href="#查看文件diff" class="headerlink" title="查看文件diff"></a>查看文件diff</h2><p>git diff <file> # 比较当前文件和暂存区文件差异 git diff</p>
+<p>git diff <id1>&lt;</p>
+<p>git diff <branch1>..<branch2> # 在两个分支之间比较</p>
+<p>git diff –staged # 比较暂存区和版本库差异</p>
+<p>git diff –cached # 比较暂存区和版本库差异</p>
+<p>git diff –stat # 仅仅比较统计信息</p>
+<h2 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h2><p>git log git log <file> # 查看该文件每次提交记录</p>
+<p>git log -p <file> # 查看每次详细修改内容的diff</p>
+<p>git log -p -2 # 查看最近两次详细修改内容的diff</p>
+<p>git log –stat #查看提交统计信息</p>
+<h2 id="tig"><a href="#tig" class="headerlink" title="tig"></a>tig</h2><p>Mac上可以使用tig代替diff和log，brew install tig</p>
+<h2 id="Git-本地分支管理-查看、切换、创建和删除分支"><a href="#Git-本地分支管理-查看、切换、创建和删除分支" class="headerlink" title="Git 本地分支管理 - 查看、切换、创建和删除分支"></a>Git 本地分支管理 - 查看、切换、创建和删除分支</h2><p>git br -r # 查看远程分支</p>
+<p>git br <new_branch> # 创建新的分支</p>
+<p>git br -v # 查看各个分支最后提交信息</p>
+<p>git br –merged # 查看已经被合并到当前分支的分支</p>
+<p>git br –no-merged # 查看尚未被合并到当前分支的分支</p>
+<p>git co <branch> # 切换到某个分支</p>
+<p>git co -b <new_branch> # 创建新的分支，并且切换过去</p>
+<p>git co -b <new_branch> <branch> # 基于branch创建新的new_branch</p>
+<p>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除</p>
+<p>git co $id -b <new_branch> # 把某次历史提交记录checkout出来，创建成一个分支</p>
+<p>git br -d <branch> # 删除某个分支</p>
+<p>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</p>
+<h2 id="Git-本地分支管理-分支合并和rebase"><a href="#Git-本地分支管理-分支合并和rebase" class="headerlink" title="Git 本地分支管理 - 分支合并和rebase"></a>Git 本地分支管理 - 分支合并和rebase</h2><p>git merge <branch> # 将branch分支合并到当前分支</p>
+<p>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交</p>
+<p>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch></p>
+<h2 id="Git补丁管理-方便在多台机器上开发同步时用"><a href="#Git补丁管理-方便在多台机器上开发同步时用" class="headerlink" title="Git补丁管理(方便在多台机器上开发同步时用)"></a>Git补丁管理(方便在多台机器上开发同步时用)</h2><p>git diff &gt; ../sync.patch # 生成补丁</p>
+<p>git apply ../sync.patch # 打补丁</p>
+<p>git apply –check ../sync.patch #测试补丁能否成功</p>
+<h2 id="Git暂存管理"><a href="#Git暂存管理" class="headerlink" title="Git暂存管理"></a>Git暂存管理</h2><p>git stash # 暂存</p>
+<p>git stash list # 列所有stash</p>
+<p>git stash apply # 恢复暂存的内容</p>
+<p>git stash drop # 删除暂存区</p>
+<h2 id="Git远程分支管理"><a href="#Git远程分支管理" class="headerlink" title="Git远程分支管理"></a>Git远程分支管理</h2><p>git pull # 抓取远程仓库所有分支更新并合并到本地</p>
+<p>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并</p>
+<p>git fetch origin # 抓取远程仓库更新</p>
+<p>git merge origin/master # 将远程主分支合并到本地当前分支</p>
+<p>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支</p>
+<p>git co -b <local_branch> origin/<remote_branch> # 基于远程分支创建本地分支，功能同上</p>
+<p>git push # push所有分支</p>
+<p>git push origin master # 将本地主分支推到远程主分支</p>
+<p>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)</p>
+<p>git push origin <local_branch> # 创建远程分支， origin是远程仓库名</p>
+<p>git push origin <local_branch>:<remote_branch> # 创建远程分支</p>
+<p>git push origin :<remote_branch> #先删除本地分支(git br -d <branch>)，然后再push删除远程分支</p>
+<h2 id="Git远程仓库管理"><a href="#Git远程仓库管理" class="headerlink" title="Git远程仓库管理"></a>Git远程仓库管理</h2><p>git remote -v # 查看远程服务器地址和仓库名称</p>
+<p>git remote show origin # 查看远程服务器仓库状态</p>
+<p>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址</p>
+<p>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</p>
+<h2 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h2><p>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库</p>
+<p>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上</p>
+<p>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库</p>
+<p>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址</p>
+<p>git push -u origin master # 客户端首次提交</p>
+<p>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track</p>
+<p>git remote set-head origin master # 设置远程仓库的HEAD指向master分支</p>
+<p>也可以命令设置跟踪远程库和本地库</p>
+<p>git branch –set-upstream master origin/master</p>
+<p>git branch –set-upstream develop origin/develop</p>
+<p>参考</p>
+<p><a href="http://www.cnblogs.com/cspku/articles/Git_cmds.html" target="_blank" rel="noopener">《Git常用命令》</a></p>
+<p><a href="https://blog.csdn.net/wangjia55/article/details/8793577/" target="_blank" rel="noopener">《git tag — 标签相关操作》</a></p>
+<p>首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交1094adb…（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。</p>
+<p><strong>原文链接：<a href="https://www.cnblogs.com/PeunZhang/p/5957211.html" target="_blank" rel="noopener">Git常用的几个命令详解</a>    作者：白树</strong></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Git/">Git</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/js-factory/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【转】JS工厂模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/npm-registry-basecommond/">
+                        <span class="hidden-mobile">npm换源和常用命令</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"name","artist":"artist","url":"/songs/test.mp3","cover":"/img/cover.jpg"},{"name":"name","artist":"artist","url":"https://...url.mp3","cover":"https://...cover.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/lazyload.js" ></script>
+    
+  
+
+
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "【转】Git常用的几个命令详解&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":0,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

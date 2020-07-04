@@ -7,43 +7,55 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/ad50e6818678688.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
-  <title>JS面向对象基础 ~ 性感咸鱼，在线翻身</title>
+  <title>JS面向对象基础 - 性感咸鱼，在线翻身</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+  
 
-<link rel="stylesheet" href="/css/main.css"  >
+  
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
 
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>性感咸鱼，在线翻身</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -59,33 +71,73 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/collect/">
+                <i class="iconfont icon-brush"></i>
+                恰独食
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
@@ -98,55 +150,56 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
             </span>
 
             
-              <br>
               
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  一月 14日 2020, 星期二
-                </p>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-01-14 09:04">
+      2020年1月14日 上午
+    </time>
+  </div>
 
-              <p>
-                
-                  
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
-                    1.5k 字
-                  </span>&nbsp;
-                
 
-                
-                  
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
-                      5 分钟
-                  </span>&nbsp;
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
 
-                
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>&nbsp;
-                
-              </p>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
             
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -161,20 +214,29 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto" id="post">
-          <div class="markdown-body">
-            <h2 id="OOP-面向对象编程-基础"><a href="#OOP-面向对象编程-基础" class="headerlink" title="OOP(面向对象编程)基础"></a>OOP(面向对象编程)基础</h2><p><strong>语言的分类：</strong><br>1、面向机器：汇编语言<br>2、面向过程：C语言<br>3、面向对象：java、C++、PHP等<br>面向过程与面向对象<strong>区别：</strong><br><strong>面向过程：</strong>专注于如何去解决一个问题的过程，编程特点是用一个个函数去实现过程操作，没有类与对象的概念<br><strong>面向对象：</strong>专注于由哪一个对象实体去解决这个问题，编程特点是出现了类，由类生成对象<br>面向对象的三大特征：<strong>继承、封装、多态</strong></p>
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年1月14日 上午
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="OOP-面向对象编程-基础"><a href="#OOP-面向对象编程-基础" class="headerlink" title="OOP(面向对象编程)基础"></a>OOP(面向对象编程)基础</h2><p><strong>语言的分类：</strong><br>1、面向机器：汇编语言<br>2、面向过程：C语言<br>3、面向对象：java、C++、PHP等<br>面向过程与面向对象<strong>区别：</strong><br><strong>面向过程：</strong>专注于如何去解决一个问题的过程，编程特点是用一个个函数去实现过程操作，没有类与对象的概念<br><strong>面向对象：</strong>专注于由哪一个对象实体去解决这个问题，编程特点是出现了类，由类生成对象<br>面向对象的三大特征：<strong>继承、封装、多态</strong></p>
 <h2 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h2><p><strong>类：</strong><br>一群有相同特征（属性）和行为（方法）的集合 ；</p>
 <p><strong>对象</strong> ：<br>从类中，拿出的具有确定属性值和方法(行为)的个体</p>
 <p><strong>类和对象的关系：</strong><br>类是对象的抽象化，对象是类的具体化；类是抽象的，对象是具体的<br>通俗来说： 类是一个抽象概念，表示具有相同属性和行为的集合，但是类仅仅表明这类群体具有相同的属性，但是没有具体的属性值,而对象是对类的属性进行具体赋值后，而得到的一个具体的个体</p>
 <p><strong>使用类来创建对象</strong></p>
 <p>1、创建一个类（构造函数），类名必须每个单词的首字母大写</p>
-<pre><code class="javascript">function 类名(属性1){
-  this.属性 = 属性1;
-  this.方法 = function(){};
-  //this 指向即将调用当前构造函数的对象
-}</code></pre>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> 类名(<span class="hljs-params">属性<span class="hljs-number">1</span></span>)</span>&#123;
+  <span class="hljs-keyword">this</span>.属性 = 属性<span class="hljs-number">1</span>;
+  <span class="hljs-keyword">this</span>.方法 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;
+  <span class="hljs-comment">//this 指向即将调用当前构造函数的对象</span>
+&#125;</code></pre>
+
 <p>2、同过类实例化出一个新的对象：（实例化对象时会执行构造函数）<br><code>var obj = new 类名(属性1value);</code><br>原构造函数中this指向新创建的obj对象<br>obj.方法(); 调用方法<br>obj.属性(); 调用属性</p>
 <p><strong>两个重要的属性：</strong><br>1、constructor：<br>返回当前对象的构造函数，（只有对象才有，返回的是构造函数-类）<br><code>zhangsan.constructor == Person true</code><br>对象的constructor，位于<strong>proto</strong>原型对象上<br>2、instanceof<br>用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br><code>object(要检测的对象).constructor(某个构造函数)</code></p>
 <h2 id="广义对象和狭义对象"><a href="#广义对象和狭义对象" class="headerlink" title="广义对象和狭义对象"></a>广义对象和狭义对象</h2><p>狭义对象：只有属性、方法，除此之外没有任何东西<br><code>var obj = {}; var obj = new Object();</code><br>广义对象：除了用字面量声明的基本数据类型之外，换句话说，能够添加属性与方法的变量，就是对象;<br><code>var s = &quot;1&quot;;</code> 不是对象，  <code>var s = new String(&quot;1&quot;);</code> 是对象</p>
@@ -187,124 +249,157 @@
 <li>使用函数来定义对象，然后创建新的对象实例</li>
 </ul>
 <h3 id="直接创建对象实例"><a href="#直接创建对象实例" class="headerlink" title="直接创建对象实例"></a>直接创建对象实例</h3><p>有两种方式直接创建对象，一种是使用字符通过键值对的方式创建：</p>
-<pre><code class="javascript">var person = {
-    name:&quot;鲲虚菜&quot;,
-    age:20,
-    sex:&quot;男&quot;,
-    hobby:function(){
-          return &quot;喜欢唱跳rap，打篮球&quot;;
-      }
-};</code></pre>
-<p>另一种是先创建对象，然后再添加属性和属性值：</p>
-<pre><code class="javascript">person=new Object();
-person.name=&quot;鲲虚菜&quot;;
-person.age=20;
-person.sex=&quot;男&quot;;
-person.hobby=function(){
-  return &quot;喜欢唱跳rap，打篮球&quot;;
-}</code></pre>
-<h3 id="通过函数构造对象"><a href="#通过函数构造对象" class="headerlink" title="通过函数构造对象"></a>通过函数构造对象</h3><pre><code class="javascript">function person(name,age,sex,hobby){
-    this.name=name;
-    this.age=age;
-    this.sex=sex;
-    this.hobby=hobby;
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> person = &#123;
+    <span class="hljs-attr">name</span>:<span class="hljs-string">"鲲虚菜"</span>,
+    <span class="hljs-attr">age</span>:<span class="hljs-number">20</span>,
+    <span class="hljs-attr">sex</span>:<span class="hljs-string">"男"</span>,
+    <span class="hljs-attr">hobby</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+          <span class="hljs-keyword">return</span> <span class="hljs-string">"喜欢唱跳rap，打篮球"</span>;
+      &#125;
+&#125;;</code></pre>
 
-    this.changeHobby=changeHobby;
-    function changeHobby(hobby){
-      this.hobby=hobby;
-    }
-}
-var xkc=new person(&quot;鲲虚菜&quot;,20,&quot;男&quot;);
-xkc.changeHobby(&quot;喜欢唱跳rap，打篮球&quot;);</code></pre>
+<p>另一种是先创建对象，然后再添加属性和属性值：</p>
+<pre><code class="hljs javascript">person=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
+person.name=<span class="hljs-string">"鲲虚菜"</span>;
+person.age=<span class="hljs-number">20</span>;
+person.sex=<span class="hljs-string">"男"</span>;
+person.hobby=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-string">"喜欢唱跳rap，打篮球"</span>;
+&#125;</code></pre>
+
+<h3 id="通过函数构造对象"><a href="#通过函数构造对象" class="headerlink" title="通过函数构造对象"></a>通过函数构造对象</h3><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">person</span>(<span class="hljs-params">name,age,sex,hobby</span>)</span>&#123;
+    <span class="hljs-keyword">this</span>.name=name;
+    <span class="hljs-keyword">this</span>.age=age;
+    <span class="hljs-keyword">this</span>.sex=sex;
+    <span class="hljs-keyword">this</span>.hobby=hobby;
+    
+    <span class="hljs-keyword">this</span>.changeHobby=changeHobby;
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeHobby</span>(<span class="hljs-params">hobby</span>)</span>&#123;
+      <span class="hljs-keyword">this</span>.hobby=hobby;
+    &#125;
+&#125;
+<span class="hljs-keyword">var</span> xkc=<span class="hljs-keyword">new</span> person(<span class="hljs-string">"鲲虚菜"</span>,<span class="hljs-number">20</span>,<span class="hljs-string">"男"</span>);
+xkc.changeHobby(<span class="hljs-string">"喜欢唱跳rap，打篮球"</span>);</code></pre>
+
 <h3 id="对象属性和方法的访问"><a href="#对象属性和方法的访问" class="headerlink" title="对象属性和方法的访问"></a>对象属性和方法的访问</h3><p>对象属性访问方式有两种，一种是对象名.属性名，还有一种是对象名[属性名]，例：<code>person.name;</code>，<code>person[&quot;name&quot;];</code></p>
 <h3 id="JS对象的循环遍历"><a href="#JS对象的循环遍历" class="headerlink" title="JS对象的循环遍历"></a>JS对象的循环遍历</h3><p>可以使用 for…in 语句循环遍历对象的属性。</p>
-<pre><code class="html">&lt;p&gt;点击下面的按钮，循环遍历对象 &quot;person&quot; 的属性。&lt;/p&gt;
-&lt;button onclick=&quot;showPerson()&quot;&gt;点击这里&lt;/button&gt;
-&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
-&lt;script&gt;
-function showPerson(){
-  var x;
-  var txt=&quot;&quot;;
-  var person = {
-    name:&quot;鲲虚菜&quot;,
-    age:20,
-    sex:&quot;男&quot;,
-  };
-  for (x in person){
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>点击下面的按钮，循环遍历对象 "person" 的属性。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"showPerson()"</span>&gt;</span>点击这里<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showPerson</span>(<span class="hljs-params"></span>)</span>&#123;
+  <span class="hljs-keyword">var</span> x;
+  <span class="hljs-keyword">var</span> txt=<span class="hljs-string">""</span>;
+  <span class="hljs-keyword">var</span> person = &#123;
+    <span class="hljs-attr">name</span>:<span class="hljs-string">"鲲虚菜"</span>,
+    <span class="hljs-attr">age</span>:<span class="hljs-number">20</span>,
+    <span class="hljs-attr">sex</span>:<span class="hljs-string">"男"</span>,
+  &#125;;
+  <span class="hljs-keyword">for</span> (x <span class="hljs-keyword">in</span> person)&#123;
      txt=txt + person[x];
-  }
-  document.getElementById(&quot;demo&quot;).innerHTML=txt;
-}
-&lt;/script&gt;</code></pre>
+  &#125;
+  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"demo"</span>).innerHTML=txt;
+&#125;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+
+
 <h3 id="JS对象属性的删除"><a href="#JS对象属性的删除" class="headerlink" title="JS对象属性的删除"></a>JS对象属性的删除</h3><p>对象无需手动删除，JS提供了一种主动释放对象内存的方法(即对象无用后，自动删除)<br>删除对象的属性：<code>delete 对象名.属性名</code></p>
 <h2 id="对象是引用数据类型"><a href="#对象是引用数据类型" class="headerlink" title="对象是引用数据类型"></a>对象是引用数据类型</h2><p>也就是说，当new出一个对象时，这个obj变量存储的实际上是对象的地址，在对象赋值时，赋的也是地址。</p>
-<pre><code class="javascript">function Person(){}
-var zhangsan = new Person(); //zhangsan对象实际存的是地址
-var lisi = zhangsan; //赋值时，实际是将zhangsan存的地址给了lisi
-lisi.name = &quot;李四&quot;; //李四通过地址修改了对象
-console.log(zhangsan.name); //张三再通过地址打开对象，实际已经改变了</code></pre>
-<p>引用数据类型，赋值时传递的是引用（地址）；基本数据类型，赋值时传递的是数据（值）</p>
-<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt="img"></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
+<span class="hljs-keyword">var</span> zhangsan = <span class="hljs-keyword">new</span> Person(); <span class="hljs-comment">//zhangsan对象实际存的是地址</span>
+<span class="hljs-keyword">var</span> lisi = zhangsan; <span class="hljs-comment">//赋值时，实际是将zhangsan存的地址给了lisi</span>
+lisi.name = <span class="hljs-string">"李四"</span>; <span class="hljs-comment">//李四通过地址修改了对象</span>
+<span class="hljs-built_in">console</span>.log(zhangsan.name); <span class="hljs-comment">//张三再通过地址打开对象，实际已经改变了</span></code></pre>
 
+<p>引用数据类型，赋值时传递的是引用（地址）；基本数据类型，赋值时传递的是数据（值）</p>
+<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+
+            </article>
             <hr>
-          </div>
-          <br>
-          <div>
-            <p>
-            
-              <span>
-                <i class="iconfont icon-inbox"></i>
+            <div>
+              <div class="post-metas mb-3">
                 
-                  <a class="hover-with-bg" href="/categories/JS">JS</a>
-                  &nbsp;
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS/">JS</a>
+                    
+                  </div>
                 
-              </span>&nbsp;&nbsp;
-            
-            
-              <span>
-                <i class="iconfont icon-tag"></i>
                 
-                  <a class="hover-with-bg" href="/tags/Web">Web</a>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JS/">JS</a>
+                    
+                  </div>
                 
-                  <a class="hover-with-bg" href="/tags/JS">JS</a>
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/01/js-this/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS中this详解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/01/js-event/">
+                        <span class="hidden-mobile">JavaScript事件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
                 
-              </span>
-            
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+
+              </div>
             
           </div>
         </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
-      
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
-
-    </div>
-  </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
 </div>
 
-<!-- custom -->
-
-
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+      </div>
     
   </div>
 </div>
+
+<!-- Custom -->
+
 
     
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -332,92 +427,126 @@ console.log(zhangsan.name); //张三再通过地址打开对象，实际已经�
 </div>
   
 
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"name","artist":"artist","url":"/songs/test.mp3","cover":"/img/cover.jpg"},{"name":"name","artist":"artist","url":"https://...url.mp3","cover":"https://...cover.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
-
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
     
-  
-    <!-- 不蒜子统计PV -->
+  <div class="statistics">
     
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
-
     
 
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
 
-    <!-- cnzz Analytics icon -->
+
     
 
+    
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
-
-
-  <script src="/js/lazyload.js" ></script>
-
-
-
-  
-    <script src="/lib/tocbot/tocbot.min.js" ></script>
-  
-  <script src="/js/post.js" ></script>
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
-
-
-
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
 
 <!-- Plugins -->
 
 
   
-
-  
-
-  
-
-  
-
-  <!-- cnzz Analytics -->
+    
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
   </script>
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -437,11 +566,11 @@ console.log(zhangsan.name); //张三再通过地址打开对象，实际已经�
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -454,29 +583,33 @@ console.log(zhangsan.name); //张三再通过地址打开对象，实际已经�
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -531,6 +664,13 @@ console.log(zhangsan.name); //张三再通过地址打开对象，实际已经�
       ;
     </script>
   
+
+
+
+
+
+
+
 
 
 
