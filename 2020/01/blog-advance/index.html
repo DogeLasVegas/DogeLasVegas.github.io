@@ -45,6 +45,10 @@
 
 <!-- 自定义样式保持在最底部 -->
 
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
 
   <script  src="/js/utils.js" ></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -175,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      2.5k 字
     </span>
   
 
@@ -225,7 +229,32 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><p>本篇主要添加一些主题中没有提供的功能。</p>
+              <h2 id="添加其他样式"><a href="#添加其他样式" class="headerlink" title="添加其他样式"></a>添加其他样式</h2><p>主要添加自定义样式。首先编辑主题配置文件，然后在站点根目录的<code>source</code>文件夹内新建你配置的文件夹和文件：</p>
+<pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span>   <span class="hljs-comment"># 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js，支持列表</span>
+<span class="hljs-attr">custom_css:</span>  <span class="hljs-string">/css/custom.css</span> <span class="hljs-comment"># 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css 同上，支持列表</span>
+<span class="hljs-attr">custom_html:</span> <span class="hljs-string">''</span>  <span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span></code></pre>
+
+<h3 id="修改鼠标样式"><a href="#修改鼠标样式" class="headerlink" title="修改鼠标样式"></a>修改鼠标样式</h3><p>在前面新建的CSS文件中添加如下代码：</p>
+<pre><code class="hljs css"><span class="hljs-comment">/*鼠标样式 */</span>
+  <span class="hljs-selector-tag">body</span> &#123;
+    <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/img/huaji.cur"</span>),auto <span class="hljs-meta">!important</span>
+  &#125;
+  <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;
+      <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/img/laji.png"</span>),auto <span class="hljs-meta">!important</span>
+  &#125;</code></pre>
+
+<p>上面代码中<code>url</code>的地址是在source目录下的文件，也可以写其他的图片地址。</p>
+<h3 id="修改网页背景"><a href="#修改网页背景" class="headerlink" title="修改网页背景"></a>修改网页背景</h3><p>还是在前面新建的CSS文件中修改，添加如下代码：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;
+    <span class="hljs-attribute">background</span>:<span class="hljs-built_in">url</span>(/images/bg.jpg);
+    <span class="hljs-attribute">background-size</span>:cover;
+    <span class="hljs-attribute">background-repeat</span>:no-repeat;
+    <span class="hljs-attribute">background-attachment</span>:fixed;
+    <span class="hljs-attribute">background-position</span>:center;
+&#125;</code></pre>
+
+<p>还可以配置动态背景：</p>
+<h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><p>本篇主要添加一些主题中没有提供的功能。</p>
 <h3 id="添加网页看板娘（Live2D）"><a href="#添加网页看板娘（Live2D）" class="headerlink" title="添加网页看板娘（Live2D）"></a>添加网页看板娘（Live2D）</h3><p>首先安装Live2D插件，在站点根目录下运行以下命令：</p>
 <pre><code class="hljs bash">npm install --save hexo-helper-live2d</code></pre>
 
@@ -313,7 +342,96 @@
 <p>然后在命令行运行以下命令，在浏览器里访问<code>localhost:4000</code>查看效果</p>
 <pre><code class="hljs bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></pre>
 
-<p>上面的配置都完成以后就可以开始写博客了。</p>
+<h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><p>当想要写一些不想让人随便看到的博客时，可以通过密码验证的方式阻挡别人的浏览，之前有一款文章加密的插件，但是好像效果不是很好，因为密码就被写在了网页源码里，只要打开网页源码就能看到。现在又找到另外一个（也可能是原来的升级了？主要不记得原来的插件名字了）加密插件，似乎并不会将密码泄露到网页中，可以尝试使用这款插件。</p>
+<p><strong>安装方式：</strong></p>
+<pre><code class="hljs bash">npm install --save hexo-blog-encrypt</code></pre>
+
+<p>或</p>
+<pre><code class="hljs armasm"><span class="hljs-symbol">yarn</span> <span class="hljs-keyword">add </span>hexo-<span class="hljs-keyword">blog-encrypt </span>(需要Yarn)</code></pre>
+
+<p>最简单的使用方式就是将 “password” 字段添加到文章的信息头上：</p>
+<pre><code class="hljs markdown">---
+title: Hello World
+date: 2020-01-03 15:43:38
+<span class="hljs-section">password: 123456
+---</span></code></pre>
+
+<p><strong>高级设置：</strong></p>
+<p>两种设置方式：</p>
+<ul>
+<li>在文章信息头添加加密信息：</li>
+</ul>
+<pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">tags:</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">作为日记加密</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2020</span><span class="hljs-number">-01</span><span class="hljs-number">-03</span> <span class="hljs-number">15</span><span class="hljs-string">:43:38</span>
+<span class="hljs-attr">password:</span> <span class="hljs-number">123456</span>
+<span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
+<span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span>
+<span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span>
+<span class="hljs-meta">---</span></code></pre>
+
+<ul>
+<li>在站点文件<code>_config.yml</code>内配置加密信息：</li>
+</ul>
+<pre><code class="hljs yaml"><span class="hljs-comment"># Security</span>
+<span class="hljs-attr">encrypt:</span> <span class="hljs-comment"># hexo-blog-encrypt</span>
+  <span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
+  <span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
+  <span class="hljs-attr">tags:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&#123;name:</span> <span class="hljs-string">tagName,</span> <span class="hljs-attr">password:</span> <span class="hljs-string">密码A&#125;</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">&#123;name:</span> <span class="hljs-string">tagName,</span> <span class="hljs-attr">password:</span> <span class="hljs-string">密码B&#125;</span>
+  <span class="hljs-attr">template:</span> <span class="hljs-string">&lt;div</span> <span class="hljs-string">id="hexo-blog-encrypt"</span> <span class="hljs-string">data-wpm="&#123;&#123;hbeWrongPassMessage&#125;&#125;"</span> <span class="hljs-string">data-whm="&#123;&#123;hbeWrongHashMessage&#125;&#125;"&gt;&lt;div</span> <span class="hljs-string">class="hbe-input-container"&gt;&lt;input</span> <span class="hljs-string">type="password"</span> <span class="hljs-string">id="hbePass"</span> <span class="hljs-string">placeholder="&#123;&#123;hbeMessage&#125;&#125;"</span> <span class="hljs-string">/&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div</span> <span class="hljs-string">class="bottom-line"&gt;&lt;/div&gt;&lt;/div&gt;&lt;script</span> <span class="hljs-string">id="hbeData"</span> <span class="hljs-string">type="hbeData"</span> <span class="hljs-string">data-hmacdigest="&#123;&#123;hbeHmacDigest&#125;&#125;"&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span>
+  <span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span>
+  <span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span></code></pre>
+
+<p><strong>注意！！！</strong>在站点配置文件配置上述内容时，如果把tags下面的内容都注释掉的话编译生成的时候会报错，要改成这样才行：</p>
+<pre><code class="hljs yaml"><span class="hljs-attr">tags:</span> <span class="hljs-string">[]</span> <span class="hljs-comment">#在后面加一对方括号，表示是个数组，不然报错 Cannot read property 'forEach' of null</span>
+  <span class="hljs-comment"># - &#123;name: tagName, password: 密码A&#125;</span>
+  <span class="hljs-comment"># - &#123;name: tagName, password: 密码B&#125;</span></code></pre>
+
+<p><strong><em>以后有类似的配置遇到问题也可以尝试这样解决。</em></strong></p>
+<p><strong>加密优先级</strong>是 文章信息头 &gt; 按标签加密。</p>
+<p><strong>配置优先级</strong>是 文章信息头 &gt; <code>_config.yml</code> (站点根目录下的) &gt; 默认配置。</p>
+<p><strong>其他问题</strong></p>
+<p>在部分博客中, 解密后部分元素可能无法正常显示或者表现, 这属于已知问题. 目前的解决办法是通过自行查阅自己的博客中的代码, 了解到在 onload 事件发生时调用了哪些函数, 并将这些函数挑选后写入到博客内容中. 如:</p>
+<pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">Callback</span> <span class="hljs-string">Test</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2019</span><span class="hljs-number">-12</span><span class="hljs-number">-21</span> <span class="hljs-number">11</span><span class="hljs-string">:54:07</span>
+<span class="hljs-attr">tags:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Encrypted</span>
+<span class="hljs-meta">---</span>
+
+<span class="hljs-attr">This is a blog to test Callback functions. You just need to add code at the last of your post like following:</span>
+
+<span class="hljs-string">It</span> <span class="hljs-string">will</span> <span class="hljs-string">be</span> <span class="hljs-string">called</span> <span class="hljs-string">after</span> <span class="hljs-string">the</span> <span class="hljs-string">blog</span> <span class="hljs-string">decrypted.</span>
+
+<span class="hljs-string">&lt;script&gt;</span>
+    <span class="hljs-string">//</span> <span class="hljs-string">添加一个</span> <span class="hljs-string">script</span> <span class="hljs-string">tag</span> <span class="hljs-string">与代码在文章末尾.</span>
+    <span class="hljs-string">alert("Hello</span> <span class="hljs-string">World");</span>
+<span class="hljs-string">&lt;/script&gt;</span></code></pre>
+
+<p><strong>对 TOC 进行加密</strong></p>
+<p>如果你有一篇文章使用了 TOC，你需要修改模板的部分代码。这里用 landscape 作为例子：</p>
+<ul>
+<li>你可以在 hexo/themes/landscape/layout/_partial/article.ejs 找到 article.ejs。</li>
+<li>然后找到 &lt;% post.content %&gt; 这段代码，通常在30行左右。</li>
+<li>使用如下的代码来替代它:</li>
+</ul>
+<pre><code class="hljs ejs">&lt;% if(post.toc &#x3D;&#x3D; true)&#123; %&gt;
+  &lt;div id&#x3D;&quot;toc-div&quot; class&#x3D;&quot;toc-article&quot; &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;style&#x3D;&quot;display:none&quot; &lt;% &#125; %&gt;&gt;
+    &lt;strong class&#x3D;&quot;toc-title&quot;&gt;Index&lt;&#x2F;strong&gt;
+      &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;
+        &lt;%- toc(post.origin, &#123;list_number: true&#125;) %&gt;
+      &lt;% &#125; else &#123; %&gt;
+        &lt;%- toc(post.content, &#123;list_number: true&#125;) %&gt;
+      &lt;% &#125; %&gt;
+  &lt;&#x2F;div&gt;
+&lt;% &#125; %&gt;
+&lt;%- post.content %&gt;</code></pre>
+
 <h2 id="利用GitHub备份博客源文件并且在不同电脑操作"><a href="#利用GitHub备份博客源文件并且在不同电脑操作" class="headerlink" title="利用GitHub备份博客源文件并且在不同电脑操作"></a>利用GitHub备份博客源文件并且在不同电脑操作</h2><p>在你换电脑或者重装系统的时候万一不小心把博客的站点文件夹删了或者弄丢了那就什么都没了，所以为了防止发生这样的情况，就可以用GitHub来保存博客的源文件。</p>
 <h3 id="用命令行操作"><a href="#用命令行操作" class="headerlink" title="用命令行操作"></a>用命令行操作</h3><p>具体操作是在你的GitHub中新建一个仓库或者在你的博客仓库内新建一个分支，个人推荐新建一个仓库，和博客的静态文件分开管理比较好，然后在本地找一个空文件夹，运行下面的命令：</p>
 <pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:你的项目地址</code></pre>

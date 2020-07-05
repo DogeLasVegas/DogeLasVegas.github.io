@@ -1,0 +1,14 @@
+/*鼠标样式 */
+  body {
+    cursor: url("/img/huaji.cur"),auto !important
+  }
+  a {
+      cursor: url("/img/laji.png"),auto !important
+  }
+  .live2d-widget-dialog-container{
+	height: auto !important;
+	bottom: 80% !important;
+  }
+  .live2d-widget-dialog{
+	line-height: 1.5;
+}
