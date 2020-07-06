@@ -7,7 +7,9 @@
   }
   .live2d-widget-dialog-container{
 	height: auto !important;
-	bottom: 80% !important;
+	bottom: 70% !important;
+	width: 200px !important;
+	right: 10px !important;
   }
   .live2d-widget-dialog{
 	line-height: 1.5;
