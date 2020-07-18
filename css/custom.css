@@ -3,7 +3,7 @@
     cursor: url("/img/huaji.cur"),auto !important
   }
   a {
-      cursor: url("/img/laji.png"),auto !important
+      cursor: url("/img/laji.cur"),auto !important
   }
   .live2d-widget-dialog-container{
 	height: auto !important;

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>【转】Git/SVN提交代码规范</title>
+    <link href="/2020/07/commit-standard/"/>
+    <url>/2020/07/commit-standard/</url>
+    
+    <content type="html"><![CDATA[<pre><code class="hljs properties"><span class="hljs-attr">feat</span> <span class="hljs-string">- 新功能 feature</span><span class="hljs-attr">fix</span> <span class="hljs-string">- 修复 bug</span><span class="hljs-attr">docs</span> <span class="hljs-string">- 文档注释</span><span class="hljs-attr">style</span> <span class="hljs-string">- 代码格式(不影响代码运行的变动)</span><span class="hljs-attr">refactor</span> <span class="hljs-string">- 重构、优化(既不增加新功能，也不是修复bug)</span><span class="hljs-attr">perf</span> <span class="hljs-string">- 性能优化</span><span class="hljs-attr">test</span> <span class="hljs-string">- 增加测试</span><span class="hljs-attr">chore</span> <span class="hljs-string">- 构建过程或辅助工具的变动</span><span class="hljs-attr">revert</span> <span class="hljs-string">- 回退</span><span class="hljs-attr">build</span> <span class="hljs-string">- 打包</span></code></pre><p>示例：</p><p>" srcset="/img/loading.gif<img src="" alt=""></p><p><strong>原文链接：</strong><a href="https://www.cnblogs.com/PeunZhang/p/11507454.html" target="_blank" rel="noopener">Git/SVN提交代码规范</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>富文本编辑器 Summernote 从入门到放弃（实例篇）</title>
     <link href="/2020/07/summernote-example/"/>
     <url>/2020/07/summernote-example/</url>
@@ -576,9 +601,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
       <tag>Three.js</tag>
       
@@ -643,9 +668,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
     </tags>
     
@@ -670,9 +695,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
     </tags>
     
@@ -697,9 +722,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
     </tags>
     
@@ -724,9 +749,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
     </tags>
     
@@ -803,9 +828,9 @@
     
     <tags>
       
-      <tag>Web</tag>
-      
       <tag>JS</tag>
+      
+      <tag>Web</tag>
       
     </tags>
     
@@ -818,7 +843,7 @@
     <link href="/2020/01/github-hosts/"/>
     <url>/2020/01/github-hosts/</url>
     
-    <content type="html"><![CDATA[<p>GitHub有时候不知道为什么会抽风打不开，为了能愉快地上去瞎逛，我特意在此记下通过修改hosts来打开网站：</p><pre><code class="hljs accesslog"># GitHub Start<span class="hljs-number">13.250.177.223</span> github.com<span class="hljs-number">192.30.253.112</span> github.com<span class="hljs-number">192.30.253.119</span> gist.github.com<span class="hljs-number">151.101.100.133</span> assets-cdn.github.com<span class="hljs-number">151.101.100.133</span> raw.githubusercontent.com<span class="hljs-number">151.101.100.133</span> gist.githubusercontent.com<span class="hljs-number">151.101.100.133</span> cloud.githubusercontent.com<span class="hljs-number">151.101.100.133</span> camo.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars0.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars1.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars2.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars3.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars4.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars5.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars6.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars7.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars8.githubusercontent.com# GitHub End</code></pre><p><strong>PS：</strong>有时候上面的hosts也不好用，要自己现去查一下网站的IP，然后把原来的注释掉添加上新查的。</p>]]></content>
+    <content type="html"><![CDATA[<p>GitHub有时候不知道为什么会抽风打不开，为了能愉快地上去瞎逛，我特意在此记下通过修改hosts来打开网站：</p><pre><code class="hljs accesslog"># GitHub Start<span class="hljs-number">13.250.177.223</span> github.com<span class="hljs-number">192.30.253.112</span> github.com<span class="hljs-number">192.30.253.119</span> gist.github.com<span class="hljs-number">151.101.100.133</span> assets-cdn.github.com<span class="hljs-number">151.101.100.133</span> raw.githubusercontent.com<span class="hljs-number">151.101.100.133</span> gist.githubusercontent.com<span class="hljs-number">151.101.100.133</span> cloud.githubusercontent.com<span class="hljs-number">151.101.100.133</span> camo.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars0.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars1.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars2.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars3.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars4.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars5.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars6.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars7.githubusercontent.com<span class="hljs-number">151.101.100.133</span> avatars8.githubusercontent.com# GitHub End</code></pre><p><strong>PS：</strong>有时候上面的hosts也不好用，要自己现去查一下网站的IP，然后把原来的注释掉添加上新查的。</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>gist.github.com 被墙无法访问解决办法</strong><br>windows下 打开C:\Windows\System32\drivers\etc\hosts文件<br>编辑器打开，在最后行添加192.30.253.118 gist.github.com</p>]]></content>
     
     
     <categories>

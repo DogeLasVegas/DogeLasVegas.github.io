@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/ad50e6818678688.jpg">
+  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -146,7 +146,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/bg-img/%E5%AE%A3%E4%BC%A0%E7%BB%98.jpg') no-repeat center center;
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/宣传绘.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -179,6 +179,53 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/05/p-div/">&lt;p&gt;不能嵌套&lt;div&gt;</a>
+
+      <a href="/2020/05/p-div/" class="index-excerpt">
+        
+        
+          
+        
+        <div>这是很久以前写网页碰到的事了，当时查到解决方法以后就草草过去了，今天突然想起来觉得还是记一下比较好。
+复现一下当时的问题：
+我在一个&lt;p&gt;内放了一个&lt;div&gt;标签，代码是这么写的：
+&lt;div id="test"&gt; 这是最外面的一个div，套个颜色好区分
+&lt;p&gt;
+这是一个p标签
+&lt;div&gt;这是p标签里面包含的div&lt;/div&gt;
+</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-18
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/HTML/">HTML</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTML/">HTML</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
 
   <div class="row mx-auto index-card">
     
@@ -489,9 +536,9 @@ DEMO     源码下载
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Web/">Web</a>
-            
               <a href="/tags/JS/">JS</a>
+            
+              <a href="/tags/Web/">Web</a>
             
               <a href="/tags/Three-js/">Three.js</a>
             
@@ -579,49 +626,6 @@ div&#123;margin:0;padding:0;font-size: 0;&#125;
     </div>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/js-OOP/">JavaScript OOP proto与prototype原型图</a>
-
-      <a href="/2020/02/js-OOP/" class="index-excerpt">
-        
-        
-          
-        
-        <div>1.prototype(函数的原型):函数才有prototype.prototype是一个对象，指向了当前构造函数的引用地址。
-2._proto_(对象的原型对象)：所有对象都有_proto_属性。当用构造函数实例化一个对象时，会将新对象的_proto_属性指上构造函数的prototype. zhangsan._proto_==Person.prototype 所有对象，最终都会指向Object(</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-14
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS/">JS</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web/">Web</a>
-            
-              <a href="/tags/JS/">JS</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -675,29 +679,6 @@ div&#123;margin:0;padding:0;font-size: 0;&#125;
   </div>
 </div>
   
-
-  
-    <!-- APlayer 音乐播放器 -->
-    <div id="aplayer"></div>
-    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
-<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
-<script type="text/javascript">
-  var oldLoadAp = window.onload;
-  window.onload = function () {
-    oldLoadAp && oldLoadAp();
-
-    new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      autoplay: 'false' === 'true',
-      loop: 'all',
-      order: 'random',
-      theme: '#b7daff',
-      preload: 'none',
-      audio: [{"name":"name","artist":"artist","url":"/songs/test.mp3","cover":"/img/cover.jpg"},{"name":"name","artist":"artist","url":"https://...url.mp3","cover":"https://...cover.jpg"}]
-    });
-  }
-</script>
 
   
 
