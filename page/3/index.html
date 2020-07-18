@@ -184,6 +184,49 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/05/bootstrap-datepicker/">Bootstrap-Datepicker的基本用法</a>
+
+      <a href="/2020/05/bootstrap-datepicker/" class="index-excerpt">
+        
+        
+          
+        
+        <div>在用Bootstrap-Datepicker之前，也用过一个日期时间选择插件，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款日期选择插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。
+使用和依赖Bootstrap-datepicker是一款基于Bootstra</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-05-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Bootstrap/">Bootstrap</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Bootstrap/">Bootstrap</a>
+            
+              <a href="/tags/HTML/">HTML</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a class="index-header" href="/2020/05/bootstrap-table/">Bootstrap-Table的基本使用教程</a>
 
       <a href="/2020/05/bootstrap-table/" class="index-excerpt">
@@ -191,7 +234,12 @@
         
           
         
-        <div></div>
+        <div>引入文件引入CSS文件
+&lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
+&lt;link rel="stylesheet" href="css/bootstrap-table.min.css"&gt;
+
+引入js文件
+&lt;script src="js/jquery-1.11.0.min.js"&gt;&lt;/script&</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -234,8 +282,8 @@
           
         
         <div>如何实现多个模态框嵌套最近做项目的时候用到了Bootstrap的模态框插件，官方文档里面 特别清楚提示了一条：
-" srcset="/img/loading.gif
-但是我就想模态框上叠模态框怎么办呢，机智如我的想到可以给上面的模态框加一个更大的z-index值，这样不就可以显示在上面了 吗，我这里因为只有两个模态框嵌套，所以直接修改最上面那个模态框的z-index的值就好，那如果需要更多的模态框</div>
+
+但是我就想模态框上叠模态框怎么办呢，机智如我的想到可以给上面的模态框加一个更大的z-index值，这样不就可以显示在上面了 吗，我这里因为只有两个模态框嵌套，所以直接修改最上面那个模态框的z-index的值就好，那如果需要更多的模态框嵌套该怎么办呢，一个一个去修改太麻烦了，然后我就在网</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -278,13 +326,14 @@
           
         
         <div>通过点击按钮列表可以上下滚动，依赖于jQuery。在线demo：列表滚动
-" srcset="/img/loading.gif
+
 完整代码：
 
 (function ($) &#123;
     $.fn.extend(&#123;
     Scroll: function (opt, callback) &#123;
-            if (!opt) var opt = &#123;&#1</div>
+            if (!opt) var opt = &#123;&#125;;
+            var _btnU</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -415,9 +464,11 @@ function GetUrlParam(paraName) &#123;
           
         
         <div>一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。
-" srcset="/img/loading.gif
+
 DEMO     源码下载
-今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Thre</div>
+今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Three.js，在浏览器中 3D 的实现变得简单。
+
+(译</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -508,11 +559,12 @@ DEMO     源码下载
         
         <div>如果把div的样式设置为display:inline-block并且标签换行的话，同一行内排列的div之间就会出现一道缝隙，不管你设置margin:0;padding:0;border:0;缝隙都不会消失。
 就像这样：
-" srcset="/img/loading.gif
+
 解决办法1
 div&#123;margin:0;padding:0;font-size: 0;&#125;
 
-就是给div加上</div>
+就是给div加上一条CSSfont-size: 0;
+但是此时会出现</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -540,50 +592,6 @@ div&#123;margin:0;padding:0;font-size: 0;&#125;
         
         <div>1.prototype(函数的原型):函数才有prototype.prototype是一个对象，指向了当前构造函数的引用地址。
 2._proto_(对象的原型对象)：所有对象都有_proto_属性。当用构造函数实例化一个对象时，会将新对象的_proto_属性指上构造函数的prototype. zhangsan._proto_==Person.prototype 所有对象，最终都会指向Object(</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-02-14
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS/">JS</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web/">Web</a>
-            
-              <a href="/tags/JS/">JS</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/02/js-this/">JS中this详解</a>
-
-      <a href="/2020/02/js-this/" class="index-excerpt">
-        
-        
-          
-        
-        <div>this详解1、谁最终调用函数，this指向谁，this指向永远只可能是对象，不可能是函数this指向谁不取决于this写在哪，而且取决于函数在哪调用this指向的对象，我们称之为函数的上下文context，也叫函数的调用者
-2、this指向的规律（与函数调用的方式息息相关）this指向的情况，取决于函数调用的方式有哪些：①通过函数名（）直接调用:this指向window
-②通过对象.函数名（）调</div>
       </a>
 
       <div class="index-btm post-metas">

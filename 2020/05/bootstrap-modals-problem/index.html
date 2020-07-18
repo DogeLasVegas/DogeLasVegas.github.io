@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      970 字
+      966 字
     </span>
   
 
@@ -230,7 +230,7 @@
             
             <article class="markdown-body">
               <h2 id="如何实现多个模态框嵌套"><a href="#如何实现多个模态框嵌套" class="headerlink" title="如何实现多个模态框嵌套"></a>如何实现多个模态框嵌套</h2><p>最近做项目的时候用到了Bootstrap的模态框插件，官方文档里面 特别清楚提示了一条：</p>
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
 <p>但是我就想模态框上叠模态框怎么办呢，机智如我的想到可以给上面的模态框加一个更大的<code>z-index</code>值，这样不就可以显示在上面了 吗，我这里因为只有两个模态框嵌套，所以直接修改最上面那个模态框的<code>z-index</code>的值就好，那如果需要更多的模态框嵌套该怎么办呢，一个一个去修改太麻烦了，然后我就在网上找到这样一个方法：</p>
 <pre><code class="hljs javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-comment">// 通过该方法来为每次弹出的模态框设置最新的zIndex值，从而使最新的modal显示在最前面</span>

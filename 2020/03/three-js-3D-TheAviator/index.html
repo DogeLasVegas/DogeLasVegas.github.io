@@ -230,7 +230,7 @@
             
             <article class="markdown-body">
               <p>一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p><a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">DEMO</a>     <a href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip" target="_blank" rel="noopener">源码下载</a></p>
 <p>今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Three.js，在浏览器中 3D 的实现变得简单。</p>
 <blockquote>
@@ -239,7 +239,7 @@
 <p>在本教程中，我们将创建一个简单的 3D 场景, 在两个主要的部分会有一些交互。在<a href="http://tympanus.net/Tutorials/TheAviator/part1.html" target="_blank" rel="noopener">第一部分</a>，我们会讲解 Three.js 的基础和如何创建一个简单的场景。<a href="http://tympanus.net/Tutorials/TheAviator/part2.html" target="_blank" rel="noopener">第二部分</a>会详细讲述如何优化模型，如何为场景中的不同元素增添气氛以及更流畅的运动效果。</p>
 <p>由于完整的<a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">游戏</a>超出了本教程的范围，但是你可以下载或 check out 源码。它包含了许多额外有趣的部分如：碰撞，抓硬币和增加得分。</p>
 <p>在本教程中，我们将重点学习 Three.js 中的一些基础概念。这些基础概念将带你走进 WebGL 这新领域！</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>事不宜迟，我们马上开始~</p>
 <h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><p>本教程主要采用 Three.js 类库，Three.js 让 WebGL 变得易于使用。从<a href="http://threejs.org/" target="_blank" rel="noopener">官网</a>或 <a href="https://github.com/mrdoob/three.js/" target="_blank" rel="noopener">GitHub repo</a> check out 获取关于 Three.js 更多的信息。</p>
 <p>第一样要做的事情就是在 HTML <header> 标签中引入 Three.js：</p>
@@ -252,7 +252,7 @@
 <p>以上是标签和样式！</p>
 <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><hr>
 <p>如果你已经掌握了一些 JavaScript 的基础知识，使用 Three.js 会变得相当简单。来~我们看看实现不同部分的代码。</p>
-<h3 id="The-Color-Palette"><a href="#The-Color-Palette" class="headerlink" title="The Color Palette"></a>The Color Palette</h3><p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<h3 id="The-Color-Palette"><a href="#The-Color-Palette" class="headerlink" title="The Color Palette"></a>The Color Palette</h3><p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>在开始场景编码之前，我觉得定义一个调色板是很有用的。因为在整个项目中会经常使用到。在这个项目中，我们会选择以下这些颜色：</p>
 <pre><code class="hljs csharp"><span class="hljs-keyword">var</span> Colors = &#123;
    red:<span class="hljs-number">0xf25346</span>,    
@@ -286,7 +286,7 @@
 <li><strong>渲染一个或多个对象：</strong> 在我们的例子中，我们会创建飞机，大海，天空（一些云）。</li>
 <li><strong>光源：</strong>有不同类型可用的光源。在我们的项目中，我们主要用到营造氛围的半球光和制造阴影的方向光。</li>
 </ol>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>在 createScene 函数中创建场景，相机以及渲染器。</p>
 <blockquote>
 <p>译者注：</p>
@@ -455,7 +455,7 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 <p>通过这些步骤，我们可以创建许多不同种类的几何体。现在，如果我们把它们组合起来，就可以创建更多复杂的形状。</p>
 <p>在以下步骤中，我们将精确地学习如何创建复杂的形状。</p>
 <h3 id="把简单的正方体组合建造复杂的形状"><a href="#把简单的正方体组合建造复杂的形状" class="headerlink" title="把简单的正方体组合建造复杂的形状"></a>把简单的正方体组合建造复杂的形状</h3><p>云的制作会有一点点复杂，因为他们是由若干个正方体组合而成的一个随机形状。</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <pre><code class="hljs jsx">Cloud = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
    <span class="hljs-comment">// 创建一个空的容器放置不同形状的云</span>
    <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
@@ -550,7 +550,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 &#125;</code></pre>
 
 <h3 id="更加复杂的形状：创建飞机模型"><a href="#更加复杂的形状：创建飞机模型" class="headerlink" title="更加复杂的形状：创建飞机模型"></a>更加复杂的形状：创建飞机模型</h3><p>坏消息是：创建飞机模型的代码有点复杂有点长。但是好消息是：为了创建它我们已经学习了所有应该知道的。这里所有都是关于组合和封装形状的代码。</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <pre><code class="hljs csharp"><span class="hljs-keyword">var</span> AirPlane = function() &#123;
 
    <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
@@ -741,7 +741,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 <h2 id="一架更酷的飞机"><a href="#一架更酷的飞机" class="headerlink" title="一架更酷的飞机"></a>一架更酷的飞机</h2><p>好了~我们之前创建了非常基础的飞机。我们现在知道如何创建对象并组合它们，但是我们仍然需要学习如何修改几何体令其更加符合我们的需求。</p>
 <p>例如正方体，可以移动它的顶点。在我们的案例中，我们需要使它更加像驾驶舱。</p>
 <p>让我们看一下驾驶舱这部分的代码，还有看下我们是如何让他的背部变得更窄的：</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <pre><code class="hljs csharp"><span class="hljs-comment">// 驾驶舱</span>
 
 <span class="hljs-keyword">var</span> geomCockpit = <span class="hljs-keyword">new</span> THREE.BoxGeometry(<span class="hljs-number">80</span>,<span class="hljs-number">50</span>,<span class="hljs-number">50</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);
@@ -768,7 +768,7 @@ cockpit.receiveShadow = <span class="hljs-literal">true</span>;
 <h2 id="但是，是谁在开飞机呢？"><a href="#但是，是谁在开飞机呢？" class="headerlink" title="但是，是谁在开飞机呢？"></a>但是，是谁在开飞机呢？</h2><hr>
 <p>为我们的飞机添加一个飞行员，就好像添加几个盒子一样容易。</p>
 <p>但是我们只需要一个酷酷的飞行员，头发要很飘逸的！感觉它好像很难实现的样子，但是由于我们开始的时候是在低多边形的场景下开始的，所以这就变得简单多了！尝试通过几个盒子模拟创建飘逸的头发，同时会给予一种独特的感觉。</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>让我们看看源码：</p>
 <pre><code class="hljs csharp"><span class="hljs-keyword">var</span> Pilot = function()&#123;
    <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
@@ -873,7 +873,7 @@ Pilot.prototype.updateHairs = function()&#123;
    <span class="hljs-keyword">this</span>.angleHairs += <span class="hljs-number">0.16</span>;
 &#125;</code></pre>
 
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>现在让头发动起来，只需要在循环函数里添加以下这句代码。</p>
 <pre><code class="hljs css"><span class="hljs-selector-tag">airplane</span><span class="hljs-selector-class">.pilot</span><span class="hljs-selector-class">.updateHairs</span>();</code></pre>
 
@@ -885,7 +885,7 @@ Pilot.prototype.updateHairs = function()&#123;
 </li>
 <li><p>每个顶点执行循环移动就像我们移动飞行员的头发一样</p>
 <p>为了制造海浪，我们将围绕圆柱体的初始位置对每个顶点旋转。通过给它们一个随机旋转速度和一个随机距离（旋转半径）。很抱歉，这里还是需要用到一些三角函数！</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 </li>
 </ul>
 <p>让我们对大海作出一些修改：</p>
@@ -960,7 +960,7 @@ Sea.prototype.moveWaves = <span class="hljs-function"><span class="hljs-keyword"
    sea.mesh.rotation.z += <span class="hljs-number">.005</span>;
 &#125;</code></pre>
 
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>就好像我们对飞行员的头发做的那样，我们在循环函数中添加以下这句代码：</p>
 <pre><code class="hljs css"><span class="hljs-selector-tag">sea</span><span class="hljs-selector-class">.moveWaves</span>();</code></pre>
 
@@ -1000,7 +1000,7 @@ ambientLight = <span class="hljs-keyword">new</span> THREE.AmbientLight(<span cl
 <h2 id="接着要干嘛呢？"><a href="#接着要干嘛呢？" class="headerlink" title="接着要干嘛呢？"></a>接着要干嘛呢？</h2><hr>
 <p>如果你看到这，你已经学会 Three.js 中的通用的一些技术了，能够让你创建您的第一个场景。现在你知道如何通过原始几何体创建物体，如何激活它们，以及如何设置一个场景中的光源，你已经知道如何改进你的对象的外观和运动，还有如何调整环境氛围。</p>
 <p>下一步已经超出本文范围了，由于它涉及到更多复杂的技术，它是实现一个<a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">游戏</a>，大概思路是碰撞，收集点数，液位控制。下载源码，看看实现的思路；你会看到到目前为止你学到过的概念和一些高阶的知识点，你可以研究一下和玩一下。请注意这游戏已经优化了以便桌面使用。</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>但愿，这篇教程帮助你熟悉Three.js和激发你实现属于你自己的项目。让我看到你的创造力；我希望看到你做出什么来~</p>
 <p><a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">DEMO</a>   <a href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip" target="_blank" rel="noopener">源码下载</a></p>
 <p><strong>本文转自</strong> <a href="https://www.jianshu.com/p/92771817c73f" target="_blank" rel="noopener">译文：一个采用 Three.js 的 3D 动画场景制作：飞行者</a>，作者：LeeChingYin</p>

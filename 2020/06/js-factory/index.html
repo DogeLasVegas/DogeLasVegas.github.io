@@ -230,7 +230,7 @@
             
             <article class="markdown-body">
               <p>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。</p>
-<h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br>" srcset="/img/loading.gif<img src="" alt="图9-9 JS工厂模式"></p>
+<h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="图9-9 JS工厂模式"></p>
 <p>假设有一个UI工厂，我们要创建一个UI组件的类型。不需要直接使用new运算符或者通过另一个创建型构造函数创建这个组件，而是要求Factory对象创建一个新的组件。我们通知Factory需要什么类型的对象（如“按钮”、“面板”），它会进行实例化，然后将它返回给我们使用。</p>
 <p>如果对象创建过程相对比较复杂，这种方法特别有用，例如，如果它强烈依赖于动态因素或应用程序配置的话。</p>
 <p>可以在ExtJS等UI库中找到此模式的示例，其中创建对象或组件的方法也有可能被归入子类了。</p>

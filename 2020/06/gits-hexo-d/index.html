@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      967 字
+      959 字
     </span>
   
 
@@ -238,14 +238,14 @@
 
 <p>按理来说这样就可以成功使用<code>hexo g-d</code>部署博客到Github 上了，但是我却遇到了问题。。</p>
 <h3 id="部署时遇到的问题和解决办法"><a href="#部署时遇到的问题和解决办法" class="headerlink" title="部署时遇到的问题和解决办法"></a>部署时遇到的问题和解决办法</h3><p>当在一台电脑上配置了不止一个git账号时，部署博客就出现了一个奇怪的问题：</p>
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
 <p>就像上面图片一样，错误的原因是没有配置user.email和user.name，既然没有配置，那我配置上不就好了吗：</p>
 <pre><code class="hljs bash">git config user.email <span class="hljs-string">"youremail"</span>
 git config user.name  <span class="hljs-string">"yourname"</span></code></pre>
 
 <p>备注：这里我没有用<code>--global</code>设置全局的name和Email，主要是因为电脑有多个git账户，怕以后提交的时候出现，明明想用这个用户提交，结果实际却用了另外一个，用上面的代码分别为每个项目设置name和Email就不用担心这样的问题了。</p>
 <p>但是当我配置完之后再执行部署命令时依然报错，而且和原来的好像还有一点不一样，但是看原因好像还是没有配置name和Email：</p>
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
 <p>这就奇怪了，我刚刚才配置完，怎么还说没有配置呢。我又检查了博客下的<code>_config.yml</code>文件deploy配置，确定没有错误之后我又尝试了一下，还是不行。这时我想到以前为了配置多个git账号，曾经看了很多相关的文章，其中有篇文章好像提到了git提交时报没有配置user的错误，解决办法是到项目下的<code>.git</code>文件夹内找到<code>config</code>这个文件，在这个文件的后面加上这样一段内容：</p>
 <pre><code class="hljs ini"><span class="hljs-section">[user]</span>
 <span class="hljs-attr">email</span>=your email
