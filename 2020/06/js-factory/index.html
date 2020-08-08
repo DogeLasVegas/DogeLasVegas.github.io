@@ -229,97 +229,97 @@
               </p>
             
             <article class="markdown-body">
-              <p>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。</p>
 <h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="图9-9 JS工厂模式"></p>
 <p>假设有一个UI工厂，我们要创建一个UI组件的类型。不需要直接使用new运算符或者通过另一个创建型构造函数创建这个组件，而是要求Factory对象创建一个新的组件。我们通知Factory需要什么类型的对象（如“按钮”、“面板”），它会进行实例化，然后将它返回给我们使用。</p>
 <p>如果对象创建过程相对比较复杂，这种方法特别有用，例如，如果它强烈依赖于动态因素或应用程序配置的话。</p>
 <p>可以在ExtJS等UI库中找到此模式的示例，其中创建对象或组件的方法也有可能被归入子类了。</p>
 <p>下面这个示例构建在之前的代码片段之上，使用Constructor模式逻辑来定义汽车。它展示了如何使用Factory模式来实现vehicle工厂：</p>
 <p>// Types.js –本例构造函数的存放文件<br>// 定义Car构造函数</p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;
   <span class="hljs-comment">// 默认值</span>
   <span class="hljs-keyword">this</span>.doors = options.doors || <span class="hljs-number">4</span>;
   <span class="hljs-keyword">this</span>.state = options.state || <span class="hljs-string">"brand new"</span>;
   <span class="hljs-keyword">this</span>.color = options.color || <span class="hljs-string">"silver"</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 
 <p>// 定义Truck构造函数</p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;
    <span class="hljs-keyword">this</span>.state = options.state || <span class="hljs-string">"used"</span>;
    <span class="hljs-keyword">this</span>.wheelSize = options.wheelSize || <span class="hljs-string">"large"</span>;
    <span class="hljs-keyword">this</span>.color = options.color || <span class="hljs-string">"blue"</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 
 <p>// FactoryExample.js<br>// 定义vehicle工厂的大体代码</p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;</code></pre></div>
 
 
 <p>// 定义该工厂factory的原型和试用工具，默认的vehicleClass是Car</p>
-<pre><code class="hljs javascript">VehicleFactory.prototype.vehicleClass = Car;</code></pre>
+<div class="hljs"><pre><code class="hljs javascript">VehicleFactory.prototype.vehicleClass = Car;</code></pre></div>
 
 
 <p>// 创建新Vehicle实例的工厂方法</p>
-<pre><code class="hljs javascript">VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs javascript">VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;
    <span class="hljs-keyword">if</span> (options.vehicleType === <span class="hljs-string">"car"</span>) &#123;
        <span class="hljs-keyword">this</span>.vehicleClass = Car;
    &#125; <span class="hljs-keyword">else</span> &#123;
        <span class="hljs-keyword">this</span>.vehicleClass = Truck;
    &#125;
    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.vehicleClass(options);
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
 <p>// 创建生成汽车的工厂实例</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();
 <span class="hljs-keyword">var</span> car = carFactory.createVehicle(&#123;
                <span class="hljs-attr">vehicleType</span>: <span class="hljs-string">"car"</span>,
                <span class="hljs-attr">color</span>: <span class="hljs-string">"yellow"</span>,
-               <span class="hljs-attr">doors</span>: <span class="hljs-number">6</span>&#125;);</code></pre>
+               <span class="hljs-attr">doors</span>: <span class="hljs-number">6</span>&#125;);</code></pre></div>
 
 
 <p>// 测试汽车是由vehicleClass的原型prototype里的Car创建的<br>// 输出: true</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);</code></pre></div>
 
 
 <p>// 输出: Car对象，color: “yellow”, doors: 6,state:”brand new”</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car);</code></pre></div>
 
 
 <p>在方法 1 中，我们修改了VehicleFactory实例来使用Truck类：</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;
                       <span class="hljs-attr">vehicleType</span>: <span class="hljs-string">"truck"</span>,
                       <span class="hljs-attr">state</span>: <span class="hljs-string">"like new"</span>,
                       <span class="hljs-attr">color</span>: <span class="hljs-string">"red"</span>,
-                      <span class="hljs-attr">wheelSize</span>: <span class="hljs-string">"small"</span>&#125;);</code></pre>
+                      <span class="hljs-attr">wheelSize</span>: <span class="hljs-string">"small"</span>&#125;);</code></pre></div>
 
 
 <p>// 测试卡车是由vehicleClass的原型prototype里的Truck创建的<br>// 输出: true</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre></div>
 
 
 <p>// 输出: Truck对象，color ：”red”, state：”like new” ，wheelSize：”small”</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck);</code></pre></div>
 
 
 <p>在方法2中，我们把VehicleFactory归入子类来创建一个构建Truck的工厂类：</p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;
 TruckFactory.prototype = <span class="hljs-keyword">new</span> VehicleFactory();
 TruckFactory.prototype.vehicleClass = Truck;
 <span class="hljs-keyword">var</span> truckFactory = <span class="hljs-keyword">new</span> TruckFactory();
 <span class="hljs-keyword">var</span> myBigTruck = truckFactory.createVehicle(&#123;
                       <span class="hljs-attr">state</span>: <span class="hljs-string">"omg..so bad."</span>,
                       <span class="hljs-attr">color</span>: <span class="hljs-string">"pink"</span>,
-                      <span class="hljs-attr">wheelSize</span>: <span class="hljs-string">"so big"</span>&#125;);</code></pre>
+                      <span class="hljs-attr">wheelSize</span>: <span class="hljs-string">"so big"</span>&#125;);</code></pre></div>
 
 
 <p>// 确认myBigTruck是由原型Truck创建的<br>// 输出: true</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre></div>
 
 
 <p>// 输出：Truck对象，color: pink”, wheelSize: “so big”, state: “omg. so bad”</p>
-<pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck);</code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck);</code></pre></div>
 
 
 
@@ -330,7 +330,7 @@ TruckFactory.prototype.vehicleClass = Truck;
 <h3 id="9-10-3-Abstract-Factory（抽象工厂）"><a href="#9-10-3-Abstract-Factory（抽象工厂）" class="headerlink" title="9.10.3 Abstract Factory（抽象工厂）"></a>9.10.3 Abstract Factory（抽象工厂）</h3><p>了解抽象工厂模式也是有用的，它用于封装一组具有共同目标的单个工厂。它能够将一组对象的实现细节从一般用法中分离出来。</p>
 <p>应当使用抽象工厂模式的情况是：一个系统必须独立于它所创建的对象的生成方式，或它需要与多种对象类型一起工作。</p>
 <p>既简单又容易理解的示例是车辆工厂，它定义了获取或注册车辆类型的方法。抽象工厂可以命名为AbstractVehicleFactory。抽象工厂将允许对像car或truck这样的车辆类型进行定义，具体工厂只需要实现履行车辆契约的类（如Vehicle.prototype.drive和Vehicle.prototype.breakDown）。</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> AbstractVehicleFactory = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> AbstractVehicleFactory = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
 <span class="hljs-comment">// 存储车辆类型</span>
   <span class="hljs-keyword">var</span> types = &#123;&#125;;
   <span class="hljs-keyword">return</span> &#123;
@@ -358,11 +358,11 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">"truck"</span>
 <span class="hljs-comment">// 同理实例化一个新truck对象</span>
 <span class="hljs-keyword">var</span> truck = AbstractVehicleFactory.getVehicle( <span class="hljs-string">"truck"</span> , &#123;
                 <span class="hljs-attr">wheelSize</span>: <span class="hljs-string">"medium"</span>,
-                <span class="hljs-attr">color</span>: <span class="hljs-string">"neon yellow"</span> &#125; );</code></pre>
+                <span class="hljs-attr">color</span>: <span class="hljs-string">"neon yellow"</span> &#125; );</code></pre></div>
 
 
 
-<h2 id="完整示例代码："><a href="#完整示例代码：" class="headerlink" title="完整示例代码："></a>完整示例代码：</h2><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<h2 id="完整示例代码："><a href="#完整示例代码：" class="headerlink" title="完整示例代码："></a>完整示例代码：</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
@@ -441,7 +441,7 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">"truck"</span>
 		<span class="hljs-built_in">console</span>.log(myBigTruck);
 	</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
 
 
 

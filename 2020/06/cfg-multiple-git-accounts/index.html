@@ -229,19 +229,19 @@
               </p>
             
             <article class="markdown-body">
-              <p>我们可能经常会用到不止一个git账号（比如一个github一个gitee），用于管理不同的项目，那怎么在一台电脑上配置两个或两个以上的git账号呢，下面介绍一下具体的方法，也算做个记录，以后忘了可以来看看。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>我们可能经常会用到不止一个git账号（比如一个github一个gitee），用于管理不同的项目，那怎么在一台电脑上配置两个或两个以上的git账号呢，下面介绍一下具体的方法，也算做个记录，以后忘了可以来看看。</p>
 <h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><p>如果之前没有生成过SSH Key的话，需要先生成，在命令行内执行以下命令：</p>
-<pre><code class="hljs bash">ssh-keygen -t rsa -C<span class="hljs-string">"你的github邮箱地址"</span></code></pre>
+<div class="hljs"><pre><code class="hljs bash">ssh-keygen -t rsa -C<span class="hljs-string">"你的github邮箱地址"</span></code></pre></div>
 
 <p>通常配置一个SSH Key的时候只要一路回车下去就行了，但是现在要配置多个，就不能一路回车到底了，因为要设置某些内容。在运行上面命令之后会一步一步的出现下面的提示内容：</p>
-<pre><code class="hljs bash"><span class="hljs-comment">#提示是否使用新的文件名,如果不输入新的文件名，则生成id_rsa文件。</span>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment">#提示是否使用新的文件名,如果不输入新的文件名，则生成id_rsa文件。</span>
 <span class="hljs-comment">##直接输入文件名会在当前执行cmd或者bash文件夹内生成，如果想在.ssh文件夹生成需要把路径写完整</span>
 Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> to save the key (~/.ssh/id_rsa):
 <span class="hljs-comment">#请输入确认密码，后面还会用到（至少4位数），如果缺省直接按回车</span>
 <span class="hljs-comment">##此密码是验证id_rsa的密码，每次代码commit时得输入</span>
 Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase):
 <span class="hljs-comment">#再次输入密码</span>
-Enter same passphrase again:</code></pre>
+Enter same passphrase again:</code></pre></div>
 
 <p>在生成多个SSH Key重复执行上面的命令即可，在生成第二个之后的ssh keygen时，一定要把生成的ssh keygen文件名或者路径改掉，不要用默认的，不然会把前面生成的覆盖掉。密码有没有都无所谓，记不住就别设，免得到时候忘了密码用不了。</p>
 <h3 id="配置公钥"><a href="#配置公钥" class="headerlink" title="配置公钥"></a>配置公钥</h3><p>前面生成的ssh keygen文件正常情况下应该在<code>C:\\\\User\\你的用户名\\.ssh</code>这个文件夹内，如果没有就自己搜索一下放在哪了吧，打开这个文件夹，你会看到有多个文件，把其中有<code>pub</code>后缀的文件打开，将里面的内容添加到对应的git账号上，以GitHub为例，登录上你的GitHub账号，然后点击你的头像，在下拉菜单中找到settings，</p>
@@ -251,7 +251,7 @@ Enter same passphrase again:</code></pre>
 <p>接着在右边点击<code>New SSHKey</code>把对应的公钥文件内容复制进去，并且起一个名字，大体知道是用来做什么的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="配置config文件（重点）"><a href="#配置config文件（重点）" class="headerlink" title="配置config文件（重点）"></a>配置config文件（重点）</h3><p>进入<code>.ssh</code>文件夹，查看这个文件夹内是否有名为<code>config</code>的文件，如果没有就用<code>touch config</code>新建一个（注意这个命令是bash内执行，如果使用的是cmd则不能用），在新建的文件内加上下面的内容：</p>
-<pre><code class="hljs bash"><span class="hljs-comment">#github one</span>
+<div class="hljs"><pre><code class="hljs bash"><span class="hljs-comment">#github one</span>
    Host github_one            
    Hostname github.com      
    User git_one                    
@@ -268,25 +268,25 @@ Enter same passphrase again:</code></pre>
    Host github_more
    Hostname github.com
    User git_more
-   IdentityFile ~/.ssh/id_rsa_more</code></pre>
+   IdentityFile ~/.ssh/id_rsa_more</code></pre></div>
 
 <p><strong>说明：</strong><br> HostName 　　　　　　　真实的域名地址<br> IdentityFile 　　　　　　　这个是id_rsa的地址（就是私钥的位置，上面两种写法都可）<br> PreferredAuthentications   配置登录时用什么权限认证（可设为publickey,password publickey,keyboard-interactive等）<br> User 　　　　　　　　　　配置使用用户名</p>
 <p>每个账号单独配置一个<strong>Host</strong>，每个<strong>Host</strong>要取一个别名，每个Host主要配置<strong>HostName</strong>和<strong>IdentityFile</strong>两个属性即可，host可以取为便于区分的名字，如GitHub，gitee，这个host后续会影响到git的相关命令，如果忘了可以到这个config文件中查看。</p>
 <h3 id="测试是否配置成功"><a href="#测试是否配置成功" class="headerlink" title="测试是否配置成功"></a>测试是否配置成功</h3><p>在命令行中输入下面的命令测试是否配置成功：</p>
-<pre><code class="hljs bash">ssh -T git@github_one 
-ssh -T git@github_two</code></pre>
+<div class="hljs"><pre><code class="hljs bash">ssh -T git@github_one 
+ssh -T git@github_two</code></pre></div>
 
 <p>注意@后面不再是<code>github.com</code>，而是前面你在config文件配置的host的名字。如果配置成功会返回下面的话：</p>
-<pre><code class="hljs bash">Hi XXX! You<span class="hljs-string">'ve successfully authenticated, but GitHub does not provide shell access.</span></code></pre>
+<div class="hljs"><pre><code class="hljs bash">Hi XXX! You<span class="hljs-string">'ve successfully authenticated, but GitHub does not provide shell access.</span></code></pre></div>
 
 <h3 id="设置提交用户名和电子邮件地址"><a href="#设置提交用户名和电子邮件地址" class="headerlink" title="设置提交用户名和电子邮件地址"></a>设置提交用户名和电子邮件地址</h3><p>在电脑上设置了多个git账号之后最好为每个项目分别设置提交的用户名和电子邮件，这样就不会有希望用这个账号提交项目，结果实际上是另外一个账号提交的情况发生了。另外，GitHub的contributions统计就是按照你提交时设置的邮箱来统计的。</p>
 <p>如果已经设置了全局（global）的user和email，最好先取消掉：</p>
-<pre><code class="hljs bash">git config --global --<span class="hljs-built_in">unset</span> user.name
-git config --global --<span class="hljs-built_in">unset</span> user.email</code></pre>
+<div class="hljs"><pre><code class="hljs bash">git config --global --<span class="hljs-built_in">unset</span> user.name
+git config --global --<span class="hljs-built_in">unset</span> user.email</code></pre></div>
 
 <p>然后为每个项目设置自己的user和email：</p>
-<pre><code class="hljs bash">git config user.email <span class="hljs-string">"youremail"</span>
-git config user.name <span class="hljs-string">"yourusername"</span></code></pre>
+<div class="hljs"><pre><code class="hljs bash">git config user.email <span class="hljs-string">"youremail"</span>
+git config user.name <span class="hljs-string">"yourusername"</span></code></pre></div>
 
 <p>git通常有三个级别的配置文件，分别是：</p>
 <ol>

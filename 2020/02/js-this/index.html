@@ -229,14 +229,14 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="this详解"><a href="#this详解" class="headerlink" title="this详解"></a>this详解</h2><p>1、谁最终调用函数，this指向谁，<strong>this指向永远只可能是对象</strong>，不可能是函数<br>this指向谁不取决于this写在哪，而且取决于函数在哪调用<br>this指向的对象，我们称之为函数的上下文context，也叫函数的调用者</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="this详解"><a href="#this详解" class="headerlink" title="this详解"></a>this详解</h2><p>1、谁最终调用函数，this指向谁，<strong>this指向永远只可能是对象</strong>，不可能是函数<br>this指向谁不取决于this写在哪，而且取决于函数在哪调用<br>this指向的对象，我们称之为函数的上下文context，也叫函数的调用者</p>
 <p>2、<strong>this指向的规律</strong>（与<strong>函数调用的方式</strong>息息相关）<br>this指向的情况，取决于函数调用的方式有哪些：<br>①通过函数名（）直接调用:this指向window</p>
 <p>②通过对象.函数名（）调用:this指向这个对象</p>
 <p>③函数作为数组的一个元素，通过数组下标调用的：this指向这个数组</p>
 <p>④函数作为window内置函数的回调函数调用：this指向window<br><strong>例如setInterval、setTimeout等</strong></p>
 <p>⑤函数作为构造函数，用new关键字调用时，this指向新new出的对象</p>
 <p><strong>不同情况举例：</strong></p>
-<pre><code class="hljs javascript"><span class="hljs-comment">//通过函数名()直接调用,this指向window</span>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">//通过函数名()直接调用,this指向window</span>
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>)</span>&#123;
         <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
     &#125;
@@ -262,7 +262,7 @@
     setTimeout(func,<span class="hljs-number">1000</span>);  <span class="hljs-comment">//this指向window</span>
         
 <span class="hljs-comment">//函数作为构造函数，用new关键字调用时，this指向新new出的对象</span>
-    <span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> func();  <span class="hljs-comment">//this指向新new出的obj</span></code></pre>
+    <span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> func();  <span class="hljs-comment">//this指向新new出的obj</span></code></pre></div>
             </article>
             <hr>
             <div>
@@ -279,9 +279,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/JS/">JS</a>
-                    
                       <a class="hover-with-bg" href="/tags/Web/">Web</a>
+                    
+                      <a class="hover-with-bg" href="/tags/JS/">JS</a>
                     
                   </div>
                 

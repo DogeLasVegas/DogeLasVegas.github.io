@@ -229,19 +229,19 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h2><p>引入CSS文件</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/bootstrap.min.css"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/bootstrap-table.min.css"</span>&gt;</span></code></pre>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h2><p>引入CSS文件</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/bootstrap.min.css"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/bootstrap-table.min.css"</span>&gt;</span></code></pre></div>
 
 <p>引入js文件</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/jquery-1.11.0.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/jquery-1.11.0.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap-table.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap-table-zh-CN.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap-table-zh-CN.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 <h2 id="初始化表格"><a href="#初始化表格" class="headerlink" title="初始化表格"></a>初始化表格</h2><p>表格的初始化有两种方式:</p>
 <p>一种是通过数据属性初始化：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>
   <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"table"</span>
   <span class="hljs-attr">data-url</span>=<span class="hljs-string">"data.json"</span>
   <span class="hljs-attr">data-pagination</span>=<span class="hljs-string">"true"</span>&gt;</span>
@@ -252,10 +252,10 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">data-field</span>=<span class="hljs-string">"price"</span>&gt;</span>Item Price<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre></div>
 
 <p>另一种是通过JavaScript初始化：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 
 $('#table').bootstrapTable(&#123;
   url: 'data.json',
@@ -270,14 +270,14 @@ $('#table').bootstrapTable(&#123;
     field: 'price',
     title: 'Item Price'
   &#125;]
-&#125;)</code></pre>
+&#125;)</code></pre></div>
 
 <p>如果只是做简单的数据展示的话，比较适合用数据属性初始化表格；如果表格结构功能复杂更推荐使用JS，处理表格比较容易。下面我就用JS初始化一个带有各种常用选项的表格。</p>
 <p>HTML</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-striped table-hover"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table-request"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-striped table-hover"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table-request"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre></div>
 
 <p>JavaScript</p>
-<pre><code class="hljs javascript"><span class="hljs-comment">// 初始化表格</span>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">// 初始化表格</span>
 $(<span class="hljs-string">'#table-request'</span>).bootstrapTable(&#123;
     <span class="hljs-attr">url</span>: <span class="hljs-string">'../test0.json'</span>,             <span class="hljs-comment">//请求后台的URL（*）/article/list</span>
     <span class="hljs-attr">method</span>: <span class="hljs-string">'get'</span>,                      <span class="hljs-comment">//请求方式（*）</span>
@@ -385,9 +385,9 @@ $(<span class="hljs-string">'#table-request'</span>).bootstrapTable(&#123;
         &#125;
     ]
         <span class="hljs-comment">//列设置</span>
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
-<h2 id="请求参数设置"><a href="#请求参数设置" class="headerlink" title="请求参数设置"></a>请求参数设置</h2><pre><code class="hljs javascript"><span class="hljs-comment">//请求参数设置</span>
+<h2 id="请求参数设置"><a href="#请求参数设置" class="headerlink" title="请求参数设置"></a>请求参数设置</h2><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">//请求参数设置</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">queryParams</span>(<span class="hljs-params">params</span>) </span>&#123;
     <span class="hljs-keyword">return</span> &#123;
         <span class="hljs-attr">npage</span>: params.pageNumber,      <span class="hljs-comment">//页码</span>
@@ -397,17 +397,17 @@ $(<span class="hljs-string">'#table-request'</span>).bootstrapTable(&#123;
         <span class="hljs-attr">etime</span> : $(<span class="hljs-string">'#end-time'</span>).val(), <span class="hljs-comment">//结束时间 </span>
             <span class="hljs-comment">// name: $(...).val()   //其他自定义参数，从页面获取</span>
         &#125;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
-<h2 id="单元格自定义设置：行内操作按钮"><a href="#单元格自定义设置：行内操作按钮" class="headerlink" title="单元格自定义设置：行内操作按钮"></a>单元格自定义设置：行内操作按钮</h2><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">operateFormatter</span>(<span class="hljs-params">value, row, index</span>) </span>&#123;
+<h2 id="单元格自定义设置：行内操作按钮"><a href="#单元格自定义设置：行内操作按钮" class="headerlink" title="单元格自定义设置：行内操作按钮"></a>单元格自定义设置：行内操作按钮</h2><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">operateFormatter</span>(<span class="hljs-params">value, row, index</span>) </span>&#123;
     <span class="hljs-keyword">return</span> [
         <span class="hljs-string">'&lt;div class="btn-group" role="group" aria-label="..."&gt;'</span>,
         <span class="hljs-string">'&lt;button type="button" class="btn btn-default edit"&gt;编辑&lt;/button&gt;'</span>,
         <span class="hljs-string">'&lt;button type="button" class="btn btn-danger remove"&gt;删除&lt;/button&gt;'</span>,<span class="hljs-string">'&lt;/div&gt;'</span>,
     ].join(<span class="hljs-string">''</span>);
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>" srcset="/img/loading.gif<img src="" alt=""></p>
-<h2 id="处理行内按钮的点击事件"><a href="#处理行内按钮的点击事件" class="headerlink" title="处理行内按钮的点击事件"></a>处理行内按钮的点击事件</h2><pre><code class="hljs javascript"><span class="hljs-built_in">window</span>.operateEvents = &#123;
+<h2 id="处理行内按钮的点击事件"><a href="#处理行内按钮的点击事件" class="headerlink" title="处理行内按钮的点击事件"></a>处理行内按钮的点击事件</h2><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">window</span>.operateEvents = &#123;
     <span class="hljs-string">'click .edit'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, value, row, index</span>) </span>&#123;
             alert(<span class="hljs-string">"edit"</span>);
             <span class="hljs-comment">// 点编辑打开模态框并获取内容</span>
@@ -470,16 +470,16 @@ $(<span class="hljs-string">'#table-request'</span>).bootstrapTable(&#123;
                 alert(<span class="hljs-string">"不删"</span>);
             &#125;
     &#125;,
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 <p>" srcset="/img/loading.gif<img src="" alt=""></p>
 <h2 id="表格可调整列宽（插件）"><a href="#表格可调整列宽（插件）" class="headerlink" title="表格可调整列宽（插件）"></a>表格可调整列宽（插件）</h2><p>首先需要引入CSS和js文件</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/jquery.resizableColumns.css"</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/jquery.resizableColumns.css"</span>&gt;</span></code></pre></div>
 
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/jquery.resizableColumns.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap-table-resizable.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/jquery.resizableColumns.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap-table-resizable.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 <p>然后设置数据属性<code>data-resizable</code>为<code>true</code>或者在JS初始化的表格中添加选项<code>resizable:true</code></p>
 <p>插件存在的已知问题：当设置了表格高度时，此插件无法正常工作。也就是说，在设置表格高度以启用固定表格列头之后，表格的调整列宽功能将出现问题（其实就是二选一）。<br>" srcset="/img/loading.gif<img src="" alt=""></p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="hljs javascript"><span class="hljs-comment">//请求参数设置</span>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-comment">//请求参数设置</span>
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">queryParams</span>(<span class="hljs-params">params</span>) </span>&#123;
     <span class="hljs-keyword">return</span> &#123;
         <span class="hljs-attr">npage</span>: params.pageNumber,      <span class="hljs-comment">//页码</span>
@@ -489,7 +489,7 @@ $(<span class="hljs-string">'#table-request'</span>).bootstrapTable(&#123;
         <span class="hljs-attr">etime</span> : $(<span class="hljs-string">'#end-time'</span>).val(), <span class="hljs-comment">//结束时间 </span>
             <span class="hljs-comment">// name: $(...).val()   //其他自定义参数，从页面获取</span>
         &#125;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>" srcset="/img/loading.gif<img src="" alt=""></p>
 <p>更多功能可以到官网查看，或者查看下面的参考链接。</p>

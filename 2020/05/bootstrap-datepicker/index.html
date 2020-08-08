@@ -229,7 +229,7 @@
               </p>
             
             <article class="markdown-body">
-              <p>在用Bootstrap-Datepicker之前，也用过一个<a href="https://github.com/Eonasdan/bootstrap-datetimepicker" target="_blank" rel="noopener">日期时间选择插件</a>，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款<strong>日期选择</strong>插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>在用Bootstrap-Datepicker之前，也用过一个<a href="https://github.com/Eonasdan/bootstrap-datetimepicker" target="_blank" rel="noopener">日期时间选择插件</a>，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款<strong>日期选择</strong>插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。</p>
 <h2 id="使用和依赖"><a href="#使用和依赖" class="headerlink" title="使用和依赖"></a>使用和依赖</h2><p><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="noopener"><strong>Bootstrap-datepicker</strong></a>是一款基于Bootstrap样式的datepicker小部件。要求使用<a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a> 2.0.4 版本以上，<a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a> 1.7.1版本以上。</p>
 <p>可以下载后引入CSS和JS文件，也可以直接通过CDN引入。</p>
 <p>下载的完整库中包含一些不同的样式表。每个CSS文件的用途分别是：</p>
@@ -243,80 +243,80 @@
 </ul>
 <p><strong>下载地址放在最后参考链接中</strong>。</p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>通过javascript调用datepicker：</p>
-<pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker();</code></pre>
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker();</code></pre></div>
 
 <p>通过data-API：</p>
 <p>与bootstrap自己的插件一样，datepicker提供了一个数据API，可用于实例化datepicker，而无需自定义JavaScript。对于大多数日期选择器，只需在要初始化的元素上设置<code>data-provide=&quot;datepicker&quot;</code>，它就会延迟初始化。对于内联日期选择器，请使用<code>data-provide=&quot;datepicker-inline&quot;</code>; 这些将在页面加载时立即初始化，并且不能延迟加载。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"datepicker"</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"datepicker"</span>&gt;</span></code></pre></div>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>选项<code>datepicker</code>在实例化时通过选项传递到函数：</p>
-<pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
     <span class="hljs-attr">format</span>: <span class="hljs-string">'mm/dd/yyyy'</span>,
     <span class="hljs-attr">startDate</span>: <span class="hljs-string">'-3d'</span>
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 <p>也可以在目标元素上通过data-API属性使用，大多数选项都提供支持：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">"mm/dd/yyyy"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">"mm/dd/yyyy"</span>&gt;</span>
 $('.datepicker').datepicker(&#123;
     startDate: '-3d'
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 <p>可以通过更改<code>$.fn.datepicker.defaults</code>来修改所有选项的默认值：</p>
-<pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">"mm/dd/yyyy"</span>;
+<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">"mm/dd/yyyy"</span>;
 $(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
     <span class="hljs-attr">startDate</span>: <span class="hljs-string">'-3d'</span>
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 <h3 id="无冲突模式"><a href="#无冲突模式" class="headerlink" title="无冲突模式"></a>无冲突模式</h3><p><code>$.fn.datepicker.noConflict</code> 提供一种避免与其他jQuery datepicker插件冲突的方法：</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> datepicker = $.fn.datepicker.noConflict(); <span class="hljs-comment">// return $.fn.datepicker to previously assigned value</span>
-$.fn.bootstrapDP = datepicker;                 <span class="hljs-comment">// give $().bootstrapDP the bootstrap-datepicker functionality</span></code></pre>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> datepicker = $.fn.datepicker.noConflict(); <span class="hljs-comment">// return $.fn.datepicker to previously assigned value</span>
+$.fn.bootstrapDP = datepicker;                 <span class="hljs-comment">// give $().bootstrapDP the bootstrap-datepicker functionality</span></code></pre></div>
 
 <h2 id="HTML标记"><a href="#HTML标记" class="headerlink" title="HTML标记"></a>HTML标记</h2><p>有四种类型的显示方式：</p>
 <ul>
 <li><p>输入框</p>
 <p>最简单的方式，当点击输入框或者焦点切换到输入框内时，显示选择器</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"02-16-2012"</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"02-16-2012"</span>&gt;</span></code></pre></div>
 <p>" srcset="/img/loading.gif<img src="" alt=""></p>
 </li>
 <li><p>组件</p>
 <p>添加<code>date</code>类到一个输入框组<code>input-group</code>上，这可以让拥有<code>input-group-addon</code>类的元素打开日期选择器。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group date"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group date"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"12-02-2012"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-addon"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"glyphicon glyphicon-th"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 </li>
 <li><p>范围选择</p>
 <p>将<code>input-daterange</code>添加到输入框组与多个子输入框一起使用将为每个输入框实例化一个选择器，以允许选择范围。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group input-daterange"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group input-daterange"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2012-04-05"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-addon"</span>&gt;</span>to<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2012-04-19"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 </li>
 </ul>
 <p><strong>注意：</strong><code>input-daterange</code>自身并不会实现<code>datepicker</code>的方法，方法应该直接被输入框调用，例如：</p>
-<pre><code class="hljs javascript">$(<span class="hljs-string">'.input-daterange input'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.input-daterange input'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
     $(<span class="hljs-keyword">this</span>).datepicker(<span class="hljs-string">'clearDates'</span>);
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 <ul>
 <li><p>内联或嵌入式  </p>
 <p>在简单的<code>div</code>上实例化<code>datepicker</code>将提供一个始终可见的嵌入式选择器。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>一个实例：将选择器的值的保存到隐藏的字段中。</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my_hidden_input"</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my_hidden_input"</span>&gt;</span></code></pre></div>
 
-<pre><code class="hljs javascript">$(<span class="hljs-string">'#datepicker'</span>).datepicker();
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'#datepicker'</span>).datepicker();
 $(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'changeDate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
   $(<span class="hljs-string">'#my_hidden_input'</span>).val(
     $(<span class="hljs-string">'#datepicker'</span>).datepicker(<span class="hljs-string">'getFormattedDate'</span>)
   );
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 </li>
 </ul>
@@ -341,7 +341,7 @@ $(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'
 </li>
 </ul>
 <h3 id="I18N"><a href="#I18N" class="headerlink" title="I18N"></a>I18N</h3><p>日期选择器支持<code>i18n</code>，提供不同语言的月份和周工作日名称，以及设置weekStart选项。默认语言为英语（”en”），在<code>js/locales/</code>目录中还提供其他可用语言的翻译，只需在插件中添加所需的语言即可。要添加更多语言，只需在调用<code>.datepicker()</code>之前添加一个键到<code>$.fn.datepicker.dates</code>。例如：</p>
-<pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">'en'</span>] = &#123;
+<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">'en'</span>] = &#123;
     <span class="hljs-attr">days</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>],
     <span class="hljs-attr">daysShort</span>: [<span class="hljs-string">"Sun"</span>, <span class="hljs-string">"Mon"</span>, <span class="hljs-string">"Tue"</span>, <span class="hljs-string">"Wed"</span>, <span class="hljs-string">"Thu"</span>, <span class="hljs-string">"Fri"</span>, <span class="hljs-string">"Sat"</span>],
     <span class="hljs-attr">daysMin</span>: [<span class="hljs-string">"Su"</span>, <span class="hljs-string">"Mo"</span>, <span class="hljs-string">"Tu"</span>, <span class="hljs-string">"We"</span>, <span class="hljs-string">"Th"</span>, <span class="hljs-string">"Fr"</span>, <span class="hljs-string">"Sa"</span>],
@@ -352,16 +352,16 @@ $(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'
     <span class="hljs-attr">format</span>: <span class="hljs-string">"mm/dd/yyyy"</span>,
     <span class="hljs-attr">titleFormat</span>: <span class="hljs-string">"MM yyyy"</span>, <span class="hljs-comment">/* Leverages same syntax as 'format' */</span>
     <span class="hljs-attr">weekStart</span>: <span class="hljs-number">0</span>
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 <p><code>[&#39;en&#39;]</code>就是添加新语言的键，在后面大括号中添加月和周的对应语言翻译。使用时将键添加到选项中：</p>
-<pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
     <span class="hljs-attr">language</span>: <span class="hljs-string">'XX'</span> <span class="hljs-comment">//XX就是键名</span>
-&#125;);</code></pre>
+&#125;);</code></pre></div>
 
 <p>从右到左的语言添加<code>rtl: true</code>也可以使日历正确显示。</p>
 <p>如果您的浏览器（或您用户的浏览器）的字符显示错误，则可能是浏览器正在加载具有非Unicode编码的javascript文件。只需添加<code>charset=&quot;UTF-8&quot;</code>到您的script标签即可正常显示：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"bootstrap-datepicker.XX.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"bootstrap-datepicker.XX.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.bootcss.com/" target="_blank" rel="noopener">bootstrap中文网</a></p>
 <p><a href="https://bootstrap-datepicker.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">bootstrap-datepicker文档</a></p>

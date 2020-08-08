@@ -229,9 +229,9 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p>
 <h2 id="方案一：ES5扩展Storage"><a href="#方案一：ES5扩展Storage" class="headerlink" title="方案一：ES5扩展Storage"></a>方案一：ES5扩展Storage</h2><p>思路很简单，存储的值加一个时间戳，下次取值时验证时间戳。<br><strong>注意：</strong> <code>localStorage</code>只能存储字符，存入时将对象转为<code>json</code>字符串,读取时也要解析</p>
-<pre><code class="hljs js">CopyStorage.prototype.setExpire = <span class="hljs-function">(<span class="hljs-params">key, value, expire</span>) =&gt;</span> &#123;
+<div class="hljs"><pre><code class="hljs js">CopyStorage.prototype.setExpire = <span class="hljs-function">(<span class="hljs-params">key, value, expire</span>) =&gt;</span> &#123;
 	<span class="hljs-keyword">let</span> obj = &#123;
 	<span class="hljs-attr">data</span>: value,
 	<span class="hljs-attr">time</span>: <span class="hljs-built_in">Date</span>.now(),
@@ -252,18 +252,18 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
         <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
     &#125;
     <span class="hljs-keyword">return</span> val.data;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>测试一下：</p>
-<pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhangsan'</span>,<span class="hljs-number">5000</span>);
+<div class="hljs"><pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhangsan'</span>,<span class="hljs-number">5000</span>);
 <span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;
     <span class="hljs-built_in">console</span>.log(localStorage.getExpire(<span class="hljs-string">"userId"</span>));
-&#125;,<span class="hljs-number">1000</span>)</code></pre>
+&#125;,<span class="hljs-number">1000</span>)</code></pre></div>
 
 <p>前5秒还是有值的，之后即为<code>null</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="image"></p>
 <h2 id="方案二：ES6扩展Storage"><a href="#方案二：ES6扩展Storage" class="headerlink" title="方案二：ES6扩展Storage"></a>方案二：ES6扩展Storage</h2><p>大体思路和方案一是一样的只不过是用了ES6的最新语法实现。</p>
-<pre><code class="hljs javascript">Copyclass Storage &#123;
+<div class="hljs"><pre><code class="hljs javascript">Copyclass Storage &#123;
 
     <span class="hljs-keyword">constructor</span>(props) &#123;
         <span class="hljs-keyword">this</span>.props = props || &#123;&#125;
@@ -335,15 +335,15 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
 	    <span class="hljs-keyword">return</span> value;
 	&#125;
 
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>其中<code>set()</code>,<code>get()</code>,<code>remove()</code>方法可以理解用来存、取、删, <code>initRun()</code>做什么用呢？过期的值只有取时才能知道是不是过期，不取一直存着。<code>initRun()</code>和<code>constructor</code>只是在初始化时实现清理，也不是一定即时。另外写一个定时器去清理貌似也不值当，所以觉得做到这样已经够用了。</p>
 <p>使用如下代码进行测试一下,效果和方案一相同</p>
-<pre><code class="hljs javascript">Copyvar ls=<span class="hljs-keyword">new</span> Storage();
+<div class="hljs"><pre><code class="hljs javascript">Copyvar ls=<span class="hljs-keyword">new</span> Storage();
 ls.set(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhangsan'</span>,<span class="hljs-number">5000</span>);
 <span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;
     <span class="hljs-built_in">console</span>.log(ls.get(<span class="hljs-string">"userId"</span>));
-&#125;,<span class="hljs-number">1000</span>)</code></pre>
+&#125;,<span class="hljs-number">1000</span>)</code></pre></div>
 
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://blog.csdn.net/qq_20343517/article/details/83656450" target="_blank" rel="noopener">localStorage 设置过期时间</a></li>

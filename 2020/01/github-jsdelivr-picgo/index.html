@@ -229,7 +229,7 @@
               </p>
             
             <article class="markdown-body">
-              <p>前言<br>微博开始防盗链；各路小众图床晚上基本慢，还有挂掉的风险；大厂图床呢，又是要备案，要实名什么的，还有各种限制，可能还贵。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>前言<br>微博开始防盗链；各路小众图床晚上基本慢，还有挂掉的风险；大厂图床呢，又是要备案，要实名什么的，还有各种限制，可能还贵。</p>
 <p>但是，由于一些众所周知的原因，GitHub 在大陆的访问速度一直不是很理想，如果你也像我一样将博客，图床等放在 GitHub 托管的话，很可能会有同学投诉访问速度，特别是初次打开的时候，速度着实堪忧。那有没有什么低成本的方案，来加速我们的网站打开速度呢？当然是有的。</p>
 <p>CDN 简介<br>内容分发网络（英语：Content Delivery Network或Content Distribution Network，缩写：CDN）是指一种透过互联网互相连接的电脑网络系统，利用最靠近每位用户的服务器，更快、更可靠地将音乐、图片、影片、应用程序及其他文件发送给用户，来提供高性能、可扩展性及低成本的网络内容传递给用户。<br>—— Wikipedia<br>简而言之就是让服务器距离大陆较远的 GitHub ，将托管在那里的静态资源缓存到一个近一点的服务器，从而加快访问。</p>
 <p>看了这样的解释你应该能够理解，CDN 虽然能缓解互联压力，可也是要耗费一定的资源的，从而市面上的 CDN 大多是收费的。Cloudflare 虽然有免费 CDN ，可是国内节点致开放给专业版用户使用，价格偏高，而海外的节点又类似负优化，可能还会降低速度。</p>

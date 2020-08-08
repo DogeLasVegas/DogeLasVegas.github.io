@@ -229,13 +229,13 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="利用CSS动画效果制作循环滚动的动画"><a href="#利用CSS动画效果制作循环滚动的动画" class="headerlink" title="利用CSS动画效果制作循环滚动的动画"></a>利用CSS动画效果制作循环滚动的动画</h2><h3 id="设置图片宽度"><a href="#设置图片宽度" class="headerlink" title="设置图片宽度"></a>设置图片宽度</h3><p>以1920px的图片为例，首先要用一个div将滚动的banner图包起来，比如像下面这样：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="利用CSS动画效果制作循环滚动的动画"><a href="#利用CSS动画效果制作循环滚动的动画" class="headerlink" title="利用CSS动画效果制作循环滚动的动画"></a>利用CSS动画效果制作循环滚动的动画</h2><h3 id="设置图片宽度"><a href="#设置图片宽度" class="headerlink" title="设置图片宽度"></a>设置图片宽度</h3><p>以1920px的图片为例，首先要用一个div将滚动的banner图包起来，比如像下面这样：</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner.jpg"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>接下来对图片宽度和高度进行调整：</p>
-<pre><code class="hljs css">&lt;style type="text/css" &gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css" &gt;
 	*&#123;
 		margin: 0;
 		padding: 0;
@@ -255,23 +255,23 @@
 		left: 50%;
 		margin-left: -960px;
 	&#125;
-&lt;/style&gt;</code></pre>
+&lt;/style&gt;</code></pre></div>
 
 <h3 id="使用动画实现滚动功能"><a href="#使用动画实现滚动功能" class="headerlink" title="使用动画实现滚动功能"></a>使用动画实现滚动功能</h3><p>下面是使用动画实现滚动的示意图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" alt="动画滚动"></p>
 <p>具体实现方法如下：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner_in"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner1.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner2.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner3.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner1.png"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p><strong>注意：</strong>上面代码中，每个img标签后面都加了一个注释，原因是为了去掉图片之间的缝隙，把所有的img标签写在同一行也可以达到效果。</p>
 <p>下面是CSS代码：</p>
-<pre><code class="hljs css">&lt;style type="text/css"&gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css"&gt;
 *&#123;
     margin: 0px;
     padding: 0px;
@@ -311,12 +311,12 @@
         left: -5760px;
     &#125;
 &#125;
-&lt;/style&gt;</code></pre>
+&lt;/style&gt;</code></pre></div>
 
 <p>至此，一个使用动画功能做出来的banner滚动就实现了，如果要暂停滚动可以利用鼠标hover事件设置动画的状态属性，以达到暂停banner滚动的目的。</p>
 <h2 id="利用CSS和JavaScript实现banner滚动和点击切换"><a href="#利用CSS和JavaScript实现banner滚动和点击切换" class="headerlink" title="利用CSS和JavaScript实现banner滚动和点击切换"></a>利用CSS和JavaScript实现banner滚动和点击切换</h2><p>​       上面利用CSS使banner滚动的方法虽然比较简单，但是如果想看其中一张banner的时候，只能等他慢慢滚动显示出来，不能直接切换，但是如果用CSS+JS的方法就可以直接跳转到想看的banner了。</p>
 <p>先上HTML代码：</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
 　　<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"inside"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner1.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img1"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner2.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img2"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner3.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img3"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner4.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img4"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner1.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img5"</span> /&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -327,10 +327,10 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(3)"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(4)"</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>再稍微调整一下样式：</p>
-<pre><code class="hljs css">&lt;style type="text/css"&gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css"&gt;
   *&#123;
     padding: 0px;
     margin: 0px;
@@ -370,10 +370,10 @@
     float: left;
     cursor: pointer;
   &#125;
-&lt;/style&gt;</code></pre>
+&lt;/style&gt;</code></pre></div>
 
 <h3 id="实现滚动和切换"><a href="#实现滚动和切换" class="headerlink" title="实现滚动和切换"></a>实现滚动和切换</h3><p>接下来用JS使图片滚动起来，并且可以自由切换当前显示的图片。</p>
-<pre><code class="hljs javascript">&lt;script&gt;
+<div class="hljs"><pre><code class="hljs javascript">&lt;script&gt;
 　　<span class="hljs-keyword">var</span> n = <span class="hljs-number">1</span>;
 　　<span class="hljs-keyword">var</span> inside;
 　　<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
@@ -427,7 +427,7 @@
 
 　　   n = num<span class="hljs-number">-1</span>;
 　　&#125;
-&lt;<span class="hljs-regexp">/script&gt;</span></code></pre>
+&lt;<span class="hljs-regexp">/script&gt;</span></code></pre></div>
 
 <p>下面是我用div代替图片做的一个简单demo：</p>
 <p>在线查看：<a href="">滚动效果</a></p>

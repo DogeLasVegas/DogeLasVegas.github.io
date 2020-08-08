@@ -229,21 +229,21 @@
               </p>
             
             <article class="markdown-body">
-              <p>如果把div的样式设置为<code>display:inline-block</code>并且标签换行的话，同一行内排列的div之间就会出现一道缝隙，不管你设置<code>margin:0;padding:0;border:0;</code>缝隙都不会消失。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>如果把div的样式设置为<code>display:inline-block</code>并且标签换行的话，同一行内排列的div之间就会出现一道缝隙，不管你设置<code>margin:0;padding:0;border:0;</code>缝隙都不会消失。</p>
 <p>就像这样：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
 <p><strong>解决办法1</strong></p>
-<pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span>&#123;<span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;&#125;</code></pre>
+<div class="hljs"><pre><code class="hljs CSS"><span class="hljs-selector-tag">div</span>&#123;<span class="hljs-attribute">margin</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">padding</span>:<span class="hljs-number">0</span>;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">0</span>;&#125;</code></pre></div>
 
 <p>就是给div加上一条CSS<code>font-size: 0;</code></p>
 <p>但是此时会出现新问题，就是div内的字体会消失，这个的解决办法就是在这个div内添加子元素，然后为子元素加font-size属性。</p>
 <p><strong>解决办法2</strong></p>
 <p>在每个div后面加上注释</p>
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: blue;"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: blue;"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!--
             1--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: darkorange;"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!--
             2--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: violet;"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!--
             3--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: seagreen;"</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!--
-            4--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: blue;"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+            4--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: blue;"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 
             </article>

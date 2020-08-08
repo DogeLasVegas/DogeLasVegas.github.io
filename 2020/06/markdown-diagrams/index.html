@@ -229,39 +229,39 @@
               </p>
             
             <article class="markdown-body">
-              <h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><pre><code class="hljs coq">mermaid
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
 graph LR
 A[方形] --&gt;B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]
     C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]
-    F[横向流程图]</code></pre>
+    F[横向流程图]</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs mermaid">graph LR
+<div class="hljs"><pre><code class="hljs mermaid">graph LR
 A[方形] --&gt;B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt;|a&#x3D;1| D[结果1]
     C --&gt;|a&#x3D;2| E[结果2]
-    F[横向流程图]</code></pre>
+    F[横向流程图]</code></pre></div>
 
-<h3 id="2、竖向流程图源码格式："><a href="#2、竖向流程图源码格式：" class="headerlink" title="2、竖向流程图源码格式："></a>2、竖向流程图源码格式：</h3><pre><code class="hljs coq">mermaid
+<h3 id="2、竖向流程图源码格式："><a href="#2、竖向流程图源码格式：" class="headerlink" title="2、竖向流程图源码格式："></a>2、竖向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
 graph TD
 A[方形] --&gt; B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]
     C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]
-    F[竖向流程图]</code></pre>
+    F[竖向流程图]</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs mermaid">graph TD
+<div class="hljs"><pre><code class="hljs mermaid">graph TD
 A[方形] --&gt; B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt; |a&#x3D;1| D[结果1]
     C --&gt; |a&#x3D;2| E[结果2]
-    F[竖向流程图]</code></pre>
+    F[竖向流程图]</code></pre></div>
 
-<h3 id="3、标准流程图源码格式："><a href="#3、标准流程图源码格式：" class="headerlink" title="3、标准流程图源码格式："></a>3、标准流程图源码格式：</h3><pre><code class="hljs livescript">flow
+<h3 id="3、标准流程图源码格式："><a href="#3、标准流程图源码格式：" class="headerlink" title="3、标准流程图源码格式："></a>3、标准流程图源码格式：</h3><div class="hljs"><pre><code class="hljs livescript">flow
 st=&gt;start: 开始框
 op=&gt;operation: 处理框
 cond=&gt;condition: 判断框(是或否?)
@@ -270,10 +270,10 @@ io=&gt;inputoutput: 输入输出框
 e=&gt;end: 结束框
 st-&gt;op-&gt;cond
 cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io-&gt;e
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre>
+cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
+<div class="hljs"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
 op&#x3D;&gt;operation: 处理框
 cond&#x3D;&gt;condition: 判断框(是或否?)
 sub1&#x3D;&gt;subroutine: 子流程
@@ -281,9 +281,9 @@ io&#x3D;&gt;inputoutput: 输入输出框
 e&#x3D;&gt;end: 结束框
 st-&gt;op-&gt;cond
 cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op</code></pre>
+cond(no)-&gt;sub1(right)-&gt;op</code></pre></div>
 
-<h3 id="4、标准流程图源码格式（横向）："><a href="#4、标准流程图源码格式（横向）：" class="headerlink" title="4、标准流程图源码格式（横向）："></a>4、标准流程图源码格式（横向）：</h3><pre><code class="hljs livescript">flow
+<h3 id="4、标准流程图源码格式（横向）："><a href="#4、标准流程图源码格式（横向）：" class="headerlink" title="4、标准流程图源码格式（横向）："></a>4、标准流程图源码格式（横向）：</h3><div class="hljs"><pre><code class="hljs livescript">flow
 st=&gt;start: 开始框
 op=&gt;operation: 处理框
 cond=&gt;condition: 判断框(是或否?)
@@ -292,10 +292,10 @@ io=&gt;inputoutput: 输入输出框
 e=&gt;end: 结束框
 st<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>cond
 cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io<span class="hljs-function"><span class="hljs-params">(bottom)</span>-&gt;</span>e
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre>
+cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
+<div class="hljs"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
 op&#x3D;&gt;operation: 处理框
 cond&#x3D;&gt;condition: 判断框(是或否?)
 sub1&#x3D;&gt;subroutine: 子流程
@@ -303,23 +303,23 @@ io&#x3D;&gt;inputoutput: 输入输出框
 e&#x3D;&gt;end: 结束框
 st(right)-&gt;op(right)-&gt;cond
 cond(yes)-&gt;io(bottom)-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op</code></pre>
+cond(no)-&gt;sub1(right)-&gt;op</code></pre></div>
 
-<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><pre><code class="hljs routeros">sequence
+<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><div class="hljs"><pre><code class="hljs routeros">sequence
 对象A-&gt;对象B: 对象B你好吗?（请求）<span class="hljs-built_in">
 Note </span>right of 对象B: 对象B的描述<span class="hljs-built_in">
 Note </span>left of 对象A: 对象A的描述(提示)
 对象B--&gt;对象A: 我很好(响应)
-对象A-&gt;对象B: 你真的好吗？</code></pre>
+对象A-&gt;对象B: 你真的好吗？</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
+<div class="hljs"><pre><code class="hljs sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
 Note right of 对象B: 对象B的描述
 Note left of 对象A: 对象A的描述(提示)
 对象B--&gt;对象A: 我很好(响应)
-对象A-&gt;对象B: 你真的好吗？</code></pre>
+对象A-&gt;对象B: 你真的好吗？</code></pre></div>
 
-<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><pre><code class="hljs routeros">sequence
+<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><div class="hljs"><pre><code class="hljs routeros">sequence
 Title: 标题：复杂使用
 对象A-&gt;对象B: 对象B你好吗?（请求）<span class="hljs-built_in">
 Note </span>right of 对象B: 对象B的描述<span class="hljs-built_in">
@@ -330,10 +330,10 @@ Note </span>left of 对象A: 对象A的描述(提示)
 对象A-&gt;对象B: 你真的好吗？<span class="hljs-built_in">
 Note </span>over 小三,对象B: 我们是朋友
 participant C<span class="hljs-built_in">
-Note </span>right of C: 没人陪我玩</code></pre>
+Note </span>right of C: 没人陪我玩</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+<div class="hljs"><pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
     participant 李四
@@ -344,9 +344,9 @@ Note </span>right of C: 没人陪我玩</code></pre>
     Note right of 王五: 合理 食物 &lt;br&#x2F;&gt;看医生...
     李四--&gt;&gt;张三: 很好!
     王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre>
+    李四--&gt;王五: 很好!</code></pre></div>
 
-<h3 id="7、UML标准时序图样例："><a href="#7、UML标准时序图样例：" class="headerlink" title="7、UML标准时序图样例："></a>7、UML标准时序图样例：</h3><pre><code class="hljs coq">mermaid
+<h3 id="7、UML标准时序图样例："><a href="#7、UML标准时序图样例：" class="headerlink" title="7、UML标准时序图样例："></a>7、UML标准时序图样例：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
 %% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
@@ -358,10 +358,10 @@ Note </span>right of C: 没人陪我玩</code></pre>
     Note <span class="hljs-built_in">right</span> of 王五: 合理 食物 &lt;br/&gt;看医生...
     李四--&gt;&gt;张三: 很好!
     王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre>
+    李四--&gt;王五: 很好!</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+<div class="hljs"><pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
     participant 李四
@@ -372,9 +372,9 @@ Note </span>right of C: 没人陪我玩</code></pre>
     Note right of 王五: 合理 食物 &lt;br&#x2F;&gt;看医生...
     李四--&gt;&gt;张三: 很好!
     王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre>
+    李四--&gt;王五: 很好!</code></pre></div>
 
-<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><pre><code class="hljs angelscript">mermaid
+<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><div class="hljs"><pre><code class="hljs angelscript">mermaid
 %% 语法示例
         gantt
         dateFormat  YYYY-MM-DD
@@ -393,10 +393,10 @@ Note </span>right of C: 没人陪我玩</code></pre>
         section 测试
         功能测试                              :active, a1, after des3, <span class="hljs-number">3</span>d
         压力测试                               :after a1  , <span class="hljs-number">20</span>h
-        测试报告                               : <span class="hljs-number">48</span>h</code></pre>
+        测试报告                               : <span class="hljs-number">48</span>h</code></pre></div>
 
 <p><strong>效果图：</strong></p>
-<pre><code class="hljs mermaid">%% 语法示例
+<div class="hljs"><pre><code class="hljs mermaid">%% 语法示例
         gantt
         dateFormat  YYYY-MM-DD
         title 软件开发甘特图
@@ -414,7 +414,7 @@ Note </span>right of C: 没人陪我玩</code></pre>
         section 测试
         功能测试                              :active, a1, after des3, 3d
         压力测试                               :after a1  , 20h
-        测试报告                               : 48h</code></pre>
+        测试报告                               : 48h</code></pre></div>
 
 <h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="https://www.runoob.com/markdown/md-advance.html" target="_blank" rel="noopener">Markdown 高级技巧-笔记</a></p>
 

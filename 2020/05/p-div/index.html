@@ -229,18 +229,18 @@
               </p>
             
             <article class="markdown-body">
-              <p>这是很久以前写网页碰到的事了，当时查到解决方法以后就草草过去了，今天突然想起来觉得还是记一下比较好。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>这是很久以前写网页碰到的事了，当时查到解决方法以后就草草过去了，今天突然想起来觉得还是记一下比较好。</p>
 <p>复现一下当时的问题：</p>
 <p>我在一个<code>&lt;p&gt;</code>内放了一个<code>&lt;div&gt;</code>标签，代码是这么写的：</p>
-<pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span>&gt;</span> 这是最外面的一个div，套个颜色好区分
+<div class="hljs"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span>&gt;</span> 这是最外面的一个div，套个颜色好区分
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 这是一个p标签
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>这是p标签里面包含的div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>CSS是这么写的：</p>
-<pre><code class="hljs CSS"><span class="hljs-selector-id">#test</span> &#123;
+<div class="hljs"><pre><code class="hljs CSS"><span class="hljs-selector-id">#test</span> &#123;
 	<span class="hljs-attribute">height</span>:<span class="hljs-number">500px</span>;
 	<span class="hljs-attribute">width</span>:<span class="hljs-number">600px</span>;
 	<span class="hljs-attribute">background-color</span>:yellow;
@@ -254,7 +254,7 @@
 	<span class="hljs-attribute">height</span>:<span class="hljs-number">50px</span>;
 	<span class="hljs-attribute">width</span>:<span class="hljs-number">80px</span>;
 	<span class="hljs-attribute">background-color</span>:blue;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>然后当我在浏览器里打开这个网页的时候，发现显示出来是这个样的：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>

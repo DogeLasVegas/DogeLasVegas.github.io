@@ -229,16 +229,16 @@
               </p>
             
             <article class="markdown-body">
-              <p>在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。</p>
+              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jquery，而按钮被点击时的行为是通过jquery的函数定义的。由于众所周知的原因，我们没法直接访问谷歌CDN。这就导致按钮失效，我们无法通过点击按钮获取下载链接。</p>
 <h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在浏览器中按F12或者鼠标右键检查，打开控制台，点击“console”一项，然后在下面输入以下代码：</p>
-<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">genFileURL</span><span class="hljs-params">(LATEST_VERSION_WIN, <span class="hljs-string">"zh"</span>, <span class="hljs-string">"exe"</span>)</span></span></code></pre>
+<div class="hljs"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">genFileURL</span><span class="hljs-params">(LATEST_VERSION_WIN, <span class="hljs-string">"zh"</span>, <span class="hljs-string">"exe"</span>)</span></span></code></pre></div>
 
 <p>如果是Mac用户，把<code>LATEST_VERSION_WIN</code>改成<code>LATEST_VERSION_MAC</code>，把<code>exe</code>改成<code>pkg</code>；</p>
 <p>如果想用日文版、英文版，把zh改成jp或者en然后回车，把返回的链接放到浏览器地址栏里就能下载最新的Live2D安装包。</p>
 <p>如果要下载以前版本的安装包，只要把上面的<code>LATEST_VERSION_XXX</code>改成<code>OLDER_VERSIONS_XXX</code>，然后在后面加一个英文的点，控制台就会列出之前可下载的版本，然后移动方向键选择，按回车键确认。</p>
 <p>最后完整命令看起来像是这样：</p>
-<pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">genFileURL</span><span class="hljs-params">(OLDER_VERSIONS_WIN.v4_00_02,<span class="hljs-string">"zh"</span>,<span class="hljs-string">"exe"</span>)</span></span></code></pre>
+<div class="hljs"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">genFileURL</span><span class="hljs-params">(OLDER_VERSIONS_WIN.v4_00_02,<span class="hljs-string">"zh"</span>,<span class="hljs-string">"exe"</span>)</span></span></code></pre></div>
 
 <p>再按一次回车就可以看到下载链接了。</p>
 
