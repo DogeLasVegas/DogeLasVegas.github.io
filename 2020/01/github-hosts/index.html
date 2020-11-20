@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      249 字
+      674 字
     </span>
   
 
@@ -229,7 +229,7 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>GitHub有时候不知道为什么会抽风打不开，为了能愉快地上去瞎逛，我特意在此记下通过修改hosts来打开网站：</p>
+              <h3 id="修改hosts访问GH"><a href="#修改hosts访问GH" class="headerlink" title="修改hosts访问GH"></a>修改hosts访问GH</h3><p>GitHub有时候不知道为什么会抽风打不开，为了能愉快地上去瞎逛，我特意在此记下通过修改hosts来打开网站：</p>
 <div class="hljs"><pre><code class="hljs accesslog">
 # GitHub Start
 <span class="hljs-number">13.250.177.223</span> github.com
@@ -254,18 +254,60 @@
 
 <p><strong>PS：</strong>有时候上面的hosts也不好用，要自己现去查一下网站的IP，然后把原来的注释掉添加上新查的。</p>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>gist.github.com 被墙无法访问解决办法</strong><br>windows下 打开C:\Windows\System32\drivers\etc\hosts文件<br>编辑器打开，在最后行添加192.30.253.118 gist.github.com</p>
+<h3 id="另一个不记得出处的方法"><a href="#另一个不记得出处的方法" class="headerlink" title="另一个不记得出处的方法"></a>另一个不记得出处的方法</h3><h4 id="2-1-复制下面的内容"><a href="#2-1-复制下面的内容" class="headerlink" title="2.1 复制下面的内容"></a>2.1 复制下面的内容</h4><div class="hljs"><pre><code class="hljs accesslog"># GitHub520 Host Start
+<span class="hljs-number">185.199.108.154</span>               github.githubassets.com
+<span class="hljs-number">199.232.68.133</span>                camo.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                github.map.fastly.net
+<span class="hljs-number">199.232.69.194</span>                github.global.ssl.fastly.net
+<span class="hljs-number">140.82.112.3</span>                  github.com
+<span class="hljs-number">140.82.114.5</span>                  api.github.com
+<span class="hljs-number">199.232.68.133</span>                raw.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                user-images.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                favicons.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars5.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars4.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars3.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars2.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars1.githubusercontent.com
+<span class="hljs-number">199.232.68.133</span>                avatars0.githubusercontent.com
+# Star me GitHub url: https://github.com/521xueweihan/GitHub520
+# GitHub520 Host End</code></pre></div>
+
+<p>上面内容会自动定时更新，保证最新有效。数据更新时间：2020-08-14T08:37:38+08:00（内容无变动不会更新）</p>
+<h4 id="2-1-手动方式"><a href="#2-1-手动方式" class="headerlink" title="2.1 手动方式"></a>2.1 手动方式</h4><h5 id="2-1-1-修改-hosts-文件"><a href="#2-1-1-修改-hosts-文件" class="headerlink" title="2.1.1 修改 hosts 文件"></a>2.1.1 修改 hosts 文件</h5><p>hosts 文件在每个系统的位置不一，详情如下：</p>
+<ul>
+<li>Windows 系统：<code>C:\Windows\System32\drivers\etc\hosts</code></li>
+<li>Linux 系统：<code>/etc/hosts</code></li>
+<li>Mac（苹果电脑）系统：<code>/etc/hosts</code></li>
+<li>Android（安卓）系统：<code>/system/etc/hosts</code></li>
+<li>iPhone（iOS）系统：<code>/etc/hosts</code></li>
+</ul>
+<p>修改方法，把第一步的内容复制到文本末尾：</p>
+<ol>
+<li>Windows 使用记事本。</li>
+<li>Linux、Mac 使用 Root 权限：<code>sudo vi /etc/hosts</code>。</li>
+<li>iPhone、iPad 须越狱、Android 必须要 root。</li>
+</ol>
+<h5 id="2-1-2-激活生效"><a href="#2-1-2-激活生效" class="headerlink" title="2.1.2 激活生效"></a>2.1.2 激活生效</h5><p>大部分情况下是直接生效，如未生效可尝试下面的办法，刷新 DNS：</p>
+<ol>
+<li>Windows：在 CMD 窗口输入：<code>ipconfig /flushdns</code></li>
+<li>Linux 命令：<code>sudo rcnscd restart</code></li>
+<li>Mac 命令：<code>sudo killall -HUP mDNSResponder</code></li>
+</ol>
+<p>Tips： 上述方法无效可以尝试重启机器。</p>
+<h4 id="2-2-自动方式"><a href="#2-2-自动方式" class="headerlink" title="2.2 自动方式"></a>2.2 自动方式</h4><p>Tip：推荐 <a href="https://github.com/oldj/SwitchHosts" target="_blank" rel="noopener">SwitchHosts</a> 工具管理 hosts</p>
+<p>以 SwitchHosts 为例，看一下怎么使用的，配置参考下面：</p>
+<ul>
+<li>Title: 随意</li>
+<li>Type: <code>Remote</code></li>
+<li>URL: <code>https://gitee.com/xueweihan/codes/6g793pm2k1hacwfbyesl464/raw?blob_name=GitHub520.yml</code></li>
+<li>Auto Refresh: 最好选 <code>1 hour</code></li>
+</ul>
 
             </article>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/GitHub/">GitHub</a>
-                    
-                  </div>
                 
                 
                   <div class="post-meta">
