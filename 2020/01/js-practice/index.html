@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.2k 字
     </span>
   
 
@@ -229,10 +229,10 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="数字判断："><a href="#数字判断：" class="headerlink" title="数字判断："></a>数字判断：</h2><h3 id="给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出"><a href="#给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出" class="headerlink" title="给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出"></a>给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出</h3><p><strong>思路：</strong><br>判断是否为一个数字：Number(num)结果不为NaN，说明为数字<br>判断一个数字为正数：Number(num)&gt;0为正数<br>判断一个数字为整数：parseInt(num)==parseFloat(num)，不是小数</p>
+              <h2 id="数字判断："><a href="#数字判断：" class="headerlink" title="数字判断："></a>数字判断：</h2><h3 id="给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出"><a href="#给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出" class="headerlink" title="给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出"></a>给出一个不低于两位的数字，判断是否是正整数，如果是将此数字反向输出</h3><p><strong>思路：</strong><br>判断是否为一个数字：Number(num)结果不为NaN，说明为数字<br>判断一个数字为正数：Number(num)&gt;0为正数<br>判断一个数字为整数：parseInt(num)==parseFloat(num)，不是小数</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> num;
 <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)&#123;
-  num=prompt(<span class="hljs-string">""</span>);
+  num=prompt(<span class="hljs-string">&quot;&quot;</span>);
 <span class="hljs-comment">//        Number(num)&gt;0  肯定为正数</span>
 <span class="hljs-comment">//        parseInt(num)==parseFloat(num)  肯定不是小数</span>
   <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Number</span>(num)&gt;<span class="hljs-number">0</span>&amp;&amp;<span class="hljs-built_in">parseInt</span>(num)==<span class="hljs-built_in">parseFloat</span>(num)) &#123;
@@ -245,14 +245,14 @@
   num=<span class="hljs-built_in">parseInt</span>(num/<span class="hljs-number">10</span>);
 &#125;</code></pre></div>
 
-<h2 id="日期判断："><a href="#日期判断：" class="headerlink" title="日期判断："></a>日期判断：</h2><h3 id="判断是否是闰年"><a href="#判断是否是闰年" class="headerlink" title="判断是否是闰年"></a>判断是否是闰年</h3><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year=prompt(<span class="hljs-string">"输入年份"</span>);
-<span class="hljs-built_in">document</span>.write(year%<span class="hljs-number">4</span>==<span class="hljs-number">0</span>&amp;&amp;year%<span class="hljs-number">100</span>!=<span class="hljs-number">0</span>||year%<span class="hljs-number">400</span>==<span class="hljs-number">0</span>?<span class="hljs-string">"是闰年"</span>:<span class="hljs-string">"不是闰年"</span>);</code></pre></div>
+<h2 id="日期判断："><a href="#日期判断：" class="headerlink" title="日期判断："></a>日期判断：</h2><h3 id="判断是否是闰年"><a href="#判断是否是闰年" class="headerlink" title="判断是否是闰年"></a>判断是否是闰年</h3><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year=prompt(<span class="hljs-string">&quot;输入年份&quot;</span>);
+<span class="hljs-built_in">document</span>.write(year%<span class="hljs-number">4</span>==<span class="hljs-number">0</span>&amp;&amp;year%<span class="hljs-number">100</span>!=<span class="hljs-number">0</span>||year%<span class="hljs-number">400</span>==<span class="hljs-number">0</span>?<span class="hljs-string">&quot;是闰年&quot;</span>:<span class="hljs-string">&quot;不是闰年&quot;</span>);</code></pre></div>
 
 <h3 id="输入年月日，判断这一天是这一年的第几天"><a href="#输入年月日，判断这一天是这一年的第几天" class="headerlink" title="输入年月日，判断这一天是这一年的第几天"></a>输入年月日，判断这一天是这一年的第几天</h3><p>下面两种方法都假设当年是平年，即2月28天。</p>
 <p>方法一：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入年份"</span>));
-<span class="hljs-keyword">var</span> month = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入月份"</span>));
-<span class="hljs-keyword">var</span> day = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入日期"</span>));
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入年份&quot;</span>));
+<span class="hljs-keyword">var</span> month = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入月份&quot;</span>));
+<span class="hljs-keyword">var</span> day = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入日期&quot;</span>));
   <span class="hljs-comment">/*假设都是平年，2月28天*/</span>
 <span class="hljs-keyword">var</span> sum=<span class="hljs-number">0</span>;
 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>;i&lt;month;i++)&#123;
@@ -269,15 +269,15 @@
 &#125;<span class="hljs-keyword">else</span>&#123;
   sum+=day;
 &#125;
-<span class="hljs-built_in">document</span>.write(<span class="hljs-string">"您输入的"</span>+year+<span class="hljs-string">"-"</span>+month+<span class="hljs-string">"-"</span>+day+<span class="hljs-string">"为该年的第"</span>+sum+<span class="hljs-string">"天"</span>);</code></pre></div>
+<span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;您输入的&quot;</span>+year+<span class="hljs-string">&quot;-&quot;</span>+month+<span class="hljs-string">&quot;-&quot;</span>+day+<span class="hljs-string">&quot;为该年的第&quot;</span>+sum+<span class="hljs-string">&quot;天&quot;</span>);</code></pre></div>
 
 <p>方法二：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入年份"</span>));
-<span class="hljs-keyword">var</span> month = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入月份"</span>));
-<span class="hljs-keyword">var</span> day = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入日期"</span>));
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> year = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入年份&quot;</span>));
+<span class="hljs-keyword">var</span> month = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入月份&quot;</span>));
+<span class="hljs-keyword">var</span> day = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">&quot;请输入日期&quot;</span>));
     <span class="hljs-comment">/*假设都是平年，2月28天*/</span>
 <span class="hljs-keyword">var</span> sum=<span class="hljs-number">0</span>;
-<span class="hljs-keyword">switch</span> (month<span class="hljs-number">-1</span>)&#123;
+<span class="hljs-keyword">switch</span> (month-<span class="hljs-number">1</span>)&#123;
     <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:          <span class="hljs-comment">//每个case后没有break，可以实现天数的累加</span>
       sum+=<span class="hljs-number">30</span>;
     <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>:
@@ -308,7 +308,7 @@
 &#125;<span class="hljs-keyword">else</span>&#123;
     sum+=day;
 &#125;
-<span class="hljs-built_in">document</span>.write(<span class="hljs-string">"您输入的"</span>+year+<span class="hljs-string">"-"</span>+month+<span class="hljs-string">"-"</span>+day+<span class="hljs-string">"为该年的第"</span>+sum+<span class="hljs-string">"天"</span>);</code></pre></div>
+<span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;您输入的&quot;</span>+year+<span class="hljs-string">&quot;-&quot;</span>+month+<span class="hljs-string">&quot;-&quot;</span>+day+<span class="hljs-string">&quot;为该年的第&quot;</span>+sum+<span class="hljs-string">&quot;天&quot;</span>);</code></pre></div>
 
 <h2 id="图形输出："><a href="#图形输出：" class="headerlink" title="图形输出："></a>图形输出：</h2><h3 id="利用嵌套循环输出以下图形："><a href="#利用嵌套循环输出以下图形：" class="headerlink" title="利用嵌套循环输出以下图形："></a>利用嵌套循环输出以下图形：</h3><table>
 <thead>
@@ -329,65 +329,65 @@
 <p><strong>思路：</strong><br>1、确定图形一共几行，即为外层的循环次数<br>2、确定每行有几种元素，代表有几个内层循环<br>3、确定每种元素的个数，即为每个内层循环的次数</p>
 <p><strong>通常，找出每种元素个数，与行号的关系式，即为当前内层循环的最大值（从1开始循环）</strong></p>
 <p><strong>长方形：</strong></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">"长方形"</span>+<span class="hljs-string">"&lt;br /&gt;"</span>);
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;长方形&quot;</span>+<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 <span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">5</span>;i++) &#123;
   <span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">4</span>;j++) &#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"*"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;*&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br /&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 &#125;</code></pre></div>
 
 <p><strong>直角三角形：</strong></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">"三角形"</span>+<span class="hljs-string">"&lt;br /&gt;"</span>);
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;三角形&quot;</span>+<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 <span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">5</span>;i++) &#123;
   <span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>;j&lt;=i;j++) &#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"*"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;*&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br /&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 &#125;</code></pre></div>
 
 <p><strong>平行四边形：</strong></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">"平行四边形"</span>+<span class="hljs-string">"&lt;br /&gt;"</span>);
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;平行四边形&quot;</span>+<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 <span class="hljs-keyword">for</span> (i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">5</span>;i++) &#123;
   <span class="hljs-keyword">for</span> (n=<span class="hljs-number">1</span>;n&lt;=i;n++) &#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&amp;nbsp;"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&amp;nbsp;&quot;</span>);
   &#125;
   <span class="hljs-keyword">for</span> (j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">5</span>;j++) &#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"*"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;*&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br /&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 &#125;</code></pre></div>
 
 <p><strong>菱形：</strong></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">"菱形"</span>+<span class="hljs-string">"&lt;br /&gt;"</span>);
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;菱形&quot;</span>+<span class="hljs-string">&quot;&lt;br /&gt;&quot;</span>);
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">4</span>;i++) &#123;
   <span class="hljs-comment">//输出空格</span>
   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> k=<span class="hljs-number">1</span>;k&lt;=<span class="hljs-number">4</span>-i;k++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;span style='display: inline-block;width: 7px;'&gt;&lt;/span&gt;"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;span style=&#x27;display: inline-block;width: 7px;&#x27;&gt;&lt;/span&gt;&quot;</span>);
   &#125;
   <span class="hljs-comment">//输出*</span>
-  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">2</span>*i<span class="hljs-number">-1</span>;j++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"*"</span>);
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">2</span>*i-<span class="hljs-number">1</span>;j++)&#123;
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;*&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br/&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br/&gt;&quot;</span>);
 &#125;
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">3</span>;i++) &#123;
   <span class="hljs-comment">//输出空格</span>
   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> k=<span class="hljs-number">1</span>;k&lt;=i;k++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;span style='display: inline-block;width: 7px;'&gt;&lt;/span&gt;"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;span style=&#x27;display: inline-block;width: 7px;&#x27;&gt;&lt;/span&gt;&quot;</span>);
   &#125;
   <span class="hljs-comment">//输出*</span>
-  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">7</span><span class="hljs-number">-2</span>*i;j++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"*"</span>);
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">1</span>;j&lt;=<span class="hljs-number">7</span>-<span class="hljs-number">2</span>*i;j++)&#123;
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;*&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br/&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br/&gt;&quot;</span>);
 &#125;</code></pre></div>
 
 <h3 id="打印数字等边三角形："><a href="#打印数字等边三角形：" class="headerlink" title="打印数字等边三角形："></a>打印数字等边三角形：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;121<br>&nbsp;&nbsp;&nbsp;&nbsp;12321<br>&nbsp;&nbsp;&nbsp;1234321<br>&nbsp;&nbsp;123454321<br>12345654321</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">4</span>;i++)&#123;
   <span class="hljs-comment">// 空格</span>
   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> k=<span class="hljs-number">1</span>;k&lt;=<span class="hljs-number">4</span>-i;k++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;span style='display: inline-block;width: 8px;'&gt;&lt;/span&gt;"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;span style=&#x27;display: inline-block;width: 8px;&#x27;&gt;&lt;/span&gt;&quot;</span>);
   &#125;
   <span class="hljs-keyword">var</span> n = <span class="hljs-number">1</span>;
   <span class="hljs-comment">// 递增</span>
@@ -397,25 +397,25 @@
   &#125;
   n-=<span class="hljs-number">2</span>;
   <span class="hljs-comment">// 递减</span>
-  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> m=<span class="hljs-number">1</span>;m&lt;=i<span class="hljs-number">-1</span>;m++)&#123;
+  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> m=<span class="hljs-number">1</span>;m&lt;=i-<span class="hljs-number">1</span>;m++)&#123;
     <span class="hljs-built_in">document</span>.write(n);
     n--;
   &#125;
   <span class="hljs-comment">// 换行</span>
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br/&gt;"</span>);
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br/&gt;&quot;</span>);
  &#125;</code></pre></div>
 
 <h3 id="九九乘法表："><a href="#九九乘法表：" class="headerlink" title="九九乘法表："></a>九九乘法表：</h3><p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;table width='700'&gt;"</span>)
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;table width=&#x27;700&#x27;&gt;&quot;</span>)
 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">9</span>;i++)&#123;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;tr&gt;"</span>)
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;tr&gt;&quot;</span>)
   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">1</span>;j&lt;=i;j++)&#123;
-    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;td&gt;"</span>+i+<span class="hljs-string">"*"</span>+j+<span class="hljs-string">"="</span>+i*j+<span class="hljs-string">"&lt;/td&gt;"</span>);
+    <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;td&gt;&quot;</span>+i+<span class="hljs-string">&quot;*&quot;</span>+j+<span class="hljs-string">&quot;=&quot;</span>+i*j+<span class="hljs-string">&quot;&lt;/td&gt;&quot;</span>);
   &#125;
-  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;/tr&gt;"</span>)
+  <span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;/tr&gt;&quot;</span>)
 &#125;
-<span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;/table&gt;"</span>)
-<span class="hljs-built_in">document</span>.write(<span class="hljs-string">"&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;"</span>);</code></pre></div>
+<span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;/table&gt;&quot;</span>)
+<span class="hljs-built_in">document</span>.write(<span class="hljs-string">&quot;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&quot;</span>);</code></pre></div>
             </article>
             <hr>
             <div>
@@ -432,15 +432,15 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
-                    
                       <a class="hover-with-bg" href="/tags/JS/">JS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

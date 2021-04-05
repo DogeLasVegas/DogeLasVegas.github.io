@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      3.4k 字
     </span>
   
 
@@ -229,7 +229,7 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>npm 官方站点 <a href="http://www.npmjs.org/" target="_blank" rel="noopener">http://www.npmjs.org/</a> 虽然没有被墙，但是下载第三方依赖包是从国外服务器下载，下载的速度是非常慢让人着急不说还有可能会出现异常。</p>
+              <p>npm 官方站点 <a target="_blank" rel="noopener" href="http://www.npmjs.org/">http://www.npmjs.org/</a> 虽然没有被墙，但是下载第三方依赖包是从国外服务器下载，下载的速度是非常慢让人着急不说还有可能会出现异常。</p>
 <h2 id="切换npm源的几种方式"><a href="#切换npm源的几种方式" class="headerlink" title="切换npm源的几种方式"></a>切换npm源的几种方式</h2><h4 id="通过使用cnpm命令"><a href="#通过使用cnpm命令" class="headerlink" title="通过使用cnpm命令"></a>通过使用cnpm命令</h4><p>首先安装cnpm命令行工具</p>
 <div class="hljs"><pre><code class="hljs bash">npm install -g cnpm --registry=https://registry.npm.taobao.org</code></pre></div>
 
@@ -238,38 +238,38 @@
 
 <p>安装成功之后，以后安装依赖包的方式和npm是一样的，只是把npm命令换成cnpm就可以了。</p>
 <p>如果已经习惯了用npm安装，不想用cnpm的话，也不是没有办法，只要直接把源换掉就好了，下面有三种方法可以换源：</p>
-<h4 id="通过config配置国内镜像源"><a href="#通过config配置国内镜像源" class="headerlink" title="通过config配置国内镜像源"></a>通过config配置国内镜像源</h4><div class="hljs"><pre><code class="hljs arduino">npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">set</span> registry https:<span class="hljs-comment">//registry.npm.taobao.org</span></code></pre></div>
+<h4 id="通过config配置国内镜像源"><a href="#通过config配置国内镜像源" class="headerlink" title="通过config配置国内镜像源"></a>通过config配置国内镜像源</h4><div class="hljs"><pre><code class="hljs arduino">npm config set registry https:<span class="hljs-comment">//registry.npm.taobao.org </span></code></pre></div>
 
 <h4 id="通过-npm-命令指定下载源"><a href="#通过-npm-命令指定下载源" class="headerlink" title="通过 npm 命令指定下载源"></a>通过 npm 命令指定下载源</h4><p>注意：这种方式只会在当次下载中生效</p>
-<div class="hljs"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install 你要下载的包名 --registry https:<span class="hljs-regexp">//</span>registry.<span class="hljs-built_in">npm</span>.taobao.org</code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">npm install 你要下载的包名 --registry https:<span class="hljs-regexp">//</span>registry.npm.taobao.org</code></pre></div>
 
 <p>如：</p>
 <div class="hljs"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g @vue<span class="hljs-regexp">/cli --registry https:/</span>/registry.<span class="hljs-built_in">npm</span>.taobao.org</code></pre></div>
 
 <h4 id="编辑配置文件-npmrc-添加源地址"><a href="#编辑配置文件-npmrc-添加源地址" class="headerlink" title="编辑配置文件 ~/.npmrc 添加源地址"></a>编辑配置文件 ~/.npmrc 添加源地址</h4><p>打开.npmrc文件（通常位于C:\Program Files\nodejs\node_modules\npm.npmrc），写入下面的内容：</p>
-<div class="hljs"><pre><code class="hljs groovy">registry = <span class="hljs-string">https:</span><span class="hljs-comment">//registry.npm.taobao.org</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">registry = https:<span class="hljs-regexp">//</span>registry.npm.taobao.org</code></pre></div>
 
 <h4 id="检查是否更换成功"><a href="#检查是否更换成功" class="headerlink" title="检查是否更换成功"></a>检查是否更换成功</h4><div class="hljs"><pre><code class="hljs routeros">npm<span class="hljs-built_in"> config </span>list
 或
 npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">get</span> registery</code></pre></div>
 
 <p>输出结果是：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
-<h4 id="还原为npm源"><a href="#还原为npm源" class="headerlink" title="还原为npm源"></a>还原为npm源</h4><div class="hljs"><pre><code class="hljs arduino">npm <span class="hljs-built_in">config</span> <span class="hljs-built_in">set</span> registry https:<span class="hljs-comment">//registry.npmjs.org/</span></code></pre></div>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif"></p>
+<h4 id="还原为npm源"><a href="#还原为npm源" class="headerlink" title="还原为npm源"></a>还原为npm源</h4><div class="hljs"><pre><code class="hljs arduino">npm config set registry https:<span class="hljs-comment">//registry.npmjs.org/</span></code></pre></div>
 
 <h2 id="npm常用命令"><a href="#npm常用命令" class="headerlink" title="npm常用命令"></a>npm常用命令</h2><h4 id="npm-install-安装模块"><a href="#npm-install-安装模块" class="headerlink" title="npm install 安装模块"></a>npm install 安装模块</h4><p>最普通的一条安装命令：</p>
 <div class="hljs"><pre><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install @vue/cli</code></pre></div>
 
 <p>安装指定版本</p>
-<div class="hljs"><pre><code class="hljs angelscript">npm install <span class="hljs-symbol">gulp@</span><span class="hljs-number">3.9</span><span class="hljs-number">.1</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">npm</span> install gulp@<span class="hljs-number">3</span>.<span class="hljs-number">9</span>.<span class="hljs-number">1</span></code></pre></div>
 
 <p><strong>-S, –save 安装包信息将加入到dependencies（生产阶段的依赖）</strong></p>
 <div class="hljs"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> gulp --save 或 npm <span class="hljs-keyword">install</span> gulp -S</code></pre></div>
 
 
 <p>package.json 文件的 dependencies 字段：</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">"dependencies"</span>: &#123;
-    <span class="hljs-string">"gulp"</span>: <span class="hljs-string">"^3.9.1"</span>
+<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot;dependencies&quot;</span>: &#123;
+    <span class="hljs-string">&quot;gulp&quot;</span>: <span class="hljs-string">&quot;^3.9.1&quot;</span>
 &#125;</code></pre></div>
 
 <p><strong>-D, –save-dev 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它</strong></p>
@@ -277,8 +277,8 @@ npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">ge
 
 
 <p>package.json 文件的 devDependencies字段：</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">"devDependencies"</span>: &#123;
-    <span class="hljs-string">"gulp"</span>: <span class="hljs-string">"^3.9.1"</span>
+<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot;devDependencies&quot;</span>: &#123;
+    <span class="hljs-string">&quot;gulp&quot;</span>: <span class="hljs-string">&quot;^3.9.1&quot;</span>
 &#125;</code></pre></div>
 
 <p><strong>-O, –save-optional 安装包信息将加入到optionalDependencies（可选阶段的依赖）</strong></p>
@@ -286,8 +286,8 @@ npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">ge
 
 
 <p>package.json 文件的optionalDependencies字段：</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">"optionalDependencies"</span>: &#123;
-    <span class="hljs-string">"gulp"</span>: <span class="hljs-string">"^3.9.1"</span>
+<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot;optionalDependencies&quot;</span>: &#123;
+    <span class="hljs-string">&quot;gulp&quot;</span>: <span class="hljs-string">&quot;^3.9.1&quot;</span>
 &#125;</code></pre></div>
 
 <p><strong>-E, –save-exact 精确安装指定模块版本</strong></p>
@@ -295,20 +295,20 @@ npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">ge
 
 
 <p>输入命令<code>npm install gulp -ES</code>，留意<code>package.json</code> 文件的 <code>dependencies</code> 字段，以看出版本号中的<strong>^</strong>消失了</p>
-<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">"dependencies"</span>: &#123;
-    <span class="hljs-string">"gulp"</span>: <span class="hljs-string">"3.9.1"</span>
+<div class="hljs"><pre><code class="hljs 1c"><span class="hljs-string">&quot;dependencies&quot;</span>: &#123;
+    <span class="hljs-string">&quot;gulp&quot;</span>: <span class="hljs-string">&quot;3.9.1&quot;</span>
 &#125;</code></pre></div>
 
 
 <p>模块的依赖都被写入了<code>package.json</code>文件后，他人打开项目的根目录（项目开源、内部团队合作），使用<code>npm install</code>命令可以根据<code>dependencies</code>配置安装所有的依赖包。</p>
 <p>根据安装位置不同分为<strong>本地安装（local）</strong>和<strong>全局安装（global）</strong>：</p>
-<div class="hljs"><pre><code class="hljs sql">npm <span class="hljs-keyword">install</span> &lt;<span class="hljs-keyword">package</span>&gt;      <span class="hljs-comment"># 本地安装</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> &lt;package&gt;      <span class="hljs-comment"># 本地安装</span></code></pre></div>
 
-<div class="hljs"><pre><code class="hljs sql">npm <span class="hljs-keyword">install</span> &lt;<span class="hljs-keyword">package</span>&gt; -g   <span class="hljs-comment"># 全局安装,使用 -g 或 --global</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs ada">npm install &lt;<span class="hljs-keyword">package</span>&gt; -g   # 全局安装,使用 -g 或 <span class="hljs-comment">--global</span></code></pre></div>
 
 <p><strong>本地安装（安装到项目）</strong><br>将安装包放在项目的 ./node_modules 下（即运行 npm 命令时所在的目录，项目根目录），包的命令行只能在当前目录下使用，如果在其他目录下运行会提示命令不存在。</p>
 <p>如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录，并将信息保存到项目的package.json文件中。（package.json即每次npm install安装项目依赖包的参照文件。）所以，我们第一次运行项目需要npm install的原因就是：下载所有项目依赖包。</p>
-<p>注意：若在项目过程中需要引入外包，<code>npm install &lt;package&gt;</code>不会将包录入package.json中。只有用<code>npm install &lt;package&gt; --save</code>才会录入。</p>
+<p>注意：若在项目过程中需要引入外包，<code>npm install &lt;package&gt; </code>不会将包录入package.json中。只有用<code>npm install &lt;package&gt; --save</code>才会录入。</p>
 <p><strong>全局安装（安装到环境）</strong><br>将安装包放在 <code>$NODE_HOME/lib/node_modules</code>，包的命令可以直接所有目录里使用。如：安装vue-cli：<code>npm install vue-cli -g</code>，安装完便可在所有目录下直接使用 vue 命令。</p>
 <h4 id="npm-uninstall-卸载模块"><a href="#npm-uninstall-卸载模块" class="headerlink" title="npm uninstall 卸载模块"></a>npm uninstall 卸载模块</h4><p>基础语法</p>
 <div class="hljs"><pre><code class="hljs fsharp">npm uninstall <span class="hljs-meta">[&lt;@scope&gt;/]&lt;pkg&gt;[@&lt;version&gt;]</span>... [-S|--save|-D|--save-dev|-O|--save-optional]</code></pre></div>
@@ -320,10 +320,10 @@ npm<span class="hljs-built_in"> config </span><span class="hljs-builtin-name">ge
 <div class="hljs"><pre><code class="hljs q">npm uninstall gulp --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span></code></pre></div>
 
 <h4 id="npm-update-更新模块"><a href="#npm-update-更新模块" class="headerlink" title="npm update 更新模块"></a>npm update 更新模块</h4><p>基础语法</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">update</span> <span class="hljs-selector-attr">[-g]</span> <span class="hljs-selector-attr">[&lt;pkg&gt;...]</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs css">npm update <span class="hljs-selector-attr">[-g]</span> <span class="hljs-selector-attr">[&lt;pkg&gt;...]</span></code></pre></div>
 
 <h4 id="npm-outdated-检查模块是否已经过时"><a href="#npm-outdated-检查模块是否已经过时" class="headerlink" title="npm outdated 检查模块是否已经过时"></a>npm outdated 检查模块是否已经过时</h4><p>基础语法</p>
-<div class="hljs"><pre><code class="hljs xml">npm outdated [[<span class="hljs-tag">&lt;<span class="hljs-name">@scope</span>&gt;</span>/]<span class="hljs-tag">&lt;<span class="hljs-name">pkg</span>&gt;</span> ...]</code></pre></div>
+<div class="hljs"><pre><code class="hljs bnf">npm outdated [[<span class="hljs-attribute">&lt;@scope&gt;</span>/]<span class="hljs-attribute">&lt;pkg&gt;</span> ...]</code></pre></div>
 
 <p>此命令会列出所有已经过时的包，可以及时进行包的更新。</p>
 <h4 id="npm-ls-查看安装的模块"><a href="#npm-ls-查看安装的模块" class="headerlink" title="npm ls 查看安装的模块"></a>npm ls 查看安装的模块</h4><p>基础语法</p>
@@ -338,9 +338,9 @@ aliase<span class="hljs-variable">s:</span> <span class="hljs-keyword">list</spa
 <h4 id="npm-version-查看模块版本"><a href="#npm-version-查看模块版本" class="headerlink" title="npm version 查看模块版本"></a>npm version 查看模块版本</h4><p>基础语法</p>
 <div class="hljs"><pre><code class="hljs pgsql">npm <span class="hljs-keyword">version</span> [&lt;newversion&gt; | major | minor | patch | premajor | preminor | prepatch | prerelease | <span class="hljs-keyword">from</span>-git]
 
-<span class="hljs-string">'npm [-v | --version]'</span> <span class="hljs-keyword">to</span> print npm <span class="hljs-keyword">version</span>
-<span class="hljs-string">'npm view &lt;pkg&gt; version'</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">view</span> a packag<span class="hljs-string">e's published version
-'</span>npm ls<span class="hljs-string">' to inspect current package/dependency versions</span></code></pre></div>
+<span class="hljs-string">&#x27;npm [-v | --version]&#x27;</span> <span class="hljs-keyword">to</span> print npm <span class="hljs-keyword">version</span>
+<span class="hljs-string">&#x27;npm view &lt;pkg&gt; version&#x27;</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">view</span> a packag<span class="hljs-string">e&#x27;s published version</span>
+<span class="hljs-string">&#x27;</span>npm ls<span class="hljs-string">&#x27; to inspect current package/dependency versions</span></code></pre></div>
 
 <p>查看模块的版本：<code>npm version</code></p>
 <h5 id="模块的版本号"><a href="#模块的版本号" class="headerlink" title="模块的版本号"></a>模块的版本号</h5><p>npm 使用的是一种叫做 semantic version 的规范，它的规则很简单，总结起来就是下面几条：</p>
@@ -378,7 +378,7 @@ aliases: info, show, v</code></pre></div>
 <h4 id="npm-init-在项目中引导创建一个package-json文件"><a href="#npm-init-在项目中引导创建一个package-json文件" class="headerlink" title="npm init 在项目中引导创建一个package.json文件"></a>npm init 在项目中引导创建一个package.json文件</h4><p>安装包的信息可保持到项目的package.json文件中，以便后续的其它的项目开发或者他人合作使用，也说package.json在项目中是必不可少的。</p>
 <div class="hljs"><pre><code class="hljs coq">npm init [-f|<span class="hljs-type">--force</span>|<span class="hljs-type">-y</span>|<span class="hljs-type">--yes</span>]</code></pre></div>
 
-<h4 id="npm-package-json的语法"><a href="#npm-package-json的语法" class="headerlink" title="npm package.json的语法"></a>npm package.json的语法</h4><p>英文原版：<a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">https://docs.npmjs.com/files/package.json</a></p>
+<h4 id="npm-package-json的语法"><a href="#npm-package-json的语法" class="headerlink" title="npm package.json的语法"></a>npm package.json的语法</h4><p>英文原版：<a target="_blank" rel="noopener" href="https://docs.npmjs.com/files/package.json">https://docs.npmjs.com/files/package.json</a></p>
 <p>这块内容好多，国内有好心人整理：《npm的package.json中文文档》，从这份文档拷贝出一些比较常见的，如下：</p>
 <p><strong>默认值</strong></p>
 <p>npm会根据包内容设置一些默认值。</p>
@@ -397,9 +397,9 @@ aliases: info, show, v</code></pre></div>
 <li>不要把node或者js放在名字中。因为你写了package.json它就被假定成为了js，不过你可以用”engine”字段指定一个引擎（见后文）。</li>
 <li>这个名字会作为在URL的一部分、命令行的参数或者文件夹的名字。任何non-url-safe的字符都是不能用的。</li>
 <li>这个名字可能会作为参数被传入require()，所以它应该比较短，但也要意义清晰。</li>
-<li>在你爱上你的名字之前，你可能要去npm registry查看一下这个名字是否已经被使用了。<a href="http://registry.npmjs.org/" target="_blank" rel="noopener">http://registry.npmjs.org/</a><br><strong>version</strong></li>
+<li>在你爱上你的名字之前，你可能要去npm registry查看一下这个名字是否已经被使用了。<a target="_blank" rel="noopener" href="http://registry.npmjs.org/">http://registry.npmjs.org/</a><br><strong>version</strong></li>
 </ul>
-<p>version必须能被<a href="https://github.com/npm/node-semver" target="_blank" rel="noopener">node-semver</a>解析，它被包在npm的依赖中。（要自己用可以执行npm install semver）</p>
+<p>version必须能被<a target="_blank" rel="noopener" href="https://github.com/npm/node-semver">node-semver</a>解析，它被包在npm的依赖中。（要自己用可以执行npm install semver）</p>
 <p>可用的“数字”或者“范围”见semver(7).</p>
 <p><strong>description</strong></p>
 <p>放简介，字符串，方便在npm search中搜索</p>
@@ -408,37 +408,37 @@ aliases: info, show, v</code></pre></div>
 <p><strong>bugs</strong></p>
 <p>你项目的提交问题的url和（或）邮件地址</p>
 <div class="hljs"><pre><code class="hljs json">&#123;
- <span class="hljs-attr">"url"</span> : <span class="hljs-string">"http://github.com/owner/project/issues"</span>, 
-<span class="hljs-attr">"email"</span> : <span class="hljs-string">"project@hostname.com"</span>
+ <span class="hljs-attr">&quot;url&quot;</span> : <span class="hljs-string">&quot;http://github.com/owner/project/issues&quot;</span>, 
+<span class="hljs-attr">&quot;email&quot;</span> : <span class="hljs-string">&quot;project@hostname.com&quot;</span>
 &#125;</code></pre></div>
 
 
 <p><strong>license</strong></p>
 <p>你应该要指定一个许可证，让人知道使用的权利和限制的。</p>
 <p>最简单的方法是，假如你用一个像BSD或者MIT这样通用的许可证，就只需要指定一个许可证的名字，像这样：</p>
-<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">"license"</span> : <span class="hljs-string">"BSD"</span> &#125;</code></pre></div>
+<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">&quot;license&quot;</span> : <span class="hljs-string">&quot;BSD&quot;</span> &#125;</code></pre></div>
 
 
 <p>如果你又更复杂的许可条件，或者想要提供给更多地细节，可以这样:</p>
-<div class="hljs"><pre><code class="hljs ada"><span class="hljs-string">"licenses"</span> : [
-  &#123; <span class="hljs-string">"type"</span> : "<span class="hljs-type">MyLicense</span><span class="hljs-string">"
-  , "</span>url<span class="hljs-string">" : "</span>http://github.com/owner/project/path/to/license<span class="hljs-string">"
-  &#125;
-]</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs ada"><span class="hljs-string">&quot;licenses&quot;</span> : [
+  &#123; <span class="hljs-string">&quot;type&quot;</span> : &quot;<span class="hljs-type">MyLicense</span><span class="hljs-string">&quot;</span>
+<span class="hljs-string">  , &quot;</span>url<span class="hljs-string">&quot; : &quot;</span>http://github.com/owner/project/path/to/license<span class="hljs-string">&quot;</span>
+<span class="hljs-string">  &#125;</span>
+<span class="hljs-string">]</span></code></pre></div>
 
 
 <p><strong>repository</strong></p>
 <p>指定你的代码存放的地方。这个对希望贡献的人有帮助。如果git仓库在github上，那么npm docs命令能找到你。</p>
 <p>这样做：</p>
-<div class="hljs"><pre><code class="hljs ada"><span class="hljs-string">"repository"</span> :
-  &#123; "<span class="hljs-type">type</span><span class="hljs-string">" : "</span>git<span class="hljs-string">"
-  , "</span>url<span class="hljs-string">" : "</span>http://github.com/isaacs/npm.git<span class="hljs-string">"
-  &#125;
-
-"</span>repository<span class="hljs-string">" :
-  &#123; "</span><span class="hljs-keyword">type</span><span class="hljs-string">" : "</span>svn<span class="hljs-string">"
-  , "</span>url<span class="hljs-string">" : "</span>http://v8.googlecode.com/svn/trunk/<span class="hljs-string">"
-  &#125;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs ada"><span class="hljs-string">&quot;repository&quot;</span> :
+  &#123; <span class="hljs-string">&quot;type&quot;</span> : &quot;<span class="hljs-type">git</span><span class="hljs-string">&quot;</span>
+<span class="hljs-string">  , &quot;</span>url<span class="hljs-string">&quot; : &quot;</span>http://github.com/isaacs/npm.git<span class="hljs-string">&quot;</span>
+<span class="hljs-string">  &#125;</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">&quot;</span>repository<span class="hljs-string">&quot; :</span>
+<span class="hljs-string">  &#123; &quot;</span><span class="hljs-keyword">type</span><span class="hljs-string">&quot; : &quot;</span>svn<span class="hljs-string">&quot;</span>
+<span class="hljs-string">  , &quot;</span>url<span class="hljs-string">&quot; : &quot;</span>http://v8.googlecode.com/svn/trunk/<span class="hljs-string">&quot;</span>
+<span class="hljs-string">  &#125;</span></code></pre></div>
 
 <p>URL应该是公开的（即便是只读的）能直接被未经过修改的版本控制程序处理的url。不应该是一个html的项目页面。因为它是给计算机看的。</p>
 <p><strong>scripts</strong></p>
@@ -446,8 +446,8 @@ aliases: info, show, v</code></pre></div>
 <p><strong>config</strong></p>
 <p>“config” hash可以用来配置用于包脚本中的跨版本参数。在实例中，如果一个包有下面的配置：</p>
 <div class="hljs"><pre><code class="hljs json">&#123;
- <span class="hljs-attr">"name"</span> : <span class="hljs-string">"foo"</span>,
- <span class="hljs-attr">"config"</span> : &#123; <span class="hljs-attr">"port"</span> : <span class="hljs-string">"8080"</span> &#125; 
+ <span class="hljs-attr">&quot;name&quot;</span> : <span class="hljs-string">&quot;foo&quot;</span>,
+ <span class="hljs-attr">&quot;config&quot;</span> : &#123; <span class="hljs-attr">&quot;port&quot;</span> : <span class="hljs-string">&quot;8080&quot;</span> &#125; 
 &#125;</code></pre></div>
 
 
@@ -486,17 +486,17 @@ aliases: info, show, v</code></pre></div>
 </li>
 </ul>
 <p>比如下面都是合法的：</p>
-<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">"dependencies"</span> :
-  &#123; <span class="hljs-attr">"foo"</span> : <span class="hljs-string">"1.0.0 - 2.9999.9999"</span>
-  , <span class="hljs-attr">"bar"</span> : <span class="hljs-string">"&gt;=1.0.2 &lt;2.1.2"</span>
-  , <span class="hljs-attr">"baz"</span> : <span class="hljs-string">"&gt;1.0.2 &lt;=2.3.4"</span>
-  , <span class="hljs-attr">"boo"</span> : <span class="hljs-string">"2.0.1"</span>
-  , <span class="hljs-attr">"qux"</span> : <span class="hljs-string">"&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0"</span>
-  , <span class="hljs-attr">"asd"</span> : <span class="hljs-string">"http://asdf.com/asdf.tar.gz"</span>
-  , <span class="hljs-attr">"til"</span> : <span class="hljs-string">"~1.2"</span>
-  , <span class="hljs-attr">"elf"</span> : <span class="hljs-string">"~1.2.3"</span>
-  , <span class="hljs-attr">"two"</span> : <span class="hljs-string">"2.x"</span>
-  , <span class="hljs-attr">"thr"</span> : <span class="hljs-string">"3.3.x"</span>
+<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">&quot;dependencies&quot;</span> :
+  &#123; <span class="hljs-attr">&quot;foo&quot;</span> : <span class="hljs-string">&quot;1.0.0 - 2.9999.9999&quot;</span>
+  , <span class="hljs-attr">&quot;bar&quot;</span> : <span class="hljs-string">&quot;&gt;=1.0.2 &lt;2.1.2&quot;</span>
+  , <span class="hljs-attr">&quot;baz&quot;</span> : <span class="hljs-string">&quot;&gt;1.0.2 &lt;=2.3.4&quot;</span>
+  , <span class="hljs-attr">&quot;boo&quot;</span> : <span class="hljs-string">&quot;2.0.1&quot;</span>
+  , <span class="hljs-attr">&quot;qux&quot;</span> : <span class="hljs-string">&quot;&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0&quot;</span>
+  , <span class="hljs-attr">&quot;asd&quot;</span> : <span class="hljs-string">&quot;http://asdf.com/asdf.tar.gz&quot;</span>
+  , <span class="hljs-attr">&quot;til&quot;</span> : <span class="hljs-string">&quot;~1.2&quot;</span>
+  , <span class="hljs-attr">&quot;elf&quot;</span> : <span class="hljs-string">&quot;~1.2.3&quot;</span>
+  , <span class="hljs-attr">&quot;two&quot;</span> : <span class="hljs-string">&quot;2.x&quot;</span>
+  , <span class="hljs-attr">&quot;thr&quot;</span> : <span class="hljs-string">&quot;3.3.x&quot;</span>
   &#125;
 &#125;</code></pre></div>
 
@@ -506,22 +506,22 @@ aliases: info, show, v</code></pre></div>
 <p>这些东西会在执行npm link或者npm install的时候初始化，并可以像其他npm配置参数一样管理。详见npm-config(7)。</p>
 <p>对于非特定平台的构建步骤，比如需要编译CoffeeScript，可以用prepublish脚本去实现，并把它依赖的包放在devDependency中。（译者注：prepublish定义了在执行npm publish的时候先行执行的脚本）</p>
 <p>比如：</p>
-<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">"name"</span>: <span class="hljs-string">"ethopia-waza"</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"a delightfully fruity coffee varietal"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.2.3"</span>,
-  <span class="hljs-attr">"devDependencies"</span>: &#123;
-    <span class="hljs-attr">"coffee-script"</span>: <span class="hljs-string">"~1.6.3"</span>
+<div class="hljs"><pre><code class="hljs json">&#123; <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;ethopia-waza&quot;</span>,
+  <span class="hljs-attr">&quot;description&quot;</span>: <span class="hljs-string">&quot;a delightfully fruity coffee varietal&quot;</span>,
+  <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-string">&quot;1.2.3&quot;</span>,
+  <span class="hljs-attr">&quot;devDependencies&quot;</span>: &#123;
+    <span class="hljs-attr">&quot;coffee-script&quot;</span>: <span class="hljs-string">&quot;~1.6.3&quot;</span>
   &#125;,
-  <span class="hljs-attr">"scripts"</span>: &#123;
-    <span class="hljs-attr">"prepublish"</span>: <span class="hljs-string">"coffee -o lib/ -c src/waza.coffee"</span>
+  <span class="hljs-attr">&quot;scripts&quot;</span>: &#123;
+    <span class="hljs-attr">&quot;prepublish&quot;</span>: <span class="hljs-string">&quot;coffee -o lib/ -c src/waza.coffee&quot;</span>
   &#125;,
-  <span class="hljs-attr">"main"</span>: <span class="hljs-string">"lib/waza.js"</span>
+  <span class="hljs-attr">&quot;main&quot;</span>: <span class="hljs-string">&quot;lib/waza.js&quot;</span>
 &#125;</code></pre></div>
 
 <p>prepublish脚本会在publishing前运行，这样用户就不用自己去require来编译就能使用。并且在开发模式中（比如本地运行npm install）会运行这个脚本以便更好地测试。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html" target="_blank" rel="noopener">【原】npm 常用命令详解</a></p>
-<p><a href="https://segmentfault.com/a/1190000004221514" target="_blank" rel="noopener">深入 Node 模块的安装和发布</a></p>
-<p><a href="https://github.com/ericdum/mujiang.info/issues/6/" target="_blank" rel="noopener">npm的package.json中文文档</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/PeunZhang/p/5553574.html">【原】npm 常用命令详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004221514">深入 Node 模块的安装和发布</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ericdum/mujiang.info/issues/6/">npm的package.json中文文档</a></p>
 
             </article>
             <hr>
@@ -538,7 +538,7 @@ aliases: info, show, v</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

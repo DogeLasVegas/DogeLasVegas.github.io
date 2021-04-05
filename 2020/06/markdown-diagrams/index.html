@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -229,7 +229,7 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
+              <h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
 graph LR
 A[方形] --&gt;B(圆角)
     B --&gt; C&#123;条件a&#125;
@@ -305,12 +305,12 @@ st(right)-&gt;op(right)-&gt;cond
 cond(yes)-&gt;io(bottom)-&gt;e
 cond(no)-&gt;sub1(right)-&gt;op</code></pre></div>
 
-<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><div class="hljs"><pre><code class="hljs routeros">sequence
-对象A-&gt;对象B: 对象B你好吗?（请求）<span class="hljs-built_in">
-Note </span>right of 对象B: 对象B的描述<span class="hljs-built_in">
-Note </span>left of 对象A: 对象A的描述(提示)
-对象B--&gt;对象A: 我很好(响应)
-对象A-&gt;对象B: 你真的好吗？</code></pre></div>
+<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span>
+对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)
+对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)
+对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？</code></pre></div>
 
 <p><strong>效果图：</strong></p>
 <div class="hljs"><pre><code class="hljs sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
@@ -319,18 +319,18 @@ Note left of 对象A: 对象A的描述(提示)
 对象B--&gt;对象A: 我很好(响应)
 对象A-&gt;对象B: 你真的好吗？</code></pre></div>
 
-<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><div class="hljs"><pre><code class="hljs routeros">sequence
-Title: 标题：复杂使用
-对象A-&gt;对象B: 对象B你好吗?（请求）<span class="hljs-built_in">
-Note </span>right of 对象B: 对象B的描述<span class="hljs-built_in">
-Note </span>left of 对象A: 对象A的描述(提示)
-对象B--&gt;对象A: 我很好(响应)
-对象B-&gt;小三: 你好吗
-小三--&gt;&gt;对象A: 对象B找我了
-对象A-&gt;对象B: 你真的好吗？<span class="hljs-built_in">
-Note </span>over 小三,对象B: 我们是朋友
-participant C<span class="hljs-built_in">
-Note </span>right of C: 没人陪我玩</code></pre></div>
+<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span>
+<span class="hljs-selector-tag">Title</span>: 标题：复杂使用
+对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)
+对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)
+对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">-</span>&gt;小三: 你好吗
+小三<span class="hljs-selector-tag">--</span>&gt;&gt;对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">B</span>找我了
+对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">over</span> 小三,对象<span class="hljs-selector-tag">B</span>: 我们是朋友
+<span class="hljs-selector-tag">participant</span> <span class="hljs-selector-tag">C</span>
+<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">C</span>: 没人陪我玩</code></pre></div>
 
 <p><strong>效果图：</strong></p>
 <div class="hljs"><pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
@@ -374,26 +374,26 @@ Note </span>right of C: 没人陪我玩</code></pre></div>
     王五-&gt;李四: 你怎么样?
     李四--&gt;王五: 很好!</code></pre></div>
 
-<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><div class="hljs"><pre><code class="hljs angelscript">mermaid
+<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><div class="hljs"><pre><code class="hljs x86asm">mermaid
 %% 语法示例
         gantt
-        dateFormat  YYYY-MM-DD
+        dateFormat  YYYY-MM-<span class="hljs-built_in">DD</span>
         title 软件开发甘特图
-        section 设计
-        需求                      :done,    des1, <span class="hljs-number">2014</span><span class="hljs-number">-01</span><span class="hljs-number">-06</span>,<span class="hljs-number">2014</span><span class="hljs-number">-01</span><span class="hljs-number">-08</span>
-        原型                      :active,  des2, <span class="hljs-number">2014</span><span class="hljs-number">-01</span><span class="hljs-number">-09</span>, <span class="hljs-number">3</span>d
-        UI设计                     :         des3, after des2, <span class="hljs-number">5</span>d
-    未来任务                     :         des4, after des3, <span class="hljs-number">5</span>d
-        section 开发
-        学习准备理解需求                      :crit, done, <span class="hljs-number">2014</span><span class="hljs-number">-01</span><span class="hljs-number">-06</span>,<span class="hljs-number">24</span>h
-        设计框架                             :crit, done, after des2, <span class="hljs-number">2</span>d
-        开发                                 :crit, active, <span class="hljs-number">3</span>d
-        未来任务                              :crit, <span class="hljs-number">5</span>d
-        耍                                   :<span class="hljs-number">2</span>d
-        section 测试
-        功能测试                              :active, a1, after des3, <span class="hljs-number">3</span>d
-        压力测试                               :after a1  , <span class="hljs-number">20</span>h
-        测试报告                               : <span class="hljs-number">48</span>h</code></pre></div>
+        <span class="hljs-meta">section</span> 设计
+        需求                      :done,    des1, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">08</span>
+        原型                      :active,  des2, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">09</span>, <span class="hljs-number">3d</span>
+        UI设计                     :         des3, after des2, <span class="hljs-number">5d</span>
+    未来任务                     :         des4, after des3, <span class="hljs-number">5d</span>
+        <span class="hljs-meta">section</span> 开发
+        学习准备理解需求                      :crit, done, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">24h</span>
+        设计框架                             :crit, done, after des2, <span class="hljs-number">2d</span>
+        开发                                 :crit, active, <span class="hljs-number">3d</span>
+        未来任务                              :crit, <span class="hljs-number">5d</span>
+        耍                                   :<span class="hljs-number">2d</span>
+        <span class="hljs-meta">section</span> 测试
+        功能测试                              :active, a1, after des3, <span class="hljs-number">3d</span>
+        压力测试                               :after a1  , <span class="hljs-number">20h</span>
+        测试报告                               : <span class="hljs-number">48h</span></code></pre></div>
 
 <p><strong>效果图：</strong></p>
 <div class="hljs"><pre><code class="hljs mermaid">%% 语法示例
@@ -416,7 +416,7 @@ Note </span>right of C: 没人陪我玩</code></pre></div>
         压力测试                               :after a1  , 20h
         测试报告                               : 48h</code></pre></div>
 
-<h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a href="https://www.runoob.com/markdown/md-advance.html" target="_blank" rel="noopener">Markdown 高级技巧-笔记</a></p>
+<h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-advance.html">Markdown 高级技巧-笔记</a></p>
 
             </article>
             <hr>
@@ -426,7 +426,7 @@ Note </span>right of C: 没人陪我玩</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

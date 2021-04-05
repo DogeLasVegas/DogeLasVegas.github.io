@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -229,24 +229,24 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。</p>
+              <p>一篇关于探讨使用 Three.js 创建 3D 动画场景的基础教程。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
-<p><a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">DEMO</a>     <a href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip" target="_blank" rel="noopener">源码下载</a></p>
+<p><a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/">DEMO</a>     <a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip">源码下载</a></p>
 <p>今日，我们将使用 Three.js 创建一个简单的 3D 飞机飞行的动画场景。Three.js 是一个 3D 类库，它能让 WebGL 变得更加简单。由于 GSL 语法的复杂性，对于许多开发人员来说 WebGL 是一个未知的领域。但是有了 Three.js，在浏览器中 3D 的实现变得简单。</p>
 <blockquote>
 <p>(译者注：WebGL 是一项利用 JavaScriptAPI 渲染交互式 3D 电脑图形和 2D 图形的技术，可兼容任何的网页浏览器，无需加装插件。通过 WebGL 的技术，只需要编写网页代码即可实现 3D 图像的展示。GLSL-OpenGL Shading Language 也称作 GLslang ，是一个以 C 语言为基础的高阶着色语言。它是由 OpenGL ARB 所建立，提供开发者对绘图管线更多的直接控制，而无需使用汇编语言或硬件规格语言。详细麻烦谷歌或百度一下～)</p>
 </blockquote>
-<p>在本教程中，我们将创建一个简单的 3D 场景, 在两个主要的部分会有一些交互。在<a href="http://tympanus.net/Tutorials/TheAviator/part1.html" target="_blank" rel="noopener">第一部分</a>，我们会讲解 Three.js 的基础和如何创建一个简单的场景。<a href="http://tympanus.net/Tutorials/TheAviator/part2.html" target="_blank" rel="noopener">第二部分</a>会详细讲述如何优化模型，如何为场景中的不同元素增添气氛以及更流畅的运动效果。</p>
-<p>由于完整的<a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">游戏</a>超出了本教程的范围，但是你可以下载或 check out 源码。它包含了许多额外有趣的部分如：碰撞，抓硬币和增加得分。</p>
+<p>在本教程中，我们将创建一个简单的 3D 场景, 在两个主要的部分会有一些交互。在<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/part1.html">第一部分</a>，我们会讲解 Three.js 的基础和如何创建一个简单的场景。<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/part2.html">第二部分</a>会详细讲述如何优化模型，如何为场景中的不同元素增添气氛以及更流畅的运动效果。</p>
+<p>由于完整的<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/">游戏</a>超出了本教程的范围，但是你可以下载或 check out 源码。它包含了许多额外有趣的部分如：碰撞，抓硬币和增加得分。</p>
 <p>在本教程中，我们将重点学习 Three.js 中的一些基础概念。这些基础概念将带你走进 WebGL 这新领域！</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>事不宜迟，我们马上开始~</p>
-<h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><p>本教程主要采用 Three.js 类库，Three.js 让 WebGL 变得易于使用。从<a href="http://threejs.org/" target="_blank" rel="noopener">官网</a>或 <a href="https://github.com/mrdoob/three.js/" target="_blank" rel="noopener">GitHub repo</a> check out 获取关于 Three.js 更多的信息。</p>
+<h2 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML &amp; CSS"></a>HTML &amp; CSS</h2><p>本教程主要采用 Three.js 类库，Three.js 让 WebGL 变得易于使用。从<a target="_blank" rel="noopener" href="http://threejs.org/">官网</a>或 <a target="_blank" rel="noopener" href="https://github.com/mrdoob/three.js/">GitHub repo</a> check out 获取关于 Three.js 更多的信息。</p>
 <p>第一样要做的事情就是在 HTML <header> 标签中引入 Three.js：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/three.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/three.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 <p>然后在 HTML 中需要添加一个元素作为容器。</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"world"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;world&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>你可以像下面那样写一些简单的样式，让它填满整个 viewport：<br> #world {<br> position: absolute;<br> width: 100%;<br> height: 100%;<br> overflow: hidden;<br> background: linear-gradient(#e4e0ba, #f7d9aa);<br> }<br> 正如你所见的一样，背景有些渐变的效果，就像天空。</p>
 <p>以上是标签和样式！</p>
@@ -264,7 +264,7 @@
 &#125;;</code></pre></div>
 
 <h3 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h3><p>虽然 JavaScript 代码十分冗长，但是它的结构很简单。我们需要创建所有主要的函数并放入初始函数中：</p>
-<div class="hljs"><pre><code class="hljs jsx"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'load'</span>, init, <span class="hljs-literal">false</span>);
+<div class="hljs"><pre><code class="hljs jsx"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;load&#x27;</span>, init, <span class="hljs-literal">false</span>);
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>&#123;
    <span class="hljs-comment">// 创建场景，相机和渲染器</span>
    createScene(); 
@@ -298,9 +298,7 @@
 </li>
 <li><p>渲染器决定了渲染的结果应该显示在页面的什么元素上，并以怎样的方式绘制。<br> 有了这三样东西，才能使用相机将对象渲染到页面中。</p>
 <p>var scene, camera, fieldOfView, aspectRatio, nearPlane,<br> farPlane, HEIGHT, WIDTH, renderer, container;<br> function createScene() {<br> // 获得屏幕的宽和高，<br> // 用它们设置相机的纵横比<br> // 还有渲染器的大小<br> HEIGHT = window.innerHeight;<br> WIDTH = window.innerWidth;</p>
-</li>
-</ul>
-  <div class="hljs"><pre><code class="hljs dart"><span class="hljs-comment">// 创建场景</span>
+<div class="hljs"><pre><code class="hljs dart"><span class="hljs-comment">// 创建场景</span>
 scene = <span class="hljs-keyword">new</span> THREE.Scene();       
   
 <span class="hljs-comment">// 在场景中添加雾的效果；样式上使用和背景一样的颜色</span>
@@ -311,13 +309,13 @@ aspectRatio = WIDTH / HEIGHT;
 fieldOfView = <span class="hljs-number">60</span>;   
 nearPlane = <span class="hljs-number">1</span>;  
 farPlane = <span class="hljs-number">10000</span>;
-<span class="hljs-comment"><span class="markdown">/**
-<span class="hljs-bullet"> * </span>PerspectiveCamera 透视相机
-<span class="hljs-bullet"> * </span>@param fieldOfView 视角
-<span class="hljs-bullet"> * </span>@param aspectRatio 纵横比
-<span class="hljs-bullet"> * </span>@param nearPlane 近平面
-<span class="hljs-bullet"> * </span>@param farPlane 远平面
- */</span></span>
+<span class="hljs-comment"><span class="markdown">/<span class="hljs-strong">**</span></span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet"> *</span> PerspectiveCamera 透视相机</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet"> *</span> @param fieldOfView 视角</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet"> *</span> @param aspectRatio 纵横比</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet"> *</span> @param nearPlane 近平面</span></span>
+<span class="hljs-comment"><span class="markdown"><span class="hljs-bullet"> *</span> @param farPlane 远平面</span></span>
+<span class="hljs-comment"><span class="markdown"> <span class="hljs-emphasis">*/</span></span></span>
 camera = <span class="hljs-keyword">new</span> THREE.PerspectiveCamera(       
   fieldOfView,
   aspectRatio,
@@ -346,13 +344,15 @@ renderer.setSize(WIDTH, HEIGHT);
 renderer.shadowMap.enabled = <span class="hljs-keyword">true</span>; 
   
 <span class="hljs-comment">// 在 HTML 创建的容器中添加渲染器的 DOM 元素</span>
-container = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'world'</span>);   
+container = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;world&#x27;</span>);   
 container.appendChild(renderer.domElement);
   
 <span class="hljs-comment">// 监听屏幕，缩放屏幕更新相机和渲染器的尺寸</span>
-<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'resize'</span>, handleWindowResize, <span class="hljs-keyword">false</span>);</code></pre></div>
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;resize&#x27;</span>, handleWindowResize, <span class="hljs-keyword">false</span>);</code></pre></div>
 
-<p>  }</p>
+<p>}</p>
+</li>
+</ul>
 <p>由于屏幕的尺寸改变，我们需要更新渲染器的尺寸和相机的纵横比。</p>
 <div class="hljs"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleWindowResize</span>(<span class="hljs-params"></span>) </span>&#123; 
    <span class="hljs-comment">// 更新渲染器的高度和宽度以及相机的纵横比</span>
@@ -419,17 +419,17 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 
    <span class="hljs-comment">// 创建材质</span>
    <span class="hljs-keyword">var</span> mat = <span class="hljs-keyword">new</span> THREE.MeshPhongMaterial(&#123;
-       <span class="hljs-attr">color</span>:Colors.blue,
-       <span class="hljs-attr">transparent</span>:<span class="hljs-literal">true</span>,
-       <span class="hljs-attr">opacity</span>:<span class="hljs-number">.6</span>,
-       <span class="hljs-attr">shading</span>:THREE.FlatShading,
+       color:Colors.blue,
+       transparent:<span class="hljs-literal">true</span>,
+       opacity:<span class="hljs-number">.6</span>,
+       shading:THREE.FlatShading,
    &#125;);
 
    <span class="hljs-comment">// 为了在 Three.js 创建一个物体，我们必须创建网格用来组合几何体和一些材质 </span>
-   <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Mesh(geom, mat);
+   <span class="hljs-built_in">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Mesh(geom, mat);
 
    <span class="hljs-comment">// 允许大海对象接收阴影</span>
-   <span class="hljs-keyword">this</span>.mesh.receiveShadow = <span class="hljs-literal">true</span>; 
+   <span class="hljs-built_in">this</span>.mesh.receiveShadow = <span class="hljs-literal">true</span>; 
 &#125;
 
 <span class="hljs-comment">//实例化大海对象，并添加至场景</span>
@@ -439,7 +439,7 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
    sea = <span class="hljs-keyword">new</span> Sea();
 
    <span class="hljs-comment">// 在场景底部，稍微推挤一下</span>
-   sea.mesh.position.y = <span class="hljs-number">-600</span>;
+   sea.mesh.position.y = -<span class="hljs-number">600</span>;
 
    <span class="hljs-comment">// 添加大海的网格至场景</span>
    scene.add(sea.mesh);
@@ -458,7 +458,7 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <div class="hljs"><pre><code class="hljs jsx">Cloud = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
    <span class="hljs-comment">// 创建一个空的容器放置不同形状的云</span>
-   <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
+   <span class="hljs-built_in">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
 
    <span class="hljs-comment">// 创建一个正方体</span>
    <span class="hljs-comment">// 这个形状会被复制创建云</span>
@@ -466,7 +466,7 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 
    <span class="hljs-comment">// 创建材质；一个简单的白色材质就可以达到效果</span>
    <span class="hljs-keyword">var</span> mat = <span class="hljs-keyword">new</span> THREE.MeshPhongMaterial(&#123;
-       <span class="hljs-attr">color</span>:Colors.white,  
+       color:Colors.white,  
    &#125;);
 
    <span class="hljs-comment">// 随机多次复制几何体</span>
@@ -492,7 +492,7 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
        m.receiveShadow = <span class="hljs-literal">true</span>;
     
        <span class="hljs-comment">// 将正方体添加至开始时我们创建的容器中</span>
-       <span class="hljs-keyword">this</span>.mesh.add(m);
+       <span class="hljs-built_in">this</span>.mesh.add(m);
    &#125; 
 &#125;</code></pre></div>
 
@@ -500,17 +500,17 @@ Sea = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 <div class="hljs"><pre><code class="hljs jsx"><span class="hljs-comment">// 定义一个天空对象</span>
 Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
    <span class="hljs-comment">// 创建一个空的容器</span>
-   <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
+   <span class="hljs-built_in">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
 
    <span class="hljs-comment">// 选取若干朵云散布在天空中</span>
-   <span class="hljs-keyword">this</span>.nClouds = <span class="hljs-number">20</span>;
+   <span class="hljs-built_in">this</span>.nClouds = <span class="hljs-number">20</span>;
 
    <span class="hljs-comment">// 把云均匀地散布</span>
    <span class="hljs-comment">// 我们需要根据统一的角度放置它们</span>
-   <span class="hljs-keyword">var</span> stepAngle = <span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span> / <span class="hljs-keyword">this</span>.nClouds;
+   <span class="hljs-keyword">var</span> stepAngle = <span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span> / <span class="hljs-built_in">this</span>.nClouds;
 
    <span class="hljs-comment">// 创建云对象</span>
-   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-keyword">this</span>.nClouds; i++)&#123;
+   <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-built_in">this</span>.nClouds; i++)&#123;
        <span class="hljs-keyword">var</span> c = <span class="hljs-keyword">new</span> Cloud();
  
        <span class="hljs-comment">// 设置每朵云的旋转角度和位置</span>
@@ -528,14 +528,14 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
        c.mesh.rotation.z = a + <span class="hljs-built_in">Math</span>.PI/<span class="hljs-number">2</span>;
 
        <span class="hljs-comment">// 为了有更好的效果，我们把云放置在场景中的随机深度位置</span>
-       c.mesh.position.z = <span class="hljs-number">-400</span>-<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">400</span>;
+       c.mesh.position.z = -<span class="hljs-number">400</span>-<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">400</span>;
     
        <span class="hljs-comment">// 而且我们为每朵云设置一个随机大小</span>
        <span class="hljs-keyword">var</span> s = <span class="hljs-number">1</span>+<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">2</span>;
        c.mesh.scale.set(s,s,s);
 
        <span class="hljs-comment">// 不要忘记将每朵云的网格添加到场景中</span>
-       <span class="hljs-keyword">this</span>.mesh.add(c.mesh); 
+       <span class="hljs-built_in">this</span>.mesh.add(c.mesh); 
    &#125;  
 &#125;
 
@@ -545,7 +545,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createSky</span>(<span class="hljs-params"></span>)</span>&#123;
    sky = <span class="hljs-keyword">new</span> Sky();
-   sky.mesh.position.y = <span class="hljs-number">-600</span>;
+   sky.mesh.position.y = -<span class="hljs-number">600</span>;
    scene.add(sky.mesh);
 &#125;</code></pre></div>
 
@@ -642,7 +642,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
 
 <h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><hr>
 <p>我们已经创建了几个对象并把它们添加到我们的场景中了，但是为啥运行游戏的时候什么都看不到呢？那是因为我们需要渲染场景，添加一下这句简单的代码：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">renderer</span><span class="hljs-selector-class">.render</span>(<span class="hljs-selector-tag">scene</span>, <span class="hljs-selector-tag">camera</span>);</code></pre></div>
+<div class="hljs"><pre><code class="hljs css">renderer<span class="hljs-selector-class">.render</span>(scene, camera);</code></pre></div>
 
 <h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><hr>
 <p>通过使螺旋桨旋转并转动大海和云让我们的场景更具生命力。<br> 因此我们需要一个无限循环函数</p>
@@ -674,7 +674,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
    createSky();
 
    <span class="hljs-comment">//添加监听器</span>
-   <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'mousemove'</span>, handleMouseMove, <span class="hljs-literal">false</span>);
+   <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&#x27;mousemove&#x27;</span>, handleMouseMove, <span class="hljs-literal">false</span>);
 
    loop();
 &#125;</code></pre></div>
@@ -716,8 +716,8 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
    <span class="hljs-comment">// 让我们在x轴上-100至100之间和y轴25至175之间移动飞机</span>
    <span class="hljs-comment">// 根据鼠标的位置在-1与1之间的范围，我们使用的 normalize 函数实现（如下）</span>
 
-   <span class="hljs-keyword">var</span> targetX = normalize(mousePos.x, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-100</span>, <span class="hljs-number">100</span>);
-   <span class="hljs-keyword">var</span> targetY = normalize(mousePos.y, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">25</span>, <span class="hljs-number">175</span>);
+   <span class="hljs-keyword">var</span> targetX = normalize(mousePos.x, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, -<span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
+   <span class="hljs-keyword">var</span> targetY = normalize(mousePos.y, -<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">25</span>, <span class="hljs-number">175</span>);
 
    <span class="hljs-comment">// 更新飞机的位置</span>
    airplane.mesh.position.y = targetY;
@@ -735,7 +735,7 @@ Sky = <span class="hljs-function"><span class="hljs-keyword">function</span>(<sp
    <span class="hljs-keyword">return</span> tv;
 &#125;</code></pre></div>
 
-<p>恭喜你！到这里，已经实现了飞机随着鼠标的移动而移动。到目前为止，看看我们已经实现了什么功能：<a href="http://tympanus.net/Tutorials/TheAviator/part1.html" target="_blank" rel="noopener">第一部分的 Demo</a></p>
+<p>恭喜你！到这里，已经实现了飞机随着鼠标的移动而移动。到目前为止，看看我们已经实现了什么功能：<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/part1.html">第一部分的 Demo</a></p>
 <h2 id="几乎完成！"><a href="#几乎完成！" class="headerlink" title="几乎完成！"></a>几乎完成！</h2><p>正如你所看见的，使用 Three.js 对创建 WebGL 内容有非常大的帮助。建立一个场景和渲染一些自定义对象不需要懂太多 WebGL 的知识。到目前为止，我们已经学会一些基础概念和你已经可以开始通过调整一些参数类似光源的强度，雾的颜色和物体的大小掌握了一些基本的诀窍。或许现在你已经很熟悉创建一些新的对象了。</p>
 <p><em>如果你想学习更加深入的技术，请继续阅读。因为你将会学习到如何改进 3D 场景，使飞机飞行得更加平稳，并模仿低多边形海浪对大海的影响。</em></p>
 <h2 id="一架更酷的飞机"><a href="#一架更酷的飞机" class="headerlink" title="一架更酷的飞机"></a>一架更酷的飞机</h2><p>好了~我们之前创建了非常基础的飞机。我们现在知道如何创建对象并组合它们，但是我们仍然需要学习如何修改几何体令其更加符合我们的需求。</p>
@@ -772,7 +772,7 @@ cockpit.receiveShadow = <span class="hljs-literal">true</span>;
 <p>让我们看看源码：</p>
 <div class="hljs"><pre><code class="hljs csharp"><span class="hljs-keyword">var</span> Pilot = function()&#123;
    <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Object3D();
-   <span class="hljs-keyword">this</span>.mesh.name = <span class="hljs-string">"pilot"</span>;
+   <span class="hljs-keyword">this</span>.mesh.name = <span class="hljs-string">&quot;pilot&quot;</span>;
 
    <span class="hljs-comment">// angleHairs是用于后面头发的动画的属性 </span>
    <span class="hljs-keyword">this</span>.angleHairs=<span class="hljs-number">0</span>;
@@ -875,7 +875,7 @@ Pilot.prototype.updateHairs = function()&#123;
 
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>现在让头发动起来，只需要在循环函数里添加以下这句代码。</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">airplane</span><span class="hljs-selector-class">.pilot</span><span class="hljs-selector-class">.updateHairs</span>();</code></pre></div>
+<div class="hljs"><pre><code class="hljs css">airplane<span class="hljs-selector-class">.pilot</span><span class="hljs-selector-class">.updateHairs</span>();</code></pre></div>
 
 <h2 id="制作海浪"><a href="#制作海浪" class="headerlink" title="制作海浪"></a>制作海浪</h2><hr>
 <p>或许你已经注意到这大海不像真的大海那样，但更像被压路机压平的表面。</p>
@@ -900,33 +900,33 @@ Pilot.prototype.updateHairs = function()&#123;
    <span class="hljs-keyword">var</span> l = geom.vertices.length;
 
    <span class="hljs-comment">// 创建一个新的数组存储与每个顶点关联的值：</span>
-   <span class="hljs-keyword">this</span>.waves = [];
+   <span class="hljs-built_in">this</span>.waves = [];
 
    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;l; i++)&#123;
        <span class="hljs-comment">// 获取每个顶点</span>
        <span class="hljs-keyword">var</span> v = geom.vertices[i];
 
        <span class="hljs-comment">// 存储一些关联的数值</span>
-       <span class="hljs-keyword">this</span>.waves.push(&#123;<span class="hljs-attr">y</span>:v.y,
-                        <span class="hljs-attr">x</span>:v.x,
-                        <span class="hljs-attr">z</span>:v.z,
+       <span class="hljs-built_in">this</span>.waves.push(&#123;<span class="hljs-attr">y</span>:v.y,
+                        x:v.x,
+                        z:v.z,
                         <span class="hljs-comment">// 随机角度</span>
-                        <span class="hljs-attr">ang</span>:<span class="hljs-built_in">Math</span>.random()*<span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span>,
+                        ang:<span class="hljs-built_in">Math</span>.random()*<span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span>,
                         <span class="hljs-comment">// 随机距离</span>
-                        <span class="hljs-attr">amp</span>:<span class="hljs-number">5</span> + <span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">15</span>,
+                        amp:<span class="hljs-number">5</span> + <span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">15</span>,
                         <span class="hljs-comment">// 在0.016至0.048度/帧之间的随机速度</span>
-                        <span class="hljs-attr">speed</span>:<span class="hljs-number">0.016</span> + <span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">0.032</span>
+                        speed:<span class="hljs-number">0.016</span> + <span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">0.032</span>
        &#125;);
    &#125;;
    <span class="hljs-keyword">var</span> mat = <span class="hljs-keyword">new</span> THREE.MeshPhongMaterial(&#123;
-       <span class="hljs-attr">color</span>:Colors.blue,
-       <span class="hljs-attr">transparent</span>:<span class="hljs-literal">true</span>,
-       <span class="hljs-attr">opacity</span>:<span class="hljs-number">.8</span>,
-       <span class="hljs-attr">shading</span>:THREE.FlatShading,
+       color:Colors.blue,
+       transparent:<span class="hljs-literal">true</span>,
+       opacity:<span class="hljs-number">.8</span>,
+       shading:THREE.FlatShading,
    &#125;);
 
-   <span class="hljs-keyword">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Mesh(geom, mat);
-   <span class="hljs-keyword">this</span>.mesh.receiveShadow = <span class="hljs-literal">true</span>;
+   <span class="hljs-built_in">this</span>.mesh = <span class="hljs-keyword">new</span> THREE.Mesh(geom, mat);
+   <span class="hljs-built_in">this</span>.mesh.receiveShadow = <span class="hljs-literal">true</span>;
 &#125;
 
 <span class="hljs-comment">// 现在我们创建一个在每帧可以调用的函数，用于更新顶点的位置来模拟海浪。</span>
@@ -934,14 +934,14 @@ Pilot.prototype.updateHairs = function()&#123;
 Sea.prototype.moveWaves = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;
 
    <span class="hljs-comment">// 获取顶点</span>
-   <span class="hljs-keyword">var</span> verts = <span class="hljs-keyword">this</span>.mesh.geometry.vertices;
+   <span class="hljs-keyword">var</span> verts = <span class="hljs-built_in">this</span>.mesh.geometry.vertices;
    <span class="hljs-keyword">var</span> l = verts.length;
 
    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;l; i++)&#123;
        <span class="hljs-keyword">var</span> v = verts[i];
 
        <span class="hljs-comment">// 获取关联的值</span>
-       <span class="hljs-keyword">var</span> vprops = <span class="hljs-keyword">this</span>.waves[i];
+       <span class="hljs-keyword">var</span> vprops = <span class="hljs-built_in">this</span>.waves[i];
 
        <span class="hljs-comment">// 更新顶点的位置</span>
        v.x = vprops.x + <span class="hljs-built_in">Math</span>.cos(vprops.ang)*vprops.amp;
@@ -955,14 +955,14 @@ Sea.prototype.moveWaves = <span class="hljs-function"><span class="hljs-keyword"
    <span class="hljs-comment">// 事实上，为了维持最好的性能</span>
    <span class="hljs-comment">// Three.js 会缓存几何体和忽略一些修改</span>
    <span class="hljs-comment">// 除非加上这句</span>
-   <span class="hljs-keyword">this</span>.mesh.geometry.verticesNeedUpdate=<span class="hljs-literal">true</span>;
+   <span class="hljs-built_in">this</span>.mesh.geometry.verticesNeedUpdate=<span class="hljs-literal">true</span>;
 
    sea.mesh.rotation.z += <span class="hljs-number">.005</span>;
 &#125;</code></pre></div>
 
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>就好像我们对飞行员的头发做的那样，我们在循环函数中添加以下这句代码：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">sea</span><span class="hljs-selector-class">.moveWaves</span>();</code></pre></div>
+<div class="hljs"><pre><code class="hljs css">sea<span class="hljs-selector-class">.moveWaves</span>();</code></pre></div>
 
 <p>现在好好欣赏海浪吧！</p>
 <h2 id="改善场景中的光源"><a href="#改善场景中的光源" class="headerlink" title="改善场景中的光源"></a>改善场景中的光源</h2><hr>
@@ -981,8 +981,8 @@ ambientLight = <span class="hljs-keyword">new</span> THREE.AmbientLight(<span cl
 <p>更现实点来说，飞机旋转也可以根据运动的方向。如果飞机很快的向上移动，它应该很快地沿着逆时针方向旋转；如果飞机慢慢向下移动，它应该慢慢地沿着顺时针方向旋转；为了准确地实现它，我们应该把旋转比例值简单地分配给在目标和飞机位置之间的剩余距离。</p>
 <p>在我们的代码里，updatePlane 函数需要像以下这样：</p>
 <div class="hljs"><pre><code class="hljs jsx"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updatePlane</span>(<span class="hljs-params"></span>)</span>&#123;
-   <span class="hljs-keyword">var</span> targetY = normalize(mousePos.y,<span class="hljs-number">-.75</span>,<span class="hljs-number">.75</span>,<span class="hljs-number">25</span>, <span class="hljs-number">175</span>);
-   <span class="hljs-keyword">var</span> targetX = normalize(mousePos.x,<span class="hljs-number">-.75</span>,<span class="hljs-number">.75</span>,<span class="hljs-number">-100</span>, <span class="hljs-number">100</span>);
+   <span class="hljs-keyword">var</span> targetY = normalize(mousePos.y,-<span class="hljs-number">.75</span>,<span class="hljs-number">.75</span>,<span class="hljs-number">25</span>, <span class="hljs-number">175</span>);
+   <span class="hljs-keyword">var</span> targetX = normalize(mousePos.x,-<span class="hljs-number">.75</span>,<span class="hljs-number">.75</span>,-<span class="hljs-number">100</span>, <span class="hljs-number">100</span>);
 
    <span class="hljs-comment">// 在每帧通过添加剩余距离的一小部分的值移动飞机</span>
    airplane.mesh.position.y += (targetY-airplane.mesh.position.y)*<span class="hljs-number">0.1</span>;
@@ -995,16 +995,16 @@ ambientLight = <span class="hljs-keyword">new</span> THREE.AmbientLight(<span cl
 &#125;</code></pre></div>
 
 <p>现在飞机的移动看起来更加自然和真实。通过修改一下小数值，你可以使用飞机随着鼠标的移动响应速度更加快或更加慢。</p>
-<p>看下我们场景中的最后一个阶段：<a href="http://tympanus.net/Tutorials/TheAviator/part2.html" target="_blank" rel="noopener">第二部分 Demo</a></p>
+<p>看下我们场景中的最后一个阶段：<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/part2.html">第二部分 Demo</a></p>
 <p>很好！！！</p>
 <h2 id="接着要干嘛呢？"><a href="#接着要干嘛呢？" class="headerlink" title="接着要干嘛呢？"></a>接着要干嘛呢？</h2><hr>
 <p>如果你看到这，你已经学会 Three.js 中的通用的一些技术了，能够让你创建您的第一个场景。现在你知道如何通过原始几何体创建物体，如何激活它们，以及如何设置一个场景中的光源，你已经知道如何改进你的对象的外观和运动，还有如何调整环境氛围。</p>
-<p>下一步已经超出本文范围了，由于它涉及到更多复杂的技术，它是实现一个<a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">游戏</a>，大概思路是碰撞，收集点数，液位控制。下载源码，看看实现的思路；你会看到到目前为止你学到过的概念和一些高阶的知识点，你可以研究一下和玩一下。请注意这游戏已经优化了以便桌面使用。</p>
+<p>下一步已经超出本文范围了，由于它涉及到更多复杂的技术，它是实现一个<a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/">游戏</a>，大概思路是碰撞，收集点数，液位控制。下载源码，看看实现的思路；你会看到到目前为止你学到过的概念和一些高阶的知识点，你可以研究一下和玩一下。请注意这游戏已经优化了以便桌面使用。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>但愿，这篇教程帮助你熟悉Three.js和激发你实现属于你自己的项目。让我看到你的创造力；我希望看到你做出什么来~</p>
-<p><a href="http://tympanus.net/Tutorials/TheAviator/" target="_blank" rel="noopener">DEMO</a>   <a href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip" target="_blank" rel="noopener">源码下载</a></p>
-<p><strong>本文转自</strong> <a href="https://www.jianshu.com/p/92771817c73f" target="_blank" rel="noopener">译文：一个采用 Three.js 的 3D 动画场景制作：飞行者</a>，作者：LeeChingYin</p>
-<p><strong>英文原文链接：</strong><a href="https://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/" target="_blank" rel="noopener">The Making of “The Aviator”: Animating a Basic 3D Scene with Three.js</a></p>
+<p><a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/">DEMO</a>   <a target="_blank" rel="noopener" href="http://tympanus.net/Tutorials/TheAviator/TheAviator.zip">源码下载</a></p>
+<p><strong>本文转自</strong> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/92771817c73f">译文：一个采用 Three.js 的 3D 动画场景制作：飞行者</a>，作者：LeeChingYin</p>
+<p><strong>英文原文链接：</strong><a target="_blank" rel="noopener" href="https://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/">The Making of “The Aviator”: Animating a Basic 3D Scene with Three.js</a></p>
 
             </article>
             <hr>
@@ -1022,9 +1022,9 @@ ambientLight = <span class="hljs-keyword">new</span> THREE.AmbientLight(<span cl
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
-                    
                       <a class="hover-with-bg" href="/tags/JS/">JS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
                     
                       <a class="hover-with-bg" href="/tags/Three-js/">Three.js</a>
                     
@@ -1032,7 +1032,7 @@ ambientLight = <span class="hljs-keyword">new</span> THREE.AmbientLight(<span cl
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

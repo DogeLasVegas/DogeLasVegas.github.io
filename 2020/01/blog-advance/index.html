@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.6k 字
     </span>
   
 
@@ -229,24 +229,24 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="添加其他样式"><a href="#添加其他样式" class="headerlink" title="添加其他样式"></a>添加其他样式</h2><p>主要添加自定义样式。首先编辑主题配置文件，然后在站点根目录的<code>source</code>文件夹内新建你配置的文件夹和文件：</p>
+              <h2 id="添加其他样式"><a href="#添加其他样式" class="headerlink" title="添加其他样式"></a>添加其他样式</h2><p>主要添加自定义样式。首先编辑主题配置文件，然后在站点根目录的<code>source</code>文件夹内新建你配置的文件夹和文件：</p>
 <div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span>   <span class="hljs-comment"># 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js，支持列表</span>
 <span class="hljs-attr">custom_css:</span>  <span class="hljs-string">/css/custom.css</span> <span class="hljs-comment"># 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css 同上，支持列表</span>
-<span class="hljs-attr">custom_html:</span> <span class="hljs-string">''</span>  <span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span></code></pre></div>
+<span class="hljs-attr">custom_html:</span> <span class="hljs-string">&#x27;&#x27;</span>  <span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span></code></pre></div>
 
 <h3 id="修改鼠标样式"><a href="#修改鼠标样式" class="headerlink" title="修改鼠标样式"></a>修改鼠标样式</h3><p>在前面新建的CSS文件中添加如下代码：</p>
 <div class="hljs"><pre><code class="hljs css"><span class="hljs-comment">/*鼠标样式 */</span>
   <span class="hljs-selector-tag">body</span> &#123;
-    <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/img/huaji.cur"</span>),auto <span class="hljs-meta">!important</span>
+    <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/huaji.cur&quot;</span>),auto <span class="hljs-meta">!important</span>
   &#125;
   <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;
-      <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">"/img/laji.png"</span>),auto <span class="hljs-meta">!important</span>
+      <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/laji.png&quot;</span>),auto <span class="hljs-meta">!important</span>
   &#125;</code></pre></div>
 
 <p>上面代码中<code>url</code>的地址是在source目录下的文件，也可以写其他的图片地址。</p>
 <h3 id="修改网页背景"><a href="#修改网页背景" class="headerlink" title="修改网页背景"></a>修改网页背景</h3><p>还是在前面新建的CSS文件中修改，添加如下代码：</p>
 <div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;
-    <span class="hljs-attribute">background</span>:<span class="hljs-built_in">url</span>(/images/bg.jpg);
+    <span class="hljs-attribute">background</span>:<span class="hljs-built_in">url</span>(<span class="hljs-string">/images/bg.jpg</span>);
     <span class="hljs-attribute">background-size</span>:cover;
     <span class="hljs-attribute">background-repeat</span>:no-repeat;
     <span class="hljs-attribute">background-attachment</span>:fixed;
@@ -347,14 +347,14 @@
 <div class="hljs"><pre><code class="hljs bash">npm install --save hexo-blog-encrypt</code></pre></div>
 
 <p>或</p>
-<div class="hljs"><pre><code class="hljs armasm"><span class="hljs-symbol">yarn</span> <span class="hljs-keyword">add </span>hexo-<span class="hljs-keyword">blog-encrypt </span>(需要Yarn)</code></pre></div>
+<div class="hljs"><pre><code class="hljs livecodeserver">yarn <span class="hljs-built_in">add</span> hexo-blog-<span class="hljs-built_in">encrypt</span> (需要Yarn)</code></pre></div>
 
 <p>最简单的使用方式就是将 “password” 字段添加到文章的信息头上：</p>
 <div class="hljs"><pre><code class="hljs markdown">---
 title: Hello World
 date: 2020-01-03 15:43:38
-<span class="hljs-section">password: 123456
----</span></code></pre></div>
+password: 123456
+---</code></pre></div>
 
 <p><strong>高级设置：</strong></p>
 <p>两种设置方式：</p>
@@ -365,7 +365,7 @@ date: 2020-01-03 15:43:38
 <span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
 <span class="hljs-attr">tags:</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">作为日记加密</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2020</span><span class="hljs-number">-01</span><span class="hljs-number">-03</span> <span class="hljs-number">15</span><span class="hljs-string">:43:38</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2020-01-03 15:43:38</span>
 <span class="hljs-attr">password:</span> <span class="hljs-number">123456</span>
 <span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
 <span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
@@ -381,25 +381,25 @@ date: 2020-01-03 15:43:38
   <span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
   <span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
   <span class="hljs-attr">tags:</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-string">&#123;name:</span> <span class="hljs-string">tagName,</span> <span class="hljs-attr">password:</span> <span class="hljs-string">密码A&#125;</span>
-  <span class="hljs-bullet">-</span> <span class="hljs-string">&#123;name:</span> <span class="hljs-string">tagName,</span> <span class="hljs-attr">password:</span> <span class="hljs-string">密码B&#125;</span>
-  <span class="hljs-attr">template:</span> <span class="hljs-string">&lt;div</span> <span class="hljs-string">id="hexo-blog-encrypt"</span> <span class="hljs-string">data-wpm="&#123;&#123;hbeWrongPassMessage&#125;&#125;"</span> <span class="hljs-string">data-whm="&#123;&#123;hbeWrongHashMessage&#125;&#125;"&gt;&lt;div</span> <span class="hljs-string">class="hbe-input-container"&gt;&lt;input</span> <span class="hljs-string">type="password"</span> <span class="hljs-string">id="hbePass"</span> <span class="hljs-string">placeholder="&#123;&#123;hbeMessage&#125;&#125;"</span> <span class="hljs-string">/&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div</span> <span class="hljs-string">class="bottom-line"&gt;&lt;/div&gt;&lt;/div&gt;&lt;script</span> <span class="hljs-string">id="hbeData"</span> <span class="hljs-string">type="hbeData"</span> <span class="hljs-string">data-hmacdigest="&#123;&#123;hbeHmacDigest&#125;&#125;"&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span>
+  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码A</span>&#125;
+  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码B</span>&#125;
+  <span class="hljs-attr">template:</span> <span class="hljs-string">&lt;div</span> <span class="hljs-string">id=&quot;hexo-blog-encrypt&quot;</span> <span class="hljs-string">data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot;</span> <span class="hljs-string">data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div</span> <span class="hljs-string">class=&quot;hbe-input-container&quot;&gt;&lt;input</span> <span class="hljs-string">type=&quot;password&quot;</span> <span class="hljs-string">id=&quot;hbePass&quot;</span> <span class="hljs-string">placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot;</span> <span class="hljs-string">/&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div</span> <span class="hljs-string">class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script</span> <span class="hljs-string">id=&quot;hbeData&quot;</span> <span class="hljs-string">type=&quot;hbeData&quot;</span> <span class="hljs-string">data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span>
   <span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span>
   <span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span></code></pre></div>
 
 <p><strong>注意！！！</strong>在站点配置文件配置上述内容时，如果把tags下面的内容都注释掉的话编译生成的时候会报错，要改成这样才行：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">tags:</span> <span class="hljs-string">[]</span> <span class="hljs-comment">#在后面加一对方括号，表示是个数组，不然报错 Cannot read property 'forEach' of null</span>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">tags:</span> [] <span class="hljs-comment">#在后面加一对方括号，表示是个数组，不然报错 Cannot read property &#x27;forEach&#x27; of null</span>
   <span class="hljs-comment"># - &#123;name: tagName, password: 密码A&#125;</span>
   <span class="hljs-comment"># - &#123;name: tagName, password: 密码B&#125;</span></code></pre></div>
 
-<p><strong><em>以后有类似的配置遇到问题也可以尝试这样解决。</em></strong></p>
+<p><em><strong>以后有类似的配置遇到问题也可以尝试这样解决。</strong></em></p>
 <p><strong>加密优先级</strong>是 文章信息头 &gt; 按标签加密。</p>
 <p><strong>配置优先级</strong>是 文章信息头 &gt; <code>_config.yml</code> (站点根目录下的) &gt; 默认配置。</p>
 <p><strong>其他问题</strong></p>
 <p>在部分博客中, 解密后部分元素可能无法正常显示或者表现, 这属于已知问题. 目前的解决办法是通过自行查阅自己的博客中的代码, 了解到在 onload 事件发生时调用了哪些函数, 并将这些函数挑选后写入到博客内容中. 如:</p>
 <div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">title:</span> <span class="hljs-string">Callback</span> <span class="hljs-string">Test</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2019</span><span class="hljs-number">-12</span><span class="hljs-number">-21</span> <span class="hljs-number">11</span><span class="hljs-string">:54:07</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2019-12-21 11:54:07</span>
 <span class="hljs-attr">tags:</span>
     <span class="hljs-bullet">-</span> <span class="hljs-string">Encrypted</span>
 <span class="hljs-meta">---</span>
@@ -410,7 +410,7 @@ date: 2020-01-03 15:43:38
 
 <span class="hljs-string">&lt;script&gt;</span>
     <span class="hljs-string">//</span> <span class="hljs-string">添加一个</span> <span class="hljs-string">script</span> <span class="hljs-string">tag</span> <span class="hljs-string">与代码在文章末尾.</span>
-    <span class="hljs-string">alert("Hello</span> <span class="hljs-string">World");</span>
+    <span class="hljs-string">alert(&quot;Hello</span> <span class="hljs-string">World&quot;);</span>
 <span class="hljs-string">&lt;/script&gt;</span></code></pre></div>
 
 <p><strong>对 TOC 进行加密</strong></p>
@@ -448,7 +448,7 @@ node_modules/
 <p>如果还有其他自己不想提交的文件也可以加到这个文件中。</p>
 <p>然后再在命令行中执行以下命令：</p>
 <div class="hljs"><pre><code class="hljs bash">git add .
-git commit –m <span class="hljs-string">"commit message"</span>
+git commit –m <span class="hljs-string">&quot;commit message&quot;</span>
 git push</code></pre></div>
 
 <p>可以在网页中查看是否上传成功。</p>
@@ -459,14 +459,14 @@ npm install hexo-deployer-git --save</code></pre></div>
 
 <p>然后就可以继续写博客了，写完之后运行<code>hexo g &amp;&amp; hexo d</code>，就可以部署到GitHub Pages上了。而且现在可以每次写完博客都把源文件备份一下了：</p>
 <div class="hljs"><pre><code class="hljs bash">git add .
-git commit –m <span class="hljs-string">"commit message"</span>
+git commit –m <span class="hljs-string">&quot;commit message&quot;</span>
 git push</code></pre></div>
 
 <h3 id="用GitHub-Desktop操作"><a href="#用GitHub-Desktop操作" class="headerlink" title="用GitHub Desktop操作"></a>用GitHub Desktop操作</h3><p>下载安装GitHub Desktop然后登陆GitHub，把对应的作为保存博客源文件的仓库克隆到本地，然后把除了<code>.deploy_git</code>以外的博客源文件复制进来，注意有没有<code>.gitignore</code>这个文件，没有按上面方法加上，然后再写上备注信息，，提交推送到Git上就行了。</p>
-<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/" target="_blank" rel="noopener">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
-<p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程</a></p>
-<p><a href="https://uchuhimo.me/2017/04/11/genesis/" target="_blank" rel="noopener">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo中文文档</a></p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a target="_blank" rel="noopener" href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37781304/article/details/82729029">hexo史上最全搭建教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://uchuhimo.me/2017/04/11/genesis/">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo中文文档</a></p>
 
             </article>
             <hr>
@@ -494,7 +494,7 @@ git push</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      537 字
+      577 字
     </span>
   
 
@@ -229,42 +229,43 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>通过点击按钮列表可以上下滚动，依赖于jQuery。在线demo：<a href="">列表滚动</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
+              <p>通过点击按钮列表可以上下滚动，依赖于jQuery。在线demo：<a href="">列表滚动</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif"></p>
 <p><strong>完整代码：</strong></p>
 <div class="hljs"><pre><code class="hljs javascript">
 (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>&#123;
     $.fn.extend(&#123;
-    <span class="hljs-attr">Scroll</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">opt, callback</span>) </span>&#123;
+    Scroll: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">opt, callback</span>) </span>&#123;
             <span class="hljs-keyword">if</span> (!opt) <span class="hljs-keyword">var</span> opt = &#123;&#125;;
-            <span class="hljs-keyword">var</span> _btnUp = $(<span class="hljs-string">"#"</span> + opt.up); <span class="hljs-comment">//向上滚动按钮   </span>
-            <span class="hljs-keyword">var</span> _btnDown = $(<span class="hljs-string">"#"</span> + opt.down); <span class="hljs-comment">//向下滚动按钮   </span>
+            <span class="hljs-keyword">var</span> _btnUp = $(<span class="hljs-string">&quot;#&quot;</span> + opt.up); <span class="hljs-comment">//向上滚动按钮   </span>
+            <span class="hljs-keyword">var</span> _btnDown = $(<span class="hljs-string">&quot;#&quot;</span> + opt.down); <span class="hljs-comment">//向下滚动按钮   </span>
             <span class="hljs-keyword">var</span> height = opt.height ? <span class="hljs-built_in">parseInt</span>(opt.height, <span class="hljs-number">10</span>) : <span class="hljs-number">100</span>; <span class="hljs-comment">//每次滚动的行数，默认为一屏，即父容器高度</span>
             <span class="hljs-keyword">var</span> speed = opt.speed ? <span class="hljs-built_in">parseInt</span>(opt.speed, <span class="hljs-number">10</span>) : <span class="hljs-number">600</span>; <span class="hljs-comment">//卷动速度，数值越大，速度越慢（毫秒）</span>
                     
             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">up</span>(<span class="hljs-params"></span>)</span>&#123;
-                <span class="hljs-keyword">if</span> (!$(<span class="hljs-string">"#scrollDiv"</span>).is(<span class="hljs-string">":animated"</span>)) &#123;
-                    $(<span class="hljs-string">"#scrollDiv"</span>).animate(&#123;<span class="hljs-attr">scrollTop</span>:$(<span class="hljs-string">"#scrollDiv"</span>).scrollTop()-height&#125;,speed)
+                <span class="hljs-keyword">if</span> (!$(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).is(<span class="hljs-string">&quot;:animated&quot;</span>)) &#123;
+                    $(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).animate(&#123;<span class="hljs-attr">scrollTop</span>:$(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).scrollTop()-height&#125;,speed)
                 &#125;
             &#125;
             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">down</span>(<span class="hljs-params"></span>)</span>&#123;
-                <span class="hljs-keyword">if</span> (!$(<span class="hljs-string">"#scrollDiv"</span>).is(<span class="hljs-string">":animated"</span>)) &#123;
-                    $(<span class="hljs-string">"#scrollDiv"</span>).animate(&#123;<span class="hljs-attr">scrollTop</span>:$(<span class="hljs-string">"#scrollDiv"</span>).scrollTop()+height&#125;,speed)
+                <span class="hljs-keyword">if</span> (!$(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).is(<span class="hljs-string">&quot;:animated&quot;</span>)) &#123;
+                    $(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).animate(&#123;<span class="hljs-attr">scrollTop</span>:$(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).scrollTop()+height&#125;,speed)
                 &#125;
             &#125;
 
-            _btnUp.bind(<span class="hljs-string">"click"</span>, down);
-            _btnDown.bind(<span class="hljs-string">"click"</span>, up);
+            _btnUp.bind(<span class="hljs-string">&quot;click&quot;</span>, down);
+            _btnDown.bind(<span class="hljs-string">&quot;click&quot;</span>, up);
     &#125;
     &#125;);
 &#125;)(jQuery);
 $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    $(<span class="hljs-string">"#scrollDiv"</span>).Scroll(&#123; <span class="hljs-attr">height</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">speed</span>: <span class="hljs-number">800</span>,<span class="hljs-attr">up</span>: <span class="hljs-string">"btn2"</span>, <span class="hljs-attr">down</span>: <span class="hljs-string">"btn1"</span> &#125;);
-&#125;);</code></pre></div>
+    $(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).Scroll(&#123; <span class="hljs-attr">height</span>: <span class="hljs-number">100</span>, <span class="hljs-attr">speed</span>: <span class="hljs-number">800</span>,<span class="hljs-attr">up</span>: <span class="hljs-string">&quot;btn2&quot;</span>, <span class="hljs-attr">down</span>: <span class="hljs-string">&quot;btn1&quot;</span> &#125;);
+&#125;);
+</code></pre></div>
 
 <p><strong>使用方法：</strong></p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"scrollDiv"</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;scrollDiv&quot;</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>列表项一<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>列表项一<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -292,7 +293,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span 
 		<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>列表项一<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"btn2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></code></pre></div>
 
 <p>CSS：</p>
 <div class="hljs"><pre><code class="hljs CSS"><span class="hljs-selector-id">#scrollDiv</span> &#123;
@@ -312,9 +313,9 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span 
 &#125;</code></pre></div>
 
 <p>如果想要列表默认滚动到某一位置可以在页面加上下面这句话：</p>
-<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
-    $(<span class="hljs-string">"#scrollDiv"</span>).scrollTop(<span class="hljs-number">615</span>);
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span>
+<span class="javascript">    $(<span class="hljs-string">&quot;#scrollDiv&quot;</span>).scrollTop(<span class="hljs-number">615</span>);</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 
             </article>
@@ -341,7 +342,7 @@ $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span 
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.1k 字
     </span>
   
 
@@ -229,8 +229,8 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>在用Bootstrap-Datepicker之前，也用过一个<a href="https://github.com/Eonasdan/bootstrap-datetimepicker" target="_blank" rel="noopener">日期时间选择插件</a>，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款<strong>日期选择</strong>插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。</p>
-<h2 id="使用和依赖"><a href="#使用和依赖" class="headerlink" title="使用和依赖"></a>使用和依赖</h2><p><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="noopener"><strong>Bootstrap-datepicker</strong></a>是一款基于Bootstrap样式的datepicker小部件。要求使用<a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a> 2.0.4 版本以上，<a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a> 1.7.1版本以上。</p>
+              <p>在用Bootstrap-Datepicker之前，也用过一个<a target="_blank" rel="noopener" href="https://github.com/Eonasdan/bootstrap-datetimepicker">日期时间选择插件</a>，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款<strong>日期选择</strong>插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。</p>
+<h2 id="使用和依赖"><a href="#使用和依赖" class="headerlink" title="使用和依赖"></a>使用和依赖</h2><p><a target="_blank" rel="noopener" href="https://github.com/uxsolutions/bootstrap-datepicker"><strong>Bootstrap-datepicker</strong></a>是一款基于Bootstrap样式的datepicker小部件。要求使用<a target="_blank" rel="noopener" href="https://getbootstrap.com/">Bootstrap</a> 2.0.4 版本以上，<a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a> 1.7.1版本以上。</p>
 <p>可以下载后引入CSS和JS文件，也可以直接通过CDN引入。</p>
 <p>下载的完整库中包含一些不同的样式表。每个CSS文件的用途分别是：</p>
 <ul>
@@ -243,28 +243,28 @@
 </ul>
 <p><strong>下载地址放在最后参考链接中</strong>。</p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>通过javascript调用datepicker：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker();</code></pre></div>
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker();</code></pre></div>
 
 <p>通过data-API：</p>
 <p>与bootstrap自己的插件一样，datepicker提供了一个数据API，可用于实例化datepicker，而无需自定义JavaScript。对于大多数日期选择器，只需在要初始化的元素上设置<code>data-provide=&quot;datepicker&quot;</code>，它就会延迟初始化。对于内联日期选择器，请使用<code>data-provide=&quot;datepicker-inline&quot;</code>; 这些将在页面加载时立即初始化，并且不能延迟加载。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">"datepicker"</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">&quot;datepicker&quot;</span>&gt;</span></code></pre></div>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>选项<code>datepicker</code>在实例化时通过选项传递到函数：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
-    <span class="hljs-attr">format</span>: <span class="hljs-string">'mm/dd/yyyy'</span>,
-    <span class="hljs-attr">startDate</span>: <span class="hljs-string">'-3d'</span>
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
+    format: <span class="hljs-string">&#x27;mm/dd/yyyy&#x27;</span>,
+    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span>
 &#125;);</code></pre></div>
 
 <p>也可以在目标元素上通过data-API属性使用，大多数选项都提供支持：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">"mm/dd/yyyy"</span>&gt;</span>
-$('.datepicker').datepicker(&#123;
-    startDate: '-3d'
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>&gt;</span>
+$(&#x27;.datepicker&#x27;).datepicker(&#123;
+    startDate: &#x27;-3d&#x27;
 &#125;);</code></pre></div>
 
 <p>可以通过更改<code>$.fn.datepicker.defaults</code>来修改所有选项的默认值：</p>
-<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">"mm/dd/yyyy"</span>;
-$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
-    <span class="hljs-attr">startDate</span>: <span class="hljs-string">'-3d'</span>
+<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>;
+$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
+    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span>
 &#125;);</code></pre></div>
 
 <h3 id="无冲突模式"><a href="#无冲突模式" class="headerlink" title="无冲突模式"></a>无冲突模式</h3><p><code>$.fn.datepicker.noConflict</code> 提供一种避免与其他jQuery datepicker插件冲突的方法：</p>
@@ -275,56 +275,51 @@ $.fn.bootstrapDP = datepicker;                 <span class="hljs-comment">// giv
 <ul>
 <li><p>输入框</p>
 <p>最简单的方式，当点击输入框或者焦点切换到输入框内时，显示选择器</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"02-16-2012"</span>&gt;</span></code></pre></div>
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;02-16-2012&quot;</span>&gt;</span></code></pre></div>
+<p>" srcset="/img/loading.gif<img src=""></p>
 </li>
 <li><p>组件</p>
 <p>添加<code>date</code>类到一个输入框组<code>input-group</code>上，这可以让拥有<code>input-group-addon</code>类的元素打开日期选择器。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group date"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"12-02-2012"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-addon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"glyphicon glyphicon-th"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group date&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;12-02-2012&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-th&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
-</li>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div></li>
 <li><p>范围选择</p>
 <p>将<code>input-daterange</code>添加到输入框组与多个子输入框一起使用将为每个输入框实例化一个选择器，以允许选择范围。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group input-daterange"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2012-04-05"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-addon"</span>&gt;</span>to<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2012-04-19"</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
-
-</li>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group input-daterange&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-05&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span>to<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-19&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div></li>
 </ul>
 <p><strong>注意：</strong><code>input-daterange</code>自身并不会实现<code>datepicker</code>的方法，方法应该直接被输入框调用，例如：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.input-daterange input'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
-    $(<span class="hljs-keyword">this</span>).datepicker(<span class="hljs-string">'clearDates'</span>);
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.input-daterange input&#x27;</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+    $(<span class="hljs-built_in">this</span>).datepicker(<span class="hljs-string">&#x27;clearDates&#x27;</span>);
 &#125;);</code></pre></div>
 
 <ul>
 <li><p>内联或嵌入式  </p>
 <p>在简单的<code>div</code>上实例化<code>datepicker</code>将提供一个始终可见的嵌入式选择器。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>一个实例：将选择器的值的保存到隐藏的字段中。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">"12/03/2012"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"my_hidden_input"</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_hidden_input&quot;</span>&gt;</span></code></pre></div>
 
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'#datepicker'</span>).datepicker();
-$(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'changeDate'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
-  $(<span class="hljs-string">'#my_hidden_input'</span>).val(
-    $(<span class="hljs-string">'#datepicker'</span>).datepicker(<span class="hljs-string">'getFormattedDate'</span>)
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker();
+$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs-string">&#x27;changeDate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
+  $(<span class="hljs-string">&#x27;#my_hidden_input&#x27;</span>).val(
+    $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker(<span class="hljs-string">&#x27;getFormattedDate&#x27;</span>)
   );
-&#125;);</code></pre></div>
-
-</li>
+&#125;);</code></pre></div></li>
 </ul>
 <h2 id="配置选项"><a href="#配置选项" class="headerlink" title="配置选项"></a>配置选项</h2><p>所有带有<code>Date</code>的选项都可以处理为一个Date对象。或相对于今天的时间增量，例如“ -1d”，“ + 6m + 1y”等，其中有效单位为“ d”（天），“ w”（周），“ m”（月）和“ y” “ （年）。今天使用“ 0”。相对时间增量也有别名：“昨天”等于“ -1d”，“今天”等于“ + 0d”，“明天”等于“ + 1d”。</p>
 <p>大多数选项可以通过数据属性提供。通过以下方式可以将选项转换为数据属性：将选项中的每个大写字母替换为其小写字母，并在每个单词前加上破折号，然后在结果前添加<code>data-date-</code>。例如，<code>startDate</code>转换为<code>data-date-start-date</code>，<code>format</code>转换为<code>data-date-format</code>而<code>daysOfWeekDisabled</code>将是<code>data-date-days-of-week-disabled</code>。</p>
-<p>可以在官方提供的在线<a href="https://uxsolutions.github.io/bootstrap-datepicker/?#sandbox" target="_blank" rel="noopener">DEMO</a>中测试下面的选项。另外官方demo中的<code>Start date</code>和<code>End date</code>选项存在bug，如果直接输入会在控制台报错，并且日期选择器将失效，如果想测试可以把选项内容在别的地方写好，然后复制进去测试。</p>
+<p>可以在官方提供的在线<a target="_blank" rel="noopener" href="https://uxsolutions.github.io/bootstrap-datepicker/#sandbox">DEMO</a>中测试下面的选项。另外官方demo中的<code>Start date</code>和<code>End date</code>选项存在bug，如果直接输入会在控制台报错，并且日期选择器将失效，如果想测试可以把选项内容在别的地方写好，然后复制进去测试。</p>
 <p>下面介绍一些常用的选项：</p>
-<h4 id="autoclose"><a href="#autoclose" class="headerlink" title="autoclose"></a>autoclose</h4><h4 id="assumeNearbyYear"><a href="#assumeNearbyYear" class="headerlink" title="assumeNearbyYear"></a>assumeNearbyYear</h4><h4 id="beforeShowDay"><a href="#beforeShowDay" class="headerlink" title="beforeShowDay"></a>beforeShowDay</h4><h4 id="calendarWeeks"><a href="#calendarWeeks" class="headerlink" title="calendarWeeks"></a>calendarWeeks</h4><h4 id="container"><a href="#container" class="headerlink" title="container"></a>container</h4><h4 id="datesDisabled"><a href="#datesDisabled" class="headerlink" title="datesDisabled"></a>datesDisabled</h4><h4 id="daysOfWeekDisabled"><a href="#daysOfWeekDisabled" class="headerlink" title="daysOfWeekDisabled"></a>daysOfWeekDisabled</h4><h4 id="daysOfWeekHighlighted"><a href="#daysOfWeekHighlighted" class="headerlink" title="daysOfWeekHighlighted"></a>daysOfWeekHighlighted</h4><h4 id="defaultViewDate"><a href="#defaultViewDate" class="headerlink" title="defaultViewDate"></a>defaultViewDate</h4><h4 id="enableOnReadonly"><a href="#enableOnReadonly" class="headerlink" title="enableOnReadonly"></a>enableOnReadonly</h4><h4 id="endDate"><a href="#endDate" class="headerlink" title="endDate"></a>endDate</h4><h4 id="forceParse"><a href="#forceParse" class="headerlink" title="forceParse"></a>forceParse</h4><h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><h4 id="immediateUpdates"><a href="#immediateUpdates" class="headerlink" title="immediateUpdates"></a>immediateUpdates</h4><h4 id="keepEmptyValues"><a href="#keepEmptyValues" class="headerlink" title="keepEmptyValues"></a>keepEmptyValues</h4><h4 id="language"><a href="#language" class="headerlink" title="language"></a>language</h4><h4 id="maxViewMode"><a href="#maxViewMode" class="headerlink" title="maxViewMode"></a>maxViewMode</h4><h4 id="minViewMode"><a href="#minViewMode" class="headerlink" title="minViewMode"></a>minViewMode</h4><h4 id="multidate"><a href="#multidate" class="headerlink" title="multidate"></a>multidate</h4><h4 id="multidateSeparator"><a href="#multidateSeparator" class="headerlink" title="multidateSeparator"></a>multidateSeparator</h4><h4 id="orientation"><a href="#orientation" class="headerlink" title="orientation"></a>orientation</h4><h4 id="startDate"><a href="#startDate" class="headerlink" title="startDate"></a>startDate</h4><h4 id="startView"><a href="#startView" class="headerlink" title="startView"></a>startView</h4><h4 id="showWeekDays"><a href="#showWeekDays" class="headerlink" title="showWeekDays"></a>showWeekDays</h4><h4 id="todayBtn"><a href="#todayBtn" class="headerlink" title="todayBtn"></a>todayBtn</h4><h4 id="todayHighlight"><a href="#todayHighlight" class="headerlink" title="todayHighlight"></a>todayHighlight</h4><h4 id="autoclose-1"><a href="#autoclose-1" class="headerlink" title="autoclose"></a>autoclose</h4><h4 id="weekStart"><a href="#weekStart" class="headerlink" title="weekStart"></a>weekStart</h4><h4 id="zIndexOffset"><a href="#zIndexOffset" class="headerlink" title="zIndexOffset"></a>zIndexOffset</h4><p>更多选项及其默认值的概述，请参见<a href="https://bootstrap-datepicker.readthedocs.io/en/stable/options.html#quick-reference" target="_blank" rel="noopener">快速参考</a>。</p>
+<h4 id="autoclose"><a href="#autoclose" class="headerlink" title="autoclose"></a>autoclose</h4><h4 id="assumeNearbyYear"><a href="#assumeNearbyYear" class="headerlink" title="assumeNearbyYear"></a>assumeNearbyYear</h4><h4 id="beforeShowDay"><a href="#beforeShowDay" class="headerlink" title="beforeShowDay"></a>beforeShowDay</h4><h4 id="calendarWeeks"><a href="#calendarWeeks" class="headerlink" title="calendarWeeks"></a>calendarWeeks</h4><h4 id="container"><a href="#container" class="headerlink" title="container"></a>container</h4><h4 id="datesDisabled"><a href="#datesDisabled" class="headerlink" title="datesDisabled"></a>datesDisabled</h4><h4 id="daysOfWeekDisabled"><a href="#daysOfWeekDisabled" class="headerlink" title="daysOfWeekDisabled"></a>daysOfWeekDisabled</h4><h4 id="daysOfWeekHighlighted"><a href="#daysOfWeekHighlighted" class="headerlink" title="daysOfWeekHighlighted"></a>daysOfWeekHighlighted</h4><h4 id="defaultViewDate"><a href="#defaultViewDate" class="headerlink" title="defaultViewDate"></a>defaultViewDate</h4><h4 id="enableOnReadonly"><a href="#enableOnReadonly" class="headerlink" title="enableOnReadonly"></a>enableOnReadonly</h4><h4 id="endDate"><a href="#endDate" class="headerlink" title="endDate"></a>endDate</h4><h4 id="forceParse"><a href="#forceParse" class="headerlink" title="forceParse"></a>forceParse</h4><h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><h4 id="immediateUpdates"><a href="#immediateUpdates" class="headerlink" title="immediateUpdates"></a>immediateUpdates</h4><h4 id="keepEmptyValues"><a href="#keepEmptyValues" class="headerlink" title="keepEmptyValues"></a>keepEmptyValues</h4><h4 id="language"><a href="#language" class="headerlink" title="language"></a>language</h4><h4 id="maxViewMode"><a href="#maxViewMode" class="headerlink" title="maxViewMode"></a>maxViewMode</h4><h4 id="minViewMode"><a href="#minViewMode" class="headerlink" title="minViewMode"></a>minViewMode</h4><h4 id="multidate"><a href="#multidate" class="headerlink" title="multidate"></a>multidate</h4><h4 id="multidateSeparator"><a href="#multidateSeparator" class="headerlink" title="multidateSeparator"></a>multidateSeparator</h4><h4 id="orientation"><a href="#orientation" class="headerlink" title="orientation"></a>orientation</h4><h4 id="startDate"><a href="#startDate" class="headerlink" title="startDate"></a>startDate</h4><h4 id="startView"><a href="#startView" class="headerlink" title="startView"></a>startView</h4><h4 id="showWeekDays"><a href="#showWeekDays" class="headerlink" title="showWeekDays"></a>showWeekDays</h4><h4 id="todayBtn"><a href="#todayBtn" class="headerlink" title="todayBtn"></a>todayBtn</h4><h4 id="todayHighlight"><a href="#todayHighlight" class="headerlink" title="todayHighlight"></a>todayHighlight</h4><h4 id="autoclose-1"><a href="#autoclose-1" class="headerlink" title="autoclose"></a>autoclose</h4><h4 id="weekStart"><a href="#weekStart" class="headerlink" title="weekStart"></a>weekStart</h4><h4 id="zIndexOffset"><a href="#zIndexOffset" class="headerlink" title="zIndexOffset"></a>zIndexOffset</h4><p>更多选项及其默认值的概述，请参见<a target="_blank" rel="noopener" href="https://bootstrap-datepicker.readthedocs.io/en/stable/options.html#quick-reference">快速参考</a>。</p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h4 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h4><h4 id="show"><a href="#show" class="headerlink" title="show"></a>show</h4><h4 id="update"><a href="#update" class="headerlink" title="update"></a>update</h4><h4 id="setDate"><a href="#setDate" class="headerlink" title="setDate"></a>setDate</h4><h4 id="getDate"><a href="#getDate" class="headerlink" title="getDate"></a>getDate</h4><h4 id="clearDates"><a href="#clearDates" class="headerlink" title="clearDates"></a>clearDates</h4><h4 id="setDatesDisabled"><a href="#setDatesDisabled" class="headerlink" title="setDatesDisabled"></a>setDatesDisabled</h4><h4 id="setDaysOfWeekHighlighted"><a href="#setDaysOfWeekHighlighted" class="headerlink" title="setDaysOfWeekHighlighted"></a>setDaysOfWeekHighlighted</h4><h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h4 id="show-1"><a href="#show-1" class="headerlink" title="show"></a>show</h4><h4 id="hide"><a href="#hide" class="headerlink" title="hide"></a>hide</h4><h4 id="clearDate"><a href="#clearDate" class="headerlink" title="clearDate"></a>clearDate</h4><h4 id="changeDate"><a href="#changeDate" class="headerlink" title="changeDate"></a>changeDate</h4><h4 id="changeMonth"><a href="#changeMonth" class="headerlink" title="changeMonth"></a>changeMonth</h4><h4 id="changeYear"><a href="#changeYear" class="headerlink" title="changeYear"></a>changeYear</h4><h4 id="changeDecade"><a href="#changeDecade" class="headerlink" title="changeDecade"></a>changeDecade</h4><h4 id="changeCentury"><a href="#changeCentury" class="headerlink" title="changeCentury"></a>changeCentury</h4><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="键盘支持"><a href="#键盘支持" class="headerlink" title="键盘支持"></a>键盘支持</h3><p>日期选择器支持使用键盘选择。在使用键盘选择时，被选择的日期会突出显示（与鼠标悬停一样）。</p>
 <ul>
 <li><p>上，下，左，右方向键</p>
@@ -341,32 +336,32 @@ $(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'
 </li>
 </ul>
 <h3 id="I18N"><a href="#I18N" class="headerlink" title="I18N"></a>I18N</h3><p>日期选择器支持<code>i18n</code>，提供不同语言的月份和周工作日名称，以及设置weekStart选项。默认语言为英语（”en”），在<code>js/locales/</code>目录中还提供其他可用语言的翻译，只需在插件中添加所需的语言即可。要添加更多语言，只需在调用<code>.datepicker()</code>之前添加一个键到<code>$.fn.datepicker.dates</code>。例如：</p>
-<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">'en'</span>] = &#123;
-    <span class="hljs-attr">days</span>: [<span class="hljs-string">"Sunday"</span>, <span class="hljs-string">"Monday"</span>, <span class="hljs-string">"Tuesday"</span>, <span class="hljs-string">"Wednesday"</span>, <span class="hljs-string">"Thursday"</span>, <span class="hljs-string">"Friday"</span>, <span class="hljs-string">"Saturday"</span>],
-    <span class="hljs-attr">daysShort</span>: [<span class="hljs-string">"Sun"</span>, <span class="hljs-string">"Mon"</span>, <span class="hljs-string">"Tue"</span>, <span class="hljs-string">"Wed"</span>, <span class="hljs-string">"Thu"</span>, <span class="hljs-string">"Fri"</span>, <span class="hljs-string">"Sat"</span>],
-    <span class="hljs-attr">daysMin</span>: [<span class="hljs-string">"Su"</span>, <span class="hljs-string">"Mo"</span>, <span class="hljs-string">"Tu"</span>, <span class="hljs-string">"We"</span>, <span class="hljs-string">"Th"</span>, <span class="hljs-string">"Fr"</span>, <span class="hljs-string">"Sa"</span>],
-    <span class="hljs-attr">months</span>: [<span class="hljs-string">"January"</span>, <span class="hljs-string">"February"</span>, <span class="hljs-string">"March"</span>, <span class="hljs-string">"April"</span>, <span class="hljs-string">"May"</span>, <span class="hljs-string">"June"</span>, <span class="hljs-string">"July"</span>, <span class="hljs-string">"August"</span>, <span class="hljs-string">"September"</span>, <span class="hljs-string">"October"</span>, <span class="hljs-string">"November"</span>, <span class="hljs-string">"December"</span>],
-    <span class="hljs-attr">monthsShort</span>: [<span class="hljs-string">"Jan"</span>, <span class="hljs-string">"Feb"</span>, <span class="hljs-string">"Mar"</span>, <span class="hljs-string">"Apr"</span>, <span class="hljs-string">"May"</span>, <span class="hljs-string">"Jun"</span>, <span class="hljs-string">"Jul"</span>, <span class="hljs-string">"Aug"</span>, <span class="hljs-string">"Sep"</span>, <span class="hljs-string">"Oct"</span>, <span class="hljs-string">"Nov"</span>, <span class="hljs-string">"Dec"</span>],
-    <span class="hljs-attr">today</span>: <span class="hljs-string">"Today"</span>,
-    <span class="hljs-attr">clear</span>: <span class="hljs-string">"Clear"</span>,
-    <span class="hljs-attr">format</span>: <span class="hljs-string">"mm/dd/yyyy"</span>,
-    <span class="hljs-attr">titleFormat</span>: <span class="hljs-string">"MM yyyy"</span>, <span class="hljs-comment">/* Leverages same syntax as 'format' */</span>
-    <span class="hljs-attr">weekStart</span>: <span class="hljs-number">0</span>
+<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">&#x27;en&#x27;</span>] = &#123;
+    days: [<span class="hljs-string">&quot;Sunday&quot;</span>, <span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>],
+    daysShort: [<span class="hljs-string">&quot;Sun&quot;</span>, <span class="hljs-string">&quot;Mon&quot;</span>, <span class="hljs-string">&quot;Tue&quot;</span>, <span class="hljs-string">&quot;Wed&quot;</span>, <span class="hljs-string">&quot;Thu&quot;</span>, <span class="hljs-string">&quot;Fri&quot;</span>, <span class="hljs-string">&quot;Sat&quot;</span>],
+    daysMin: [<span class="hljs-string">&quot;Su&quot;</span>, <span class="hljs-string">&quot;Mo&quot;</span>, <span class="hljs-string">&quot;Tu&quot;</span>, <span class="hljs-string">&quot;We&quot;</span>, <span class="hljs-string">&quot;Th&quot;</span>, <span class="hljs-string">&quot;Fr&quot;</span>, <span class="hljs-string">&quot;Sa&quot;</span>],
+    months: [<span class="hljs-string">&quot;January&quot;</span>, <span class="hljs-string">&quot;February&quot;</span>, <span class="hljs-string">&quot;March&quot;</span>, <span class="hljs-string">&quot;April&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;June&quot;</span>, <span class="hljs-string">&quot;July&quot;</span>, <span class="hljs-string">&quot;August&quot;</span>, <span class="hljs-string">&quot;September&quot;</span>, <span class="hljs-string">&quot;October&quot;</span>, <span class="hljs-string">&quot;November&quot;</span>, <span class="hljs-string">&quot;December&quot;</span>],
+    monthsShort: [<span class="hljs-string">&quot;Jan&quot;</span>, <span class="hljs-string">&quot;Feb&quot;</span>, <span class="hljs-string">&quot;Mar&quot;</span>, <span class="hljs-string">&quot;Apr&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;Jun&quot;</span>, <span class="hljs-string">&quot;Jul&quot;</span>, <span class="hljs-string">&quot;Aug&quot;</span>, <span class="hljs-string">&quot;Sep&quot;</span>, <span class="hljs-string">&quot;Oct&quot;</span>, <span class="hljs-string">&quot;Nov&quot;</span>, <span class="hljs-string">&quot;Dec&quot;</span>],
+    today: <span class="hljs-string">&quot;Today&quot;</span>,
+    clear: <span class="hljs-string">&quot;Clear&quot;</span>,
+    format: <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>,
+    titleFormat: <span class="hljs-string">&quot;MM yyyy&quot;</span>, <span class="hljs-comment">/* Leverages same syntax as &#x27;format&#x27; */</span>
+    weekStart: <span class="hljs-number">0</span>
 &#125;;</code></pre></div>
 
 <p><code>[&#39;en&#39;]</code>就是添加新语言的键，在后面大括号中添加月和周的对应语言翻译。使用时将键添加到选项中：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">'.datepicker'</span>).datepicker(&#123;
-    <span class="hljs-attr">language</span>: <span class="hljs-string">'XX'</span> <span class="hljs-comment">//XX就是键名</span>
+<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
+    language: <span class="hljs-string">&#x27;XX&#x27;</span> <span class="hljs-comment">//XX就是键名</span>
 &#125;);</code></pre></div>
 
 <p>从右到左的语言添加<code>rtl: true</code>也可以使日历正确显示。</p>
 <p>如果您的浏览器（或您用户的浏览器）的字符显示错误，则可能是浏览器正在加载具有非Unicode编码的javascript文件。只需添加<code>charset=&quot;UTF-8&quot;</code>到您的script标签即可正常显示：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"bootstrap-datepicker.XX.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;bootstrap-datepicker.XX.js&quot;</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.bootcss.com/" target="_blank" rel="noopener">bootstrap中文网</a></p>
-<p><a href="https://bootstrap-datepicker.readthedocs.io/en/stable/index.html" target="_blank" rel="noopener">bootstrap-datepicker文档</a></p>
-<p><a href="https://github.com/uxsolutions/bootstrap-datepicker/releases" target="_blank" rel="noopener">下载地址</a></p>
-<p><a href="https://www.cmd5.com/" target="_blank" rel="noopener">md5在线解密破解,md5解密加密</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.bootcss.com/">bootstrap中文网</a></p>
+<p><a target="_blank" rel="noopener" href="https://bootstrap-datepicker.readthedocs.io/en/stable/index.html">bootstrap-datepicker文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/uxsolutions/bootstrap-datepicker/releases">下载地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cmd5.com/">md5在线解密破解,md5解密加密</a></p>
 
             </article>
             <hr>
@@ -392,7 +387,7 @@ $(<span class="hljs-string">'#datepicker'</span>).on(<span class="hljs-string">'
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

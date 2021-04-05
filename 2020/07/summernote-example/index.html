@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      977 字
+      1.2k 字
     </span>
   
 
@@ -229,112 +229,112 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>前篇把Summernote的用法和配置基本都介绍了一遍，本篇就来实现一个完整的富文本编辑器吧。</p>
+              <p>前篇把Summernote的用法和配置基本都介绍了一遍，本篇就来实现一个完整的富文本编辑器吧。</p>
 <h2 id="需要引入的文件"><a href="#需要引入的文件" class="headerlink" title="需要引入的文件"></a>需要引入的文件</h2><p>CSS</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/bootstrap.min.css"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"css/summernote.min.css"</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/bootstrap.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/summernote.min.css&quot;</span>&gt;</span></code></pre></div>
 
 <p>JavaScript</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/jquery-1.11.0.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/bootstrap.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/summernote.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"lang/summernote-zh-CN.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/summernote-cleaner.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/jquery-1.11.0.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/bootstrap.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/summernote.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;lang/summernote-zh-CN.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/summernote-cleaner.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 
 <h2 id="初始化富文本编辑器"><a href="#初始化富文本编辑器" class="headerlink" title="初始化富文本编辑器"></a>初始化富文本编辑器</h2><p>HTML</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"summernote"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;summernote&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>JavaScript</p>
-<div class="hljs"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> $summernote = $(<span class="hljs-string">'#summernote'</span>).summernote(&#123;
-    <span class="hljs-attr">height</span>: <span class="hljs-number">350</span>,
-    <span class="hljs-attr">lang</span>: <span class="hljs-string">'zh-CN'</span>,
-    <span class="hljs-attr">disableDragAndDrop</span>: <span class="hljs-literal">true</span>,
-    <span class="hljs-attr">toolbar</span>: [
-        [<span class="hljs-string">'style'</span>, [<span class="hljs-string">'style'</span>]],
-        [<span class="hljs-string">'font'</span>, [<span class="hljs-string">'bold'</span>, <span class="hljs-string">'underline'</span>, <span class="hljs-string">'clear'</span>]],
-        [<span class="hljs-string">'fontname'</span>, [<span class="hljs-string">'fontname'</span>]],
-        [<span class="hljs-string">'color'</span>, [<span class="hljs-string">'color'</span>]],
-        [<span class="hljs-string">'para'</span>, [<span class="hljs-string">'ul'</span>, <span class="hljs-string">'ol'</span>, <span class="hljs-string">'paragraph'</span>]],
-        [<span class="hljs-string">'table'</span>, [<span class="hljs-string">'table'</span>]],
-        [<span class="hljs-string">'insert'</span>, [<span class="hljs-string">'link'</span>, <span class="hljs-string">'picture'</span>]],
-        [<span class="hljs-string">'view'</span>, [<span class="hljs-string">'fullscreen'</span>,<span class="hljs-string">'undo'</span>,<span class="hljs-string">'redo'</span>]]
+<div class="hljs"><pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> $summernote = $(<span class="hljs-string">&#x27;#summernote&#x27;</span>).summernote(&#123;
+    height: <span class="hljs-number">350</span>,
+    lang: <span class="hljs-string">&#x27;zh-CN&#x27;</span>,
+    disableDragAndDrop: <span class="hljs-literal">true</span>,
+    toolbar: [
+        [<span class="hljs-string">&#x27;style&#x27;</span>, [<span class="hljs-string">&#x27;style&#x27;</span>]],
+        [<span class="hljs-string">&#x27;font&#x27;</span>, [<span class="hljs-string">&#x27;bold&#x27;</span>, <span class="hljs-string">&#x27;underline&#x27;</span>, <span class="hljs-string">&#x27;clear&#x27;</span>]],
+        [<span class="hljs-string">&#x27;fontname&#x27;</span>, [<span class="hljs-string">&#x27;fontname&#x27;</span>]],
+        [<span class="hljs-string">&#x27;color&#x27;</span>, [<span class="hljs-string">&#x27;color&#x27;</span>]],
+        [<span class="hljs-string">&#x27;para&#x27;</span>, [<span class="hljs-string">&#x27;ul&#x27;</span>, <span class="hljs-string">&#x27;ol&#x27;</span>, <span class="hljs-string">&#x27;paragraph&#x27;</span>]],
+        [<span class="hljs-string">&#x27;table&#x27;</span>, [<span class="hljs-string">&#x27;table&#x27;</span>]],
+        [<span class="hljs-string">&#x27;insert&#x27;</span>, [<span class="hljs-string">&#x27;link&#x27;</span>, <span class="hljs-string">&#x27;picture&#x27;</span>]],
+        [<span class="hljs-string">&#x27;view&#x27;</span>, [<span class="hljs-string">&#x27;fullscreen&#x27;</span>,<span class="hljs-string">&#x27;undo&#x27;</span>,<span class="hljs-string">&#x27;redo&#x27;</span>]]
       ],
-    <span class="hljs-attr">styleTags</span>: [<span class="hljs-string">'p'</span>, <span class="hljs-string">'h1'</span>, <span class="hljs-string">'h2'</span>, <span class="hljs-string">'h3'</span>, <span class="hljs-string">'h4'</span>, <span class="hljs-string">'h5'</span>, <span class="hljs-string">'h6'</span>],
-    <span class="hljs-attr">fontNames</span>: [<span class="hljs-string">'微软雅黑'</span>,<span class="hljs-string">'宋体'</span>,<span class="hljs-string">'Arial'</span>, <span class="hljs-string">'Arial Black'</span>, 
-    <span class="hljs-string">'Comic Sans MS'</span>, <span class="hljs-string">'Courier New'</span>, <span class="hljs-string">'Merriweather'</span>,<span class="hljs-string">'Tahoma'</span>,<span class="hljs-string">'Verdana'</span>]
+    styleTags: [<span class="hljs-string">&#x27;p&#x27;</span>, <span class="hljs-string">&#x27;h1&#x27;</span>, <span class="hljs-string">&#x27;h2&#x27;</span>, <span class="hljs-string">&#x27;h3&#x27;</span>, <span class="hljs-string">&#x27;h4&#x27;</span>, <span class="hljs-string">&#x27;h5&#x27;</span>, <span class="hljs-string">&#x27;h6&#x27;</span>],
+    fontNames: [<span class="hljs-string">&#x27;微软雅黑&#x27;</span>,<span class="hljs-string">&#x27;宋体&#x27;</span>,<span class="hljs-string">&#x27;Arial&#x27;</span>, <span class="hljs-string">&#x27;Arial Black&#x27;</span>, 
+    <span class="hljs-string">&#x27;Comic Sans MS&#x27;</span>, <span class="hljs-string">&#x27;Courier New&#x27;</span>, <span class="hljs-string">&#x27;Merriweather&#x27;</span>,<span class="hljs-string">&#x27;Tahoma&#x27;</span>,<span class="hljs-string">&#x27;Verdana&#x27;</span>]
 &#125;);</code></pre></div>
 
 <p>这样一个完整的富文本编辑器就出现了：</p>
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
+<p>" srcset="/img/loading.gif<img src=""></p>
 <p>接下来根据需要加点别的功能：</p>
 <h2 id="设置行高"><a href="#设置行高" class="headerlink" title="设置行高"></a>设置行高</h2><p>在初始化的js中添加下面两段的代码：</p>
-<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">'#summernote'</span>).summernote(&#123;
-  <span class="hljs-attr">toolbar</span>: [
-    [<span class="hljs-string">'height'</span>, [<span class="hljs-string">'height'</span>]],<span class="hljs-comment">//行高(自定义行高时一定不要忘记写这个)</span>
+<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">&#x27;#summernote&#x27;</span>).summernote(&#123;
+  toolbar: [
+    [<span class="hljs-string">&#x27;height&#x27;</span>, [<span class="hljs-string">&#x27;height&#x27;</span>]],<span class="hljs-comment">//行高(自定义行高时一定不要忘记写这个)</span>
   ],
 &#125;);</code></pre></div>
 
 <p>下面的代码如果添加到最后一项后面的话，需要给最后一项后面加上逗号再添加。</p>
-<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">'#summernote'</span>).summernote(&#123;
- <span class="hljs-attr">lineHeights</span>: [<span class="hljs-string">'0.5'</span>,<span class="hljs-string">'1.0'</span>, <span class="hljs-string">'1.2'</span>, <span class="hljs-string">'1.4'</span>, <span class="hljs-string">'1.5'</span>, <span class="hljs-string">'1.6'</span>, <span class="hljs-string">'1.8'</span>, <span class="hljs-string">'2.0'</span>, <span class="hljs-string">'9.0'</span>],
+<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">&#x27;#summernote&#x27;</span>).summernote(&#123;
+ lineHeights: [<span class="hljs-string">&#x27;0.5&#x27;</span>,<span class="hljs-string">&#x27;1.0&#x27;</span>, <span class="hljs-string">&#x27;1.2&#x27;</span>, <span class="hljs-string">&#x27;1.4&#x27;</span>, <span class="hljs-string">&#x27;1.5&#x27;</span>, <span class="hljs-string">&#x27;1.6&#x27;</span>, <span class="hljs-string">&#x27;1.8&#x27;</span>, <span class="hljs-string">&#x27;2.0&#x27;</span>, <span class="hljs-string">&#x27;9.0&#x27;</span>],
 &#125;);</code></pre></div>
 
-<p>" srcset="/img/loading.gif<img src="" alt=""></p>
-<h2 id="清除复制文本的格式"><a href="#清除复制文本的格式" class="headerlink" title="清除复制文本的格式"></a>清除复制文本的格式</h2><p>清除格式的功能需要引入插件来实现，到<a href="https://github.com/DiemenDesign/summernote-cleaner" target="_blank" rel="noopener">这里</a>下载需要的JS文件，然后引入文件，在初始化编辑器的JS中添加下面的代码：</p>
-<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">'#summernote'</span>).summernote(&#123;
-  <span class="hljs-attr">cleaner</span>:&#123;
-    <span class="hljs-attr">action</span>: <span class="hljs-string">'both'</span>, <span class="hljs-comment">// both|button|paste 'button' only cleans via toolbar button, 'paste' only clean when pasting content, both does both options.</span>
-    <span class="hljs-comment">// newline: '&lt;br&gt;', // Summernote's default is to use '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'</span>
-    <span class="hljs-attr">notStyle</span>: <span class="hljs-string">'position:absolute;top:0;left:0;right:0'</span>, <span class="hljs-comment">// Position of Notification</span>
-    <span class="hljs-comment">// icon: '&lt;i class="note-icon"&gt;[Your Button]&lt;/i&gt;', //按钮图标</span>
-    <span class="hljs-attr">keepHtml</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Remove all Html formats</span>
-    <span class="hljs-attr">keepOnlyTags</span>: [<span class="hljs-string">'&lt;p&gt;'</span>, <span class="hljs-string">'&lt;br&gt;'</span>, <span class="hljs-string">'&lt;ul&gt;'</span>, <span class="hljs-string">'&lt;li&gt;'</span>, <span class="hljs-string">'&lt;b&gt;'</span>, <span class="hljs-string">'&lt;strong&gt;'</span>,<span class="hljs-string">'&lt;i&gt;'</span>, <span class="hljs-string">'&lt;a&gt;'</span>], <span class="hljs-comment">// If keepHtml is true, remove all tags except these</span>
-    <span class="hljs-attr">keepClasses</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Remove Classes</span>
-    <span class="hljs-attr">badTags</span>: [<span class="hljs-string">'style'</span>, <span class="hljs-string">'script'</span>, <span class="hljs-string">'applet'</span>, <span class="hljs-string">'embed'</span>, <span class="hljs-string">'noframes'</span>, <span class="hljs-string">'noscript'</span>, <span class="hljs-string">'html'</span>], <span class="hljs-comment">// Remove full tags with contents</span>
-    <span class="hljs-attr">badAttributes</span>: [<span class="hljs-string">'style'</span>, <span class="hljs-string">'start'</span>], <span class="hljs-comment">// Remove attributes from remaining tags</span>
-    <span class="hljs-attr">limitChars</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 0/false|# 0/false disables option</span>
-    <span class="hljs-attr">limitDisplay</span>: <span class="hljs-string">'text'</span>, <span class="hljs-comment">// text|html|both</span>
-    <span class="hljs-attr">limitStop</span>: <span class="hljs-literal">false</span> <span class="hljs-comment">// true/false</span>
+<p>" srcset="/img/loading.gif<img src=""></p>
+<h2 id="清除复制文本的格式"><a href="#清除复制文本的格式" class="headerlink" title="清除复制文本的格式"></a>清除复制文本的格式</h2><p>清除格式的功能需要引入插件来实现，到<a target="_blank" rel="noopener" href="https://github.com/DiemenDesign/summernote-cleaner">这里</a>下载需要的JS文件，然后引入文件，在初始化编辑器的JS中添加下面的代码：</p>
+<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">&#x27;#summernote&#x27;</span>).summernote(&#123;
+  cleaner:&#123;
+    action: <span class="hljs-string">&#x27;both&#x27;</span>, <span class="hljs-comment">// both|button|paste &#x27;button&#x27; only cleans via toolbar button, &#x27;paste&#x27; only clean when pasting content, both does both options.</span>
+    <span class="hljs-comment">// newline: &#x27;&lt;br&gt;&#x27;, // Summernote&#x27;s default is to use &#x27;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&#x27;</span>
+    notStyle: <span class="hljs-string">&#x27;position:absolute;top:0;left:0;right:0&#x27;</span>, <span class="hljs-comment">// Position of Notification</span>
+    <span class="hljs-comment">// icon: &#x27;&lt;i class=&quot;note-icon&quot;&gt;[Your Button]&lt;/i&gt;&#x27;, //按钮图标</span>
+    keepHtml: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Remove all Html formats</span>
+    keepOnlyTags: [<span class="hljs-string">&#x27;&lt;p&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;br&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;ul&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;li&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;b&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;strong&gt;&#x27;</span>,<span class="hljs-string">&#x27;&lt;i&gt;&#x27;</span>, <span class="hljs-string">&#x27;&lt;a&gt;&#x27;</span>], <span class="hljs-comment">// If keepHtml is true, remove all tags except these</span>
+    keepClasses: <span class="hljs-literal">false</span>, <span class="hljs-comment">// Remove Classes</span>
+    badTags: [<span class="hljs-string">&#x27;style&#x27;</span>, <span class="hljs-string">&#x27;script&#x27;</span>, <span class="hljs-string">&#x27;applet&#x27;</span>, <span class="hljs-string">&#x27;embed&#x27;</span>, <span class="hljs-string">&#x27;noframes&#x27;</span>, <span class="hljs-string">&#x27;noscript&#x27;</span>, <span class="hljs-string">&#x27;html&#x27;</span>], <span class="hljs-comment">// Remove full tags with contents</span>
+    badAttributes: [<span class="hljs-string">&#x27;style&#x27;</span>, <span class="hljs-string">&#x27;start&#x27;</span>], <span class="hljs-comment">// Remove attributes from remaining tags</span>
+    limitChars: <span class="hljs-literal">false</span>, <span class="hljs-comment">// 0/false|# 0/false disables option</span>
+    limitDisplay: <span class="hljs-string">&#x27;text&#x27;</span>, <span class="hljs-comment">// text|html|both</span>
+    limitStop: <span class="hljs-literal">false</span> <span class="hljs-comment">// true/false</span>
   &#125;,
 &#125;);</code></pre></div>
 
 <p>因为这个插件是英文的，并不支持中文，所以插件里的提示信息也是英文，我们可以在插件里添加上中文的翻译，这样就能显示中文的提示信息了。</p>
 <p>打开<code>summernote-cleaner.js</code>，将</p>
 <div class="hljs"><pre><code class="hljs JavaScript">$.extend(<span class="hljs-literal">true</span>, $.summernote.lang, &#123;
-  <span class="hljs-string">'en-US'</span>: &#123;
-    <span class="hljs-attr">cleaner</span>: &#123;
-      <span class="hljs-attr">tooltip</span>: <span class="hljs-string">'Cleaner'</span>,
-      <span class="hljs-attr">not</span>: <span class="hljs-string">'Text has been Cleaned!!!'</span>,
-      <span class="hljs-attr">limitText</span>: <span class="hljs-string">'Text'</span>,
-      <span class="hljs-attr">limitHTML</span>: <span class="hljs-string">'HTML'</span>
+  <span class="hljs-string">&#x27;en-US&#x27;</span>: &#123;
+    cleaner: &#123;
+      tooltip: <span class="hljs-string">&#x27;Cleaner&#x27;</span>,
+      not: <span class="hljs-string">&#x27;Text has been Cleaned!!!&#x27;</span>,
+      limitText: <span class="hljs-string">&#x27;Text&#x27;</span>,
+      limitHTML: <span class="hljs-string">&#x27;HTML&#x27;</span>
     &#125;
   &#125;
 &#125;);</code></pre></div>
 <p>修改为</p>
 <div class="hljs"><pre><code class="hljs JavaScript">$.extend(<span class="hljs-literal">true</span>, $.summernote.lang, &#123;
-  <span class="hljs-string">'en-US'</span>: &#123;
-    <span class="hljs-attr">cleaner</span>: &#123;
-      <span class="hljs-attr">tooltip</span>: <span class="hljs-string">'Cleaner'</span>,
-      <span class="hljs-attr">not</span>: <span class="hljs-string">'Text has been Cleaned!!!'</span>,
-      <span class="hljs-attr">limitText</span>: <span class="hljs-string">'Text'</span>,
-      <span class="hljs-attr">limitHTML</span>: <span class="hljs-string">'HTML'</span>
+  <span class="hljs-string">&#x27;en-US&#x27;</span>: &#123;
+    cleaner: &#123;
+      tooltip: <span class="hljs-string">&#x27;Cleaner&#x27;</span>,
+      not: <span class="hljs-string">&#x27;Text has been Cleaned!!!&#x27;</span>,
+      limitText: <span class="hljs-string">&#x27;Text&#x27;</span>,
+      limitHTML: <span class="hljs-string">&#x27;HTML&#x27;</span>
     &#125;
   &#125;,
-  <span class="hljs-string">'zh-CN'</span>: &#123;
-    <span class="hljs-attr">cleaner</span>: &#123;
-      <span class="hljs-attr">tooltip</span>: <span class="hljs-string">'Cleaner'</span>,
-      <span class="hljs-attr">not</span>: <span class="hljs-string">'文本格式已被清除'</span>,
-      <span class="hljs-attr">limitText</span>: <span class="hljs-string">'字数'</span>,
-      <span class="hljs-attr">limitHTML</span>: <span class="hljs-string">'HTML'</span>
+  <span class="hljs-string">&#x27;zh-CN&#x27;</span>: &#123;
+    cleaner: &#123;
+      tooltip: <span class="hljs-string">&#x27;Cleaner&#x27;</span>,
+      not: <span class="hljs-string">&#x27;文本格式已被清除&#x27;</span>,
+      limitText: <span class="hljs-string">&#x27;字数&#x27;</span>,
+      limitHTML: <span class="hljs-string">&#x27;HTML&#x27;</span>
     &#125;
   &#125;
 &#125;);</code></pre></div>
 <p>这样提示信息就可以显示为中文了。</p>
 <h2 id="图片上传和删除"><a href="#图片上传和删除" class="headerlink" title="图片上传和删除"></a>图片上传和删除</h2><h3 id="图片上传"><a href="#图片上传" class="headerlink" title="图片上传"></a>图片上传</h3><p>在初始化JS中添加回调函数</p>
-<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">'#summernote'</span>).summernote(&#123;
-  <span class="hljs-attr">callbacks</span>: &#123;
-    <span class="hljs-attr">onImageUpload</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">files</span>) </span>&#123;
+<div class="hljs"><pre><code class="hljs JavaScript">$(<span class="hljs-string">&#x27;#summernote&#x27;</span>).summernote(&#123;
+  callbacks: &#123;
+    onImageUpload: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">files</span>) </span>&#123;
       uploadSummerPic($summernote1, files[<span class="hljs-number">0</span>]);
     &#125;
   &#125;
@@ -344,43 +344,43 @@
 <div class="hljs"><pre><code class="hljs JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">uploadSummerPic</span>(<span class="hljs-params">$summernote, file</span>) </span>&#123;
     <span class="hljs-keyword">var</span> imgFile = <span class="hljs-keyword">new</span> FileReader();
     imgFile.readAsDataURL(file);
-    <span class="hljs-keyword">var</span> base64 = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">var</span> base64 = <span class="hljs-string">&#x27;&#x27;</span>;
     <span class="hljs-keyword">if</span> (file) &#123;
         imgFile.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">evt</span>) </span>&#123;
             base64 = evt.target.result;
-            <span class="hljs-comment">// base64 = base64.substring(base64.indexOf(',')+1);</span>
+            <span class="hljs-comment">// base64 = base64.substring(base64.indexOf(&#x27;,&#x27;)+1);</span>
         &#125;
     &#125;
-    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
         <span class="hljs-built_in">console</span>.log(base64);
         <span class="hljs-keyword">var</span> sj = &#123;<span class="hljs-attr">base64</span>:base64&#125;;
         <span class="hljs-keyword">var</span> sj = <span class="hljs-built_in">JSON</span>.stringify(sj);
-        $summernote.summernote(<span class="hljs-string">'insertImage'</span>,<span class="hljs-string">'http://127.0.0.1:5500/tianjia.jpg'</span>);
+        $summernote.summernote(<span class="hljs-string">&#x27;insertImage&#x27;</span>,<span class="hljs-string">&#x27;http://127.0.0.1:5500/tianjia.jpg&#x27;</span>);
     <span class="hljs-comment">// $.ajax(&#123;</span>
-    <span class="hljs-comment">//     type:"POST",</span>
-    <span class="hljs-comment">//     url:"/addimage",</span>
+    <span class="hljs-comment">//     type:&quot;POST&quot;,</span>
+    <span class="hljs-comment">//     url:&quot;/addimage&quot;,</span>
     <span class="hljs-comment">//     data: sj,</span>
     <span class="hljs-comment">//     // cache: false,</span>
     <span class="hljs-comment">//     // contentType: false,</span>
     <span class="hljs-comment">//     // processData: false,</span>
     <span class="hljs-comment">//     success: function (res) &#123;</span>
-    <span class="hljs-comment">//         if (res.result == "OK") &#123;</span>
-                <span class="hljs-comment">// var url = 'https://mgr.ytdfzyjt.com/getimage?imgid='+res.img;</span>
-                <span class="hljs-comment">//     $summernote.summernote('insertImage',url);</span>
+    <span class="hljs-comment">//         if (res.result == &quot;OK&quot;) &#123;</span>
+                <span class="hljs-comment">// var url = &#x27;https://mgr.ytdfzyjt.com/getimage?imgid=&#x27;+res.img;</span>
+                <span class="hljs-comment">//     $summernote.summernote(&#x27;insertImage&#x27;,url);</span>
                 <span class="hljs-comment">// &#125;else&#123;&#125;</span>
     <span class="hljs-comment">//     &#125;</span>
     <span class="hljs-comment">// &#125;);</span>
     &#125;,<span class="hljs-number">100</span>)
 &#125;</code></pre></div>
 
-<h3 id="图片删除"><a href="#图片删除" class="headerlink" title="图片删除"></a>图片删除</h3><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://summernote.org/" target="_blank" rel="noopener">Summernote</a></p>
-<p><a href="https://github.com/summernote/awesome-summernote" target="_blank" rel="noopener">awesome-summernote（包含插件主题等）</a></p>
-<p><a href="https://blog.csdn.net/sincy09/article/details/82853547" target="_blank" rel="noopener">summernote 上传图片、删除图片</a></p>
-<p><a href="https://blog.csdn.net/weixin_42881256/article/details/82863204" target="_blank" rel="noopener">summernote富文本编辑器实现图片添加上传和删除图片</a></p>
-<p><a href="https://blog.csdn.net/xiaotudeluobo/article/details/90637351" target="_blank" rel="noopener">summernote中关于上传图片的问题（解决）</a></p>
-<p><a href="https://blog.csdn.net/zero_295813128/article/details/52670128" target="_blank" rel="noopener">summernote处理上传图片到自己的服务器</a></p>
-<p><a href="https://blog.csdn.net/sky_sunshine_x/article/details/80985097" target="_blank" rel="noopener">富文本编辑器summernote的基本使用（自定义行高字体属性）</a></p>
-<p><a href="https://www.xuexiareas.com/index/Articles/details/num/13.html" target="_blank" rel="noopener">富文本编辑器之图片上传删除问题</a></p>
+<h3 id="图片删除"><a href="#图片删除" class="headerlink" title="图片删除"></a>图片删除</h3><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://summernote.org/">Summernote</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/summernote/awesome-summernote">awesome-summernote（包含插件主题等）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sincy09/article/details/82853547">summernote 上传图片、删除图片</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42881256/article/details/82863204">summernote富文本编辑器实现图片添加上传和删除图片</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaotudeluobo/article/details/90637351">summernote中关于上传图片的问题（解决）</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zero_295813128/article/details/52670128">summernote处理上传图片到自己的服务器</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sky_sunshine_x/article/details/80985097">富文本编辑器summernote的基本使用（自定义行高字体属性）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.xuexiareas.com/index/Articles/details/num/13.html">富文本编辑器之图片上传删除问题</a></p>
 
             </article>
             <hr>
@@ -410,7 +410,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      365 字
+      377 字
     </span>
   
 
@@ -229,24 +229,24 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>有时候项目常常要获取id，有的id就在url的最后面，那么问题来了，怎么才能拿到这个id值呢，经过一番思考之后就有了下面这个方法。</p>
+              <p>有时候项目常常要获取id，有的id就在url的最后面，那么问题来了，怎么才能拿到这个id值呢，经过一番思考之后就有了下面这个方法。</p>
 <h2 id="获取方法和思路"><a href="#获取方法和思路" class="headerlink" title="获取方法和思路"></a>获取方法和思路</h2><p><strong>代码：</strong></p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">GetUrlParam</span>(<span class="hljs-params">paraName</span>) </span>&#123;
 	<span class="hljs-keyword">var</span> url = <span class="hljs-built_in">document</span>.location.toString();
-	<span class="hljs-keyword">var</span> arrObj = url.split(<span class="hljs-string">"?"</span>);
+	<span class="hljs-keyword">var</span> arrObj = url.split(<span class="hljs-string">&quot;?&quot;</span>);
 　　　　<span class="hljs-keyword">if</span> (arrObj.length &gt; <span class="hljs-number">1</span>) &#123;
-　　　　　　<span class="hljs-keyword">var</span> arrPara = arrObj[<span class="hljs-number">1</span>].split(<span class="hljs-string">"&amp;"</span>);
+　　　　　　<span class="hljs-keyword">var</span> arrPara = arrObj[<span class="hljs-number">1</span>].split(<span class="hljs-string">&quot;&amp;&quot;</span>);
 　　　　　　<span class="hljs-keyword">var</span> arr;
 　　　　　　<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; arrPara.length; i++) &#123;
-　　　　　　　　arr = arrPara[i].split(<span class="hljs-string">"="</span>);
+　　　　　　　　arr = arrPara[i].split(<span class="hljs-string">&quot;=&quot;</span>);
 　　　　　　　　<span class="hljs-keyword">if</span> (arr != <span class="hljs-literal">null</span> &amp;&amp; arr[<span class="hljs-number">0</span>] == paraName) &#123;
 　　　　　　　　　　<span class="hljs-keyword">return</span> arr[<span class="hljs-number">1</span>];
 　　　　　　　　&#125;
 　　　　　　&#125;
-　　　　　　<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+　　　　　　<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
 　　　　&#125;
 　　　　<span class="hljs-keyword">else</span> &#123;
-　　　　　　<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+　　　　　　<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
 　　　　&#125;
 &#125;</code></pre></div>
 
@@ -259,9 +259,9 @@
 <li>最后就是循环这个经过处理后的数组，找到符合传入参数的那一项数组元素，并将参数后面的值返回。</li>
 </ol>
 <p>使用方法是</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> id = GetUrlParam(<span class="hljs-string">"id"</span>);</code></pre></div>
+<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> id = GetUrlParam(<span class="hljs-string">&quot;id&quot;</span>);</code></pre></div>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个方法的适用性并不是很大，通常适合<strong><a href="http://localhost:5500/item.html?id=01" target="_blank" rel="noopener">http://localhost:5500/item.html?id=01</a></strong>或者是<strong><a href="http://localhost:5500/item.html?list=3&amp;id=01" target="_blank" rel="noopener">http://localhost:5500/item.html?list=3&amp;id=01</a></strong>这样的链接，如果内容再复杂一点或格式差距较大的话就需要另外想办法实现。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个方法的适用性并不是很大，通常适合<strong><a target="_blank" rel="noopener" href="http://localhost:5500/item.html?id=01">http://localhost:5500/item.html?id=01</a></strong>或者是<strong><a target="_blank" rel="noopener" href="http://localhost:5500/item.html?list=3&amp;id=01">http://localhost:5500/item.html?list=3&amp;id=01</a></strong>这样的链接，如果内容再复杂一点或格式差距较大的话就需要另外想办法实现。</p>
 
             </article>
             <hr>
@@ -285,7 +285,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

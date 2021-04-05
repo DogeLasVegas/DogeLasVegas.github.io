@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      966 字
+      1k 字
     </span>
   
 
@@ -229,16 +229,16 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="如何实现多个模态框嵌套"><a href="#如何实现多个模态框嵌套" class="headerlink" title="如何实现多个模态框嵌套"></a>如何实现多个模态框嵌套</h2><p>最近做项目的时候用到了Bootstrap的模态框插件，官方文档里面 特别清楚提示了一条：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
+              <h2 id="如何实现多个模态框嵌套"><a href="#如何实现多个模态框嵌套" class="headerlink" title="如何实现多个模态框嵌套"></a>如何实现多个模态框嵌套</h2><p>最近做项目的时候用到了Bootstrap的模态框插件，官方文档里面 特别清楚提示了一条：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif"></p>
 <p>但是我就想模态框上叠模态框怎么办呢，机智如我的想到可以给上面的模态框加一个更大的<code>z-index</code>值，这样不就可以显示在上面了 吗，我这里因为只有两个模态框嵌套，所以直接修改最上面那个模态框的<code>z-index</code>的值就好，那如果需要更多的模态框嵌套该怎么办呢，一个一个去修改太麻烦了，然后我就在网上找到这样一个方法：</p>
 <div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
     <span class="hljs-comment">// 通过该方法来为每次弹出的模态框设置最新的zIndex值，从而使最新的modal显示在最前面</span>
-    $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'show.bs.modal'</span>, <span class="hljs-string">'.modal'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
-         <span class="hljs-keyword">var</span> zIndex = <span class="hljs-number">1040</span> + (<span class="hljs-number">10</span> * $(<span class="hljs-string">'.modal:visible'</span>).length);
-         $(<span class="hljs-keyword">this</span>).css(<span class="hljs-string">'z-index'</span>, zIndex);
+    $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">&#x27;show.bs.modal&#x27;</span>, <span class="hljs-string">&#x27;.modal&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>&#123;
+         <span class="hljs-keyword">var</span> zIndex = <span class="hljs-number">1040</span> + (<span class="hljs-number">10</span> * $(<span class="hljs-string">&#x27;.modal:visible&#x27;</span>).length);
+         $(<span class="hljs-built_in">this</span>).css(<span class="hljs-string">&#x27;z-index&#x27;</span>, zIndex);
             <span class="hljs-comment">// setTimeout(function() &#123;</span>
-            <span class="hljs-comment">//     $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');</span>
+            <span class="hljs-comment">//     $(&#x27;.modal-backdrop&#x27;).not(&#x27;.modal-stack&#x27;).css(&#x27;z-index&#x27;, zIndex - 1).addClass(&#x27;modal-stack&#x27;);</span>
             <span class="hljs-comment">// &#125;, 0);</span>
     &#125;);
 &#125;);</code></pre></div>
@@ -255,22 +255,22 @@
 <p>这样就不会出现关闭上面的模态框下面也跟着关掉的问题了。</p>
 <h2 id="滚动条怎么不见了？"><a href="#滚动条怎么不见了？" class="headerlink" title="滚动条怎么不见了？"></a>滚动条怎么不见了？</h2><p>在上面两个问题都搞定了以后，我以为不会再有bug了，然而，，事实上。。</p>
 <p>某天我在模态框上瞎点的时候，突然发现我把上面的模态框关掉以后，下面父模态框的滚动条不见了，，当时我就傻了，这父模态框最底下还有按钮呢，滚动条没了怎么点按钮啊，于是我就打开控制台研究了一下这个模态框的结构，然后发现，在这个模态框打开的时候，Bootstrap会给body加一个叫<code>modal-open</code>的class，然后打开的模态框上面有这样一个CSS：</p>
-<p><code>.modal-open .modal {overflow-x:hidden;overflow-y:auto}</code></p>
+<p><code>.modal-open .modal &#123;overflow-x:hidden;overflow-y:auto&#125;</code></p>
 <p>当你把任意一个模态框关掉的时候，body上的class就没了，上面这个CSS 也就不生效了，所以就出现了滚动条神秘消失的问题，知道了是这个原因就好办了，只要给这个模态框上加一条<code>style=&quot;overflow: auto&quot;</code>不就好了吗，就像下面这样：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"myModal"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"myModalLabel"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"overflow: auto;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog modal-lg"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"document"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal fade&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myModal&quot;</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;-1&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;myModalLabel&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;overflow: auto;&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-dialog modal-lg&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;document&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-content&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-header&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-body&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-footer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>加上之后一试滚动条果然还在。我改完了之后想知道有没有其他的方法就去搜了一下，结果搜到了和我一样的方法，，emmmm那就这样吧。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.jianshu.com/p/0f05e628f87b" target="_blank" rel="noopener">bootstrap中多个modal弹出的问题解决方案</a></p>
-<p><a href="https://blog.csdn.net/iteye_20240/article/details/82654114" target="_blank" rel="noopener">关于bootstrap的modal弹出层嵌套子Modal所引发的血案</a></p>
-<p><a href="https://www.jb51.net/article/119206.htm" target="_blank" rel="noopener">bootstrap多层模态框滚动条消失的问题</a></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0f05e628f87b">bootstrap中多个modal弹出的问题解决方案</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/iteye_20240/article/details/82654114">关于bootstrap的modal弹出层嵌套子Modal所引发的血案</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/119206.htm">bootstrap多层模态框滚动条消失的问题</a></p>
 
             </article>
             <hr>
@@ -296,7 +296,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

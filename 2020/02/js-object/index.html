@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -229,21 +229,21 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="OOP-面向对象编程-基础"><a href="#OOP-面向对象编程-基础" class="headerlink" title="OOP(面向对象编程)基础"></a>OOP(面向对象编程)基础</h2><p><strong>语言的分类：</strong><br>1、面向机器：汇编语言<br>2、面向过程：C语言<br>3、面向对象：java、C++、PHP等<br>面向过程与面向对象<strong>区别：</strong><br><strong>面向过程：</strong>专注于如何去解决一个问题的过程，编程特点是用一个个函数去实现过程操作，没有类与对象的概念<br><strong>面向对象：</strong>专注于由哪一个对象实体去解决这个问题，编程特点是出现了类，由类生成对象<br>面向对象的三大特征：<strong>继承、封装、多态</strong></p>
+              <h2 id="OOP-面向对象编程-基础"><a href="#OOP-面向对象编程-基础" class="headerlink" title="OOP(面向对象编程)基础"></a>OOP(面向对象编程)基础</h2><p><strong>语言的分类：</strong><br>1、面向机器：汇编语言<br>2、面向过程：C语言<br>3、面向对象：java、C++、PHP等<br>面向过程与面向对象<strong>区别：</strong><br><strong>面向过程：</strong>专注于如何去解决一个问题的过程，编程特点是用一个个函数去实现过程操作，没有类与对象的概念<br><strong>面向对象：</strong>专注于由哪一个对象实体去解决这个问题，编程特点是出现了类，由类生成对象<br>面向对象的三大特征：<strong>继承、封装、多态</strong></p>
 <h2 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h2><p><strong>类：</strong><br>一群有相同特征（属性）和行为（方法）的集合 ；</p>
 <p><strong>对象</strong> ：<br>从类中，拿出的具有确定属性值和方法(行为)的个体</p>
 <p><strong>类和对象的关系：</strong><br>类是对象的抽象化，对象是类的具体化；类是抽象的，对象是具体的<br>通俗来说： 类是一个抽象概念，表示具有相同属性和行为的集合，但是类仅仅表明这类群体具有相同的属性，但是没有具体的属性值,而对象是对类的属性进行具体赋值后，而得到的一个具体的个体</p>
 <p><strong>使用类来创建对象</strong></p>
 <p>1、创建一个类（构造函数），类名必须每个单词的首字母大写</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> 类名(<span class="hljs-params">属性<span class="hljs-number">1</span></span>)</span>&#123;
-  <span class="hljs-keyword">this</span>.属性 = 属性<span class="hljs-number">1</span>;
-  <span class="hljs-keyword">this</span>.方法 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;
+  <span class="hljs-built_in">this</span>.属性 = 属性<span class="hljs-number">1</span>;
+  <span class="hljs-built_in">this</span>.方法 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;
   <span class="hljs-comment">//this 指向即将调用当前构造函数的对象</span>
 &#125;</code></pre></div>
 
 <p>2、同过类实例化出一个新的对象：（实例化对象时会执行构造函数）<br><code>var obj = new 类名(属性1value);</code><br>原构造函数中this指向新创建的obj对象<br>obj.方法(); 调用方法<br>obj.属性(); 调用属性</p>
-<p><strong>两个重要的属性：</strong><br>1、constructor：<br>返回当前对象的构造函数，（只有对象才有，返回的是构造函数-类）<br><code>zhangsan.constructor == Person true</code><br>对象的constructor，位于<strong>proto</strong>原型对象上<br>2、instanceof<br>用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br><code>object(要检测的对象).constructor(某个构造函数)</code></p>
-<h2 id="广义对象和狭义对象"><a href="#广义对象和狭义对象" class="headerlink" title="广义对象和狭义对象"></a>广义对象和狭义对象</h2><p>狭义对象：只有属性、方法，除此之外没有任何东西<br><code>var obj = {}; var obj = new Object();</code><br>广义对象：除了用字面量声明的基本数据类型之外，换句话说，能够添加属性与方法的变量，就是对象;<br><code>var s = &quot;1&quot;;</code> 不是对象，  <code>var s = new String(&quot;1&quot;);</code> 是对象</p>
+<p><strong>两个重要的属性：</strong><br>1、constructor：<br>返回当前对象的构造函数，（只有对象才有，返回的是构造函数-类）<br><code>zhangsan.constructor == Person true</code><br>对象的constructor，位于__proto__原型对象上<br>2、instanceof<br>用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。<br><code>object(要检测的对象).constructor(某个构造函数)</code></p>
+<h2 id="广义对象和狭义对象"><a href="#广义对象和狭义对象" class="headerlink" title="广义对象和狭义对象"></a>广义对象和狭义对象</h2><p>狭义对象：只有属性、方法，除此之外没有任何东西<br><code>var obj = &#123;&#125;; var obj = new Object();</code><br>广义对象：除了用字面量声明的基本数据类型之外，换句话说，能够添加属性与方法的变量，就是对象;<br><code>var s = &quot;1&quot;;</code> 不是对象，  <code>var s = new String(&quot;1&quot;);</code> 是对象</p>
 <p><strong>【成员属性与成员方法】</strong><br>在构造函数中，通过”this.属性”声明，或者实例化出对象后，通过”对象.属性”追加的，都属于成员属性或成员方法，成员属性/方法,是属于实例化出的这个对象，通过”对象.属性”调用<br><strong>【静态属性与静态方法】</strong><br>通过”类名.属性名”，”类名.方法名”声明的变量，称为静态属性、静态方法，也叫类属性、类方法<br>成员属性是属于实例化出的对象的，会出现在新对象的属性上，类属性是属于构造函数自己的，不会出现在新对象属性上</p>
 <h2 id="JS中的对象"><a href="#JS中的对象" class="headerlink" title="JS中的对象"></a>JS中的对象</h2><p>JS提供的内置对象有 array、boolean、number、string、date、math、regexp 。通常我们认为JavaScript的对象是键值对的容器。</p>
 <p>虽然JavaScript 是面向对象的语言，但 JavaScript 不使用类。在 JavaScript 中，不会创建类，也不会通过类来创建对象（就像在其他面向对象的语言中那样）。<br>JavaScript 基于 prototype，而不是基于类的。</p>
@@ -254,57 +254,57 @@
 </ul>
 <h3 id="直接创建对象实例"><a href="#直接创建对象实例" class="headerlink" title="直接创建对象实例"></a>直接创建对象实例</h3><p>有两种方式直接创建对象，一种是使用字符通过键值对的方式创建：</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> person = &#123;
-    <span class="hljs-attr">name</span>:<span class="hljs-string">"鲲虚菜"</span>,
-    <span class="hljs-attr">age</span>:<span class="hljs-number">20</span>,
-    <span class="hljs-attr">sex</span>:<span class="hljs-string">"男"</span>,
-    <span class="hljs-attr">hobby</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-          <span class="hljs-keyword">return</span> <span class="hljs-string">"喜欢唱跳rap，打篮球"</span>;
+    name:<span class="hljs-string">&quot;鲲虚菜&quot;</span>,
+    age:<span class="hljs-number">20</span>,
+    sex:<span class="hljs-string">&quot;男&quot;</span>,
+    hobby:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;喜欢唱跳rap，打篮球&quot;</span>;
       &#125;
 &#125;;</code></pre></div>
 
 <p>另一种是先创建对象，然后再添加属性和属性值：</p>
 <div class="hljs"><pre><code class="hljs javascript">person=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();
-person.name=<span class="hljs-string">"鲲虚菜"</span>;
+person.name=<span class="hljs-string">&quot;鲲虚菜&quot;</span>;
 person.age=<span class="hljs-number">20</span>;
-person.sex=<span class="hljs-string">"男"</span>;
+person.sex=<span class="hljs-string">&quot;男&quot;</span>;
 person.hobby=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-  <span class="hljs-keyword">return</span> <span class="hljs-string">"喜欢唱跳rap，打篮球"</span>;
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;喜欢唱跳rap，打篮球&quot;</span>;
 &#125;</code></pre></div>
 
 <h3 id="通过函数构造对象"><a href="#通过函数构造对象" class="headerlink" title="通过函数构造对象"></a>通过函数构造对象</h3><div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">person</span>(<span class="hljs-params">name,age,sex,hobby</span>)</span>&#123;
-    <span class="hljs-keyword">this</span>.name=name;
-    <span class="hljs-keyword">this</span>.age=age;
-    <span class="hljs-keyword">this</span>.sex=sex;
-    <span class="hljs-keyword">this</span>.hobby=hobby;
+    <span class="hljs-built_in">this</span>.name=name;
+    <span class="hljs-built_in">this</span>.age=age;
+    <span class="hljs-built_in">this</span>.sex=sex;
+    <span class="hljs-built_in">this</span>.hobby=hobby;
     
-    <span class="hljs-keyword">this</span>.changeHobby=changeHobby;
+    <span class="hljs-built_in">this</span>.changeHobby=changeHobby;
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeHobby</span>(<span class="hljs-params">hobby</span>)</span>&#123;
-      <span class="hljs-keyword">this</span>.hobby=hobby;
+      <span class="hljs-built_in">this</span>.hobby=hobby;
     &#125;
 &#125;
-<span class="hljs-keyword">var</span> xkc=<span class="hljs-keyword">new</span> person(<span class="hljs-string">"鲲虚菜"</span>,<span class="hljs-number">20</span>,<span class="hljs-string">"男"</span>);
-xkc.changeHobby(<span class="hljs-string">"喜欢唱跳rap，打篮球"</span>);</code></pre></div>
+<span class="hljs-keyword">var</span> xkc=<span class="hljs-keyword">new</span> person(<span class="hljs-string">&quot;鲲虚菜&quot;</span>,<span class="hljs-number">20</span>,<span class="hljs-string">&quot;男&quot;</span>);
+xkc.changeHobby(<span class="hljs-string">&quot;喜欢唱跳rap，打篮球&quot;</span>);</code></pre></div>
 
 <h3 id="对象属性和方法的访问"><a href="#对象属性和方法的访问" class="headerlink" title="对象属性和方法的访问"></a>对象属性和方法的访问</h3><p>对象属性访问方式有两种，一种是对象名.属性名，还有一种是对象名[属性名]，例：<code>person.name;</code>，<code>person[&quot;name&quot;];</code></p>
 <h3 id="JS对象的循环遍历"><a href="#JS对象的循环遍历" class="headerlink" title="JS对象的循环遍历"></a>JS对象的循环遍历</h3><p>可以使用 for…in 语句循环遍历对象的属性。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>点击下面的按钮，循环遍历对象 "person" 的属性。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"showPerson()"</span>&gt;</span>点击这里<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showPerson</span>(<span class="hljs-params"></span>)</span>&#123;
-  <span class="hljs-keyword">var</span> x;
-  <span class="hljs-keyword">var</span> txt=<span class="hljs-string">""</span>;
-  <span class="hljs-keyword">var</span> person = &#123;
-    <span class="hljs-attr">name</span>:<span class="hljs-string">"鲲虚菜"</span>,
-    <span class="hljs-attr">age</span>:<span class="hljs-number">20</span>,
-    <span class="hljs-attr">sex</span>:<span class="hljs-string">"男"</span>,
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>点击下面的按钮，循环遍历对象 &quot;person&quot; 的属性。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;showPerson()&quot;</span>&gt;</span>点击这里<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;demo&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showPerson</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">  <span class="hljs-keyword">var</span> x;</span>
+<span class="javascript">  <span class="hljs-keyword">var</span> txt=<span class="hljs-string">&quot;&quot;</span>;</span>
+<span class="javascript">  <span class="hljs-keyword">var</span> person = &#123;</span>
+<span class="javascript">    name:<span class="hljs-string">&quot;鲲虚菜&quot;</span>,</span>
+    age:20,
+<span class="javascript">    sex:<span class="hljs-string">&quot;男&quot;</span>,</span>
   &#125;;
-  <span class="hljs-keyword">for</span> (x <span class="hljs-keyword">in</span> person)&#123;
+  for (x in person)&#123;
      txt=txt + person[x];
   &#125;
-  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"demo"</span>).innerHTML=txt;
+<span class="javascript">  <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;demo&quot;</span>).innerHTML=txt;</span>
 &#125;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
 
 
 
@@ -313,7 +313,7 @@ xkc.changeHobby(<span class="hljs-string">"喜欢唱跳rap，打篮球"</span>);
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>&#123;&#125;
 <span class="hljs-keyword">var</span> zhangsan = <span class="hljs-keyword">new</span> Person(); <span class="hljs-comment">//zhangsan对象实际存的是地址</span>
 <span class="hljs-keyword">var</span> lisi = zhangsan; <span class="hljs-comment">//赋值时，实际是将zhangsan存的地址给了lisi</span>
-lisi.name = <span class="hljs-string">"李四"</span>; <span class="hljs-comment">//李四通过地址修改了对象</span>
+lisi.name = <span class="hljs-string">&quot;李四&quot;</span>; <span class="hljs-comment">//李四通过地址修改了对象</span>
 <span class="hljs-built_in">console</span>.log(zhangsan.name); <span class="hljs-comment">//张三再通过地址打开对象，实际已经改变了</span></code></pre></div>
 
 <p>引用数据类型，赋值时传递的是引用（地址）；基本数据类型，赋值时传递的是数据（值）</p>
@@ -335,15 +335,15 @@ lisi.name = <span class="hljs-string">"李四"</span>; <span class="hljs-comment
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
-                    
                       <a class="hover-with-bg" href="/tags/JS/">JS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

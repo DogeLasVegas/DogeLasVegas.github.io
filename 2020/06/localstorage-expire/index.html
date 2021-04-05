@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      756 字
+      770 字
     </span>
   
 
@@ -229,35 +229,35 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p>
+              <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p>
 <h2 id="方案一：ES5扩展Storage"><a href="#方案一：ES5扩展Storage" class="headerlink" title="方案一：ES5扩展Storage"></a>方案一：ES5扩展Storage</h2><p>思路很简单，存储的值加一个时间戳，下次取值时验证时间戳。<br><strong>注意：</strong> <code>localStorage</code>只能存储字符，存入时将对象转为<code>json</code>字符串,读取时也要解析</p>
 <div class="hljs"><pre><code class="hljs js">CopyStorage.prototype.setExpire = <span class="hljs-function">(<span class="hljs-params">key, value, expire</span>) =&gt;</span> &#123;
 	<span class="hljs-keyword">let</span> obj = &#123;
-	<span class="hljs-attr">data</span>: value,
-	<span class="hljs-attr">time</span>: <span class="hljs-built_in">Date</span>.now(),
-	<span class="hljs-attr">expire</span>: expire
+	data: value,
+	time: <span class="hljs-built_in">Date</span>.now(),
+	expire: expire
 	&#125;;
 	<span class="hljs-comment">//localStorage 设置的值不能为对象,转为json字符串</span>
-	localStorage.setItem(key, <span class="hljs-built_in">JSON</span>.stringify(obj));
+	<span class="hljs-built_in">localStorage</span>.setItem(key, <span class="hljs-built_in">JSON</span>.stringify(obj));
 &#125;
 
 Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;
-    <span class="hljs-keyword">let</span> val = localStorage.getItem(key);
+    <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">localStorage</span>.getItem(key);
     <span class="hljs-keyword">if</span> (!val) &#123;
         <span class="hljs-keyword">return</span> val;
     &#125;
     val = <span class="hljs-built_in">JSON</span>.parse(val);
     <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Date</span>.now() - val.time &gt; val.expire) &#123;
-        localStorage.removeItem(key);
+        <span class="hljs-built_in">localStorage</span>.removeItem(key);
         <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
     &#125;
     <span class="hljs-keyword">return</span> val.data;
 &#125;</code></pre></div>
 
 <p>测试一下：</p>
-<div class="hljs"><pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhangsan'</span>,<span class="hljs-number">5000</span>);
-<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;
-    <span class="hljs-built_in">console</span>.log(localStorage.getExpire(<span class="hljs-string">"userId"</span>));
+<div class="hljs"><pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);
+<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">localStorage</span>.getExpire(<span class="hljs-string">&quot;userId&quot;</span>));
 &#125;,<span class="hljs-number">1000</span>)</code></pre></div>
 
 <p>前5秒还是有值的，之后即为<code>null</code></p>
@@ -265,20 +265,20 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
 <h2 id="方案二：ES6扩展Storage"><a href="#方案二：ES6扩展Storage" class="headerlink" title="方案二：ES6扩展Storage"></a>方案二：ES6扩展Storage</h2><p>大体思路和方案一是一样的只不过是用了ES6的最新语法实现。</p>
 <div class="hljs"><pre><code class="hljs javascript">Copyclass Storage &#123;
 
-    <span class="hljs-keyword">constructor</span>(props) &#123;
-        <span class="hljs-keyword">this</span>.props = props || &#123;&#125;
-        <span class="hljs-keyword">this</span>.source = <span class="hljs-keyword">this</span>.props.source || <span class="hljs-built_in">window</span>.localStorage
-        <span class="hljs-keyword">this</span>.initRun();
+    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;
+        <span class="hljs-built_in">this</span>.props = props || &#123;&#125;
+        <span class="hljs-built_in">this</span>.source = <span class="hljs-built_in">this</span>.props.source || <span class="hljs-built_in">window</span>.localStorage
+        <span class="hljs-built_in">this</span>.initRun();
     &#125;
-    initRun()&#123;
-        <span class="hljs-comment">/*
-        * set 存储方法
-        * @ param &#123;String&#125;     key 键
-        * @ param &#123;String&#125;     value 值，存储的值可能是数组/对象，不能直接存储，需要转换 JSON.stringify
-        * @ param &#123;String&#125;     expired 过期时间，以分钟为单位
-        */</span>
-        <span class="hljs-keyword">const</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"__expires__"</span>);
-        <span class="hljs-keyword">let</span> data = <span class="hljs-keyword">this</span>.source;
+    <span class="hljs-function"><span class="hljs-title">initRun</span>(<span class="hljs-params"></span>)</span>&#123;
+        <span class="hljs-comment">/*</span>
+<span class="hljs-comment">        * set 存储方法</span>
+<span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span>
+<span class="hljs-comment">        * @ param &#123;String&#125;     value 值，存储的值可能是数组/对象，不能直接存储，需要转换 JSON.stringify</span>
+<span class="hljs-comment">        * @ param &#123;String&#125;     expired 过期时间，以分钟为单位</span>
+<span class="hljs-comment">        */</span>
+        <span class="hljs-keyword">const</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;__expires__&quot;</span>);
+        <span class="hljs-keyword">let</span> data = <span class="hljs-built_in">this</span>.source;
         <span class="hljs-keyword">let</span> list = <span class="hljs-built_in">Object</span>.keys(data);
         <span class="hljs-keyword">if</span>(list.length &gt; <span class="hljs-number">0</span>)&#123;
             list.map(<span class="hljs-function">(<span class="hljs-params">key,v</span>)=&gt;</span>&#123;
@@ -286,7 +286,7 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
                     <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();
                     <span class="hljs-keyword">let</span> expires = data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;
                     <span class="hljs-keyword">if</span> (now &gt;= expires ) &#123;
-                        <span class="hljs-keyword">this</span>.remove(key);
+                        <span class="hljs-built_in">this</span>.remove(key);
                     &#125;;
                 &#125;;
                 <span class="hljs-keyword">return</span> key;
@@ -294,14 +294,14 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
         &#125;;
     &#125;
 
-	<span class="hljs-keyword">set</span>(key, value, expired) &#123;
-	    <span class="hljs-comment">/*
-	    * set 存储方法
-	    * @ param &#123;String&#125;     key 键
-	    * @ param &#123;String&#125;     value 值，
-	    * @ param &#123;String&#125;     expired 过期时间，以毫秒为单位，非必须
-	    */</span>
-	    <span class="hljs-keyword">let</span> source = <span class="hljs-keyword">this</span>.source;
+	<span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params">key, value, expired</span>)</span> &#123;
+	    <span class="hljs-comment">/*</span>
+<span class="hljs-comment">	    * set 存储方法</span>
+<span class="hljs-comment">	    * @ param &#123;String&#125;     key 键</span>
+<span class="hljs-comment">	    * @ param &#123;String&#125;     value 值，</span>
+<span class="hljs-comment">	    * @ param &#123;String&#125;     expired 过期时间，以毫秒为单位，非必须</span>
+<span class="hljs-comment">	    */</span>
+	    <span class="hljs-keyword">let</span> source = <span class="hljs-built_in">this</span>.source;
 	    source[key] = <span class="hljs-built_in">JSON</span>.stringify(value);
 	    <span class="hljs-keyword">if</span> (expired)&#123;
 	        source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>] = <span class="hljs-built_in">Date</span>.now() + expired
@@ -309,26 +309,26 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
 	    <span class="hljs-keyword">return</span> value;
 	&#125;
 
-    <span class="hljs-keyword">get</span>(key) &#123;
-        <span class="hljs-comment">/*
-        * get 获取方法
-        * @ param &#123;String&#125;     key 键
-        * @ param &#123;String&#125;     expired 存储时为非必须字段，所以有可能取不到，默认为 Date.now+1
-        */</span>
-        <span class="hljs-keyword">const</span> source = <span class="hljs-keyword">this</span>.source,
+    <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params">key</span>)</span> &#123;
+        <span class="hljs-comment">/*</span>
+<span class="hljs-comment">        * get 获取方法</span>
+<span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span>
+<span class="hljs-comment">        * @ param &#123;String&#125;     expired 存储时为非必须字段，所以有可能取不到，默认为 Date.now+1</span>
+<span class="hljs-comment">        */</span>
+        <span class="hljs-keyword">const</span> source = <span class="hljs-built_in">this</span>.source,
         expired = source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;
         <span class="hljs-keyword">const</span> now = <span class="hljs-built_in">Date</span>.now();
     
         <span class="hljs-keyword">if</span> ( now &gt;= expired ) &#123;
-            <span class="hljs-keyword">this</span>.remove(key);
+            <span class="hljs-built_in">this</span>.remove(key);
             <span class="hljs-keyword">return</span>;
         &#125;
         <span class="hljs-keyword">const</span> value = source[key] ? <span class="hljs-built_in">JSON</span>.parse(source[key]) : source[key];
         <span class="hljs-keyword">return</span> value;
 	&#125;
 
-	remove(key) &#123;
-	    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">this</span>.source,
+	<span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">key</span>)</span> &#123;
+	    <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">this</span>.source,
 	        value = data[key];
 	    <span class="hljs-keyword">delete</span> data[key];
 	    <span class="hljs-keyword">delete</span> data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>];
@@ -340,15 +340,15 @@ Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-para
 <p>其中<code>set()</code>,<code>get()</code>,<code>remove()</code>方法可以理解用来存、取、删, <code>initRun()</code>做什么用呢？过期的值只有取时才能知道是不是过期，不取一直存着。<code>initRun()</code>和<code>constructor</code>只是在初始化时实现清理，也不是一定即时。另外写一个定时器去清理貌似也不值当，所以觉得做到这样已经够用了。</p>
 <p>使用如下代码进行测试一下,效果和方案一相同</p>
 <div class="hljs"><pre><code class="hljs javascript">Copyvar ls=<span class="hljs-keyword">new</span> Storage();
-ls.set(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhangsan'</span>,<span class="hljs-number">5000</span>);
-<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>&#123;
-    <span class="hljs-built_in">console</span>.log(ls.get(<span class="hljs-string">"userId"</span>));
+ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);
+<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;
+    <span class="hljs-built_in">console</span>.log(ls.get(<span class="hljs-string">&quot;userId&quot;</span>));
 &#125;,<span class="hljs-number">1000</span>)</code></pre></div>
 
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://blog.csdn.net/qq_20343517/article/details/83656450" target="_blank" rel="noopener">localStorage 设置过期时间</a></li>
-<li><a href="https://segmentfault.com/a/1190000016892019" target="_blank" rel="noopener">如何给localStorage设置一个过期时间？</a></li>
-<li>原文链接：<a href="https://www.cnblogs.com/ricolee/p/localstorage-expiretime.html" target="_blank" rel="noopener">localStorage设置过期时间</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20343517/article/details/83656450">localStorage 设置过期时间</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000016892019">如何给localStorage设置一个过期时间？</a></li>
+<li>原文链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ricolee/p/localstorage-expiretime.html">localStorage设置过期时间</a></li>
 </ul>
 
             </article>
@@ -375,7 +375,7 @@ ls.set(<span class="hljs-string">'userId'</span>,<span class="hljs-string">'zhan
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -229,10 +229,10 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>这是很久以前写网页碰到的事了，当时查到解决方法以后就草草过去了，今天突然想起来觉得还是记一下比较好。</p>
+              <p>这是很久以前写网页碰到的事了，当时查到解决方法以后就草草过去了，今天突然想起来觉得还是记一下比较好。</p>
 <p>复现一下当时的问题：</p>
 <p>我在一个<code>&lt;p&gt;</code>内放了一个<code>&lt;div&gt;</code>标签，代码是这么写的：</p>
-<div class="hljs"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span>&gt;</span> 这是最外面的一个div，套个颜色好区分
+<div class="hljs"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;test&quot;</span>&gt;</span> 这是最外面的一个div，套个颜色好区分
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 这是一个p标签
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>这是p标签里面包含的div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -257,9 +257,9 @@
 &#125;</code></pre></div>
 
 <p>然后当我在浏览器里打开这个网页的时候，发现显示出来是这个样的：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif"></p>
 <p>嗯？好像哪不对？里面的div不应该是蓝色的吗，赶紧到控制台查看元素，发现更不对了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif"></p>
 <p>为什么div跑到p外面了，为什么div下面还有个空的p？吓得我赶紧在里面又放了个<code>&lt;span&gt;</code>试试，一试好像没什么问题，但是div的位置依旧不对劲，这是怎么肥四？？我记得p和div都是块级标签，应该是可以互相嵌套的啊，想了半天没想通之后我去查了些资料，终于搞明白原来有的块元素不能包含另一些块元素。</p>
 <p>而且根据新的HTML规范，元素类型已经不按inline和block来区分了，</p>
 <blockquote>
@@ -280,15 +280,15 @@
 <li>特殊内容类，描述了仅仅在某些特殊元素上才需要遵守的内容规范，通常这些元素都有特殊的上下文关系。</li>
 </ul>
 </blockquote>
-<p><img src="https://media.prod.mdn.mozit.cloud/attachments/2012/07/09/3704/07b3e5bb546840a09bb35d45b36009a6/Content_categories_venn.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://media.prod.mdn.mozit.cloud/attachments/2012/07/09/3704/07b3e5bb546840a09bb35d45b36009a6/Content_categories_venn.png" srcset="/img/loading.gif"></p>
 <p>每个元素都有内容分类（<strong>Content categories</strong>）和允许的内容（<strong>Permitted content</strong>）两项来说明元素属于何种内容模型和该元素内允许的内容类型。</p>
 <p>回到原来的问题上来，p标签不能包含div的原因其实就是因为新规范中规定了p元素<strong>允许的内容</strong>不包括div，所以才会出现上面的问题，同样不能包含的还有其他元素，比如<code>&lt;p&gt;</code>自己，<code>&lt;ul&gt;</code>列表等都不能被放进p标签内。</p>
-<p>规范其实也说明了一点，虽然有时候在HTML中随意嵌套元素也可以正常显示，但事实上元素应该在他出现的地方才能更好的发挥作用，比如：<code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;dl&gt;</code>、<code>&lt;table&gt;</code>，它们的子一层都是指定的元素，<code>&lt;ul&gt;、&lt;ol&gt;</code>的子一级是<code>&lt;li&gt;</code>；<code>&lt;dl&gt;</code>的子一级必须是<code>&lt;dt&gt;</code>或者<code>&lt;dd&gt;</code>；<code>&lt;table&gt;</code>的子一层可以是<code>&lt;caption&gt;</code> 或<code>&lt;thead&gt;</code>、<code>&lt;tfoot&gt;</code>、<code>&lt;tbody&gt;</code>等，而再子一层是<code>&lt;tr&gt;</code>（<code>&lt;tr&gt;</code>只存在于<code>&lt;thead&gt;</code>、<code>&lt;tfoot&gt;</code>、<code>&lt;tbody&gt;</code>中），之后才是<code>&lt;td&gt;</code>或者<code>&lt;th&gt;</code>。以后我们写完代码可以去<a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C验证平台</a>上检查一下自己的代码存在什么问题，就能减少一些像上面这样的错误。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.zhihu.com/question/34952563/answer/60672228" target="_blank" rel="noopener">a 标签为什么能够包含块级元素？ - 顾轶灵的回答 - 知乎</a></p>
-<p><a href="https://www.cnblogs.com/Iona/p/4732452.html" target="_blank" rel="noopener">HTML中为何p标签内不可包含div标签?那哪些块元素里面不能放哪些块元素呢？</a></p>
-<p><a href="https://html.spec.whatwg.org/multipage/dom.html#element-definitions" target="_blank" rel="noopener">HTML Standard</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p" target="_blank" rel="noopener">&lt;p&gt; - HTML（超文本标记语言） | MDN</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories" target="_blank" rel="noopener">内容分类 - Web 开发者指南 | MDN</a></p>
+<p>规范其实也说明了一点，虽然有时候在HTML中随意嵌套元素也可以正常显示，但事实上元素应该在他出现的地方才能更好的发挥作用，比如：<code>&lt;ul&gt;</code>、<code>&lt;ol&gt;</code>、<code>&lt;dl&gt;</code>、<code>&lt;table&gt;</code>，它们的子一层都是指定的元素，<code>&lt;ul&gt;、&lt;ol&gt;</code>的子一级是<code>&lt;li&gt;</code>；<code>&lt;dl&gt;</code>的子一级必须是<code>&lt;dt&gt;</code>或者<code>&lt;dd&gt;</code>；<code>&lt;table&gt;</code>的子一层可以是<code>&lt;caption&gt;</code> 或<code>&lt;thead&gt;</code>、<code>&lt;tfoot&gt;</code>、<code>&lt;tbody&gt;</code>等，而再子一层是<code>&lt;tr&gt; </code>（<code>&lt;tr&gt;</code>只存在于<code>&lt;thead&gt;</code>、<code>&lt;tfoot&gt;</code>、<code>&lt;tbody&gt;</code>中），之后才是<code>&lt;td&gt;</code>或者<code>&lt;th&gt;</code>。以后我们写完代码可以去<a target="_blank" rel="noopener" href="https://validator.w3.org/">W3C验证平台</a>上检查一下自己的代码存在什么问题，就能减少一些像上面这样的错误。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/34952563/answer/60672228">a 标签为什么能够包含块级元素？ - 顾轶灵的回答 - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Iona/p/4732452.html">HTML中为何p标签内不可包含div标签?那哪些块元素里面不能放哪些块元素呢？</a></p>
+<p><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/dom.html#element-definitions">HTML Standard</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p">&lt;p&gt; - HTML（超文本标记语言） | MDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories">内容分类 - Web 开发者指南 | MDN</a></p>
 
             </article>
             <hr>
@@ -312,7 +312,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

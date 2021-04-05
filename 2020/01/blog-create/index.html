@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -229,17 +229,17 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><p>事情的起因是这样的，在上网查东西的时候经常看见一些文章在个人博客网站发布，于是决定自己也捣鼓个博客装装逼，然后就在网上搜了一圈，发现现在市面上的博客平台还是有不少的，比方说博客园、简书、CSDN啥的，这些平台功能完善，注册给账号就能开始写文章，也不用去进行什么复杂的配置，简单点说就是你只管写文章就行，剩下的平台帮你处理。而且这些平台基本上都有社区论坛之类的，用户交流也很方便。<a id="more"></a></p>
+              <p>事情的起因是这样的，在上网查东西的时候经常看见一些文章在个人博客网站发布，于是决定自己也捣鼓个博客装装逼，然后就在网上搜了一圈，发现现在市面上的博客平台还是有不少的，比方说博客园、简书、CSDN啥的，这些平台功能完善，注册给账号就能开始写文章，也不用去进行什么复杂的配置，简单点说就是你只管写文章就行，剩下的平台帮你处理。而且这些平台基本上都有社区论坛之类的，用户交流也很方便。<span id="more"></span></p>
 <p>这么一看，好像在这几个平台直接注册账号开始写文章就挺八错了，但是呢，前面提到的这几个平台，博客园我有用过，CSDN注册了账号就没有以后了，简书虽然没用过，但是经常会看上面的文章，然后就发现这些平台都或多或少有一些限制，比方说想自己放点奇奇怪怪的东西上去就不太行了，而且除了博客园以外，其他的平台不能自定义网站的外观，最多可以换换主题。所以思来想去还是自己搭一个博客网站吧，但是又一想自己搭网站不仅要买服务器买域名还有备案，而且还要自己设计制作网站，网站上线以后还要定期进行维护，像我这么懒得人说不定过几天就扔一边了，这样一想不行太亏，只能再考虑考虑别的方式。然后机智如我又想到了一个办法，就是把网站放到GitHub page上面，套上Hexo这个博客框架，前期设置好了后期基本上不太需要维护，所以用这个方法很容易就能做出一个好看又装逼的博客网站了，啰嗦了这么多下面就来说说具体怎么操作吧。</p>
 <h2 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a><strong>Hexo简介</strong></h2><p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Coding上，是搭建博客的首选框架。官网对Hexo的介绍是快速、简洁且高效的博客框架。</p>
 <h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p><strong>安装Node.js</strong></p>
-<p>Node.js 为大多数平台提供了官方的安装程序。可以去官网<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">下载 | Node.js</a>下载</p>
+<p>Node.js 为大多数平台提供了官方的安装程序。可以去官网<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/">下载 | Node.js</a>下载</p>
 <p>安装完成后打开命令行查看是否安装成功：</p>
 <div class="hljs"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
 npm -v</code></pre></div>
 
 <p><strong>安装Git</strong></p>
-<p>Git是目前世界上最先进的分布式版本控制系统，我们用它来管理Hexo博客文章，上传到GitHub。去<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网下载</a>对应系统的Git安装程序或者通过命令行的方式安装。</p>
+<p>Git是目前世界上最先进的分布式版本控制系统，我们用它来管理Hexo博客文章，上传到GitHub。去<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">官网下载</a>对应系统的Git安装程序或者通过命令行的方式安装。</p>
 <p><strong>安装Hexo</strong></p>
 <p>在Node.js和Git都安装完成之后，安装Hexo，用命令行运行以下命令 <code>npm install -g hexo-cli</code>，之后可以用<code>hexo -v</code>查看版本来检查是否安装成功。</p>
 <h2 id="初始化Hexo并设置主题"><a href="#初始化Hexo并设置主题" class="headerlink" title="初始化Hexo并设置主题"></a>初始化Hexo并设置主题</h2><h3 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h3><p> Hexo 安装完成后，用命令行依次执行以下命令，Hexo 将会在指定文件夹中新建所需要的文件，其中&lt;folder&gt;就是你想要作为博客初始化的文件夹。</p>
@@ -248,9 +248,9 @@ npm -v</code></pre></div>
 <p>或者通过<strong>git bash</strong>操作，在你想新建博客的<strong>空文件夹</strong>中右键，选择<code>git bash here</code>，然后在打开的命令窗口直接输入<code>hexo init</code>就能初始化。</p>
 <p>其中，<code>hexo init &lt;folder&gt;</code> 的&lt;folder&gt;是可选项，代表你想要初始化的文件夹，如果不写则默认在你当前打开的文件夹内初始化，比如你在<code>blog</code>文件夹内用<code>Git bash here</code> 打开命令行，再运行<code>hexo init</code> 这个命令，就会直接在<code>blog</code>这个文件夹内初始化，如果加上参数<code>hexo init hexo</code> 则会在<code>blog</code>文件夹内新建一个名为<code>hexo</code>的文件夹，然后在<code>hexo</code>这个文件夹内初始化。另外不管在哪个位置初始化，都要求你初始化的文件夹是空文件夹，否则初始化失败，命令行会打印错误提示文件夹不为空。</p>
 <p><strong>还要注意的一点是：</strong>如果使用<strong>cmd命令行</strong>操作，会直接在<strong>我的文档（如Administrator）</strong>下新建文件夹进行初始化，如果不想新建在我的文档内，需要先用命令行切换到你想新建的位置下然后再初始化，如：</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-attr">d</span>:<span class="hljs-string"></span>
-<span class="hljs-attr">cd</span> <span class="hljs-string">hexo-blog</span>
-<span class="hljs-attr">hexo</span> <span class="hljs-string">init</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs avrasm"><span class="hljs-symbol">d:</span>
+cd hexo-blog
+hexo init</code></pre></div>
 
 <p>新建完成后，指定文件夹的目录如下：</p>
 <div class="hljs"><pre><code class="hljs sqf">.
@@ -268,8 +268,8 @@ npm -v</code></pre></div>
 <p>这时你可以在这个文件夹下使用命令<code>hexo server</code>来运行博客，在浏览器中访问<code>http://localhost:4000/</code>查看效果。</p>
 <p>默认显示页面如下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
-<p>更多关于hexo的命令和设置可以去<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官网</a>查看。</p>
-<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>Hexo默认的主题是landscape，更多主题可以去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">官网</a>查看挑选。</p>
+<p>更多关于hexo的命令和设置可以去<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官网</a>查看。</p>
+<h3 id="设置主题"><a href="#设置主题" class="headerlink" title="设置主题"></a>设置主题</h3><p>Hexo默认的主题是landscape，更多主题可以去<a target="_blank" rel="noopener" href="https://hexo.io/themes/">官网</a>查看挑选。</p>
 <p>主题的安装方式通常有两种：</p>
 <p>一种是去主题的GitHub项目上下载到本地，然后将主题文件夹复制到站点目录的<code>themes</code>文件夹下。<br>另一种方式是用命令行安装：</p>
 <div class="hljs"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> &lt;your-hexo-folder&gt;
@@ -286,9 +286,9 @@ git <span class="hljs-built_in">clone</span> https://github.com/iissnan/hexo-the
 <p>创建仓库之前，你要有一个GitHub账号，如果没有先去注册一个，之后在你的&lt;Github账号名称&gt;.github.io页面右上角头像点开下拉菜单，找到<code>Your repository</code>点开，然后点<code>new</code>按钮创建一个名为<code>&lt;你的Github账号名称&gt;.github.io</code>的仓库，并且设置为公开（public），再进行下一步。</p>
 <p><strong>添加SSH key</strong></p>
 <p>创建SSH key是为了将博客推送到GitHub上 ，在命令行运行以下命令，创建过程中需要根据提示按三下回车：</p>
-<div class="hljs"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">"你的邮箱地址"</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;你的邮箱地址&quot;</span></code></pre></div>
 
-<p>创建完成后在电脑上找到生成的秘钥，比如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>，打开这个文件，注意是带<code>pub</code>后缀名的这个文件，将里面内容复制出来，然后打开GitHub，点击你的头像，在setting中找到<code>SSH and GPG keys</code>这个选项，然后点击<code>New SSH key</code>把你刚刚复制的内容放进去，可以给这个SSH Key起一个名字方便知道是做什么用途的。（操作中更具体的内容可以在另一篇文章中查看。）</p>
+<p>创建完成后在电脑上找到生成的秘钥，比如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>，打开这个文件，注意是带<code>pub</code>后缀名的这个文件，将里面内容复制出来，然后打开GitHub，点击你的头像，在setting中找到<code>SSH and GPG keys </code>这个选项，然后点击<code>New SSH key</code>把你刚刚复制的内容放进去，可以给这个SSH Key起一个名字方便知道是做什么用途的。（操作中更具体的内容可以在另一篇文章中查看。）</p>
 <p>测试是否添加成功。在命令行中依次输入以下命令：</p>
 <div class="hljs"><pre><code class="hljs bash">ssh -T git@github.com
 yes</code></pre></div>
@@ -310,15 +310,15 @@ yes</code></pre></div>
 hexo generate
 hexo deploy</code></pre></div>
 
-<p>其中<code>hexo clean</code>命令是清除缓存文件和已生成的静态文件，也可以不加。<br><code>hexo generate</code> 生成静态文章，可以用缩写 hexo g。<br><code>hexo deploy</code>是部署网站，就是把博客推送到GitHub上，可以用缩写hexo d。</p>
+<p>其中<code> hexo clean</code>命令是清除缓存文件和已生成的静态文件，也可以不加。<br><code>hexo generate</code> 生成静态文章，可以用缩写 hexo g。<br><code>hexo deploy </code>是部署网站，就是把博客推送到GitHub上，可以用缩写hexo d。</p>
 <p>注意deploy时可能要你输入username和password。</p>
 <p>返回<code>INFO Deploy done: git</code>即推送成功了，稍等几分钟就可以在浏览器访问<code>http://你的GitHub用户名.github.io</code></p>
 <p>到这里，你的Hexo博客就已经在GitHub Pages部署完成，可以开始发博客了。</p>
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>这部分先跳过，目前并没有绑定域名的打算，所以没有做深入了解，如果想绑定，可以看看下面的参考链接。</p>
-<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a href="https://www.simon96.online/2018/10/12/hexo-tutorial/" target="_blank" rel="noopener">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
-<p><a href="https://blog.csdn.net/sinat_37781304/article/details/82729029" target="_blank" rel="noopener">hexo史上最全搭建教程</a></p>
-<p><a href="https://uchuhimo.me/2017/04/11/genesis/" target="_blank" rel="noopener">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
-<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo中文文档</a></p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a target="_blank" rel="noopener" href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37781304/article/details/82729029">hexo史上最全搭建教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://uchuhimo.me/2017/04/11/genesis/">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo中文文档</a></p>
 
             </article>
             <hr>
@@ -346,7 +346,7 @@ hexo deploy</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

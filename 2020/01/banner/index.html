@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      997 字
+      1.1k 字
     </span>
   
 
@@ -229,86 +229,86 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="利用CSS动画效果制作循环滚动的动画"><a href="#利用CSS动画效果制作循环滚动的动画" class="headerlink" title="利用CSS动画效果制作循环滚动的动画"></a>利用CSS动画效果制作循环滚动的动画</h2><h3 id="设置图片宽度"><a href="#设置图片宽度" class="headerlink" title="设置图片宽度"></a>设置图片宽度</h3><p>以1920px的图片为例，首先要用一个div将滚动的banner图包起来，比如像下面这样：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner.jpg"</span> /&gt;</span>
+              <h2 id="利用CSS动画效果制作循环滚动的动画"><a href="#利用CSS动画效果制作循环滚动的动画" class="headerlink" title="利用CSS动画效果制作循环滚动的动画"></a>利用CSS动画效果制作循环滚动的动画</h2><h3 id="设置图片宽度"><a href="#设置图片宽度" class="headerlink" title="设置图片宽度"></a>设置图片宽度</h3><p>以1920px的图片为例，首先要用一个div将滚动的banner图包起来，比如像下面这样：</p>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;banner&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../img/banner.jpg&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>接下来对图片宽度和高度进行调整：</p>
-<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css" &gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type=&quot;text/css&quot; &gt;
 	*&#123;
-		margin: 0;
-		padding: 0;
+		<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+		<span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 	&#125;
-	#banner&#123;
-		width: 100%;  /*宽度为浏览器的100%*/
-		height: 500px;  /*原则上,高度=图片高度*/
-		overflow:hidden;
-		position: relative;
+	<span class="hljs-selector-id">#banner</span>&#123;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;  <span class="hljs-comment">/*宽度为浏览器的100%*/</span>
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;  <span class="hljs-comment">/*原则上,高度=图片高度*/</span>
+		<span class="hljs-attribute">overflow</span>:hidden;
+		<span class="hljs-attribute">position</span>: relative;
 	&#125;
-	#banner img&#123;
-		width: 1920px; /*宽度为图片的实际宽度*/
-		height: 100%; /*高度充满父容器*/
+	<span class="hljs-selector-id">#banner</span> <span class="hljs-selector-tag">img</span>&#123;
+		<span class="hljs-attribute">width</span>: <span class="hljs-number">1920px</span>; <span class="hljs-comment">/*宽度为图片的实际宽度*/</span>
+		<span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>; <span class="hljs-comment">/*高度充满父容器*/</span>
                 
-		/*使用绝对定位,让图片在父容器中绝对居中*/
-		position: absolute;
-		left: 50%;
-		margin-left: -960px;
+		<span class="hljs-comment">/*使用绝对定位,让图片在父容器中绝对居中*/</span>
+		<span class="hljs-attribute">position</span>: absolute;
+		<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+		<span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">960px</span>;
 	&#125;
 &lt;/style&gt;</code></pre></div>
 
 <h3 id="使用动画实现滚动功能"><a href="#使用动画实现滚动功能" class="headerlink" title="使用动画实现滚动功能"></a>使用动画实现滚动功能</h3><p>下面是使用动画实现滚动的示意图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" alt="动画滚动"></p>
 <p>具体实现方法如下：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner_in"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner1.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner2.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner3.png"</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../img/banner1.png"</span> /&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;banner&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;banner_in&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../img/banner1.png&quot;</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../img/banner2.png&quot;</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../img/banner3.png&quot;</span> /&gt;</span><span class="hljs-comment">&lt;!--为了去掉图片之间的缝隙--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../img/banner1.png&quot;</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p><strong>注意：</strong>上面代码中，每个img标签后面都加了一个注释，原因是为了去掉图片之间的缝隙，把所有的img标签写在同一行也可以达到效果。</p>
 <p>下面是CSS代码：</p>
-<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css"&gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type=&quot;text/css&quot;&gt;
 *&#123;
-    margin: 0px;
-    padding: 0px;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0px</span>;
 &#125;
-#banner&#123;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
+<span class="hljs-selector-id">#banner</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;
+    <span class="hljs-attribute">overflow</span>: hidden;
 &#125;
-#banner_in&#123;
-    width: 7680px;
-    height: 500px;
-    position: relative;
-    -webkit-animation: banner 8s ease infinite;
+<span class="hljs-selector-id">#banner_in</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">7680px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">500px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    -webkit-<span class="hljs-attribute">animation</span>: banner <span class="hljs-number">8s</span> ease infinite;
 &#125;
 
-@-webkit-keyframes banner&#123;
-    0%&#123;
-        left: 0px;
+<span class="hljs-keyword">@-webkit-keyframes</span> banner&#123;
+    <span class="hljs-number">0%</span>&#123;
+        <span class="hljs-attribute">left</span>: <span class="hljs-number">0px</span>;
     &#125;
-    10%&#123;
-        left: 0px;
+    <span class="hljs-number">10%</span>&#123;
+        <span class="hljs-attribute">left</span>: <span class="hljs-number">0px</span>;
     &#125;
-    30%&#123;
-        left: -1920px;
+    <span class="hljs-number">30%</span>&#123;
+        <span class="hljs-attribute">left</span>: -<span class="hljs-number">1920px</span>;
     &#125;
-    40%&#123;
-        left: -1920px;
+    <span class="hljs-number">40%</span>&#123;
+        <span class="hljs-attribute">left</span>: -<span class="hljs-number">1920px</span>;
     &#125;
-    70%&#123;
-        left: -3840px;
+    <span class="hljs-number">70%</span>&#123;
+        <span class="hljs-attribute">left</span>: -<span class="hljs-number">3840px</span>;
     &#125;
-    80%&#123;
-        left: -3840px;
+    <span class="hljs-number">80%</span>&#123;
+        <span class="hljs-attribute">left</span>: -<span class="hljs-number">3840px</span>;
     &#125;
-    100%&#123;
-        left: -5760px;
+    <span class="hljs-number">100%</span>&#123;
+        <span class="hljs-attribute">left</span>: -<span class="hljs-number">5760px</span>;
     &#125;
 &#125;
 &lt;/style&gt;</code></pre></div>
@@ -316,59 +316,59 @@
 <p>至此，一个使用动画功能做出来的banner滚动就实现了，如果要暂停滚动可以利用鼠标hover事件设置动画的状态属性，以达到暂停banner滚动的目的。</p>
 <h2 id="利用CSS和JavaScript实现banner滚动和点击切换"><a href="#利用CSS和JavaScript实现banner滚动和点击切换" class="headerlink" title="利用CSS和JavaScript实现banner滚动和点击切换"></a>利用CSS和JavaScript实现banner滚动和点击切换</h2><p>​       上面利用CSS使banner滚动的方法虽然比较简单，但是如果想看其中一张banner的时候，只能等他慢慢滚动显示出来，不能直接切换，但是如果用CSS+JS的方法就可以直接跳转到想看的banner了。</p>
 <p>先上HTML代码：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-　　<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"inside"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner1.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img1"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner2.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img2"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner3.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img3"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner4.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img4"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"img/banner1.png"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"img5"</span> /&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;banner&quot;</span>&gt;</span>
+　　<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;inside&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/banner1.png&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img1&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/banner2.png&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img2&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/banner3.png&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img3&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/banner4.png&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img4&quot;</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;img/banner1.png&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img5&quot;</span> /&gt;</span>
    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-comment">&lt;!--切换banner按钮--&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bannerNum"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(1)"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(2)"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(3)"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">"changeBanner(4)"</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bannerNum&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;changeBanner(1)&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;changeBanner(2)&quot;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;changeBanner(3)&quot;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;changeBanner(4)&quot;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
 
 <p>再稍微调整一下样式：</p>
-<div class="hljs"><pre><code class="hljs css">&lt;style type="text/css"&gt;
+<div class="hljs"><pre><code class="hljs css">&lt;style type=&quot;text/css&quot;&gt;
   *&#123;
-    padding: 0px;
-    margin: 0px;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;
   &#125;
-  #banner&#123;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
+  <span class="hljs-selector-id">#banner</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">overflow</span>: hidden;
+    <span class="hljs-attribute">white-space</span>: nowrap;
+    <span class="hljs-attribute">position</span>: relative;
   &#125;
-  #banner #inside&#123;
-    width: 9600px;
-    position: relative;
-    left: 50%;
-    margin-left: -960px;
-    transition: all 1s ease;
+  <span class="hljs-selector-id">#banner</span> <span class="hljs-selector-id">#inside</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">9600px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">960px</span>;
+    <span class="hljs-attribute">transition</span>: all <span class="hljs-number">1s</span> ease;
   &#125;
-  #banner img&#123;
-    width: 1920px;
+  <span class="hljs-selector-id">#banner</span> <span class="hljs-selector-tag">img</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1920px</span>;
   &#125;
-  #bannerNum&#123;
-    padding: 0px;
-    list-style: none;
-    overflow: hidden;
-    width: 160px;
-    position: absolute;
-    bottom: 30px;
-    right: 50px;
+  <span class="hljs-selector-id">#bannerNum</span>&#123;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0px</span>;
+    <span class="hljs-attribute">list-style</span>: none;
+    <span class="hljs-attribute">overflow</span>: hidden;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">160px</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">50px</span>;
   &#125;
-  #bannerNum li&#123;
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    text-align: center;
-    line-height: 30px;
-    margin: 0px 5px;
-    float: left;
-    cursor: pointer;
+  <span class="hljs-selector-id">#bannerNum</span> <span class="hljs-selector-tag">li</span>&#123;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">background-color</span>: white;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span> <span class="hljs-number">5px</span>;
+    <span class="hljs-attribute">float</span>: left;
+    <span class="hljs-attribute">cursor</span>: pointer;
   &#125;
 &lt;/style&gt;</code></pre></div>
 
@@ -377,27 +377,27 @@
 　　<span class="hljs-keyword">var</span> n = <span class="hljs-number">1</span>;
 　　<span class="hljs-keyword">var</span> inside;
 　　<span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-　　inside = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"inside"</span>);
+　　inside = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;inside&quot;</span>);
 
-　　<span class="hljs-keyword">var</span> interval = setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-　　　　inside.style.transition = <span class="hljs-string">"all 1s ease"</span>;
+　　<span class="hljs-keyword">var</span> interval = <span class="hljs-built_in">setInterval</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+　　　　inside.style.transition = <span class="hljs-string">&quot;all 1s ease&quot;</span>;
 　　　　n++;
 　　　　<span class="hljs-keyword">switch</span> (n)&#123;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-　　　　inside.style.transition = <span class="hljs-string">"none"</span>;
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.transition = <span class="hljs-string">&quot;none&quot;</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>*<span class="hljs-number">2</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>*<span class="hljs-number">2</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>*<span class="hljs-number">3</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>*<span class="hljs-number">3</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>*<span class="hljs-number">4</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>*<span class="hljs-number">4</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　n = <span class="hljs-number">0</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">default</span>:
@@ -407,31 +407,31 @@
 　　&#125;
 
 　　<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeBanner</span>(<span class="hljs-params">num</span>)</span>&#123;
-　　　　inside.style.transition = <span class="hljs-string">"none"</span>;
+　　　　inside.style.transition = <span class="hljs-string">&quot;none&quot;</span>;
 　　　　<span class="hljs-keyword">switch</span> (num)&#123;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>*<span class="hljs-number">2</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>*<span class="hljs-number">2</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
-　　　　inside.style.marginLeft = (<span class="hljs-number">-960</span><span class="hljs-number">-1920</span>*<span class="hljs-number">3</span>)+<span class="hljs-string">"px"</span>;
+　　　　inside.style.marginLeft = (-<span class="hljs-number">960</span>-<span class="hljs-number">1920</span>*<span class="hljs-number">3</span>)+<span class="hljs-string">&quot;px&quot;</span>;
 　　　　<span class="hljs-keyword">break</span>;
 　　　　<span class="hljs-keyword">default</span>:
 　　　　<span class="hljs-keyword">break</span>;
 　　　　&#125;
 
-　　   n = num<span class="hljs-number">-1</span>;
+　　   n = num-<span class="hljs-number">1</span>;
 　　&#125;
-&lt;<span class="hljs-regexp">/script&gt;</span></code></pre></div>
+&lt;/script&gt;</code></pre></div>
 
 <p>下面是我用div代替图片做的一个简单demo：</p>
 <p>在线查看：<a href="">滚动效果</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner02.gif" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner02.gif" srcset="/img/loading.gif"></p>
 
             </article>
             <hr>
@@ -457,7 +457,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

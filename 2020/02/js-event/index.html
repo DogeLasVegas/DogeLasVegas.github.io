@@ -51,7 +51,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -138,7 +138,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/collect/">
                 <i class="iconfont icon-brush"></i>
-                恰独食
+                养馬场
               </a>
             </li>
           
@@ -179,7 +179,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      1.9k 字
     </span>
   
 
@@ -229,14 +229,14 @@
               </p>
             
             <article class="markdown-body">
-              <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\some\place\APlayer.min.css"><script src="\some\place\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\some\place\Meting.min.js"></script><h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>JavaScript事件其实是发生在HTML元素上的事件，可以是浏览器行为，也可以是用户行为。</p>
+              <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>JavaScript事件其实是发生在HTML元素上的事件，可以是浏览器行为，也可以是用户行为。</p>
 <p>以下是 HTML 事件的实例：</p>
 <ul>
 <li>HTML 页面完成加载</li>
 <li>HTML input 的内容被更改时</li>
 <li>HTML 按钮被点击</li>
 </ul>
-<p>在事件触发时，可以用JavaScript 执行一些代码。<br>HTML 元素中可以添加事件属性，事件通常与函数结合使用，函数不会在事件发生前被执行 (如用户点击按钮)。<br>HTML的事件有鼠标事件、键盘事件、表单事件、动画事件、拖动事件等等很多种，更多事件可以去<a href="https://www.runoob.com/jsref/dom-obj-event.html" target="_blank" rel="noopener">这里</a>查看。</p>
+<p>在事件触发时，可以用JavaScript 执行一些代码。<br>HTML 元素中可以添加事件属性，事件通常与函数结合使用，函数不会在事件发生前被执行 (如用户点击按钮)。<br>HTML的事件有鼠标事件、键盘事件、表单事件、动画事件、拖动事件等等很多种，更多事件可以去<a target="_blank" rel="noopener" href="https://www.runoob.com/jsref/dom-obj-event.html">这里</a>查看。</p>
 <p>下面说一下关于<strong>键盘事件</strong>的几个问题：</p>
 <p>1、执行顺序：keydown-keypress-keyup<br>2、长按时，会循环执行keydown-keypress<br>3、有keydown事件，不一定有keyup事件（事件触发过程中，鼠标移走点击别的地方，可能没有keyup事件）<br>4、keypress事件只能捕获字母、数字、符号键（空格和回车也是），不能捕获功能键，<br>keydown和keyup基本可以捕获所有功能键（特殊除外）<br>keypress 区分大小写，keydown和keyup不区分；<br>keydown和keyup区分主键盘和小键盘，keypress不区分<br>keypress 只能捕获单键，keydown和keyup可以捕获组合键</p>
 <p><strong>确定键盘触发按键的方法：</strong><br>在触发函数中，传入参数e，代表按键事件；<br>通过e.keyCode确认按键ASCII码值，进而确定按键；<br>兼容浏览器系统的写法：</p>
@@ -250,7 +250,7 @@
 <p>DOM0：首先确定的是在DOM标准中并没有DOM 0级的。我们所说的DOM0事件模型其实就是指的是还没有DOM规范的时候给起 的一个名字，DOM0通过on来绑定事件；而DOM2通过addEventListener来绑定事件，DOM2有捕获、目标、冒泡三个事件阶段。</p>
 <p>下面具体说一下DOM0事件模型和DOM2事件模型：</p>
 <h3 id="DOM0事件模型"><a href="#DOM0事件模型" class="headerlink" title="DOM0事件模型"></a>DOM0事件模型</h3><p>DOM0模型分为两种：</p>
-<p>一种是<strong>内联模型：</strong>直接将函数名作为html标签的某个事件属性的属性值<br>eg：<code>&lt;button onclick=&quot;func()&quot;&gt;&lt;/button&gt;</code><br><strong>缺点：</strong>违反了W3C关于html与JS分离的基本原则<br>另一种是<strong>脚本模型：</strong>在JS脚本中通过事件属性进行绑定<br>eg：<code>window.onload = function(){}</code><br>局限性：同一节点只能绑定一个同类型事件</p>
+<p>一种是<strong>内联模型：</strong>直接将函数名作为html标签的某个事件属性的属性值<br>eg：<code>&lt;button onclick=&quot;func()&quot;&gt;&lt;/button&gt;</code><br><strong>缺点：</strong>违反了W3C关于html与JS分离的基本原则<br>另一种是<strong>脚本模型：</strong>在JS脚本中通过事件属性进行绑定<br>eg：<code>window.onload = function()&#123;&#125;</code><br>局限性：同一节点只能绑定一个同类型事件</p>
 <h3 id="DOM2事件模型"><a href="#DOM2事件模型" class="headerlink" title="DOM2事件模型"></a>DOM2事件模型</h3><p><strong>1、添加事件绑定：</strong><br>IE10之前：<code>btn.attachEvent(&quot;onclick&quot;,函数);</code><br>其他浏览器：<code>btn.addEventListener(&quot;click&quot;,函数,true/false)</code><br>　　其中，第一个参数为事件<br>　　第三个参数：false为默认，表示事件冒泡；true表示事件捕获<br>兼容写法：</p>
 <div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span>(btn.attachEvent)&#123;
 　　btn.attachEvent();
@@ -262,12 +262,12 @@
 <p>由此可以看出，DOM0和DOM2一个很大区别是DOM0模型的元素绑定多个click最后只执行最后一个click，前面的会被后面的覆盖掉；而DOM2模型的元素绑定可以多个click，不会被覆盖，都会被执行。</p>
 <h2 id="JS中的事件流"><a href="#JS中的事件流" class="headerlink" title="JS中的事件流"></a>JS中的事件流</h2><p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>这里有六个套在一起的div，下面解释冒泡和捕获时会用到：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div1"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 600px;width: 600px;background-color: aqua;"</span>&gt;</span>第一层
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div2"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 500px;width: 500px;background-color: blueviolet;"</span>&gt;</span>第二层
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div3"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 400px;width: 400px;background-color: chartreuse;"</span>&gt;</span>第三层
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div4"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 300px;width: 300px;background-color: darkorange;"</span>&gt;</span>第四层
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div5"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 200px;width: 200px;background-color: firebrick;"</span>&gt;</span>第五层
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"div6"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"height: 100px;width: 100px;background-color: gray;"</span>&gt;</span>第六层<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div1&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 600px;width: 600px;background-color: aqua;&quot;</span>&gt;</span>第一层
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div2&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 500px;width: 500px;background-color: blueviolet;&quot;</span>&gt;</span>第二层
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div3&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 400px;width: 400px;background-color: chartreuse;&quot;</span>&gt;</span>第三层
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div4&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 300px;width: 300px;background-color: darkorange;&quot;</span>&gt;</span>第四层
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div5&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 200px;width: 200px;background-color: firebrick;&quot;</span>&gt;</span>第五层
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div6&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 100px;width: 100px;background-color: gray;&quot;</span>&gt;</span>第六层<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -276,61 +276,61 @@
 
 <p>1、<strong>事件冒泡：</strong><br>当某DOM元素触发某事件时，会从当前DOM元素开始，逐个触发其祖先元素的同类型事件，直到DOM根节点<br>DOM0模型均为事件冒泡，IE中使用<code>.attachEvent()</code>添加的事件均为冒泡；<br>其他浏览器使用<code>.addEventListener()</code>添加的事件当第三个参数为false时，为冒泡</p>
 <div class="hljs"><pre><code class="hljs javascript">&lt;script&gt;
-  <span class="hljs-keyword">var</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>),
-  div2 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div2'</span>),
-  div3 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div3'</span>),
-  div4 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div4'</span>),
-  div5 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div5'</span>),
-  div6 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div6'</span>);
-  div1.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第一层"</span>)
+  <span class="hljs-keyword">var</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div1&#x27;</span>),
+  div2 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div2&#x27;</span>),
+  div3 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div3&#x27;</span>),
+  div4 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div4&#x27;</span>),
+  div5 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div5&#x27;</span>),
+  div6 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div6&#x27;</span>);
+  div1.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第一层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-  div2.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第二层"</span>)
+  div2.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第二层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-  div3.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第三层"</span>)
+  div3.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第三层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-  div4.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第四层"</span>)
+  div4.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第四层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-  div5.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第五层"</span>)
+  div5.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第五层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-  div6.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第六层"</span>)
+  div6.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第六层&quot;</span>)
   &#125;, <span class="hljs-literal">false</span>);
-<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre></div>
+&lt;/script&gt;</code></pre></div>
 
 <p>点击中间最小的第六层div时，控制台打印出的结果是这样的：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
 <p>2、<strong>事件捕获：</strong><br>当某DOM元素触发某事件时，会从DOM根节点开始，逐个触发器祖先元素的同类型事件，直到触发到当前元素为止<br>只有使用<code>.addEventListener()</code>添加事件并设置第三个参数为true时才为捕获</p>
 <div class="hljs"><pre><code class="hljs javascript">&lt;script&gt;
-  <span class="hljs-keyword">var</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div1'</span>),
-  div2 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div2'</span>),
-  div3 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div3'</span>),
-  div4 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div4'</span>),
-  div5 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div5'</span>),
-  div6 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'div6'</span>);
-  div1.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第一层"</span>)
+  <span class="hljs-keyword">var</span> div1 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div1&#x27;</span>),
+  div2 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div2&#x27;</span>),
+  div3 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div3&#x27;</span>),
+  div4 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div4&#x27;</span>),
+  div5 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div5&#x27;</span>),
+  div6 = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;div6&#x27;</span>);
+  div1.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第一层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-  div2.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第二层"</span>)
+  div2.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第二层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-  div3.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第三层"</span>)
+  div3.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第三层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-  div4.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第四层"</span>)
+  div4.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第四层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-  div5.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第五层"</span>)
+  div5.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第五层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-  div6.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"第六层"</span>)
+  div6.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;第六层&quot;</span>)
   &#125;, <span class="hljs-literal">true</span>);
-<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre></div>
+&lt;/script&gt;</code></pre></div>
 
 <p>点击中间最小的第六层div时，控制台打印出的结果是这样的：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="img"></p>
@@ -356,10 +356,10 @@
 &#125;</code></pre></div>
 
 <p>参考链接：</p>
-<p><a href="https://www.jianshu.com/p/eee5e4a54048" target="_blank" rel="noopener">DOM分级详解</a></p>
-<p><a href="https://www.cnblogs.com/greedymonkey/p/6704249.html" target="_blank" rel="noopener">JS中的事件</a></p>
-<p><a href="https://www.cnblogs.com/soyxiaobi/p/9498357.html" target="_blank" rel="noopener">彻底弄懂JS事件委托的概念和作用</a></p>
-<p><a href="https://www.jb51.net/article/99094.htm" target="_blank" rel="noopener">DOM 事件的深入浅出（一）</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/eee5e4a54048">DOM分级详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/greedymonkey/p/6704249.html">JS中的事件</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/soyxiaobi/p/9498357.html">彻底弄懂JS事件委托的概念和作用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/99094.htm">DOM 事件的深入浅出（一）</a></p>
 
             </article>
             <hr>
@@ -377,15 +377,15 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
-                    
                       <a class="hover-with-bg" href="/tags/JS/">JS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Web/">Web</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
