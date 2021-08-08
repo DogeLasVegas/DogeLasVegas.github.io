@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>【转】JS工厂模式 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【转】JS工厂模式">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-29 10:35">
-      2020年6月29日 上午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-29 10:35" pubdate>
+        2020年6月29日 上午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,112 +256,83 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【转】JS工厂模式</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年6月29日 上午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <p>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。</p>
-<h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="图9-9 JS工厂模式"></p>
+<h2 id="9-10-Factory（工厂）模式"><a href="#9-10-Factory（工厂）模式" class="headerlink" title="9.10 Factory（工厂）模式"></a>9.10 Factory（工厂）模式</h2><p>Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们可以指定我们所希望创建的工厂对象的类型（见图9-9）。<br><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" lazyload alt="图9-9 JS工厂模式"></p>
 <p>假设有一个UI工厂，我们要创建一个UI组件的类型。不需要直接使用new运算符或者通过另一个创建型构造函数创建这个组件，而是要求Factory对象创建一个新的组件。我们通知Factory需要什么类型的对象（如“按钮”、“面板”），它会进行实例化，然后将它返回给我们使用。</p>
 <p>如果对象创建过程相对比较复杂，这种方法特别有用，例如，如果它强烈依赖于动态因素或应用程序配置的话。</p>
 <p>可以在ExtJS等UI库中找到此模式的示例，其中创建对象或组件的方法也有可能被归入子类了。</p>
 <p>下面这个示例构建在之前的代码片段之上，使用Constructor模式逻辑来定义汽车。它展示了如何使用Factory模式来实现vehicle工厂：</p>
 <p>// Types.js –本例构造函数的存放文件<br>// 定义Car构造函数</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;
-  <span class="hljs-comment">// 默认值</span>
-  <span class="hljs-built_in">this</span>.doors = options.doors || <span class="hljs-number">4</span>;
-  <span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;brand new&quot;</span>;
-  <span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;silver&quot;</span>;
-&#125;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;<br>  <span class="hljs-comment">// 默认值</span><br>  <span class="hljs-built_in">this</span>.doors = options.doors || <span class="hljs-number">4</span>;<br>  <span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;brand new&quot;</span>;<br>  <span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;silver&quot;</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 定义Truck构造函数</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;
-   <span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;used&quot;</span>;
-   <span class="hljs-built_in">this</span>.wheelSize = options.wheelSize || <span class="hljs-string">&quot;large&quot;</span>;
-   <span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;blue&quot;</span>;
-&#125;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;<br>   <span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;used&quot;</span>;<br>   <span class="hljs-built_in">this</span>.wheelSize = options.wheelSize || <span class="hljs-string">&quot;large&quot;</span>;<br>   <span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;blue&quot;</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// FactoryExample.js<br>// 定义vehicle工厂的大体代码</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 定义该工厂factory的原型和试用工具，默认的vehicleClass是Car</p>
-<div class="hljs"><pre><code class="hljs javascript">VehicleFactory.prototype.vehicleClass = Car;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">VehicleFactory.prototype.vehicleClass = Car;<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 创建新Vehicle实例的工厂方法</p>
-<div class="hljs"><pre><code class="hljs javascript">VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;
-   <span class="hljs-keyword">if</span> (options.vehicleType === <span class="hljs-string">&quot;car&quot;</span>) &#123;
-       <span class="hljs-built_in">this</span>.vehicleClass = Car;
-   &#125; <span class="hljs-keyword">else</span> &#123;
-       <span class="hljs-built_in">this</span>.vehicleClass = Truck;
-   &#125;
-   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">this</span>.vehicleClass(options);
-&#125;;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>&#123;<br>   <span class="hljs-keyword">if</span> (options.vehicleType === <span class="hljs-string">&quot;car&quot;</span>) &#123;<br>       <span class="hljs-built_in">this</span>.vehicleClass = Car;<br>   &#125; <span class="hljs-keyword">else</span> &#123;<br>       <span class="hljs-built_in">this</span>.vehicleClass = Truck;<br>   &#125;<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">this</span>.vehicleClass(options);<br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 创建生成汽车的工厂实例</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();
-<span class="hljs-keyword">var</span> car = carFactory.createVehicle(&#123;
-               vehicleType: <span class="hljs-string">&quot;car&quot;</span>,
-               color: <span class="hljs-string">&quot;yellow&quot;</span>,
-               doors: <span class="hljs-number">6</span>&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();<br><span class="hljs-keyword">var</span> car = carFactory.createVehicle(&#123;<br>               vehicleType: <span class="hljs-string">&quot;car&quot;</span>,<br>               color: <span class="hljs-string">&quot;yellow&quot;</span>,<br>               doors: <span class="hljs-number">6</span>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 测试汽车是由vehicleClass的原型prototype里的Car创建的<br>// 输出: true</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 输出: Car对象，color: “yellow”, doors: 6,state:”brand new”</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(car);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>在方法 1 中，我们修改了VehicleFactory实例来使用Truck类：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;
-                      vehicleType: <span class="hljs-string">&quot;truck&quot;</span>,
-                      state: <span class="hljs-string">&quot;like new&quot;</span>,
-                      color: <span class="hljs-string">&quot;red&quot;</span>,
-                      wheelSize: <span class="hljs-string">&quot;small&quot;</span>&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;<br>                      vehicleType: <span class="hljs-string">&quot;truck&quot;</span>,<br>                      state: <span class="hljs-string">&quot;like new&quot;</span>,<br>                      color: <span class="hljs-string">&quot;red&quot;</span>,<br>                      wheelSize: <span class="hljs-string">&quot;small&quot;</span>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 测试卡车是由vehicleClass的原型prototype里的Truck创建的<br>// 输出: true</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 输出: Truck对象，color ：”red”, state：”like new” ，wheelSize：”small”</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(movingTruck);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>在方法2中，我们把VehicleFactory归入子类来创建一个构建Truck的工厂类：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;
-TruckFactory.prototype = <span class="hljs-keyword">new</span> VehicleFactory();
-TruckFactory.prototype.vehicleClass = Truck;
-<span class="hljs-keyword">var</span> truckFactory = <span class="hljs-keyword">new</span> TruckFactory();
-<span class="hljs-keyword">var</span> myBigTruck = truckFactory.createVehicle(&#123;
-                      state: <span class="hljs-string">&quot;omg..so bad.&quot;</span>,
-                      color: <span class="hljs-string">&quot;pink&quot;</span>,
-                      wheelSize: <span class="hljs-string">&quot;so big&quot;</span>&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123; &#125;<br>TruckFactory.prototype = <span class="hljs-keyword">new</span> VehicleFactory();<br>TruckFactory.prototype.vehicleClass = Truck;<br><span class="hljs-keyword">var</span> truckFactory = <span class="hljs-keyword">new</span> TruckFactory();<br><span class="hljs-keyword">var</span> myBigTruck = truckFactory.createVehicle(&#123;<br>                      state: <span class="hljs-string">&quot;omg..so bad.&quot;</span>,<br>                      color: <span class="hljs-string">&quot;pink&quot;</span>,<br>                      wheelSize: <span class="hljs-string">&quot;so big&quot;</span>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 确认myBigTruck是由原型Truck创建的<br>// 输出: true</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);<br></code></pre></div></td></tr></table></figure>
 
 
 <p>// 输出：Truck对象，color: pink”, wheelSize: “so big”, state: “omg. so bad”</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-built_in">console</span>.log(myBigTruck);<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -330,125 +343,18 @@ TruckFactory.prototype.vehicleClass = Truck;
 <h3 id="9-10-3-Abstract-Factory（抽象工厂）"><a href="#9-10-3-Abstract-Factory（抽象工厂）" class="headerlink" title="9.10.3 Abstract Factory（抽象工厂）"></a>9.10.3 Abstract Factory（抽象工厂）</h3><p>了解抽象工厂模式也是有用的，它用于封装一组具有共同目标的单个工厂。它能够将一组对象的实现细节从一般用法中分离出来。</p>
 <p>应当使用抽象工厂模式的情况是：一个系统必须独立于它所创建的对象的生成方式，或它需要与多种对象类型一起工作。</p>
 <p>既简单又容易理解的示例是车辆工厂，它定义了获取或注册车辆类型的方法。抽象工厂可以命名为AbstractVehicleFactory。抽象工厂将允许对像car或truck这样的车辆类型进行定义，具体工厂只需要实现履行车辆契约的类（如Vehicle.prototype.drive和Vehicle.prototype.breakDown）。</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> AbstractVehicleFactory = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
-<span class="hljs-comment">// 存储车辆类型</span>
-  <span class="hljs-keyword">var</span> types = &#123;&#125;;
-  <span class="hljs-keyword">return</span> &#123;
-       getVehicle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> type, customizations </span>) </span>&#123;
-            <span class="hljs-keyword">var</span> Vehicle = types[type];
-            <span class="hljs-keyword">return</span> (Vehicle) ? <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vehicle(customizations) : <span class="hljs-literal">null</span>;
-       &#125;,
-       registerVehicle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> type, Vehicle </span>) </span>&#123;
-            <span class="hljs-keyword">var</span> proto = Vehicle.prototype;
-            <span class="hljs-comment">// 只注册实现车辆契约的类</span>
-            <span class="hljs-keyword">if</span> ( proto.drive &amp;&amp; proto.breakDown ) &#123;
-                  types[type] = Vehicle;
-            &#125;
-            <span class="hljs-keyword">return</span> AbstractVehicleFactory;
-        &#125;
-  &#125;;
-&#125;)();
-<span class="hljs-comment">// 用法:</span>
-AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;car&quot;</span>, Car );
-AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&quot;</span>, Truck );
-<span class="hljs-comment">// 基于抽象车辆类型实例化一个新car对象</span>
-<span class="hljs-keyword">var</span> car = AbstractVehicleFactory.getVehicle( <span class="hljs-string">&quot;car&quot;</span> , &#123;
-             color: <span class="hljs-string">&quot;lime green&quot;</span>,
-             state: <span class="hljs-string">&quot;like new&quot;</span> &#125; );
-<span class="hljs-comment">// 同理实例化一个新truck对象</span>
-<span class="hljs-keyword">var</span> truck = AbstractVehicleFactory.getVehicle( <span class="hljs-string">&quot;truck&quot;</span> , &#123;
-                wheelSize: <span class="hljs-string">&quot;medium&quot;</span>,
-                color: <span class="hljs-string">&quot;neon yellow&quot;</span> &#125; );</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> AbstractVehicleFactory = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-comment">// 存储车辆类型</span><br>  <span class="hljs-keyword">var</span> types = &#123;&#125;;<br>  <span class="hljs-keyword">return</span> &#123;<br>       getVehicle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> type, customizations </span>) </span>&#123;<br>            <span class="hljs-keyword">var</span> Vehicle = types[type];<br>            <span class="hljs-keyword">return</span> (Vehicle) ? <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vehicle(customizations) : <span class="hljs-literal">null</span>;<br>       &#125;,<br>       registerVehicle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> type, Vehicle </span>) </span>&#123;<br>            <span class="hljs-keyword">var</span> proto = Vehicle.prototype;<br>            <span class="hljs-comment">// 只注册实现车辆契约的类</span><br>            <span class="hljs-keyword">if</span> ( proto.drive &amp;&amp; proto.breakDown ) &#123;<br>                  types[type] = Vehicle;<br>            &#125;<br>            <span class="hljs-keyword">return</span> AbstractVehicleFactory;<br>        &#125;<br>  &#125;;<br>&#125;)();<br><span class="hljs-comment">// 用法:</span><br>AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;car&quot;</span>, Car );<br>AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&quot;</span>, Truck );<br><span class="hljs-comment">// 基于抽象车辆类型实例化一个新car对象</span><br><span class="hljs-keyword">var</span> car = AbstractVehicleFactory.getVehicle( <span class="hljs-string">&quot;car&quot;</span> , &#123;<br>             color: <span class="hljs-string">&quot;lime green&quot;</span>,<br>             state: <span class="hljs-string">&quot;like new&quot;</span> &#125; );<br><span class="hljs-comment">// 同理实例化一个新truck对象</span><br><span class="hljs-keyword">var</span> truck = AbstractVehicleFactory.getVehicle( <span class="hljs-string">&quot;truck&quot;</span> , &#123;<br>                wheelSize: <span class="hljs-string">&quot;medium&quot;</span>,<br>                color: <span class="hljs-string">&quot;neon yellow&quot;</span> &#125; );<br></code></pre></div></td></tr></table></figure>
 
 
 
-<h2 id="完整示例代码："><a href="#完整示例代码：" class="headerlink" title="完整示例代码："></a>完整示例代码：</h2><div class="hljs"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
-<span class="javascript">		<span class="hljs-comment">//先定义几种车 构造函数  工厂方法</span></span>
-<span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.doors = options.doors || <span class="hljs-number">4</span>;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;brand&quot;</span>;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;silver&quot;</span>;</span>
-		&#125;
-<span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;used&quot;</span>;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.wheelSize = options.wheelSize || <span class="hljs-string">&quot;large&quot;</span>;</span>
-<span class="javascript">			<span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;blue&quot;</span>;</span>
-		&#125;
- 
-<span class="javascript">		<span class="hljs-comment">//再定义生产车辆的工厂</span></span>
-<span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span>
-<span class="javascript">		<span class="hljs-comment">//定义该工厂生产的默认汽车类型</span></span>
-<span class="javascript">		VehicleFactory.prototype.vehicleClass = Car; <span class="hljs-comment">//Car是函数</span></span>
-<span class="javascript">		<span class="hljs-comment">//定义生产汽车的具体过程</span></span>
-<span class="javascript">		VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">options</span>) </span>&#123;</span>
-<span class="javascript">			<span class="hljs-keyword">if</span>(options.vehicleType === <span class="hljs-string">&quot;car&quot;</span>)&#123;</span>
-<span class="javascript">				<span class="hljs-built_in">this</span>.vehicleClass = Car;</span>
-<span class="javascript">			&#125;<span class="hljs-keyword">else</span>&#123;</span>
-<span class="javascript">				<span class="hljs-built_in">this</span>.vehicleClass = Truck;</span>
-			&#125;
- 
-<span class="javascript">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">this</span>.vehicleClass(options); </span>
-		&#125;;
- 
-<span class="javascript">		<span class="hljs-comment">//建造工厂并命名</span></span>
-<span class="javascript">		<span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();</span>
-<span class="javascript">		<span class="hljs-comment">//开始生产汽车</span></span>
-<span class="javascript">		<span class="hljs-keyword">var</span> car = carFactory.createVehicle(&#123;</span>
-<span class="javascript">			vehicleType: <span class="hljs-string">&quot;car&quot;</span>,</span>
-<span class="javascript">			color: <span class="hljs-string">&quot;yellow&quot;</span>,</span>
-			doors: 6
-		&#125;);
-<span class="javascript">		<span class="hljs-comment">//验证车是否是这个Car类型的车</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);</span>
-<span class="javascript">		<span class="hljs-comment">//验验车，看看货</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(car);</span>
- 
-<span class="javascript">		<span class="hljs-comment">//再生产另一部车</span></span>
-<span class="javascript">		<span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;</span>
-<span class="javascript">			vehicleType: <span class="hljs-string">&quot;truck&quot;</span>,</span>
-<span class="javascript">			state: <span class="hljs-string">&quot;like new&quot;</span>,</span>
-<span class="javascript">			color: <span class="hljs-string">&quot;red&quot;</span>,</span>
-<span class="javascript">			wheelSize: <span class="hljs-string">&quot;small&quot;</span></span>
-		&#125;);
-<span class="javascript">		<span class="hljs-comment">//验证车是否是Track类型的车</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);</span>
-<span class="javascript">		<span class="hljs-comment">//验验车，看看货</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(movingTruck);</span>
- 
-<span class="javascript">		<span class="hljs-comment">//-----------------------------------------------</span></span>
-<span class="javascript">		<span class="hljs-comment">//定义第二个工厂  是上面那个工厂的子工厂</span></span>
-<span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span>
-<span class="javascript">		TruckFactory.prototype = <span class="hljs-keyword">new</span> VehicleFactory();</span>
-		TruckFactory.prototype.vehicleClass = Truck;
-<span class="javascript">		<span class="hljs-comment">//创建工厂</span></span>
-<span class="javascript">		<span class="hljs-keyword">var</span> TruckFactory = <span class="hljs-keyword">new</span> TruckFactory();</span>
-<span class="javascript">		<span class="hljs-comment">//生产卡车</span></span>
-<span class="javascript">		<span class="hljs-keyword">var</span> myBigTruck = TruckFactory.createVehicle(&#123;</span>
-<span class="javascript">			state: <span class="hljs-string">&quot;omg..so bad.&quot;</span>,</span>
-<span class="javascript">			color: <span class="hljs-string">&quot;pink&quot;</span>,</span>
-<span class="javascript">			wheelSize: <span class="hljs-string">&quot;so big&quot;</span></span>
-		&#125;);
-<span class="javascript">		<span class="hljs-comment">//验验车</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);</span>
-<span class="javascript">		<span class="hljs-comment">//看看货</span></span>
-<span class="javascript">		<span class="hljs-built_in">console</span>.log(myBigTruck);</span>
-	<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
+<h2 id="完整示例代码："><a href="#完整示例代码：" class="headerlink" title="完整示例代码："></a>完整示例代码：</h2><figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">		<span class="hljs-comment">//先定义几种车 构造函数  工厂方法</span></span><br><span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.doors = options.doors || <span class="hljs-number">4</span>;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;brand&quot;</span>;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;silver&quot;</span>;</span><br>		&#125;<br><span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Truck</span>(<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.state = options.state || <span class="hljs-string">&quot;used&quot;</span>;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.wheelSize = options.wheelSize || <span class="hljs-string">&quot;large&quot;</span>;</span><br><span class="javascript">			<span class="hljs-built_in">this</span>.color = options.color || <span class="hljs-string">&quot;blue&quot;</span>;</span><br>		&#125;<br> <br><span class="javascript">		<span class="hljs-comment">//再定义生产车辆的工厂</span></span><br><span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">VehicleFactory</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="javascript">		<span class="hljs-comment">//定义该工厂生产的默认汽车类型</span></span><br><span class="javascript">		VehicleFactory.prototype.vehicleClass = Car; <span class="hljs-comment">//Car是函数</span></span><br><span class="javascript">		<span class="hljs-comment">//定义生产汽车的具体过程</span></span><br><span class="javascript">		VehicleFactory.prototype.createVehicle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">options</span>) </span>&#123;</span><br><span class="javascript">			<span class="hljs-keyword">if</span>(options.vehicleType === <span class="hljs-string">&quot;car&quot;</span>)&#123;</span><br><span class="javascript">				<span class="hljs-built_in">this</span>.vehicleClass = Car;</span><br><span class="javascript">			&#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="javascript">				<span class="hljs-built_in">this</span>.vehicleClass = Truck;</span><br>			&#125;<br> <br><span class="javascript">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">this</span>.vehicleClass(options); </span><br>		&#125;;<br> <br><span class="javascript">		<span class="hljs-comment">//建造工厂并命名</span></span><br><span class="javascript">		<span class="hljs-keyword">var</span> carFactory = <span class="hljs-keyword">new</span> VehicleFactory();</span><br><span class="javascript">		<span class="hljs-comment">//开始生产汽车</span></span><br><span class="javascript">		<span class="hljs-keyword">var</span> car = carFactory.createVehicle(&#123;</span><br><span class="javascript">			vehicleType: <span class="hljs-string">&quot;car&quot;</span>,</span><br><span class="javascript">			color: <span class="hljs-string">&quot;yellow&quot;</span>,</span><br>			doors: 6<br>		&#125;);<br><span class="javascript">		<span class="hljs-comment">//验证车是否是这个Car类型的车</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(car <span class="hljs-keyword">instanceof</span> Car);</span><br><span class="javascript">		<span class="hljs-comment">//验验车，看看货</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(car);</span><br> <br><span class="javascript">		<span class="hljs-comment">//再生产另一部车</span></span><br><span class="javascript">		<span class="hljs-keyword">var</span> movingTruck = carFactory.createVehicle(&#123;</span><br><span class="javascript">			vehicleType: <span class="hljs-string">&quot;truck&quot;</span>,</span><br><span class="javascript">			state: <span class="hljs-string">&quot;like new&quot;</span>,</span><br><span class="javascript">			color: <span class="hljs-string">&quot;red&quot;</span>,</span><br><span class="javascript">			wheelSize: <span class="hljs-string">&quot;small&quot;</span></span><br>		&#125;);<br><span class="javascript">		<span class="hljs-comment">//验证车是否是Track类型的车</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(movingTruck <span class="hljs-keyword">instanceof</span> Truck);</span><br><span class="javascript">		<span class="hljs-comment">//验验车，看看货</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(movingTruck);</span><br> <br><span class="javascript">		<span class="hljs-comment">//-----------------------------------------------</span></span><br><span class="javascript">		<span class="hljs-comment">//定义第二个工厂  是上面那个工厂的子工厂</span></span><br><span class="javascript">		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">TruckFactory</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="javascript">		TruckFactory.prototype = <span class="hljs-keyword">new</span> VehicleFactory();</span><br>		TruckFactory.prototype.vehicleClass = Truck;<br><span class="javascript">		<span class="hljs-comment">//创建工厂</span></span><br><span class="javascript">		<span class="hljs-keyword">var</span> TruckFactory = <span class="hljs-keyword">new</span> TruckFactory();</span><br><span class="javascript">		<span class="hljs-comment">//生产卡车</span></span><br><span class="javascript">		<span class="hljs-keyword">var</span> myBigTruck = TruckFactory.createVehicle(&#123;</span><br><span class="javascript">			state: <span class="hljs-string">&quot;omg..so bad.&quot;</span>,</span><br><span class="javascript">			color: <span class="hljs-string">&quot;pink&quot;</span>,</span><br><span class="javascript">			wheelSize: <span class="hljs-string">&quot;so big&quot;</span></span><br>		&#125;);<br><span class="javascript">		<span class="hljs-comment">//验验车</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(myBigTruck <span class="hljs-keyword">instanceof</span> Truck);</span><br><span class="javascript">		<span class="hljs-comment">//看看货</span></span><br><span class="javascript">		<span class="hljs-built_in">console</span>.log(myBigTruck);</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 
 
 <h2 id="原文链接："><a href="#原文链接：" class="headerlink" title="原文链接："></a>原文链接：</h2><p><a target="_blank" rel="noopener" href="https://yq.aliyun.com/articles/91494?spm=a2c4e.11153940.0.0.5d4630f9s89vDO&type=2">《JavaScript设计模式》——9.10 Factory（工厂）模式</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/spflinux/article/details/78437032">JS——Factory(工厂)模式</a></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -456,11 +362,15 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/06/media-autoplay/">
@@ -469,8 +379,8 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/06/git-commond/">
@@ -479,30 +389,31 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -510,7 +421,7 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -522,16 +433,15 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -552,68 +462,74 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -622,95 +538,15 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "【转】JS工厂模式&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -719,55 +555,6 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -776,11 +563,9 @@ AbstractVehicleFactory.registerVehicle( <span class="hljs-string">&quot;truck&qu
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

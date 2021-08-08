@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,32 +193,35 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-01-03 15:43">
-      2020年1月3日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-03 15:43" pubdate>
+        2020年1月3日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.6k 字
+      2.8k 字
     </span>
   
 
@@ -214,204 +256,117 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年1月3日 下午
+                  本文最后更新于：21 天前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <h2 id="添加其他样式"><a href="#添加其他样式" class="headerlink" title="添加其他样式"></a>添加其他样式</h2><p>主要添加自定义样式。首先编辑主题配置文件，然后在站点根目录的<code>source</code>文件夹内新建你配置的文件夹和文件：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span>   <span class="hljs-comment"># 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js，支持列表</span>
-<span class="hljs-attr">custom_css:</span>  <span class="hljs-string">/css/custom.css</span> <span class="hljs-comment"># 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css 同上，支持列表</span>
-<span class="hljs-attr">custom_html:</span> <span class="hljs-string">&#x27;&#x27;</span>  <span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">custom_js:</span>   <span class="hljs-comment"># 指定自定义 js 文件路径，路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js，支持列表</span><br><span class="hljs-attr">custom_css:</span>  <span class="hljs-string">/css/custom.css</span> <span class="hljs-comment"># 指定自定义 css 文件路径，路径是相对 source 目录，如 /css/custom.css 同上，支持列表</span><br><span class="hljs-attr">custom_html:</span> <span class="hljs-string">&#x27;&#x27;</span>  <span class="hljs-comment"># 自定义底部 HTML 内容（位于 footer 上方），也可用于外部引入 js css 这些操作，注意不要和 post.custom 配置冲突</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="修改鼠标样式"><a href="#修改鼠标样式" class="headerlink" title="修改鼠标样式"></a>修改鼠标样式</h3><p>在前面新建的CSS文件中添加如下代码：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-comment">/*鼠标样式 */</span>
-  <span class="hljs-selector-tag">body</span> &#123;
-    <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/huaji.cur&quot;</span>),auto <span class="hljs-meta">!important</span>
-  &#125;
-  <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;
-      <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/laji.png&quot;</span>),auto <span class="hljs-meta">!important</span>
-  &#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-comment">/*鼠标样式 */</span><br>  <span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/huaji.cur&quot;</span>),auto <span class="hljs-meta">!important</span><br>  &#125;<br>  <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> &#123;<br>      <span class="hljs-attribute">cursor</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;/img/laji.png&quot;</span>),auto <span class="hljs-meta">!important</span><br>  &#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>上面代码中<code>url</code>的地址是在source目录下的文件，也可以写其他的图片地址。</p>
 <h3 id="修改网页背景"><a href="#修改网页背景" class="headerlink" title="修改网页背景"></a>修改网页背景</h3><p>还是在前面新建的CSS文件中修改，添加如下代码：</p>
-<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;
-    <span class="hljs-attribute">background</span>:<span class="hljs-built_in">url</span>(<span class="hljs-string">/images/bg.jpg</span>);
-    <span class="hljs-attribute">background-size</span>:cover;
-    <span class="hljs-attribute">background-repeat</span>:no-repeat;
-    <span class="hljs-attribute">background-attachment</span>:fixed;
-    <span class="hljs-attribute">background-position</span>:center;
-&#125;</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;<br>    <span class="hljs-attribute">background</span>:<span class="hljs-built_in">url</span>(<span class="hljs-string">/images/bg.jpg</span>);<br>    <span class="hljs-attribute">background-size</span>:cover;<br>    <span class="hljs-attribute">background-repeat</span>:no-repeat;<br>    <span class="hljs-attribute">background-attachment</span>:fixed;<br>    <span class="hljs-attribute">background-position</span>:center;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>还可以配置动态背景：</p>
 <h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><p>本篇主要添加一些主题中没有提供的功能。</p>
 <h3 id="添加网页看板娘（Live2D）"><a href="#添加网页看板娘（Live2D）" class="headerlink" title="添加网页看板娘（Live2D）"></a>添加网页看板娘（Live2D）</h3><p>首先安装Live2D插件，在站点根目录下运行以下命令：</p>
-<div class="hljs"><pre><code class="hljs bash">npm install --save hexo-helper-live2d</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install --save hexo-helper-live2d<br></code></pre></div></td></tr></table></figure>
 
 <p>然后选择自己喜欢的模型，复制名字。</p>
 <p>Epsilon2.1</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>Gantzert_Felixander</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>haru</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>miku</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>ni-j</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>nico</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>nietzche</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>nipsilon</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>nito</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>shizuku</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>tsumiki</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>wanko</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>z16</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>hibiki</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>koharu</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>haruto</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>Unitychan</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>tororo</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>hijiki</p>
-<p>" srcset="/img/loading.gif<img src="" alt="img"></p>
+<p><img src="" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>将下面的代码添加到站点配置文件<code>_config.yml</code>中，修改&lt;模型名字&gt;（有教程说放在主题配置文件中，但是实际测试放在主题文件中并不好用，不管使用哪个模型网页中都不生效，都显示默认的<code>shizuku</code>这个模型，但是把代码放在站点配置文件中就好用了，不知道是什么原因）</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-comment"># Live2D</span>
-<span class="hljs-comment">## https://github.com/EYHN/hexo-helper-live2d</span>
-<span class="hljs-attr">live2d:</span>
-  <span class="hljs-comment"># enable: true</span>
-  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span>
-  <span class="hljs-attr">scriptFrom:</span> <span class="hljs-string">local</span> <span class="hljs-comment"># 默认</span>
-  <span class="hljs-attr">pluginRootPath:</span> <span class="hljs-string">live2dw/</span> <span class="hljs-comment"># 插件在站点上的根目录(相对路径)</span>
-  <span class="hljs-attr">pluginJsPath:</span> <span class="hljs-string">lib/</span> <span class="hljs-comment"># 脚本文件相对与插件根目录路径</span>
-  <span class="hljs-attr">pluginModelPath:</span> <span class="hljs-string">assets/</span> <span class="hljs-comment"># 模型文件相对与插件根目录路径</span>
-  <span class="hljs-comment"># scriptFrom: jsdelivr # jsdelivr CDN</span>
-  <span class="hljs-comment"># scriptFrom: unpkg # unpkg CDN</span>
-  <span class="hljs-comment"># scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url</span>
-  <span class="hljs-attr">tagMode:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中</span>
-  <span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 调试, 是否在控制台输出日志</span>
-  <span class="hljs-attr">model:</span>
-    <span class="hljs-attr">use:</span> <span class="hljs-string">live2d-widget-model-&lt;模型名字&gt;</span> <span class="hljs-comment"># npm-module package name</span>
-    <span class="hljs-comment"># use: wanko # 博客根目录/live2d_models/ 下的目录名</span>
-    <span class="hljs-comment"># use: ./wives/wanko # 相对于博客根目录的路径</span>
-    <span class="hljs-comment"># use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url</span>
-    <span class="hljs-attr">scale:</span> <span class="hljs-number">1</span>
-    <span class="hljs-attr">hHeadPos:</span> <span class="hljs-number">0.5</span>
-    <span class="hljs-attr">vHeadPos:</span> <span class="hljs-number">0.618</span>
-  <span class="hljs-attr">display:</span>
-    <span class="hljs-attr">superSample:</span> <span class="hljs-number">2</span>
-    <span class="hljs-attr">width:</span> <span class="hljs-number">250</span>
-    <span class="hljs-attr">height:</span> <span class="hljs-number">500</span>
-    <span class="hljs-attr">position:</span> <span class="hljs-string">right</span>
-    <span class="hljs-attr">hOffset:</span> <span class="hljs-number">0</span>
-    <span class="hljs-attr">vOffset:</span> <span class="hljs-number">-20</span>
-  <span class="hljs-attr">mobile:</span>
-    <span class="hljs-attr">show:</span> <span class="hljs-literal">false</span>
-    <span class="hljs-attr">scale:</span> <span class="hljs-number">0.5</span>
-  <span class="hljs-attr">react:</span>
-    <span class="hljs-attr">opacity:</span> <span class="hljs-number">0.7</span>
-  <span class="hljs-attr">dialog:</span> 
-    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
-    <span class="hljs-attr">hitokoto:</span> <span class="hljs-literal">true</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># Live2D</span><br><span class="hljs-comment">## https://github.com/EYHN/hexo-helper-live2d</span><br><span class="hljs-attr">live2d:</span><br>  <span class="hljs-comment"># enable: true</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span><br>  <span class="hljs-attr">scriptFrom:</span> <span class="hljs-string">local</span> <span class="hljs-comment"># 默认</span><br>  <span class="hljs-attr">pluginRootPath:</span> <span class="hljs-string">live2dw/</span> <span class="hljs-comment"># 插件在站点上的根目录(相对路径)</span><br>  <span class="hljs-attr">pluginJsPath:</span> <span class="hljs-string">lib/</span> <span class="hljs-comment"># 脚本文件相对与插件根目录路径</span><br>  <span class="hljs-attr">pluginModelPath:</span> <span class="hljs-string">assets/</span> <span class="hljs-comment"># 模型文件相对与插件根目录路径</span><br>  <span class="hljs-comment"># scriptFrom: jsdelivr # jsdelivr CDN</span><br>  <span class="hljs-comment"># scriptFrom: unpkg # unpkg CDN</span><br>  <span class="hljs-comment"># scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url</span><br>  <span class="hljs-attr">tagMode:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中</span><br>  <span class="hljs-attr">debug:</span> <span class="hljs-literal">false</span> <span class="hljs-comment"># 调试, 是否在控制台输出日志</span><br>  <span class="hljs-attr">model:</span><br>    <span class="hljs-attr">use:</span> <span class="hljs-string">live2d-widget-model-&lt;模型名字&gt;</span> <span class="hljs-comment"># npm-module package name</span><br>    <span class="hljs-comment"># use: wanko # 博客根目录/live2d_models/ 下的目录名</span><br>    <span class="hljs-comment"># use: ./wives/wanko # 相对于博客根目录的路径</span><br>    <span class="hljs-comment"># use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url</span><br>    <span class="hljs-attr">scale:</span> <span class="hljs-number">1</span><br>    <span class="hljs-attr">hHeadPos:</span> <span class="hljs-number">0.5</span><br>    <span class="hljs-attr">vHeadPos:</span> <span class="hljs-number">0.618</span><br>  <span class="hljs-attr">display:</span><br>    <span class="hljs-attr">superSample:</span> <span class="hljs-number">2</span><br>    <span class="hljs-attr">width:</span> <span class="hljs-number">250</span><br>    <span class="hljs-attr">height:</span> <span class="hljs-number">500</span><br>    <span class="hljs-attr">position:</span> <span class="hljs-string">right</span><br>    <span class="hljs-attr">hOffset:</span> <span class="hljs-number">0</span><br>    <span class="hljs-attr">vOffset:</span> <span class="hljs-number">-20</span><br>  <span class="hljs-attr">mobile:</span><br>    <span class="hljs-attr">show:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">scale:</span> <span class="hljs-number">0.5</span><br>  <span class="hljs-attr">react:</span><br>    <span class="hljs-attr">opacity:</span> <span class="hljs-number">0.7</span><br>  <span class="hljs-attr">dialog:</span> <br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">hitokoto:</span> <span class="hljs-literal">true</span><br></code></pre></div></td></tr></table></figure>
 
 <p>安装你选择的模型，在命令行运行下面的命令：</p>
-<div class="hljs"><pre><code class="hljs bash">npm install --save live2d-widget-model-&lt;你选择的模型名字&gt;</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install --save live2d-widget-model-&lt;你选择的模型名字&gt;<br></code></pre></div></td></tr></table></figure>
 
 <p>然后在命令行运行以下命令，在浏览器里访问<code>localhost:4000</code>查看效果</p>
-<div class="hljs"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h3><p>当想要写一些不想让人随便看到的博客时，可以通过密码验证的方式阻挡别人的浏览，之前有一款文章加密的插件，但是好像效果不是很好，因为密码就被写在了网页源码里，只要打开网页源码就能看到。现在又找到另外一个（也可能是原来的升级了？主要不记得原来的插件名字了）加密插件，似乎并不会将密码泄露到网页中，可以尝试使用这款插件。</p>
 <p><strong>安装方式：</strong></p>
-<div class="hljs"><pre><code class="hljs bash">npm install --save hexo-blog-encrypt</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install --save hexo-blog-encrypt<br></code></pre></div></td></tr></table></figure>
 
 <p>或</p>
-<div class="hljs"><pre><code class="hljs livecodeserver">yarn <span class="hljs-built_in">add</span> hexo-blog-<span class="hljs-built_in">encrypt</span> (需要Yarn)</code></pre></div>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">yarn <span class="hljs-built_in">add</span> hexo-blog-<span class="hljs-built_in">encrypt</span> (需要Yarn)<br></code></pre></div></td></tr></table></figure>
 
 <p>最简单的使用方式就是将 “password” 字段添加到文章的信息头上：</p>
-<div class="hljs"><pre><code class="hljs markdown">---
-title: Hello World
-date: 2020-01-03 15:43:38
-password: 123456
----</code></pre></div>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown">---<br>title: Hello World<br>date: 2020-01-03 15:43:38<br>password: 123456<br>---<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>高级设置：</strong></p>
 <p>两种设置方式：</p>
 <ul>
 <li>在文章信息头添加加密信息：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
-<span class="hljs-attr">tags:</span>
-<span class="hljs-bullet">-</span> <span class="hljs-string">作为日记加密</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2020-01-03 15:43:38</span>
-<span class="hljs-attr">password:</span> <span class="hljs-number">123456</span>
-<span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
-<span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
-<span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span>
-<span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span>
-<span class="hljs-meta">---</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span><br><span class="hljs-attr">tags:</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">作为日记加密</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2020-01-03 15:43:38</span><br><span class="hljs-attr">password:</span> <span class="hljs-number">123456</span><br><span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span><br><span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span><br><span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span><br><span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span><br><span class="hljs-meta">---</span><br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li>在站点文件<code>_config.yml</code>内配置加密信息：</li>
 </ul>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-comment"># Security</span>
-<span class="hljs-attr">encrypt:</span> <span class="hljs-comment"># hexo-blog-encrypt</span>
-  <span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span>
-  <span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span>
-  <span class="hljs-attr">tags:</span>
-  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码A</span>&#125;
-  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码B</span>&#125;
-  <span class="hljs-attr">template:</span> <span class="hljs-string">&lt;div</span> <span class="hljs-string">id=&quot;hexo-blog-encrypt&quot;</span> <span class="hljs-string">data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot;</span> <span class="hljs-string">data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div</span> <span class="hljs-string">class=&quot;hbe-input-container&quot;&gt;&lt;input</span> <span class="hljs-string">type=&quot;password&quot;</span> <span class="hljs-string">id=&quot;hbePass&quot;</span> <span class="hljs-string">placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot;</span> <span class="hljs-string">/&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div</span> <span class="hljs-string">class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script</span> <span class="hljs-string">id=&quot;hbeData&quot;</span> <span class="hljs-string">type=&quot;hbeData&quot;</span> <span class="hljs-string">data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span>
-  <span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span>
-  <span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># Security</span><br><span class="hljs-attr">encrypt:</span> <span class="hljs-comment"># hexo-blog-encrypt</span><br>  <span class="hljs-attr">abstract:</span> <span class="hljs-string">有东西被加密了,</span> <span class="hljs-string">请输入密码查看.</span><br>  <span class="hljs-attr">message:</span> <span class="hljs-string">您好,</span> <span class="hljs-string">这里需要密码.</span><br>  <span class="hljs-attr">tags:</span><br>  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码A</span>&#125;<br>  <span class="hljs-bullet">-</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">tagName</span>, <span class="hljs-attr">password:</span> <span class="hljs-string">密码B</span>&#125;<br>  <span class="hljs-attr">template:</span> <span class="hljs-string">&lt;div</span> <span class="hljs-string">id=&quot;hexo-blog-encrypt&quot;</span> <span class="hljs-string">data-wpm=&quot;&#123;&#123;hbeWrongPassMessage&#125;&#125;&quot;</span> <span class="hljs-string">data-whm=&quot;&#123;&#123;hbeWrongHashMessage&#125;&#125;&quot;&gt;&lt;div</span> <span class="hljs-string">class=&quot;hbe-input-container&quot;&gt;&lt;input</span> <span class="hljs-string">type=&quot;password&quot;</span> <span class="hljs-string">id=&quot;hbePass&quot;</span> <span class="hljs-string">placeholder=&quot;&#123;&#123;hbeMessage&#125;&#125;&quot;</span> <span class="hljs-string">/&gt;&lt;label&gt;&#123;&#123;hbeMessage&#125;&#125;&lt;/label&gt;&lt;div</span> <span class="hljs-string">class=&quot;bottom-line&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;script</span> <span class="hljs-string">id=&quot;hbeData&quot;</span> <span class="hljs-string">type=&quot;hbeData&quot;</span> <span class="hljs-string">data-hmacdigest=&quot;&#123;&#123;hbeHmacDigest&#125;&#125;&quot;&gt;&#123;&#123;hbeEncryptedData&#125;&#125;&lt;/script&gt;&lt;/div&gt;</span><br>  <span class="hljs-attr">wrong_pass_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个密码看着不太对,</span> <span class="hljs-string">请再试试.</span><br>  <span class="hljs-attr">wrong_hash_message:</span> <span class="hljs-string">抱歉,</span> <span class="hljs-string">这个文章不能被校验,</span> <span class="hljs-string">不过您还是能看看解密后的内容.</span><br></code></pre></div></td></tr></table></figure>
 
 <p><strong>注意！！！</strong>在站点配置文件配置上述内容时，如果把tags下面的内容都注释掉的话编译生成的时候会报错，要改成这样才行：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">tags:</span> [] <span class="hljs-comment">#在后面加一对方括号，表示是个数组，不然报错 Cannot read property &#x27;forEach&#x27; of null</span>
-  <span class="hljs-comment"># - &#123;name: tagName, password: 密码A&#125;</span>
-  <span class="hljs-comment"># - &#123;name: tagName, password: 密码B&#125;</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">tags:</span> [] <span class="hljs-comment">#在后面加一对方括号，表示是个数组，不然报错 Cannot read property &#x27;forEach&#x27; of null</span><br>  <span class="hljs-comment"># - &#123;name: tagName, password: 密码A&#125;</span><br>  <span class="hljs-comment"># - &#123;name: tagName, password: 密码B&#125;</span><br></code></pre></div></td></tr></table></figure>
 
 <p><em><strong>以后有类似的配置遇到问题也可以尝试这样解决。</strong></em></p>
 <p><strong>加密优先级</strong>是 文章信息头 &gt; 按标签加密。</p>
 <p><strong>配置优先级</strong>是 文章信息头 &gt; <code>_config.yml</code> (站点根目录下的) &gt; 默认配置。</p>
 <p><strong>其他问题</strong></p>
 <p>在部分博客中, 解密后部分元素可能无法正常显示或者表现, 这属于已知问题. 目前的解决办法是通过自行查阅自己的博客中的代码, 了解到在 onload 事件发生时调用了哪些函数, 并将这些函数挑选后写入到博客内容中. 如:</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">title:</span> <span class="hljs-string">Callback</span> <span class="hljs-string">Test</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2019-12-21 11:54:07</span>
-<span class="hljs-attr">tags:</span>
-    <span class="hljs-bullet">-</span> <span class="hljs-string">Encrypted</span>
-<span class="hljs-meta">---</span>
-
-<span class="hljs-attr">This is a blog to test Callback functions. You just need to add code at the last of your post like following:</span>
-
-<span class="hljs-string">It</span> <span class="hljs-string">will</span> <span class="hljs-string">be</span> <span class="hljs-string">called</span> <span class="hljs-string">after</span> <span class="hljs-string">the</span> <span class="hljs-string">blog</span> <span class="hljs-string">decrypted.</span>
-
-<span class="hljs-string">&lt;script&gt;</span>
-    <span class="hljs-string">//</span> <span class="hljs-string">添加一个</span> <span class="hljs-string">script</span> <span class="hljs-string">tag</span> <span class="hljs-string">与代码在文章末尾.</span>
-    <span class="hljs-string">alert(&quot;Hello</span> <span class="hljs-string">World&quot;);</span>
-<span class="hljs-string">&lt;/script&gt;</span></code></pre></div>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">Callback</span> <span class="hljs-string">Test</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2019-12-21 11:54:07</span><br><span class="hljs-attr">tags:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">Encrypted</span><br><span class="hljs-meta">---</span><br><br><span class="hljs-attr">This is a blog to test Callback functions. You just need to add code at the last of your post like following:</span><br><br><span class="hljs-string">It</span> <span class="hljs-string">will</span> <span class="hljs-string">be</span> <span class="hljs-string">called</span> <span class="hljs-string">after</span> <span class="hljs-string">the</span> <span class="hljs-string">blog</span> <span class="hljs-string">decrypted.</span><br><br><span class="hljs-string">&lt;script&gt;</span><br>    <span class="hljs-string">//</span> <span class="hljs-string">添加一个</span> <span class="hljs-string">script</span> <span class="hljs-string">tag</span> <span class="hljs-string">与代码在文章末尾.</span><br>    <span class="hljs-string">alert(&quot;Hello</span> <span class="hljs-string">World&quot;);</span><br><span class="hljs-string">&lt;/script&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p><strong>对 TOC 进行加密</strong></p>
 <p>如果你有一篇文章使用了 TOC，你需要修改模板的部分代码。这里用 landscape 作为例子：</p>
@@ -420,47 +375,33 @@ password: 123456
 <li>然后找到 &lt;% post.content %&gt; 这段代码，通常在30行左右。</li>
 <li>使用如下的代码来替代它:</li>
 </ul>
-<div class="hljs"><pre><code class="hljs ejs">&lt;% if(post.toc &#x3D;&#x3D; true)&#123; %&gt;
-  &lt;div id&#x3D;&quot;toc-div&quot; class&#x3D;&quot;toc-article&quot; &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;style&#x3D;&quot;display:none&quot; &lt;% &#125; %&gt;&gt;
-    &lt;strong class&#x3D;&quot;toc-title&quot;&gt;Index&lt;&#x2F;strong&gt;
-      &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;
-        &lt;%- toc(post.origin, &#123;list_number: true&#125;) %&gt;
-      &lt;% &#125; else &#123; %&gt;
-        &lt;%- toc(post.content, &#123;list_number: true&#125;) %&gt;
-      &lt;% &#125; %&gt;
-  &lt;&#x2F;div&gt;
-&lt;% &#125; %&gt;
-&lt;%- post.content %&gt;</code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ejs">&lt;% if(post.toc &#x3D;&#x3D; true)&#123; %&gt;<br>  &lt;div id&#x3D;&quot;toc-div&quot; class&#x3D;&quot;toc-article&quot; &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;style&#x3D;&quot;display:none&quot; &lt;% &#125; %&gt;&gt;<br>    &lt;strong class&#x3D;&quot;toc-title&quot;&gt;Index&lt;&#x2F;strong&gt;<br>      &lt;% if (post.encrypt &#x3D;&#x3D; true) &#123; %&gt;<br>        &lt;%- toc(post.origin, &#123;list_number: true&#125;) %&gt;<br>      &lt;% &#125; else &#123; %&gt;<br>        &lt;%- toc(post.content, &#123;list_number: true&#125;) %&gt;<br>      &lt;% &#125; %&gt;<br>  &lt;&#x2F;div&gt;<br>&lt;% &#125; %&gt;<br>&lt;%- post.content %&gt;<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="利用GitHub备份博客源文件并且在不同电脑操作"><a href="#利用GitHub备份博客源文件并且在不同电脑操作" class="headerlink" title="利用GitHub备份博客源文件并且在不同电脑操作"></a>利用GitHub备份博客源文件并且在不同电脑操作</h2><p>在你换电脑或者重装系统的时候万一不小心把博客的站点文件夹删了或者弄丢了那就什么都没了，所以为了防止发生这样的情况，就可以用GitHub来保存博客的源文件。</p>
 <h3 id="用命令行操作"><a href="#用命令行操作" class="headerlink" title="用命令行操作"></a>用命令行操作</h3><p>具体操作是在你的GitHub中新建一个仓库或者在你的博客仓库内新建一个分支，个人推荐新建一个仓库，和博客的静态文件分开管理比较好，然后在本地找一个空文件夹，运行下面的命令：</p>
-<div class="hljs"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:你的项目地址</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:你的git账户名/你的博客仓库名<br></code></pre></div></td></tr></table></figure>
 
+<p>就是如下图所示这个链接：</p>
+<p><img src="" srcset="/img/loading.gif" lazyload></p>
+<p>复制粘帖到<code>git clone</code>后面即可。</p>
+<p><strong>更新：</strong>我在过了不知道多久之后回来整理吃灰博客的时候碰到的两个问题</p>
+<p>一是用于太久没用ssh，github自动把ssh删掉了，然后在我克隆仓库的时候就出现了<code>git@github.com:Permission denied (publickey). fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.</code>这个错误。这个时候首先使用<code>ls ~/.ssh/</code>这个命令检查你电脑上的之前创建的ssh文件是否还在，如果存在的话把之前创建的公钥再复制到github里就行，如果没有ssh就要重新创建ssh密钥然后再添加到github上。</p>
+<p>二是如果你电脑上有设置了多个Git帐号的话，上面的代码就要修改一下了。</p>
+<p>根据你ssh文件夹下的config文件，把<code>git@github.com:</code>这部分中<code>@</code>和<code>：</code>之间的<code>github.com</code>改成config文件中host对应的名称，否则拉取仓库的时候也会报上面的错。</p>
 <p>把仓库克隆到本地，然后把你的博客源文件全部复制过来，除了<code>.deploy_git</code>，注意复制过来的文件里面应该有一个叫<code>.gitignore</code>的文件，用来忽略一些不要提交到Git的文件，如果没有可以自己新建一个，在里面加上下面的内容：</p>
-<div class="hljs"><pre><code class="hljs x86asm"><span class="hljs-meta">.DS_Store</span>
-Thumbs<span class="hljs-number">.</span><span class="hljs-built_in">db</span>
-<span class="hljs-built_in">db</span><span class="hljs-number">.</span>json
-*.log
-node_modules/
-<span class="hljs-meta">public</span>/
-<span class="hljs-meta">.deploy</span>*/</code></pre></div>
+<figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm"><span class="hljs-meta">.DS_Store</span><br>Thumbs<span class="hljs-number">.</span><span class="hljs-built_in">db</span><br><span class="hljs-built_in">db</span><span class="hljs-number">.</span>json<br>*.log<br>node_modules/<br><span class="hljs-meta">public</span>/<br><span class="hljs-meta">.deploy</span>*/<br></code></pre></div></td></tr></table></figure>
 
 <p>如果还有其他自己不想提交的文件也可以加到这个文件中。</p>
 <p>然后再在命令行中执行以下命令：</p>
-<div class="hljs"><pre><code class="hljs bash">git add .
-git commit –m <span class="hljs-string">&quot;commit message&quot;</span>
-git push</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git add .<br>git commit –m <span class="hljs-string">&quot;commit message&quot;</span><br>git push <br></code></pre></div></td></tr></table></figure>
 
 <p>可以在网页中查看是否上传成功。</p>
 <p>当你换了电脑或者重装系统后想把博客下回来怎么操作？</p>
 <p>首先前面的都一样，下载安装node，Git，然后设置git全局邮箱和用户名，设置SHH，安装hexo，然后在任意一个文件夹内，执行<code>git clone git@你的博客源文件仓库地址</code>，进入克隆下来的文件夹，运行下面的命令：</p>
-<div class="hljs"><pre><code class="hljs bash">npm install
-npm install hexo-deployer-git --save</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">npm install<br>npm install hexo-deployer-git --save<br></code></pre></div></td></tr></table></figure>
 
 <p>然后就可以继续写博客了，写完之后运行<code>hexo g &amp;&amp; hexo d</code>，就可以部署到GitHub Pages上了。而且现在可以每次写完博客都把源文件备份一下了：</p>
-<div class="hljs"><pre><code class="hljs bash">git add .
-git commit –m <span class="hljs-string">&quot;commit message&quot;</span>
-git push</code></pre></div>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git add .<br>git commit –m <span class="hljs-string">&quot;commit message&quot;</span><br>git push <br></code></pre></div></td></tr></table></figure>
 
 <h3 id="用GitHub-Desktop操作"><a href="#用GitHub-Desktop操作" class="headerlink" title="用GitHub Desktop操作"></a>用GitHub Desktop操作</h3><p>下载安装GitHub Desktop然后登陆GitHub，把对应的作为保存博客源文件的仓库克隆到本地，然后把除了<code>.deploy_git</code>以外的博客源文件复制进来，注意有没有<code>.gitignore</code>这个文件，没有按上面方法加上，然后再写上备注信息，，提交推送到Git上就行了。</p>
 <h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p><a target="_blank" rel="noopener" href="https://www.simon96.online/2018/10/12/hexo-tutorial/">【持续更新】最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析</a></p>
@@ -468,7 +409,7 @@ git push</code></pre></div>
 <p><a target="_blank" rel="noopener" href="https://uchuhimo.me/2017/04/11/genesis/">如何使用 Hexo 和 GitHub Pages 搭建这个博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo中文文档</a></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -494,11 +435,15 @@ git push</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/01/hexo-operate/">
@@ -507,8 +452,8 @@ git push</code></pre></div>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/01/blog-config/">
@@ -517,30 +462,31 @@ git push</code></pre></div>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -548,7 +494,7 @@ git push</code></pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -560,16 +506,15 @@ git push</code></pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -590,68 +535,74 @@ git push</code></pre></div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -660,95 +611,15 @@ git push</code></pre></div>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "从零开始的Hexo博客搭建（三）—— 博客进阶设置、在其他电脑发布博客&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -757,55 +628,6 @@ git push</code></pre></div>
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -814,11 +636,9 @@ git push</code></pre></div>
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

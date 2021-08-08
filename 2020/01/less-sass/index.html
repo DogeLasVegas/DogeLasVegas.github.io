@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>CSS预处理语言less和Sass基础教程 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CSS预处理语言less和Sass基础教程">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-01-09 10:30">
-      2020年1月9日 上午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-09 10:30" pubdate>
+        2020年1月9日 上午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,26 +256,27 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS预处理语言less和Sass基础教程</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年1月9日 上午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <p>因为CSS是一门描述性语言，代码中基本没有逻辑性，所以会存在大量重复代码，不便于维护和扩展。因此CSS预处理器就诞生了：less和Sass都是CSS的预处理语言，先用预编译语言进行样式设计，然后再进行编译，生成CSS文件来使用，这些语言的出现让CSS编写起来更加方便快捷，更易于维护。</p>
 <h2 id="less的基础教程"><a href="#less的基础教程" class="headerlink" title="less的基础教程"></a>less的基础教程</h2><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。<br>Less 可以运行在 Node 或浏览器端。</p>
 <h3 id="less变量"><a href="#less变量" class="headerlink" title="less变量"></a>less变量</h3><p>声明变量：使用@变量名: 变量值<br>使用变量：@变量名<br>举例：</p>
-<div class="hljs"><pre><code class="hljs less">$length: 100px;
-$color: red;</code></pre></div>
+<figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less">$length: 100px;<br>$color: red;<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>less中变量的类型：</strong></p>
 <ul>
@@ -250,46 +293,12 @@ $color: red;</code></pre></div>
 </ul>
 <p>如果声明时没有默认值，则调用时必须赋值，否则报错<br>无参混合会在css中编译出同名的class选择器，有参的不会</p>
 <p><strong>示例</strong>：</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-class">.class</span>&#123;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
-&#125;
-<span class="hljs-variable">@mixin</span> hong&#123;
-    <span class="hljs-attribute">color</span>: blue;
-&#125;
-#div1&#123;
-    width: $length;
-    <span class="hljs-attribute">background-color</span>: red;
-    <span class="hljs-variable">@extend</span>.class;
-    border-#&#123;$left&#125;:10px solid blue ;
-    <span class="hljs-variable">@include</span> hong;
-&#125;</code></pre></div>
+<figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-class">.class</span>&#123;<br>    <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;<br>&#125;<br><span class="hljs-variable">@mixin</span> hong&#123;<br>    <span class="hljs-attribute">color</span>: blue;<br>&#125;<br>#div1&#123;<br>    width: $length;<br>    <span class="hljs-attribute">background-color</span>: red;<br>    <span class="hljs-variable">@extend</span>.class;<br>    border-#&#123;$left&#125;:10px solid blue ;<br>    <span class="hljs-variable">@include</span> hong;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="less匹配模式"><a href="#less匹配模式" class="headerlink" title="less匹配模式"></a>less匹配模式</h3><p>使用混合进行匹配，类似if结构：<br><strong>声明：</strong>.name(条件一，参数){} .name(条件二，参数){} .name(条件三，参数){}<br><strong>调用：</strong>.name(条件值，参数值)<br><strong>匹配规则</strong>：根据调用时提供的条件值，寻找与之匹配的Mixins执行，其中@_表示永远需要执行的部分</p>
 <h3 id="less的运算与嵌套"><a href="#less的运算与嵌套" class="headerlink" title="less的运算与嵌套"></a>less的运算与嵌套</h3><p><strong>LESS中的运算</strong>：<br>使用运算符+、-、/、* 计算，可以带单位也可不带<br> 进行颜色（十六进制形式）运算时，红绿蓝分开计算，即每组两位之间可以进位，组间不可进位<br><strong>LESS中的嵌套</strong>：<br>保留html中的代码结构，嵌套默认是后代选择器，如果需要子代选择器，则在子代前面加&gt;<br>&amp;表示上一层，&amp;:hover表示上一层的hover事件，&amp;主要用来进行伪类事件的设置</p>
 <p><strong>代码嵌套示例</strong>：</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">section</span>&#123;
-    <span class="hljs-selector-tag">p</span>&#123;
-        <span class="hljs-attribute">color</span>: red;
-        <span class="hljs-attribute">background-color</span>: cyan;
-    &#125;
-    <span class="hljs-selector-tag">ul</span>&#123;
-        <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">list-style</span>: none;
-        <span class="hljs-selector-tag">li</span>&#123;
-            <span class="hljs-attribute">float</span>: left;
-            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
-            <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
-            <span class="hljs-attribute">border</span>: &#123;
-                <span class="hljs-attribute">color</span>: green;
-                style:solid;
-                <span class="hljs-attribute">width</span>: <span class="hljs-number">5px</span>;
-            &#125;;
-            <span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-pseudo">:hover</span>&#123;
-                <span class="hljs-attribute">background-color</span>: yellow;
-            &#125;
-        &#125;
-    &#125;
-&#125;</code></pre></div>
+<figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">section</span>&#123;<br>    <span class="hljs-selector-tag">p</span>&#123;<br>        <span class="hljs-attribute">color</span>: red;<br>        <span class="hljs-attribute">background-color</span>: cyan;<br>    &#125;<br>    <span class="hljs-selector-tag">ul</span>&#123;<br>        <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;<br>        <span class="hljs-attribute">list-style</span>: none;<br>        <span class="hljs-selector-tag">li</span>&#123;<br>            <span class="hljs-attribute">float</span>: left;<br>            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;<br>            <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;<br>            <span class="hljs-attribute">border</span>: &#123;<br>                <span class="hljs-attribute">color</span>: green;<br>                style:solid;<br>                <span class="hljs-attribute">width</span>: <span class="hljs-number">5px</span>;<br>            &#125;;<br>            <span class="hljs-selector-tag">&amp;</span><span class="hljs-selector-pseudo">:hover</span>&#123;<br>                <span class="hljs-attribute">background-color</span>: yellow;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="less注释方式"><a href="#less注释方式" class="headerlink" title="less注释方式"></a>less注释方式</h3><p>less的注释方式有两种：<br>一种是使用双斜杠（//）来注释，使用这种方式注释的内容不会被编译<br>另一种是使用/**/，但可以被编译</p>
 <h2 id="Sass的基础教程"><a href="#Sass的基础教程" class="headerlink" title="Sass的基础教程"></a>Sass的基础教程</h2><blockquote>
@@ -307,16 +316,9 @@ $color: red;</code></pre></div>
 <li>自定义输出格式</li>
 </ul>
 <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>使用$变量名:变量值 来声明变量，即变量以$开头<br>如果变量需要在字符串中嵌套，则需要使用#{}包括，如</p>
-<div class="hljs"><pre><code class="hljs scss"><span class="hljs-variable">$left</span><span class="hljs-selector-pseudo">:left</span>;
-<span class="hljs-selector-class">.div1</span> &#123;
-    <span class="hljs-attribute">border</span>-#&#123;<span class="hljs-variable">$left</span>&#125;-radius: <span class="hljs-number">5px</span>;
-&#125;</code></pre></div>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-variable">$left</span><span class="hljs-selector-pseudo">:left</span>;<br><span class="hljs-selector-class">.div1</span> &#123;<br>    <span class="hljs-attribute">border</span>-#&#123;<span class="hljs-variable">$left</span>&#125;-radius: <span class="hljs-number">5px</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><div class="hljs"><pre><code class="hljs scss"><span class="hljs-selector-tag">body</span> &#123;
-    <span class="hljs-attribute">margin</span>: (<span class="hljs-number">14px</span>/<span class="hljs-number">2</span>);
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">50px</span> + <span class="hljs-number">100px</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-variable">$var</span> * <span class="hljs-number">10%</span>;
-&#125;</code></pre></div>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-selector-tag">body</span> &#123;<br>    <span class="hljs-attribute">margin</span>: (<span class="hljs-number">14px</span>/<span class="hljs-number">2</span>);<br>    <span class="hljs-attribute">top</span>: <span class="hljs-number">50px</span> + <span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">right</span>: <span class="hljs-variable">$var</span> * <span class="hljs-number">10%</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>需要注意的是，计算时会将单位也进行运算，所以使用时需注意<strong>最终单位</strong>：100px*10px = 1000 px<sup>2</sup></p>
 <h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><ul>
@@ -330,19 +332,11 @@ $color: red;</code></pre></div>
 </ul>
 <h3 id="混合、继承、占位符"><a href="#混合、继承、占位符" class="headerlink" title="混合、继承、占位符"></a>混合、继承、占位符</h3><p><strong>混合宏</strong>：<br>声明：@mixin name($param:value){} 调用：@include name(value);<br> 声明时可以有参可以无参，可以带默认值也可不带，但调用时必须符合声明规范，同less<br>优点：可以传参；缺点：会将混合宏中代码，copy到对应的选择器中，产生冗余代码<br><strong>继承</strong>：<br>声明：.class{} 调用:@extend .class;<br>优点：继承的相同代码，会提取到并集选择器中，减少冗余代码；<br>缺点：无法进行传参，会在CSS中生成一个同名class<br><strong>占位符</strong>：<br>声明：%class{} 调用：@extend %class;<br>优点：继承的相同代码，会提取到并集选择器中，减少冗余代码，不会在CSS中生成一个同名class；<br>缺点：无法进行传参<br><strong>综上，当需要传递参数时用混合宏，当有现成class时用继承，当不需要参数也不需要class时用占位符</strong></p>
 <h3 id="控制指令"><a href="#控制指令" class="headerlink" title="控制指令"></a>控制指令</h3><p><strong>if条件结构</strong>：<br> <code>@if条件&#123;&#125; @else&#123;&#125;</code><br><strong>for 循环结构</strong>:<br><code> @for $i from 1 to/through 10;</code> (to不包括10，through包括10 )<br><strong>whlie 循环结构</strong>：</p>
-<div class="hljs"><pre><code class="hljs scss"><span class="hljs-variable">$j</span>;
-<span class="hljs-keyword">@while</span> <span class="hljs-variable">$j</span>&lt;<span class="hljs-number">10</span>&#123;<span class="hljs-selector-class">.while</span> #&#123;<span class="hljs-variable">$j</span>&#125;&#123;
-<span class="hljs-attribute">background-color</span>: red;
-&#125;<span class="hljs-variable">$j</span>:<span class="hljs-variable">$j</span>+<span class="hljs-number">1</span>;&#125;</code></pre></div>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss"><span class="hljs-variable">$j</span>;<br><span class="hljs-keyword">@while</span> <span class="hljs-variable">$j</span>&lt;<span class="hljs-number">10</span>&#123;<span class="hljs-selector-class">.while</span> #&#123;<span class="hljs-variable">$j</span>&#125;&#123;<br><span class="hljs-attribute">background-color</span>: red;<br>&#125;<span class="hljs-variable">$j</span>:<span class="hljs-variable">$j</span>+<span class="hljs-number">1</span>;&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>each循环遍历</strong><br><code>@each item in a,b,c,d&#123;&#125;</code></p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>Sass允许用户自己编写函数使用</p>
-<div class="hljs"><pre><code class="hljs scss">　　<span class="hljs-keyword">@function</span> double(<span class="hljs-variable">$n</span>) &#123;
-　　　　<span class="hljs-keyword">@return</span> <span class="hljs-variable">$n</span> * <span class="hljs-number">2</span>;
-　　&#125;
-　　<span class="hljs-selector-id">#sidebar</span> &#123;
-　　　　<span class="hljs-attribute">width</span>: double(<span class="hljs-number">5px</span>);
-　　&#125;</code></pre></div>
+<figure class="highlight scss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs scss">　　<span class="hljs-keyword">@function</span> double(<span class="hljs-variable">$n</span>) &#123;<br>　　　　<span class="hljs-keyword">@return</span> <span class="hljs-variable">$n</span> * <span class="hljs-number">2</span>;<br>　　&#125;<br>　　<span class="hljs-selector-id">#sidebar</span> &#123;<br>　　　　<span class="hljs-attribute">width</span>: double(<span class="hljs-number">5px</span>);<br>　　&#125;<br></code></pre></div></td></tr></table></figure>
 
 
 
@@ -351,10 +345,10 @@ $color: red;</code></pre></div>
 <h2 id="两种预处理语言的编译方式"><a href="#两种预处理语言的编译方式" class="headerlink" title="两种预处理语言的编译方式"></a>两种预处理语言的编译方式</h2><p>less和Sass的编译方式大同小异，他们可以通过下面几种方式进行编译：</p>
 <h3 id="1、命令行方式"><a href="#1、命令行方式" class="headerlink" title="1、命令行方式"></a>1、命令行方式</h3><p>使用这种方式编译需要先安装less和Sass，less可以通过npm安装，Sass的安装方式比较多，不仅可以通过npm安装，也可以通过Ruby安装，更多安装方式可以去<a target="_blank" rel="noopener" href="https://sass-lang.com/install">官网</a>查看。安装成功后就能使用命令行直接编译文件了。</p>
 <p>less的编译命令</p>
-<div class="hljs"><pre><code class="hljs cmake">lessc styles.<span class="hljs-keyword">less</span> styles.css</code></pre></div>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">lessc styles.<span class="hljs-keyword">less</span> styles.css<br></code></pre></div></td></tr></table></figure>
 
 <p>Sass的编译命令</p>
-<div class="hljs"><pre><code class="hljs cmake">sass <span class="hljs-keyword">test</span>.scss <span class="hljs-keyword">test</span>.css</code></pre></div>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">sass <span class="hljs-keyword">test</span>.scss <span class="hljs-keyword">test</span>.css<br></code></pre></div></td></tr></table></figure>
 
 <p>SASS提供四个<a target="_blank" rel="noopener" href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#output_style">编译风格</a>的选项：</p>
 <ul>
@@ -364,24 +358,19 @@ $color: red;</code></pre></div>
 <li>compressed：压缩后的css代码。</li>
 </ul>
 <p>生产环境当中，一般使用最后一个选项。</p>
-<div class="hljs"><pre><code class="hljs cmake">sass --style compressed <span class="hljs-keyword">test</span>.sass <span class="hljs-keyword">test</span>.css</code></pre></div>
+<figure class="highlight cmake"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cmake">sass --style compressed <span class="hljs-keyword">test</span>.sass <span class="hljs-keyword">test</span>.css<br></code></pre></div></td></tr></table></figure>
 
 <p>命令行方式也可以对某个文件或者目录进行监听，在源文件产生变动时自动生成编译后版本，less可以通过安装一个插件watcher-lessc来监听编译，Sass直接使用命令行就能实现：</p>
-<div class="hljs"><pre><code class="hljs awk">　　<span class="hljs-regexp">//</span> 监听一个文件
-　　sass --watch input.scss:output.css
-
-　　<span class="hljs-regexp">//</span> 监听一个文件夹目录
-　　sass --watch app<span class="hljs-regexp">/sass:public/</span>stylesheets</code></pre></div>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">　　<span class="hljs-regexp">//</span> 监听一个文件<br>　　sass --watch input.scss:output.css<br><br>　　<span class="hljs-regexp">//</span> 监听一个文件夹目录<br>　　sass --watch app<span class="hljs-regexp">/sass:public/</span>stylesheets<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="2、使用编译软件Koala编译"><a href="#2、使用编译软件Koala编译" class="headerlink" title="2、使用编译软件Koala编译"></a>2、使用编译软件Koala编译</h3><p>Koala是一个国产免费前端预处理器语言图形编译工具，支持Less、Sass、Compass、CoffeeScript，帮助web开发者更高效地使用它们进行开发。跨平台运行，完美兼容windows、linux、mac。</p>
 <p>前往<a target="_blank" rel="noopener" href="http://koala-app.com/index-zh.html">官网</a>下载安装，安装完成打开显示如下界面：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>点击左侧的+号添加需要编译的文件夹，也可以直接将文件夹拖动进来，添加完成后就可以对文件进行编译了，点击一个文件可以设置编译选项。编译时软件默认是将less文件编译到同级目录下，如果想要改变可以在文件上进行单个文件的改变；缺点是不能实现批量的改变。使用koala的好处是有错误提示，可以比较方便的获取错误信息。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/banner01.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h3 id="3、使用开发工具编译"><a href="#3、使用开发工具编译" class="headerlink" title="3、使用开发工具编译"></a>3、使用开发工具编译</h3><p>可以使用一些常用的开发工具或开发工具中的某些插件来直接自动编译，如webstorm、sublime插件SASS-Build、vscode插件easy sass等等，具体操作方法自行搜索。</p>
 <h3 id="4、使用JS文件"><a href="#4、使用JS文件" class="headerlink" title="4、使用JS文件"></a>4、使用JS文件</h3><p>这一条针对的是less文件，因为less基于js。去官网下载less.js文件，然后在文件中引入，或者直接使用CDN引入：</p>
-<div class="hljs"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;less/test.less&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/less&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs HTML"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;less/test.less&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/less&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>使用时注意以下几点：<br>link引入的是less文件，路径直接是less所在位置即可；<br>link内一定要注明type类型，因为默认为css；<br>顺序一定要是引入的less文件在less.js文件上面。</p>
 <h3 id="5、其他编译方式"><a href="#5、其他编译方式" class="headerlink" title="5、其他编译方式"></a>5、其他编译方式</h3><p>前端自动化软件codekit、Grunt打造前端自动化工作流grunt-sass、Gulp打造前端自动化工作流gulp-ruby-sass等，具体用法自行搜索。</p>
@@ -423,7 +412,7 @@ $color: red;</code></pre></div>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/96430f2e5161">sass和less的区别</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gaomengwang/article/details/80573915">Sass与Less区别</a></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -447,11 +436,15 @@ $color: red;</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/01/github-hosts/">
@@ -460,8 +453,8 @@ $color: red;</code></pre></div>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/01/flex-layout/">
@@ -470,30 +463,31 @@ $color: red;</code></pre></div>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -501,7 +495,7 @@ $color: red;</code></pre></div>
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -513,16 +507,15 @@ $color: red;</code></pre></div>
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -543,68 +536,74 @@ $color: red;</code></pre></div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -613,95 +612,15 @@ $color: red;</code></pre></div>
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "CSS预处理语言less和Sass基础教程&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -710,55 +629,6 @@ $color: red;</code></pre></div>
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -767,11 +637,9 @@ $color: red;</code></pre></div>
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

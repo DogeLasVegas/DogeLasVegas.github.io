@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>【转】恶俗古风自动生成器 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【转】恶俗古风自动生成器">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-09 10:29">
-      2020年3月9日 上午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-09 10:29" pubdate>
+        2020年3月9日 上午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,122 +256,37 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【转】恶俗古风自动生成器</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年3月9日 上午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <p>转自 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f893291674ca">传送门</a></p>
 <p>原 po：</p>
-<div class="hljs"><pre><code class="hljs css">关键词：朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城
- 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 
-一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 
-微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 
-公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌情深缘浅 情深不寿 
-莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安
-基本句式：
-<span class="hljs-number">1</span><span class="hljs-selector-class">.xx</span>，xx，xx了xx。 
-<span class="hljs-number">2</span><span class="hljs-selector-class">.xxxx</span>，xxxx，不过是一场xxxx。
-<span class="hljs-number">3</span>.你说xxxx，我说xxxx，最后不过xxxx。
-<span class="hljs-number">4</span><span class="hljs-selector-class">.xx</span>，xx，许我一场xxxx。
-<span class="hljs-number">5</span>一x一x一xx，半x半x半xx。
-<span class="hljs-number">6</span>.你说xxxx xxxx，后来xxxx xxxx。
-<span class="hljs-number">7</span><span class="hljs-selector-class">.xxxx</span>，xxxx，终不敌xxxx。
-注意事项：
-<span class="hljs-number">1</span>.使用一个句式时一定要多重复几次，形成看起来异常高端的排比句。
-<span class="hljs-number">2</span>.［殇］这个字恶俗到爆，一定要多用。
-<span class="hljs-number">3</span>.不要随意用连词，就让这些动词名词形容词堆在一起，发生奇妙的反应。
-<span class="hljs-number">4</span>.填句子千万不能有逻辑性！填句子千万不能有逻辑性！填句子千万不能有逻辑性！重要的事情说三遍。
-例句：
-<span class="hljs-number">1</span>.江南烟雨，陌上白衣，不过是一场情深缘浅。伊人回眸，繁华落尽，不过是一场烟火迷离。浮生微凉，白骨成双，不过是一场三世离殇。
-<span class="hljs-number">2</span>.旧城，未央，许我一场墨染清商。乱世，无情，许我一场白衣仓皇。忘川，千年，许我一场奈何成双。
-end
-【简直丧心病狂精神污染，po主去吐一吐。】</code></pre></div>
+<figure class="highlight css"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs css">关键词：朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城<br> 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 <br>一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 <br>微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 <br>公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌情深缘浅 情深不寿 <br>莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安<br>基本句式：<br><span class="hljs-number">1</span><span class="hljs-selector-class">.xx</span>，xx，xx了xx。 <br><span class="hljs-number">2</span><span class="hljs-selector-class">.xxxx</span>，xxxx，不过是一场xxxx。<br><span class="hljs-number">3</span>.你说xxxx，我说xxxx，最后不过xxxx。<br><span class="hljs-number">4</span><span class="hljs-selector-class">.xx</span>，xx，许我一场xxxx。<br><span class="hljs-number">5</span>一x一x一xx，半x半x半xx。<br><span class="hljs-number">6</span>.你说xxxx xxxx，后来xxxx xxxx。<br><span class="hljs-number">7</span><span class="hljs-selector-class">.xxxx</span>，xxxx，终不敌xxxx。<br>注意事项：<br><span class="hljs-number">1</span>.使用一个句式时一定要多重复几次，形成看起来异常高端的排比句。<br><span class="hljs-number">2</span>.［殇］这个字恶俗到爆，一定要多用。<br><span class="hljs-number">3</span>.不要随意用连词，就让这些动词名词形容词堆在一起，发生奇妙的反应。<br><span class="hljs-number">4</span>.填句子千万不能有逻辑性！填句子千万不能有逻辑性！填句子千万不能有逻辑性！重要的事情说三遍。<br>例句：<br><span class="hljs-number">1</span>.江南烟雨，陌上白衣，不过是一场情深缘浅。伊人回眸，繁华落尽，不过是一场烟火迷离。浮生微凉，白骨成双，不过是一场三世离殇。<br><span class="hljs-number">2</span>.旧城，未央，许我一场墨染清商。乱世，无情，许我一场白衣仓皇。忘川，千年，许我一场奈何成双。<br>end<br>【简直丧心病狂精神污染，po主去吐一吐。】<br></code></pre></div></td></tr></table></figure>
 
 <p>考虑到，不要逻辑，那么最适合随机函数了。<br> 于是我们得到了一位 Ruby 古风诗人（共 22 行），他每秒都能生产一句古风句子</p>
-<div class="hljs"><pre><code class="hljs ruby"><span class="hljs-variable">@two_chars_words</span> = %w<span class="hljs-string">&quot;朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌&quot;</span>
-<span class="hljs-variable">@four_chars_words</span> = %w<span class="hljs-string">&quot;情深缘浅 情深不寿 莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安&quot;</span>
-<span class="hljs-variable">@sentence_model</span> = %w<span class="hljs-string">&quot;xx，xx，xx了xx。 xxxx，xxxx，不过是一场xxxx。 你说xxxx，我说xxxx，最后不过xxxx。 xx，xx，许我一场xxxx。 一x一x一xx，半x半x半xx。 你说xxxxxxxx，后来xxxxxxxx。 xxxx，xxxx，终不敌xxxx。&quot;</span>
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_sentence</span></span>
-  model = <span class="hljs-variable">@sentence_model</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>].clone
-  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;xxxx&#x27;</span>
-    model.sub!(<span class="hljs-regexp">/xxxx/</span>, <span class="hljs-variable">@four_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>])
-  <span class="hljs-keyword">end</span>
-  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;xx&#x27;</span>
-    model.sub!(<span class="hljs-regexp">/xx/</span>, <span class="hljs-variable">@two_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>])
-  <span class="hljs-keyword">end</span>
-  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;x&#x27;</span>
-    model.sub!(<span class="hljs-regexp">/x/</span>, <span class="hljs-variable">@two_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>][rand(<span class="hljs-number">0</span>..<span class="hljs-number">1</span>)])
-  <span class="hljs-keyword">end</span>
-  puts model
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>
-  get_sentence
-  sleep <span class="hljs-number">1</span>
-<span class="hljs-keyword">end</span></code></pre></div>
+<figure class="highlight ruby"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-variable">@two_chars_words</span> = %w<span class="hljs-string">&quot;朱砂 天下 杀伐 人家 韶华 风华 繁华 血染 墨染 白衣 素衣 嫁衣 倾城 孤城 空城 旧城 旧人 伊人 心疼 春风 古琴 无情 迷离 奈何 断弦 焚尽 散乱 陌路 乱世 笑靥 浅笑 明眸 轻叹 烟火 一生 三生 浮生 桃花 梨花 落花 烟花 离殇 情殇 爱殇 剑殇 灼伤 仓皇 匆忙 陌上 清商 焚香 墨香 微凉 断肠 痴狂 凄凉 黄梁 未央 成双 无恙 虚妄 凝霜 洛阳 长安 江南 忘川 千年 纸伞 烟雨 回眸 公子 红尘 红颜 红衣 红豆 红线 青丝 青史 青冢 白发 白首 白骨 黄土 黄泉 碧落 紫陌&quot;</span><br><span class="hljs-variable">@four_chars_words</span> = %w<span class="hljs-string">&quot;情深缘浅 情深不寿 莫失莫忘 阴阳相隔 如花美眷 似水流年 眉目如画 曲终人散 繁华落尽 不诉离殇 一世长安&quot;</span><br><span class="hljs-variable">@sentence_model</span> = %w<span class="hljs-string">&quot;xx，xx，xx了xx。 xxxx，xxxx，不过是一场xxxx。 你说xxxx，我说xxxx，最后不过xxxx。 xx，xx，许我一场xxxx。 一x一x一xx，半x半x半xx。 你说xxxxxxxx，后来xxxxxxxx。 xxxx，xxxx，终不敌xxxx。&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_sentence</span></span><br>  model = <span class="hljs-variable">@sentence_model</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>].clone<br>  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;xxxx&#x27;</span><br>    model.sub!(<span class="hljs-regexp">/xxxx/</span>, <span class="hljs-variable">@four_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>])<br>  <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;xx&#x27;</span><br>    model.sub!(<span class="hljs-regexp">/xx/</span>, <span class="hljs-variable">@two_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>])<br>  <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">while</span> model.<span class="hljs-keyword">include</span>?<span class="hljs-string">&#x27;x&#x27;</span><br>    model.sub!(<span class="hljs-regexp">/x/</span>, <span class="hljs-variable">@two_chars_words</span>.sample(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>][rand(<span class="hljs-number">0</span>..<span class="hljs-number">1</span>)])<br>  <span class="hljs-keyword">end</span><br>  puts model<br><span class="hljs-keyword">end</span><br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">true</span><br>  get_sentence<br>  sleep <span class="hljs-number">1</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
 
 <p>我们来欣赏一些例句：</p>
-<div class="hljs"><pre><code class="hljs undefined">你说一世长安情深不寿，后来莫失莫忘莫失莫忘。
-你说繁华落尽似水流年，后来阴阳相隔曲终人散。
-心疼，繁华，许我一场一世长安。
-空城，无恙，墨染了忘川。
-白首，乱世，许我一场繁华落尽。
-你说阴阳相隔，我说一世长安，最后不过一世长安。
-如花美眷，情深缘浅，终不敌一世长安。
-千年，红颜，旧城了灼伤。
-你说如花美眷，我说情深缘浅，最后不过情深不寿。
-莫失莫忘，曲终人散，不过是一场繁华落尽。
-情深不寿，如花美眷，终不敌一世长安。
-奈何，灼伤，离殇了一生。
-奈何，空城，红豆了陌上。
-轻叹，纸伞，梨花了梨花。
-繁华落尽，曲终人散，不过是一场莫失莫忘。
-你说一世长安眉目如画，后来如花美眷阴阳相隔。
-你说情深缘浅，我说不诉离殇，最后不过如花美眷。
-不诉离殇，不诉离殇，终不敌繁华落尽。
-繁华落尽，一世长安，终不敌情深缘浅。
-繁华落尽，莫失莫忘，不过是一场一世长安。
-轻叹，明眸，明眸了白发。
-似水流年，曲终人散，终不敌曲终人散。
-你说阴阳相隔不诉离殇，后来眉目如画繁华落尽。
-朱砂，嫁衣，许我一场繁华落尽。
-你说不诉离殇，我说莫失莫忘，最后不过如花美眷。
-一伤一首一明眸，半伞半繁半陌上。
-你说繁华落尽眉目如画，后来情深缘浅眉目如画。
-眉目如画，曲终人散，不过是一场如花美眷。
-一灼一人一焚香，半迷半衣半散乱。
-阴阳相隔，莫失莫忘，终不敌莫失莫忘。
-白衣，红豆，青史了天下。
-伊人，奈何，奈何了公子。
-你说情深不寿，我说莫失莫忘，最后不过似水流年。
-你说不诉离殇莫失莫忘，后来如花美眷情深不寿。
-白发，浅笑，许我一场不诉离殇。
-似水流年，莫失莫忘，终不敌似水流年。
-情深不寿，一世长安，终不敌情深不寿。
-一世长安，繁华落尽，终不敌莫失莫忘。
-如花美眷，情深缘浅，不过是一场情深不寿。
-你说繁华落尽如花美眷，后来如花美眷情深不寿。
-黄泉，陌上，许我一场似水流年。
-眉目如画，眉目如画，不过是一场曲终人散。
-曲终人散，繁华落尽，终不敌曲终人散。
-你说曲终人散，我说眉目如画，最后不过繁华落尽。</code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs undefined">你说一世长安情深不寿，后来莫失莫忘莫失莫忘。<br>你说繁华落尽似水流年，后来阴阳相隔曲终人散。<br>心疼，繁华，许我一场一世长安。<br>空城，无恙，墨染了忘川。<br>白首，乱世，许我一场繁华落尽。<br>你说阴阳相隔，我说一世长安，最后不过一世长安。<br>如花美眷，情深缘浅，终不敌一世长安。<br>千年，红颜，旧城了灼伤。<br>你说如花美眷，我说情深缘浅，最后不过情深不寿。<br>莫失莫忘，曲终人散，不过是一场繁华落尽。<br>情深不寿，如花美眷，终不敌一世长安。<br>奈何，灼伤，离殇了一生。<br>奈何，空城，红豆了陌上。<br>轻叹，纸伞，梨花了梨花。<br>繁华落尽，曲终人散，不过是一场莫失莫忘。<br>你说一世长安眉目如画，后来如花美眷阴阳相隔。<br>你说情深缘浅，我说不诉离殇，最后不过如花美眷。<br>不诉离殇，不诉离殇，终不敌繁华落尽。<br>繁华落尽，一世长安，终不敌情深缘浅。<br>繁华落尽，莫失莫忘，不过是一场一世长安。<br>轻叹，明眸，明眸了白发。<br>似水流年，曲终人散，终不敌曲终人散。<br>你说阴阳相隔不诉离殇，后来眉目如画繁华落尽。<br>朱砂，嫁衣，许我一场繁华落尽。<br>你说不诉离殇，我说莫失莫忘，最后不过如花美眷。<br>一伤一首一明眸，半伞半繁半陌上。<br>你说繁华落尽眉目如画，后来情深缘浅眉目如画。<br>眉目如画，曲终人散，不过是一场如花美眷。<br>一灼一人一焚香，半迷半衣半散乱。<br>阴阳相隔，莫失莫忘，终不敌莫失莫忘。<br>白衣，红豆，青史了天下。<br>伊人，奈何，奈何了公子。<br>你说情深不寿，我说莫失莫忘，最后不过似水流年。<br>你说不诉离殇莫失莫忘，后来如花美眷情深不寿。<br>白发，浅笑，许我一场不诉离殇。<br>似水流年，莫失莫忘，终不敌似水流年。<br>情深不寿，一世长安，终不敌情深不寿。<br>一世长安，繁华落尽，终不敌莫失莫忘。<br>如花美眷，情深缘浅，不过是一场情深不寿。<br>你说繁华落尽如花美眷，后来如花美眷情深不寿。<br>黄泉，陌上，许我一场似水流年。<br>眉目如画，眉目如画，不过是一场曲终人散。<br>曲终人散，繁华落尽，终不敌曲终人散。<br>你说曲终人散，我说眉目如画，最后不过繁华落尽。<br></code></pre></div></td></tr></table></figure>
 
 <p>其实句式是次要的，词才是关键。刚导入了一些句式，发现意外地合拍，比如「情殇的素衣，比人家不知道砂到灼伤去了。」「说现在已经黄土了，就把我心疼一番。」「陌里不觉城已年，未央岂是为无情。」「青为什么这么忘川，城和微凉红过多少次了啊」</p>
 <p><em><strong>PS：原链接好像也是转载的，但是找不到原po了，等有时间自己整一个JS版的玩玩。</strong></em></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -351,11 +308,15 @@ end
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/03/three-js-3D-TheAviator/">
@@ -364,8 +325,8 @@ end
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/02/div-blank/">
@@ -374,30 +335,31 @@ end
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -405,7 +367,7 @@ end
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -417,16 +379,15 @@ end
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -447,68 +408,74 @@ end
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -517,95 +484,15 @@ end
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "【转】恶俗古风自动生成器&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -614,55 +501,6 @@ end
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -671,11 +509,9 @@ end
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>【转】LocalStorage过期删除 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【转】LocalStorage过期删除">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-12 15:20">
-      2020年6月12日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-12 15:20" pubdate>
+        2020年6月12日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,136 +256,38 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【转】LocalStorage过期删除</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年6月12日 下午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>浏览器端需要存储一个用户的标识和<code>cookie</code>一样需要过期时间，但是用的是<code>localStorage</code>存储。而<code>localStorage</code>一经存储除非手动删除是不会过期的。那就需要自己实现过期机制。网上找了几种简单的方法。</p>
 <h2 id="方案一：ES5扩展Storage"><a href="#方案一：ES5扩展Storage" class="headerlink" title="方案一：ES5扩展Storage"></a>方案一：ES5扩展Storage</h2><p>思路很简单，存储的值加一个时间戳，下次取值时验证时间戳。<br><strong>注意：</strong> <code>localStorage</code>只能存储字符，存入时将对象转为<code>json</code>字符串,读取时也要解析</p>
-<div class="hljs"><pre><code class="hljs js">CopyStorage.prototype.setExpire = <span class="hljs-function">(<span class="hljs-params">key, value, expire</span>) =&gt;</span> &#123;
-	<span class="hljs-keyword">let</span> obj = &#123;
-	data: value,
-	time: <span class="hljs-built_in">Date</span>.now(),
-	expire: expire
-	&#125;;
-	<span class="hljs-comment">//localStorage 设置的值不能为对象,转为json字符串</span>
-	<span class="hljs-built_in">localStorage</span>.setItem(key, <span class="hljs-built_in">JSON</span>.stringify(obj));
-&#125;
-
-Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;
-    <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">localStorage</span>.getItem(key);
-    <span class="hljs-keyword">if</span> (!val) &#123;
-        <span class="hljs-keyword">return</span> val;
-    &#125;
-    val = <span class="hljs-built_in">JSON</span>.parse(val);
-    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Date</span>.now() - val.time &gt; val.expire) &#123;
-        <span class="hljs-built_in">localStorage</span>.removeItem(key);
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    &#125;
-    <span class="hljs-keyword">return</span> val.data;
-&#125;</code></pre></div>
+<figure class="highlight js"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs js">CopyStorage.prototype.setExpire = <span class="hljs-function">(<span class="hljs-params">key, value, expire</span>) =&gt;</span> &#123;<br>	<span class="hljs-keyword">let</span> obj = &#123;<br>	data: value,<br>	time: <span class="hljs-built_in">Date</span>.now(),<br>	expire: expire<br>	&#125;;<br>	<span class="hljs-comment">//localStorage 设置的值不能为对象,转为json字符串</span><br>	<span class="hljs-built_in">localStorage</span>.setItem(key, <span class="hljs-built_in">JSON</span>.stringify(obj));<br>&#125;<br><br>Storage.prototype.getExpire = <span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">localStorage</span>.getItem(key);<br>    <span class="hljs-keyword">if</span> (!val) &#123;<br>        <span class="hljs-keyword">return</span> val;<br>    &#125;<br>    val = <span class="hljs-built_in">JSON</span>.parse(val);<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">Date</span>.now() - val.time &gt; val.expire) &#123;<br>        <span class="hljs-built_in">localStorage</span>.removeItem(key);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> val.data;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>测试一下：</p>
-<div class="hljs"><pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);
-<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">localStorage</span>.getExpire(<span class="hljs-string">&quot;userId&quot;</span>));
-&#125;,<span class="hljs-number">1000</span>)</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">CopylocalStorage.setExpire(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);<br><span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">localStorage</span>.getExpire(<span class="hljs-string">&quot;userId&quot;</span>));<br>&#125;,<span class="hljs-number">1000</span>)<br></code></pre></div></td></tr></table></figure>
 
 <p>前5秒还是有值的，之后即为<code>null</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" alt="image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/DogeLasVegas/image-source/2020/2020-01/99%E4%B9%98%E6%B3%95%E8%A1%A8.png" srcset="/img/loading.gif" lazyload alt="image"></p>
 <h2 id="方案二：ES6扩展Storage"><a href="#方案二：ES6扩展Storage" class="headerlink" title="方案二：ES6扩展Storage"></a>方案二：ES6扩展Storage</h2><p>大体思路和方案一是一样的只不过是用了ES6的最新语法实现。</p>
-<div class="hljs"><pre><code class="hljs javascript">Copyclass Storage &#123;
-
-    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;
-        <span class="hljs-built_in">this</span>.props = props || &#123;&#125;
-        <span class="hljs-built_in">this</span>.source = <span class="hljs-built_in">this</span>.props.source || <span class="hljs-built_in">window</span>.localStorage
-        <span class="hljs-built_in">this</span>.initRun();
-    &#125;
-    <span class="hljs-function"><span class="hljs-title">initRun</span>(<span class="hljs-params"></span>)</span>&#123;
-        <span class="hljs-comment">/*</span>
-<span class="hljs-comment">        * set 存储方法</span>
-<span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span>
-<span class="hljs-comment">        * @ param &#123;String&#125;     value 值，存储的值可能是数组/对象，不能直接存储，需要转换 JSON.stringify</span>
-<span class="hljs-comment">        * @ param &#123;String&#125;     expired 过期时间，以分钟为单位</span>
-<span class="hljs-comment">        */</span>
-        <span class="hljs-keyword">const</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;__expires__&quot;</span>);
-        <span class="hljs-keyword">let</span> data = <span class="hljs-built_in">this</span>.source;
-        <span class="hljs-keyword">let</span> list = <span class="hljs-built_in">Object</span>.keys(data);
-        <span class="hljs-keyword">if</span>(list.length &gt; <span class="hljs-number">0</span>)&#123;
-            list.map(<span class="hljs-function">(<span class="hljs-params">key,v</span>)=&gt;</span>&#123;
-                <span class="hljs-keyword">if</span>( !reg.test(key ))&#123;
-                    <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();
-                    <span class="hljs-keyword">let</span> expires = data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;
-                    <span class="hljs-keyword">if</span> (now &gt;= expires ) &#123;
-                        <span class="hljs-built_in">this</span>.remove(key);
-                    &#125;;
-                &#125;;
-                <span class="hljs-keyword">return</span> key;
-            &#125;);
-        &#125;;
-    &#125;
-
-	<span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params">key, value, expired</span>)</span> &#123;
-	    <span class="hljs-comment">/*</span>
-<span class="hljs-comment">	    * set 存储方法</span>
-<span class="hljs-comment">	    * @ param &#123;String&#125;     key 键</span>
-<span class="hljs-comment">	    * @ param &#123;String&#125;     value 值，</span>
-<span class="hljs-comment">	    * @ param &#123;String&#125;     expired 过期时间，以毫秒为单位，非必须</span>
-<span class="hljs-comment">	    */</span>
-	    <span class="hljs-keyword">let</span> source = <span class="hljs-built_in">this</span>.source;
-	    source[key] = <span class="hljs-built_in">JSON</span>.stringify(value);
-	    <span class="hljs-keyword">if</span> (expired)&#123;
-	        source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>] = <span class="hljs-built_in">Date</span>.now() + expired
-	    &#125;;
-	    <span class="hljs-keyword">return</span> value;
-	&#125;
-
-    <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params">key</span>)</span> &#123;
-        <span class="hljs-comment">/*</span>
-<span class="hljs-comment">        * get 获取方法</span>
-<span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span>
-<span class="hljs-comment">        * @ param &#123;String&#125;     expired 存储时为非必须字段，所以有可能取不到，默认为 Date.now+1</span>
-<span class="hljs-comment">        */</span>
-        <span class="hljs-keyword">const</span> source = <span class="hljs-built_in">this</span>.source,
-        expired = source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;
-        <span class="hljs-keyword">const</span> now = <span class="hljs-built_in">Date</span>.now();
-    
-        <span class="hljs-keyword">if</span> ( now &gt;= expired ) &#123;
-            <span class="hljs-built_in">this</span>.remove(key);
-            <span class="hljs-keyword">return</span>;
-        &#125;
-        <span class="hljs-keyword">const</span> value = source[key] ? <span class="hljs-built_in">JSON</span>.parse(source[key]) : source[key];
-        <span class="hljs-keyword">return</span> value;
-	&#125;
-
-	<span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">key</span>)</span> &#123;
-	    <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">this</span>.source,
-	        value = data[key];
-	    <span class="hljs-keyword">delete</span> data[key];
-	    <span class="hljs-keyword">delete</span> data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>];
-	    <span class="hljs-keyword">return</span> value;
-	&#125;
-
-&#125;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">Copyclass Storage &#123;<br><br>    <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">props</span>)</span> &#123;<br>        <span class="hljs-built_in">this</span>.props = props || &#123;&#125;<br>        <span class="hljs-built_in">this</span>.source = <span class="hljs-built_in">this</span>.props.source || <span class="hljs-built_in">window</span>.localStorage<br>        <span class="hljs-built_in">this</span>.initRun();<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-title">initRun</span>(<span class="hljs-params"></span>)</span>&#123;<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        * set 存储方法</span><br><span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span><br><span class="hljs-comment">        * @ param &#123;String&#125;     value 值，存储的值可能是数组/对象，不能直接存储，需要转换 JSON.stringify</span><br><span class="hljs-comment">        * @ param &#123;String&#125;     expired 过期时间，以分钟为单位</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-keyword">const</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&quot;__expires__&quot;</span>);<br>        <span class="hljs-keyword">let</span> data = <span class="hljs-built_in">this</span>.source;<br>        <span class="hljs-keyword">let</span> list = <span class="hljs-built_in">Object</span>.keys(data);<br>        <span class="hljs-keyword">if</span>(list.length &gt; <span class="hljs-number">0</span>)&#123;<br>            list.map(<span class="hljs-function">(<span class="hljs-params">key,v</span>)=&gt;</span>&#123;<br>                <span class="hljs-keyword">if</span>( !reg.test(key ))&#123;<br>                    <span class="hljs-keyword">let</span> now = <span class="hljs-built_in">Date</span>.now();<br>                    <span class="hljs-keyword">let</span> expires = data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;<br>                    <span class="hljs-keyword">if</span> (now &gt;= expires ) &#123;<br>                        <span class="hljs-built_in">this</span>.remove(key);<br>                    &#125;;<br>                &#125;;<br>                <span class="hljs-keyword">return</span> key;<br>            &#125;);<br>        &#125;;<br>    &#125;<br><br>	<span class="hljs-function"><span class="hljs-title">set</span>(<span class="hljs-params">key, value, expired</span>)</span> &#123;<br>	    <span class="hljs-comment">/*</span><br><span class="hljs-comment">	    * set 存储方法</span><br><span class="hljs-comment">	    * @ param &#123;String&#125;     key 键</span><br><span class="hljs-comment">	    * @ param &#123;String&#125;     value 值，</span><br><span class="hljs-comment">	    * @ param &#123;String&#125;     expired 过期时间，以毫秒为单位，非必须</span><br><span class="hljs-comment">	    */</span><br>	    <span class="hljs-keyword">let</span> source = <span class="hljs-built_in">this</span>.source;<br>	    source[key] = <span class="hljs-built_in">JSON</span>.stringify(value);<br>	    <span class="hljs-keyword">if</span> (expired)&#123;<br>	        source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>] = <span class="hljs-built_in">Date</span>.now() + expired<br>	    &#125;;<br>	    <span class="hljs-keyword">return</span> value;<br>	&#125;<br><br>    <span class="hljs-function"><span class="hljs-title">get</span>(<span class="hljs-params">key</span>)</span> &#123;<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        * get 获取方法</span><br><span class="hljs-comment">        * @ param &#123;String&#125;     key 键</span><br><span class="hljs-comment">        * @ param &#123;String&#125;     expired 存储时为非必须字段，所以有可能取不到，默认为 Date.now+1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-keyword">const</span> source = <span class="hljs-built_in">this</span>.source,<br>        expired = source[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>]||<span class="hljs-built_in">Date</span>.now+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">const</span> now = <span class="hljs-built_in">Date</span>.now();<br>    <br>        <span class="hljs-keyword">if</span> ( now &gt;= expired ) &#123;<br>            <span class="hljs-built_in">this</span>.remove(key);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">const</span> value = source[key] ? <span class="hljs-built_in">JSON</span>.parse(source[key]) : source[key];<br>        <span class="hljs-keyword">return</span> value;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-title">remove</span>(<span class="hljs-params">key</span>)</span> &#123;<br>	    <span class="hljs-keyword">const</span> data = <span class="hljs-built_in">this</span>.source,<br>	        value = data[key];<br>	    <span class="hljs-keyword">delete</span> data[key];<br>	    <span class="hljs-keyword">delete</span> data[<span class="hljs-string">`<span class="hljs-subst">$&#123;key&#125;</span>__expires__`</span>];<br>	    <span class="hljs-keyword">return</span> value;<br>	&#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 <p>其中<code>set()</code>,<code>get()</code>,<code>remove()</code>方法可以理解用来存、取、删, <code>initRun()</code>做什么用呢？过期的值只有取时才能知道是不是过期，不取一直存着。<code>initRun()</code>和<code>constructor</code>只是在初始化时实现清理，也不是一定即时。另外写一个定时器去清理貌似也不值当，所以觉得做到这样已经够用了。</p>
 <p>使用如下代码进行测试一下,效果和方案一相同</p>
-<div class="hljs"><pre><code class="hljs javascript">Copyvar ls=<span class="hljs-keyword">new</span> Storage();
-ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);
-<span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;
-    <span class="hljs-built_in">console</span>.log(ls.get(<span class="hljs-string">&quot;userId&quot;</span>));
-&#125;,<span class="hljs-number">1000</span>)</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">Copyvar ls=<span class="hljs-keyword">new</span> Storage();<br>ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-string">&#x27;zhangsan&#x27;</span>,<span class="hljs-number">5000</span>);<br><span class="hljs-built_in">window</span>.setInterval(<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(ls.get(<span class="hljs-string">&quot;userId&quot;</span>));<br>&#125;,<span class="hljs-number">1000</span>)<br></code></pre></div></td></tr></table></figure>
 
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_20343517/article/details/83656450">localStorage 设置过期时间</a></li>
@@ -351,7 +295,7 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
 <li>原文链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ricolee/p/localstorage-expiretime.html">localStorage设置过期时间</a></li>
 </ul>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -375,11 +319,15 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/06/hosts-not-effect/">
@@ -388,8 +336,8 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/06/regexp-img-src/">
@@ -398,30 +346,31 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -429,7 +378,7 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -441,16 +390,15 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -471,68 +419,74 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -541,95 +495,15 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "【转】LocalStorage过期删除&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -638,55 +512,6 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -695,11 +520,9 @@ ls.set(<span class="hljs-string">&#x27;userId&#x27;</span>,<span class="hljs-str
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

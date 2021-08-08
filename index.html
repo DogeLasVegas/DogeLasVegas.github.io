@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,19 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -41,7 +42,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -126,18 +132,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -145,13 +177,13 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/宣传绘.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="没想到吧">
               
             </span>
 
@@ -170,7 +202,7 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           style=margin-top:0>
           
@@ -183,33 +215,72 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/07/commit-standard/">【转】Git/SVN提交代码规范</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/lqbz/" target="_self">
+          lqbz
+        </a>
+      </h1>
 
-      <a href="/2020/07/commit-standard/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2021/07/lqbz/" target="_self">
           
-        
-        <div>feat - 新功能 feature
-fix - 修复 bug
-docs - 文档注释
-style - 代码格式(不影响代码运行的变动)
-refactor - 重构、优化(既不增加新功能，也不是修复bug)
-perf - 性能优化
-test - 增加测试
-chore - 构建过程或辅助工具的变动
-revert - 回退
-build - 打包
-
-示例：
-" srcset="/img/loading.</div>
-      </a>
+          
+            
+          
+          12345678910111213141516171819202122232425262728293031                let reg = /.+?(省|市|自治区|自治州|行政区|区|镇|盟|县|旗)/g;                console.info(&quot;福建省厦门市湖里区XX街XX号&quot;.match(reg))                   
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-18
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 20:30" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/commit-standard/" target="_self">
+          【转】Git/SVN提交代码规范
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/07/commit-standard/" target="_self">
+          
+          
+            
+          
+          12345678910feat - 新功能 featurefix - 修复 bugdocs - 文档注释style - 代码格式(不影响代码运行的变动)refactor - 重构、优化(既不增加新功能，也不是修复bug)perf - 性能优化test - 增加测试chore - 构建过程或辅助工具的变动revert - 回退build - 打包
+
+示例：
+
+原文链接：Git/SVN提交代码规范
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-18 16:03" pubdate>
+              2020-07-18
+            </time>
           </div>
         
         
@@ -229,30 +300,39 @@ build - 打包
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/07/summernote-example/">富文本编辑器 Summernote 从入门到放弃（实例篇）</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/summernote-example/" target="_self">
+          富文本编辑器 Summernote 从入门到放弃（实例篇）
+        </a>
+      </h1>
 
-      <a href="/2020/07/summernote-example/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/07/summernote-example/" target="_self">
           
-        
-        <div>前篇把Summernote的用法和配置基本都介绍了一遍，本篇就来实现一个完整的富文本编辑器吧。
+          
+            
+          
+          前篇把Summernote的用法和配置基本都介绍了一遍，本篇就来实现一个完整的富文本编辑器吧。
 需要引入的文件CSS
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.min.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/summernote.</div>
-      </a>
+12&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.min.css&quot;&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/summernote
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-18
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-18 14:14" pubdate>
+              2020-07-18
+            </time>
           </div>
         
         
@@ -278,203 +358,267 @@ build - 打包
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/vscode-plugins/">VScode插件</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/vscode-plugins/" target="_self">
+          VScode插件
+        </a>
+      </h1>
 
-      <a href="/2020/06/vscode-plugins/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/vscode-plugins/" target="_self">
           
-        
-        <div></div>
-      </a>
+          
+            
+          
+          
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-30
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-30 15:42" pubdate>
+              2020-06-30
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/live2d-download/">live2d点击下载没反应解决办法</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/live2d-download/" target="_self">
+          live2d点击下载没反应解决办法
+        </a>
+      </h1>
 
-      <a href="/2020/06/live2d-download/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/live2d-download/" target="_self">
           
-        
-        <div>在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。
-原因在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jque</div>
-      </a>
+          
+            
+          
+          在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。
+原因在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jque
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-29 21:26" pubdate>
+              2020-06-29
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/add-live2d/">add-live2d</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/add-live2d/" target="_self">
+          add-live2d
+        </a>
+      </h1>
 
-      <a href="/2020/06/add-live2d/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/add-live2d/" target="_self">
           
-        
-        <div></div>
-      </a>
+          
+            
+          
+          
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-29 14:17" pubdate>
+              2020-06-29
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/markdown-diagrams/">【转】用markdown画图（流程图、序列图等等）</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/markdown-diagrams/" target="_self">
+          【转】用markdown画图（流程图、序列图等等）
+        </a>
+      </h1>
 
-      <a href="/2020/06/markdown-diagrams/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/markdown-diagrams/" target="_self">
           
-        
-        <div>1、横向流程图源码格式：mermaid
-graph LR
-A[方形] --&gt;B(圆角)
-    B --&gt; C&#123;条件a&#125;
-    C --&gt;|a=1| D[结果1]
-    C --&gt;|a=2| E[结果2]
-    F[横向流程图]
+          
+            
+          
+          1、横向流程图源码格式：1234567mermaidgraph LRA[方形] --&gt;B(圆角)    B --&gt; C&#123;条件a&#125;    C --&gt;|a=1| D[结果1]    C --&gt;|a=2| E[结果2]    F[横向流程图]
 
 效果图：
 graph LR
 A[方形] --&gt;B(圆角)
-    B --&gt; C&#123;条件a&#12</div>
-      </a>
+    B --&gt; C&#123;条件a&#1
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-29 11:51" pubdate>
+              2020-06-29
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/media-autoplay/">网页自动播放问题</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/media-autoplay/" target="_self">
+          网页自动播放问题
+        </a>
+      </h1>
 
-      <a href="/2020/06/media-autoplay/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/media-autoplay/" target="_self">
           
-        
-        <div></div>
-      </a>
+          
+            
+          
+          
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-29 10:40" pubdate>
+              2020-06-29
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/js-factory/">【转】JS工厂模式</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/js-factory/" target="_self">
+          【转】JS工厂模式
+        </a>
+      </h1>
 
-      <a href="/2020/06/js-factory/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/js-factory/" target="_self">
           
-        
-        <div>本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。
-9.10 Factory（工厂）模式Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们</div>
-      </a>
+          
+            
+          
+          本节书摘来自异步社区《JavaScript设计模式》一书中的第9章，第9.10节， 作者： 【美】Addy Osmani 译者： 徐涛 更多章节内容可以访问云栖社区“异步社区”公众号查看。
+9.10 Factory（工厂）模式Factory模式是另一种创建型模式，涉及创建对象的概念。其分类不同于其他模式的地方在于它不显式地要求使用一个构造函数。而Factory可以提供一个通用的接口来创建对象，我们
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-29
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-29 10:35" pubdate>
+              2020-06-29
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/git-commond/">【转】Git常用的几个命令详解</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/git-commond/" target="_self">
+          【转】Git常用的几个命令详解
+        </a>
+      </h1>
 
-      <a href="/2020/06/git-commond/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020/06/git-commond/" target="_self">
           
-        
-        <div>查看、添加、提交、删除、找回，重置修改文件git help  # 显示command的help
+          
+            
+          
+          查看、添加、提交、删除、找回，重置修改文件git help  # 显示command的help
 git show # 显示某次提交的内容 git show $id
 git co –  # 抛弃工作区修改
 git co . # 抛弃工作区修改
 git add  # 将工作文件修改提交到本地暂存区
 git add . # 将所有修改过的工作文件提交暂存区
 git rm  # 从版本库中删除文件
-git</div>
-      </a>
+git
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-28 12:00" pubdate>
+              2020-06-28
+            </time>
           </div>
         
         
@@ -487,60 +631,16 @@ git</div>
           </div>
         
       </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020/06/npm-registry-basecommond/">npm换源和常用命令</a>
-
-      <a href="/2020/06/npm-registry-basecommond/" class="index-excerpt">
-        
-        
-          
-        
-        <div>npm 官方站点 http://www.npmjs.org/ 虽然没有被墙，但是下载第三方依赖包是从国外服务器下载，下载的速度是非常慢让人着急不说还有可能会出现异常。
-切换npm源的几种方式通过使用cnpm命令首先安装cnpm命令行工具
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-安装完成后检测是否安装成功
-cnp</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-06-28
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/npm/">npm</a>
-            
-          </div>
-        
-      </div>
-    </div>
+    </article>
   </div>
 
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
 
 
 
@@ -550,16 +650,15 @@ cnp</div>
         </div>
       </div>
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -580,57 +679,41 @@ cnp</div>
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
@@ -641,6 +724,22 @@ cnp</div>
 
 
 
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
@@ -648,98 +747,43 @@ cnp</div>
 
 
 
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "性感咸鱼，在线翻身&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      $.ajax({
+        type: 'GET',
+        url: 'https://v2.jinrishici.com/sentence',
+        headers: {"X-User-Token:H5NgV/CP4WI3426rwbH6Wg4DNzMwaM/e":null},
+        dataType: 'json',
+        success: function (result) {
+          var text;
+          if (result) {
+            var keys = 'data,content'.split('.')
+            if (result instanceof Array) {
+              result = result[0]
+            }
+            for (const k of keys) {
+              var value = result[k]
+              if (typeof value === 'string') {
+                text = value
+                break
+              } else if (value instanceof Object) {
+                result = value
+              }
+            }
           }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
+          text ? typing(text) : typing(title);
+        },
+        error: function () {
+          typing(title)
+        }
       })
-      ;
-    </script>
-  
+      
+    })(window, document);
+  </script>
 
 
 
@@ -754,5 +798,10 @@ cnp</div>
 
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
 </html>

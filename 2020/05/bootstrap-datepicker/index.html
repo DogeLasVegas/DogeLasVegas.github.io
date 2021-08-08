@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>Bootstrap-Datepicker的基本用法 - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Bootstrap-Datepicker的基本用法">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-05-16 15:24">
-      2020年5月16日 下午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-16 15:24" pubdate>
+        2020年5月16日 下午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,21 +256,23 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Bootstrap-Datepicker的基本用法</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年5月16日 下午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
+            <div class="markdown-body">
               <p>在用Bootstrap-Datepicker之前，也用过一个<a target="_blank" rel="noopener" href="https://github.com/Eonasdan/bootstrap-datetimepicker">日期时间选择插件</a>，同样也是基于Bootstrap的，可以选择日期和时间，但是因为好像有些小bug，所以再就没有用过，后来又找了一款<strong>日期选择</strong>插件，但是只能选择日期，不能选择时间，在不需要输入具体时间的地方用足够了，并且目前还没有发现什么问题。下面就介绍一下用法吧。</p>
 <h2 id="使用和依赖"><a href="#使用和依赖" class="headerlink" title="使用和依赖"></a>使用和依赖</h2><p><a target="_blank" rel="noopener" href="https://github.com/uxsolutions/bootstrap-datepicker"><strong>Bootstrap-datepicker</strong></a>是一款基于Bootstrap样式的datepicker小部件。要求使用<a target="_blank" rel="noopener" href="https://getbootstrap.com/">Bootstrap</a> 2.0.4 版本以上，<a target="_blank" rel="noopener" href="https://jquery.com/">jQuery</a> 1.7.1版本以上。</p>
 <p>可以下载后引入CSS和JS文件，也可以直接通过CDN引入。</p>
@@ -243,77 +287,50 @@
 </ul>
 <p><strong>下载地址放在最后参考链接中</strong>。</p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>通过javascript调用datepicker：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker();</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker();<br></code></pre></div></td></tr></table></figure>
 
 <p>通过data-API：</p>
 <p>与bootstrap自己的插件一样，datepicker提供了一个数据API，可用于实例化datepicker，而无需自定义JavaScript。对于大多数日期选择器，只需在要初始化的元素上设置<code>data-provide=&quot;datepicker&quot;</code>，它就会延迟初始化。对于内联日期选择器，请使用<code>data-provide=&quot;datepicker-inline&quot;</code>; 这些将在页面加载时立即初始化，并且不能延迟加载。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">&quot;datepicker&quot;</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">data-provide</span>=<span class="hljs-string">&quot;datepicker&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>选项<code>datepicker</code>在实例化时通过选项传递到函数：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
-    format: <span class="hljs-string">&#x27;mm/dd/yyyy&#x27;</span>,
-    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span>
-&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;<br>    format: <span class="hljs-string">&#x27;mm/dd/yyyy&#x27;</span>,<br>    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span><br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <p>也可以在目标元素上通过data-API属性使用，大多数选项都提供支持：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>&gt;</span>
-$(&#x27;.datepicker&#x27;).datepicker(&#123;
-    startDate: &#x27;-3d&#x27;
-&#125;);</code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date-format</span>=<span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>&gt;</span><br>$(&#x27;.datepicker&#x27;).datepicker(&#123;<br>    startDate: &#x27;-3d&#x27;<br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <p>可以通过更改<code>$.fn.datepicker.defaults</code>来修改所有选项的默认值：</p>
-<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>;
-$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
-    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span>
-&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$.fn.datepicker.defaults.format = <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>;<br>$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;<br>    startDate: <span class="hljs-string">&#x27;-3d&#x27;</span><br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <h3 id="无冲突模式"><a href="#无冲突模式" class="headerlink" title="无冲突模式"></a>无冲突模式</h3><p><code>$.fn.datepicker.noConflict</code> 提供一种避免与其他jQuery datepicker插件冲突的方法：</p>
-<div class="hljs"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> datepicker = $.fn.datepicker.noConflict(); <span class="hljs-comment">// return $.fn.datepicker to previously assigned value</span>
-$.fn.bootstrapDP = datepicker;                 <span class="hljs-comment">// give $().bootstrapDP the bootstrap-datepicker functionality</span></code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> datepicker = $.fn.datepicker.noConflict(); <span class="hljs-comment">// return $.fn.datepicker to previously assigned value</span><br>$.fn.bootstrapDP = datepicker;                 <span class="hljs-comment">// give $().bootstrapDP the bootstrap-datepicker functionality</span><br></code></pre></div></td></tr></table></figure>
 
 <h2 id="HTML标记"><a href="#HTML标记" class="headerlink" title="HTML标记"></a>HTML标记</h2><p>有四种类型的显示方式：</p>
 <ul>
 <li><p>输入框</p>
 <p>最简单的方式，当点击输入框或者焦点切换到输入框内时，显示选择器</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;02-16-2012&quot;</span>&gt;</span></code></pre></div>
-<p>" srcset="/img/loading.gif<img src=""></p>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;02-16-2012&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="" srcset="/img/loading.gif" lazyload></p>
 </li>
 <li><p>组件</p>
 <p>添加<code>date</code>类到一个输入框组<code>input-group</code>上，这可以让拥有<code>input-group-addon</code>类的元素打开日期选择器。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group date&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;12-02-2012&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-th&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div></li>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group date&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;12-02-2012&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;glyphicon glyphicon-th&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 <li><p>范围选择</p>
 <p>将<code>input-daterange</code>添加到输入框组与多个子输入框一起使用将为每个输入框实例化一个选择器，以允许选择范围。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group input-daterange&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-05&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span>to<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-19&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div></li>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group input-daterange&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-05&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-group-addon&quot;</span>&gt;</span>to<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2012-04-19&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure></li>
 </ul>
 <p><strong>注意：</strong><code>input-daterange</code>自身并不会实现<code>datepicker</code>的方法，方法应该直接被输入框调用，例如：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.input-daterange input&#x27;</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
-    $(<span class="hljs-built_in">this</span>).datepicker(<span class="hljs-string">&#x27;clearDates&#x27;</span>);
-&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.input-daterange input&#x27;</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    $(<span class="hljs-built_in">this</span>).datepicker(<span class="hljs-string">&#x27;clearDates&#x27;</span>);<br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <ul>
 <li><p>内联或嵌入式  </p>
 <p>在简单的<code>div</code>上实例化<code>datepicker</code>将提供一个始终可见的嵌入式选择器。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <p>一个实例：将选择器的值的保存到隐藏的字段中。</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_hidden_input&quot;</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;datepicker&quot;</span> <span class="hljs-attr">data-date</span>=<span class="hljs-string">&quot;12/03/2012&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;my_hidden_input&quot;</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker();
-$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs-string">&#x27;changeDate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;
-  $(<span class="hljs-string">&#x27;#my_hidden_input&#x27;</span>).val(
-    $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker(<span class="hljs-string">&#x27;getFormattedDate&#x27;</span>)
-  );
-&#125;);</code></pre></div></li>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker();<br>$(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs-string">&#x27;changeDate&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>  $(<span class="hljs-string">&#x27;#my_hidden_input&#x27;</span>).val(<br>    $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).datepicker(<span class="hljs-string">&#x27;getFormattedDate&#x27;</span>)<br>  );<br>&#125;);<br></code></pre></div></td></tr></table></figure></li>
 </ul>
 <h2 id="配置选项"><a href="#配置选项" class="headerlink" title="配置选项"></a>配置选项</h2><p>所有带有<code>Date</code>的选项都可以处理为一个Date对象。或相对于今天的时间增量，例如“ -1d”，“ + 6m + 1y”等，其中有效单位为“ d”（天），“ w”（周），“ m”（月）和“ y” “ （年）。今天使用“ 0”。相对时间增量也有别名：“昨天”等于“ -1d”，“今天”等于“ + 0d”，“明天”等于“ + 1d”。</p>
 <p>大多数选项可以通过数据属性提供。通过以下方式可以将选项转换为数据属性：将选项中的每个大写字母替换为其小写字母，并在每个单词前加上破折号，然后在结果前添加<code>data-date-</code>。例如，<code>startDate</code>转换为<code>data-date-start-date</code>，<code>format</code>转换为<code>data-date-format</code>而<code>daysOfWeekDisabled</code>将是<code>data-date-days-of-week-disabled</code>。</p>
@@ -336,34 +353,21 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
 </li>
 </ul>
 <h3 id="I18N"><a href="#I18N" class="headerlink" title="I18N"></a>I18N</h3><p>日期选择器支持<code>i18n</code>，提供不同语言的月份和周工作日名称，以及设置weekStart选项。默认语言为英语（”en”），在<code>js/locales/</code>目录中还提供其他可用语言的翻译，只需在插件中添加所需的语言即可。要添加更多语言，只需在调用<code>.datepicker()</code>之前添加一个键到<code>$.fn.datepicker.dates</code>。例如：</p>
-<div class="hljs"><pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">&#x27;en&#x27;</span>] = &#123;
-    days: [<span class="hljs-string">&quot;Sunday&quot;</span>, <span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>],
-    daysShort: [<span class="hljs-string">&quot;Sun&quot;</span>, <span class="hljs-string">&quot;Mon&quot;</span>, <span class="hljs-string">&quot;Tue&quot;</span>, <span class="hljs-string">&quot;Wed&quot;</span>, <span class="hljs-string">&quot;Thu&quot;</span>, <span class="hljs-string">&quot;Fri&quot;</span>, <span class="hljs-string">&quot;Sat&quot;</span>],
-    daysMin: [<span class="hljs-string">&quot;Su&quot;</span>, <span class="hljs-string">&quot;Mo&quot;</span>, <span class="hljs-string">&quot;Tu&quot;</span>, <span class="hljs-string">&quot;We&quot;</span>, <span class="hljs-string">&quot;Th&quot;</span>, <span class="hljs-string">&quot;Fr&quot;</span>, <span class="hljs-string">&quot;Sa&quot;</span>],
-    months: [<span class="hljs-string">&quot;January&quot;</span>, <span class="hljs-string">&quot;February&quot;</span>, <span class="hljs-string">&quot;March&quot;</span>, <span class="hljs-string">&quot;April&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;June&quot;</span>, <span class="hljs-string">&quot;July&quot;</span>, <span class="hljs-string">&quot;August&quot;</span>, <span class="hljs-string">&quot;September&quot;</span>, <span class="hljs-string">&quot;October&quot;</span>, <span class="hljs-string">&quot;November&quot;</span>, <span class="hljs-string">&quot;December&quot;</span>],
-    monthsShort: [<span class="hljs-string">&quot;Jan&quot;</span>, <span class="hljs-string">&quot;Feb&quot;</span>, <span class="hljs-string">&quot;Mar&quot;</span>, <span class="hljs-string">&quot;Apr&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;Jun&quot;</span>, <span class="hljs-string">&quot;Jul&quot;</span>, <span class="hljs-string">&quot;Aug&quot;</span>, <span class="hljs-string">&quot;Sep&quot;</span>, <span class="hljs-string">&quot;Oct&quot;</span>, <span class="hljs-string">&quot;Nov&quot;</span>, <span class="hljs-string">&quot;Dec&quot;</span>],
-    today: <span class="hljs-string">&quot;Today&quot;</span>,
-    clear: <span class="hljs-string">&quot;Clear&quot;</span>,
-    format: <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>,
-    titleFormat: <span class="hljs-string">&quot;MM yyyy&quot;</span>, <span class="hljs-comment">/* Leverages same syntax as &#x27;format&#x27; */</span>
-    weekStart: <span class="hljs-number">0</span>
-&#125;;</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$.fn.datepicker.dates[<span class="hljs-string">&#x27;en&#x27;</span>] = &#123;<br>    days: [<span class="hljs-string">&quot;Sunday&quot;</span>, <span class="hljs-string">&quot;Monday&quot;</span>, <span class="hljs-string">&quot;Tuesday&quot;</span>, <span class="hljs-string">&quot;Wednesday&quot;</span>, <span class="hljs-string">&quot;Thursday&quot;</span>, <span class="hljs-string">&quot;Friday&quot;</span>, <span class="hljs-string">&quot;Saturday&quot;</span>],<br>    daysShort: [<span class="hljs-string">&quot;Sun&quot;</span>, <span class="hljs-string">&quot;Mon&quot;</span>, <span class="hljs-string">&quot;Tue&quot;</span>, <span class="hljs-string">&quot;Wed&quot;</span>, <span class="hljs-string">&quot;Thu&quot;</span>, <span class="hljs-string">&quot;Fri&quot;</span>, <span class="hljs-string">&quot;Sat&quot;</span>],<br>    daysMin: [<span class="hljs-string">&quot;Su&quot;</span>, <span class="hljs-string">&quot;Mo&quot;</span>, <span class="hljs-string">&quot;Tu&quot;</span>, <span class="hljs-string">&quot;We&quot;</span>, <span class="hljs-string">&quot;Th&quot;</span>, <span class="hljs-string">&quot;Fr&quot;</span>, <span class="hljs-string">&quot;Sa&quot;</span>],<br>    months: [<span class="hljs-string">&quot;January&quot;</span>, <span class="hljs-string">&quot;February&quot;</span>, <span class="hljs-string">&quot;March&quot;</span>, <span class="hljs-string">&quot;April&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;June&quot;</span>, <span class="hljs-string">&quot;July&quot;</span>, <span class="hljs-string">&quot;August&quot;</span>, <span class="hljs-string">&quot;September&quot;</span>, <span class="hljs-string">&quot;October&quot;</span>, <span class="hljs-string">&quot;November&quot;</span>, <span class="hljs-string">&quot;December&quot;</span>],<br>    monthsShort: [<span class="hljs-string">&quot;Jan&quot;</span>, <span class="hljs-string">&quot;Feb&quot;</span>, <span class="hljs-string">&quot;Mar&quot;</span>, <span class="hljs-string">&quot;Apr&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;Jun&quot;</span>, <span class="hljs-string">&quot;Jul&quot;</span>, <span class="hljs-string">&quot;Aug&quot;</span>, <span class="hljs-string">&quot;Sep&quot;</span>, <span class="hljs-string">&quot;Oct&quot;</span>, <span class="hljs-string">&quot;Nov&quot;</span>, <span class="hljs-string">&quot;Dec&quot;</span>],<br>    today: <span class="hljs-string">&quot;Today&quot;</span>,<br>    clear: <span class="hljs-string">&quot;Clear&quot;</span>,<br>    format: <span class="hljs-string">&quot;mm/dd/yyyy&quot;</span>,<br>    titleFormat: <span class="hljs-string">&quot;MM yyyy&quot;</span>, <span class="hljs-comment">/* Leverages same syntax as &#x27;format&#x27; */</span><br>    weekStart: <span class="hljs-number">0</span><br>&#125;;<br></code></pre></div></td></tr></table></figure>
 
 <p><code>[&#39;en&#39;]</code>就是添加新语言的键，在后面大括号中添加月和周的对应语言翻译。使用时将键添加到选项中：</p>
-<div class="hljs"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;
-    language: <span class="hljs-string">&#x27;XX&#x27;</span> <span class="hljs-comment">//XX就是键名</span>
-&#125;);</code></pre></div>
+<figure class="highlight javascript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;.datepicker&#x27;</span>).datepicker(&#123;<br>    language: <span class="hljs-string">&#x27;XX&#x27;</span> <span class="hljs-comment">//XX就是键名</span><br>&#125;);<br></code></pre></div></td></tr></table></figure>
 
 <p>从右到左的语言添加<code>rtl: true</code>也可以使日历正确显示。</p>
 <p>如果您的浏览器（或您用户的浏览器）的字符显示错误，则可能是浏览器正在加载具有非Unicode编码的javascript文件。只需添加<code>charset=&quot;UTF-8&quot;</code>到您的script标签即可正常显示：</p>
-<div class="hljs"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;bootstrap-datepicker.XX.js&quot;</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div>
+<figure class="highlight html"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;bootstrap-datepicker.XX.js&quot;</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
 
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.bootcss.com/">bootstrap中文网</a></p>
 <p><a target="_blank" rel="noopener" href="https://bootstrap-datepicker.readthedocs.io/en/stable/index.html">bootstrap-datepicker文档</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/uxsolutions/bootstrap-datepicker/releases">下载地址</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cmd5.com/">md5在线解密破解,md5解密加密</a></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -387,11 +391,15 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/05/p-div/">
@@ -400,8 +408,8 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/05/bootstrap-table/">
@@ -410,30 +418,31 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -441,7 +450,7 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -453,16 +462,15 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -483,68 +491,74 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -553,95 +567,15 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Bootstrap-Datepicker的基本用法&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -650,55 +584,6 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
@@ -707,11 +592,9 @@ $(<span class="hljs-string">&#x27;#datepicker&#x27;</span>).on(<span class="hljs
 
 
 
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
 
 
-
-
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</body>
 </html>

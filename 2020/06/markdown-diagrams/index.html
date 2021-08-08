@@ -1,14 +1,14 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" type="image/png" href="/img/-221011ca0d9ca71f.jpg">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,28 +17,36 @@
   <meta name="description" content="">
   <meta name="author" content="DogeLasVegas">
   <meta name="keywords" content="">
+  
   <title>【转】用markdown画图（流程图、序列图等等） - 性感咸鱼，在线翻身</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/hybrid.min.css" />
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -50,7 +58,12 @@
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
   <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
@@ -135,18 +148,44 @@
           
           
           
-            <li class="nav-item">
-              <a class="nav-link" href="/collect/">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-brush"></i>
-                养馬场
+                养馬場
               </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
             </li>
           
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -154,25 +193,28 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【转】用markdown画图（流程图、序列图等等）">
               
             </span>
 
             
-              
-  <div class="mt-3 post-meta">
-    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-06-29 11:51">
-      2020年6月29日 中午
-    </time>
-  </div>
-
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-29 11:51" pubdate>
+        2020年6月29日 中午
+      </time>
+    </span>
+  
+</div>
 
 <div class="mt-1">
   
@@ -214,126 +256,64 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
-          <div class="post-content mx-auto" id="post">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【转】用markdown画图（流程图、序列图等等）</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年6月29日 中午
+                  本文最后更新于：1 年前
                 
               </p>
             
-            <article class="markdown-body">
-              <h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
-graph LR
-A[方形] --&gt;B(圆角)
-    B --&gt; C&#123;条件a&#125;
-    C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]
-    C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]
-    F[横向流程图]</code></pre></div>
+            <div class="markdown-body">
+              <h3 id="1、横向流程图源码格式："><a href="#1、横向流程图源码格式：" class="headerlink" title="1、横向流程图源码格式："></a>1、横向流程图源码格式：</h3><figure class="highlight coq"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coq">mermaid<br>graph LR<br>A[方形] --&gt;B(圆角)<br>    B --&gt; C&#123;条件a&#125;<br>    C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]<br>    C --&gt;|<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]<br>    F[横向流程图]<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs mermaid">graph LR
+<pre><code class=" mermaid">graph LR
 A[方形] --&gt;B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt;|a&#x3D;1| D[结果1]
     C --&gt;|a&#x3D;2| E[结果2]
-    F[横向流程图]</code></pre></div>
+    F[横向流程图]
+</code></pre>
 
-<h3 id="2、竖向流程图源码格式："><a href="#2、竖向流程图源码格式：" class="headerlink" title="2、竖向流程图源码格式："></a>2、竖向流程图源码格式：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
-graph TD
-A[方形] --&gt; B(圆角)
-    B --&gt; C&#123;条件a&#125;
-    C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]
-    C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]
-    F[竖向流程图]</code></pre></div>
+<h3 id="2、竖向流程图源码格式："><a href="#2、竖向流程图源码格式：" class="headerlink" title="2、竖向流程图源码格式："></a>2、竖向流程图源码格式：</h3><figure class="highlight coq"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coq">mermaid<br>graph TD<br>A[方形] --&gt; B(圆角)<br>    B --&gt; C&#123;条件a&#125;<br>    C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">1</span>| <span class="hljs-type">D</span>[结果<span class="hljs-number">1</span>]<br>    C --&gt; |<span class="hljs-type">a</span>=<span class="hljs-number">2</span>| <span class="hljs-type">E</span>[结果<span class="hljs-number">2</span>]<br>    F[竖向流程图]<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs mermaid">graph TD
+<pre><code class=" mermaid">graph TD
 A[方形] --&gt; B(圆角)
     B --&gt; C&#123;条件a&#125;
     C --&gt; |a&#x3D;1| D[结果1]
     C --&gt; |a&#x3D;2| E[结果2]
-    F[竖向流程图]</code></pre></div>
+    F[竖向流程图]
+</code></pre>
 
-<h3 id="3、标准流程图源码格式："><a href="#3、标准流程图源码格式：" class="headerlink" title="3、标准流程图源码格式："></a>3、标准流程图源码格式：</h3><div class="hljs"><pre><code class="hljs livescript">flow
-st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st-&gt;op-&gt;cond
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io-&gt;e
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre></div>
+<h3 id="3、标准流程图源码格式："><a href="#3、标准流程图源码格式：" class="headerlink" title="3、标准流程图源码格式："></a>3、标准流程图源码格式：</h3><figure class="highlight livescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livescript">flow<br>st=&gt;start: 开始框<br>op=&gt;operation: 处理框<br>cond=&gt;condition: 判断框(是或否?)<br>sub1=&gt;subroutine: 子流程<br>io=&gt;inputoutput: 输入输出框<br>e=&gt;end: 结束框<br>st-&gt;op-&gt;cond<br>cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io-&gt;e<br>cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
-op&#x3D;&gt;operation: 处理框
-cond&#x3D;&gt;condition: 判断框(是或否?)
-sub1&#x3D;&gt;subroutine: 子流程
-io&#x3D;&gt;inputoutput: 输入输出框
-e&#x3D;&gt;end: 结束框
-st-&gt;op-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op</code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框<br>op&#x3D;&gt;operation: 处理框<br>cond&#x3D;&gt;condition: 判断框(是或否?)<br>sub1&#x3D;&gt;subroutine: 子流程<br>io&#x3D;&gt;inputoutput: 输入输出框<br>e&#x3D;&gt;end: 结束框<br>st-&gt;op-&gt;cond<br>cond(yes)-&gt;io-&gt;e<br>cond(no)-&gt;sub1(right)-&gt;op<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="4、标准流程图源码格式（横向）："><a href="#4、标准流程图源码格式（横向）：" class="headerlink" title="4、标准流程图源码格式（横向）："></a>4、标准流程图源码格式（横向）：</h3><div class="hljs"><pre><code class="hljs livescript">flow
-st=&gt;start: 开始框
-op=&gt;operation: 处理框
-cond=&gt;condition: 判断框(是或否?)
-sub1=&gt;subroutine: 子流程
-io=&gt;inputoutput: 输入输出框
-e=&gt;end: 结束框
-st<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>cond
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io<span class="hljs-function"><span class="hljs-params">(bottom)</span>-&gt;</span>e
-cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op</code></pre></div>
+<h3 id="4、标准流程图源码格式（横向）："><a href="#4、标准流程图源码格式（横向）：" class="headerlink" title="4、标准流程图源码格式（横向）："></a>4、标准流程图源码格式（横向）：</h3><figure class="highlight livescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livescript">flow<br>st=&gt;start: 开始框<br>op=&gt;operation: 处理框<br>cond=&gt;condition: 判断框(是或否?)<br>sub1=&gt;subroutine: 子流程<br>io=&gt;inputoutput: 输入输出框<br>e=&gt;end: 结束框<br>st<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>cond<br>cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">yes</span>)</span>-&gt;</span>io<span class="hljs-function"><span class="hljs-params">(bottom)</span>-&gt;</span>e<br>cond<span class="hljs-function"><span class="hljs-params">(<span class="hljs-literal">no</span>)</span>-&gt;</span>sub1<span class="hljs-function"><span class="hljs-params">(right)</span>-&gt;</span>op<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框
-op&#x3D;&gt;operation: 处理框
-cond&#x3D;&gt;condition: 判断框(是或否?)
-sub1&#x3D;&gt;subroutine: 子流程
-io&#x3D;&gt;inputoutput: 输入输出框
-e&#x3D;&gt;end: 结束框
-st(right)-&gt;op(right)-&gt;cond
-cond(yes)-&gt;io(bottom)-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op</code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs flow">st&#x3D;&gt;start: 开始框<br>op&#x3D;&gt;operation: 处理框<br>cond&#x3D;&gt;condition: 判断框(是或否?)<br>sub1&#x3D;&gt;subroutine: 子流程<br>io&#x3D;&gt;inputoutput: 输入输出框<br>e&#x3D;&gt;end: 结束框<br>st(right)-&gt;op(right)-&gt;cond<br>cond(yes)-&gt;io(bottom)-&gt;e<br>cond(no)-&gt;sub1(right)-&gt;op<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span>
-对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)
-对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)
-对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？</code></pre></div>
+<h3 id="5、UML时序图源码样例："><a href="#5、UML时序图源码样例：" class="headerlink" title="5、UML时序图源码样例："></a>5、UML时序图源码样例：</h3><figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span><br>对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）<br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述<br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)<br>对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)<br>对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs sequence">对象A-&gt;对象B: 对象B你好吗?（请求）
-Note right of 对象B: 对象B的描述
-Note left of 对象A: 对象A的描述(提示)
-对象B--&gt;对象A: 我很好(响应)
-对象A-&gt;对象B: 你真的好吗？</code></pre></div>
+<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sequence">对象A-&gt;对象B: 对象B你好吗?（请求）<br>Note right of 对象B: 对象B的描述<br>Note left of 对象A: 对象A的描述(提示)<br>对象B--&gt;对象A: 我很好(响应)<br>对象A-&gt;对象B: 你真的好吗？<br></code></pre></div></td></tr></table></figure>
 
-<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><div class="hljs"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span>
-<span class="hljs-selector-tag">Title</span>: 标题：复杂使用
-对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)
-对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)
-对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">-</span>&gt;小三: 你好吗
-小三<span class="hljs-selector-tag">--</span>&gt;&gt;对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">B</span>找我了
-对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">over</span> 小三,对象<span class="hljs-selector-tag">B</span>: 我们是朋友
-<span class="hljs-selector-tag">participant</span> <span class="hljs-selector-tag">C</span>
-<span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">C</span>: 没人陪我玩</code></pre></div>
+<h3 id="6、UML时序图源码复杂样例："><a href="#6、UML时序图源码复杂样例：" class="headerlink" title="6、UML时序图源码复杂样例："></a>6、UML时序图源码复杂样例：</h3><figure class="highlight less"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-selector-tag">sequence</span><br><span class="hljs-selector-tag">Title</span>: 标题：复杂使用<br>对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>你好吗?（请求）<br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">B</span>: 对象<span class="hljs-selector-tag">B</span>的描述<br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">left</span> <span class="hljs-selector-tag">of</span> 对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">A</span>的描述(提示)<br>对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">--</span>&gt;对象<span class="hljs-selector-tag">A</span>: 我很好(响应)<br>对象<span class="hljs-selector-tag">B</span><span class="hljs-selector-tag">-</span>&gt;小三: 你好吗<br>小三<span class="hljs-selector-tag">--</span>&gt;&gt;对象<span class="hljs-selector-tag">A</span>: 对象<span class="hljs-selector-tag">B</span>找我了<br>对象<span class="hljs-selector-tag">A</span><span class="hljs-selector-tag">-</span>&gt;对象<span class="hljs-selector-tag">B</span>: 你真的好吗？<br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">over</span> 小三,对象<span class="hljs-selector-tag">B</span>: 我们是朋友<br><span class="hljs-selector-tag">participant</span> <span class="hljs-selector-tag">C</span><br><span class="hljs-selector-tag">Note</span> <span class="hljs-selector-tag">right</span> <span class="hljs-selector-tag">of</span> <span class="hljs-selector-tag">C</span>: 没人陪我玩<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+<pre><code class=" mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
     participant 李四
@@ -344,24 +324,13 @@ Note left of 对象A: 对象A的描述(提示)
     Note right of 王五: 合理 食物 &lt;br&#x2F;&gt;看医生...
     李四--&gt;&gt;张三: 很好!
     王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre></div>
+    李四--&gt;王五: 很好!
+</code></pre>
 
-<h3 id="7、UML标准时序图样例："><a href="#7、UML标准时序图样例：" class="headerlink" title="7、UML标准时序图样例："></a>7、UML标准时序图样例：</h3><div class="hljs"><pre><code class="hljs coq">mermaid
-%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
-  sequenceDiagram
-    participant 张三
-    participant 李四
-    张三-&gt;王五: 王五你好吗？
-    loop 健康检查
-        王五-&gt;王五: 与疾病战斗
-    <span class="hljs-keyword">end</span>
-    Note <span class="hljs-built_in">right</span> of 王五: 合理 食物 &lt;br/&gt;看医生...
-    李四--&gt;&gt;张三: 很好!
-    王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre></div>
+<h3 id="7、UML标准时序图样例："><a href="#7、UML标准时序图样例：" class="headerlink" title="7、UML标准时序图样例："></a>7、UML标准时序图样例：</h3><figure class="highlight coq"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs coq">mermaid<br>%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头<br>  sequenceDiagram<br>    participant 张三<br>    participant 李四<br>    张三-&gt;王五: 王五你好吗？<br>    loop 健康检查<br>        王五-&gt;王五: 与疾病战斗<br>    <span class="hljs-keyword">end</span><br>    Note <span class="hljs-built_in">right</span> of 王五: 合理 食物 &lt;br/&gt;看医生...<br>    李四--&gt;&gt;张三: 很好!<br>    王五-&gt;李四: 你怎么样?<br>    李四--&gt;王五: 很好!<br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
+<pre><code class=" mermaid">%% 时序图例子,-&gt; 直线，--&gt;虚线，-&gt;&gt;实线箭头
   sequenceDiagram
     participant 张三
     participant 李四
@@ -372,31 +341,13 @@ Note left of 对象A: 对象A的描述(提示)
     Note right of 王五: 合理 食物 &lt;br&#x2F;&gt;看医生...
     李四--&gt;&gt;张三: 很好!
     王五-&gt;李四: 你怎么样?
-    李四--&gt;王五: 很好!</code></pre></div>
+    李四--&gt;王五: 很好!
+</code></pre>
 
-<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><div class="hljs"><pre><code class="hljs x86asm">mermaid
-%% 语法示例
-        gantt
-        dateFormat  YYYY-MM-<span class="hljs-built_in">DD</span>
-        title 软件开发甘特图
-        <span class="hljs-meta">section</span> 设计
-        需求                      :done,    des1, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">08</span>
-        原型                      :active,  des2, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">09</span>, <span class="hljs-number">3d</span>
-        UI设计                     :         des3, after des2, <span class="hljs-number">5d</span>
-    未来任务                     :         des4, after des3, <span class="hljs-number">5d</span>
-        <span class="hljs-meta">section</span> 开发
-        学习准备理解需求                      :crit, done, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">24h</span>
-        设计框架                             :crit, done, after des2, <span class="hljs-number">2d</span>
-        开发                                 :crit, active, <span class="hljs-number">3d</span>
-        未来任务                              :crit, <span class="hljs-number">5d</span>
-        耍                                   :<span class="hljs-number">2d</span>
-        <span class="hljs-meta">section</span> 测试
-        功能测试                              :active, a1, after des3, <span class="hljs-number">3d</span>
-        压力测试                               :after a1  , <span class="hljs-number">20h</span>
-        测试报告                               : <span class="hljs-number">48h</span></code></pre></div>
+<h3 id="8、甘特图样例："><a href="#8、甘特图样例：" class="headerlink" title="8、甘特图样例："></a>8、甘特图样例：</h3><figure class="highlight x86asm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs x86asm">mermaid<br>%% 语法示例<br>        gantt<br>        dateFormat  YYYY-MM-<span class="hljs-built_in">DD</span><br>        title 软件开发甘特图<br>        <span class="hljs-meta">section</span> 设计<br>        需求                      :done,    des1, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">08</span><br>        原型                      :active,  des2, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">09</span>, <span class="hljs-number">3d</span><br>        UI设计                     :         des3, after des2, <span class="hljs-number">5d</span><br>    未来任务                     :         des4, after des3, <span class="hljs-number">5d</span><br>        <span class="hljs-meta">section</span> 开发<br>        学习准备理解需求                      :crit, done, <span class="hljs-number">2014</span>-<span class="hljs-number">01</span>-<span class="hljs-number">06</span>,<span class="hljs-number">24h</span><br>        设计框架                             :crit, done, after des2, <span class="hljs-number">2d</span><br>        开发                                 :crit, active, <span class="hljs-number">3d</span><br>        未来任务                              :crit, <span class="hljs-number">5d</span><br>        耍                                   :<span class="hljs-number">2d</span><br>        <span class="hljs-meta">section</span> 测试<br>        功能测试                              :active, a1, after des3, <span class="hljs-number">3d</span><br>        压力测试                               :after a1  , <span class="hljs-number">20h</span><br>        测试报告                               : <span class="hljs-number">48h</span><br></code></pre></div></td></tr></table></figure>
 
 <p><strong>效果图：</strong></p>
-<div class="hljs"><pre><code class="hljs mermaid">%% 语法示例
+<pre><code class=" mermaid">%% 语法示例
         gantt
         dateFormat  YYYY-MM-DD
         title 软件开发甘特图
@@ -414,11 +365,12 @@ Note left of 对象A: 对象A的描述(提示)
         section 测试
         功能测试                              :active, a1, after des3, 3d
         压力测试                               :after a1  , 20h
-        测试报告                               : 48h</code></pre></div>
+        测试报告                               : 48h
+</code></pre>
 
 <h3 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/markdown/md-advance.html">Markdown 高级技巧-笔记</a></p>
 
-            </article>
+            </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
@@ -426,11 +378,15 @@ Note left of 对象A: 对象A的描述(提示)
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
-                <div class="post-prevnext row">
-                  <div class="post-prev col-6">
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
                     
                     
                       <a href="/2020/06/add-live2d/">
@@ -439,8 +395,8 @@ Note left of 对象A: 对象A的描述(提示)
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
-                  </div>
-                  <div class="post-next col-6">
+                  </article>
+                  <article class="post-next col-6">
                     
                     
                       <a href="/2020/06/media-autoplay/">
@@ -449,30 +405,31 @@ Note left of 对象A: 对象A的描述(提示)
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
-                  </div>
+                  </article>
                 </div>
               
             </div>
 
             
               <!-- Comments -->
-              <div class="comments" id="comments">
+              <article class="comments" id="comments">
+                
+                  
                 
                 
   <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
     <script type="text/javascript">
-      function loadLivere() {
-        addScript('https://cdn-city.livere.com/js/embed.dist.js');
-      }
-      createObserver(loadLivere, 'lv-container');
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
     </script>
-    <noscript>为正常使用来必力评论功能请允许 JavaScript 运行</noscript>
+    <noscript>Please enable JavaScript to view the comments</noscript>
   </div>
 
 
-              </div>
+              </article>
             
-          </div>
+          </article>
         </div>
       </div>
     </div>
@@ -480,7 +437,7 @@ Note left of 对象A: 对象A的描述(提示)
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
         <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div id="tocbot"></div>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
       </div>
@@ -492,16 +449,15 @@ Note left of 对象A: 对象A的描述(提示)
 
 
     
-  </main>
 
-  
-    <a id="scroll-top-button" href="#" role="button">
-      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -522,68 +478,74 @@ Note left of 对象A: 对象A的描述(提示)
     </div>
   </div>
 </div>
-  
-
-  
-
-  
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
-  <div class="statistics">
-    
     
 
     
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
+  
 
+  
 
-    
-
-    
-  </div>
+  
 </footer>
 
-<!-- SCRIPTS -->
-<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
-<script  src="/js/main.js" ></script>
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
 
 
   
     
-      <script  src="/js/lazyload.js" ></script>
+      <script  src="/js/img-lazyload.js" ></script>
     
   
 
 
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -592,95 +554,15 @@ Note left of 对象A: 对象A的描述(提示)
 
 
 
-
-  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
-    $(document).ready(function () {
-      var boardCtn = $('#board-ctn');
-      var boardTop = boardCtn.offset().top;
-
-      tocbot.init({
-        tocSelector: '#tocbot',
-        contentSelector: 'article.markdown-body',
-        headingSelector: 'h1,h2,h3,h4,h5,h6',
-        linkClass: 'tocbot-link',
-        activeLinkClass: 'tocbot-active-link',
-        listClass: 'tocbot-list',
-        isCollapsedClass: 'tocbot-is-collapsed',
-        collapsibleClass: 'tocbot-is-collapsible',
-        collapseDepth: 0,
-        scrollSmooth: true,
-        headingsOffset: -boardTop
-      });
-      if ($('.toc-list-item').length > 0) {
-        $('#toc').css('visibility', 'visible');
-      }
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
-  <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "【转】用markdown画图（流程图、序列图等等）&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "hover",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      searchFunc(path, 'local-search-input', 'local-search-result');
-      this.onclick = null
-    }
-  </script>
-
-
-
-  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-  <script>
-    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
-      function () {
-        var element = document.createElement('a');
-        $(element).attr('data-fancybox', 'images');
-        $(element).attr('href', $(this).attr('src'));
-        $(this).wrap(element);
-      }
-    );
+      typing(title)
+      
+    })(window, document);
   </script>
 
 
@@ -689,64 +571,9 @@ Note left of 对象A: 对象A的描述(提示)
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
-
-
-
-
-
-
-  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.10.1/dist/mermaid.min.js" ></script>
   <script>
     if (window.mermaid) {
       mermaid.initialize({"theme":"default"});
@@ -759,5 +586,9 @@ Note left of 对象A: 对象A的描述(提示)
 
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"superSample":2,"width":250,"height":500,"position":"left","hOffset":-30,"vOffset":-100},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.8},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
 </html>
