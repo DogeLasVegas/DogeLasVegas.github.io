@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>datastruct-note04 - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="datastruct-note04">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:50" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">datastruct-note04</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：几秒前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h2><p>由于数组可以是多维的，而顺序存储结构是一维的，因此数组中数据的存储要制定一个先后次序。通常，数组中数据的存储有两种先后存储方式：</p>
+<p>以列序为主（先列后行）：按照行号从小到大的顺序，依次存储每一列的元素<br>以行序为主（先行后序）：按照列号从小到大的顺序，依次存储每一行的元素。</p>
+<p>多维数组查找指定元素</p>
+<p>当需要在顺序存储的多维数组中查找某个指定元素时，需知道以下信息：</p>
+<p>多维数组的存储方式；<br>多维数组在内存中存放的起始地址；<br>该指定元素在原多维数组的坐标（比如说，二维数组中是通过行标和列标来表明数据元素的具体位置的）；<br>数组中数组的具体类型，即数组中单个数据元素所占内存的大小，通常用字母 L 表示；</p>
+<p>根据存储方式的不同，查找目标元素的方式也不同。如果二维数组采用以行序为主的方式，则在二维数组 anm 中查找 aij 存放位置的公式为：</p>
+<p><code>LOC(i,j) = LOC(0,0) + (i*m + j) * L;</code></p>
+<p>其中，LOC(i,j) 为 aij 在内存中的地址，LOC(0,0) 为二维数组在内存中存放的起始位置（也就是 a00 的位置）。</p>
+<p>而如果采用以列存储的方式，在 anm 中查找 aij 的方式为：</p>
+<p><code>LOC(i,j) = LOC(0,0) + (i*n + j) * L;</code></p>
+<p>矩阵（稀疏矩阵）压缩存储（3种方式）</p>
+<p>主要分为以下两类的特殊矩阵：，</p>
+<p>含有大量相同数据元素的矩阵，比如对称矩阵；</p>
+<p>含有大量 0 元素的矩阵，比如稀疏矩阵、上（下）三角矩阵；</p>
+<p>针对以上两类矩阵，数据结构的压缩存储思想是：矩阵中的相同数据元素（包括元素 0）只存储一个。</p>
+<p>对称矩阵的实现过程是，若存储下三角中的元素，只需将各元素所在的行标 i 和列标 j 代入下面的公式：</p>
+<p>存储上三角的元素要将各元素的行标 i 和列标 j 代入另一个公式：</p>
+<p>最终求得的 k 值即为该元素存储到数组中的位置（矩阵中元素的行标和列标都从 1 开始）。</p>
+<p>上(下)三角矩阵存储元素和提取元素的过程和对称矩阵相同。</p>
+<p>压缩存储稀疏矩阵的方法是：只存储矩阵中的非 0 元素，与前面的存储方法不同，稀疏矩阵非 0 元素的存储需同时存储该元素所在矩阵中的行标和列标。</p>
+<p>稀疏矩阵的压缩存储，数据结构提供有 3 种具体实现方式：</p>
+<p>三元组顺序表；行逻辑链接的顺序表；十字链表；</p>
+<p>三元组（即由 3 部分数据组成的集合），组中数据分别表示（行标，列标，元素值）。</p>
+<p>C 语言中，三元组需要用结构体实现，如下所示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">//三元组结构体</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-keyword">int</span> i,j;<span class="hljs-comment">//行标i，列标j</span><br>    <span class="hljs-keyword">int</span> data;<span class="hljs-comment">//元素值</span><br>&#125;triple;<br></code></pre></div></td></tr></table></figure>
+
+<p>由于稀疏矩阵中非 0 元素有多个，因此需要建立 triple 数组存储各个元素的三元组。除此之外，考虑到还要存储矩阵的总行数和总列数，因此可以采用以下结构表示整个稀疏矩阵：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> number 20</span><br><span class="hljs-comment">//矩阵的结构表示</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    triple data[number];<span class="hljs-comment">//存储该矩阵中所有非0元素的三元组</span><br>    <span class="hljs-keyword">int</span> n,m,num;<span class="hljs-comment">//n和m分别记录矩阵的行数和列数，num记录矩阵中所有的非0元素的个数</span><br>&#125;TSMatrix;<br></code></pre></div></td></tr></table></figure>
+
+<p>可以看到，TSMatrix 是一个结构体，其包含一个三元组数组，以及用于存储矩阵总行数、总列数和非 0 元素个数的变量。</p>
+<p>行逻辑链接的顺序表和三元组顺序表的实现过程类似，它们存储矩阵的过程完全相同，都是将矩阵中非 0 元素的三元组（行标、列标和元素值）存储在一维数组中。但为了提高提取数据的效率，前者在存储矩阵时比后者多使用了一个数组，专门记录矩阵中每行第一个非 0 元素在一维数组中的位置。</p>
+<p>用十字链表存储稀疏矩阵，该存储方式采用的是 “链表+数组” 结构，矩阵中的各行各列都各用一各链表存储，与此同时，所有行链表的表头存储到一个数组（rhead），所有列链表的表头存储到另一个数组（chead）中。</p>
+<p>链表中节点的 C 语言代码表示应为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">OLNode</span>&#123;</span><br>    <span class="hljs-keyword">int</span> i,j;<span class="hljs-comment">//元素的行标和列标</span><br>    <span class="hljs-keyword">int</span> data;<span class="hljs-comment">//元素的值</span><br>    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">OLNode</span> * <span class="hljs-title">right</span>,*<span class="hljs-title">down</span>;</span><span class="hljs-comment">//两个指针域</span><br>&#125;OLNode;<br></code></pre></div></td></tr></table></figure>
+
+<p>矩阵转置的实现过程需完成以下 3 步：</p>
+<p>将矩阵的行数和列数互换；<br>将三元组表（存储矩阵）中的 i 列和 j 列互换，实现矩阵的转置；<br>以 j 列为序，重新排列三元组表中存储各三元组的先后顺序；<br>此 3 步中，前两步比较简单，关键在于最后一步的实现。</p>
+<p>矩阵转置的实现思路是：不断遍历存储矩阵的三元组表，每次都取出表中 j 列最小的那一个三元组，互换行标和列标的值，并按次序存储到一个新三元组表中，。</p>
+<p><strong>广义表</strong></p>
+<p>广义表，又称列表，也是一种线性存储结构。</p>
+<p>同数组类似，广义表中既可以存储不可再分的元素，也可以存储广义表，记作：<br><code>LS = (a1,a2,…,an)</code></p>
+<p>其中，LS 代表广义表的名称，an 表示广义表存储的数据。广义表中每个 ai 既可以代表单个元素，也可以代表另一个广义表。</p>
+<p>原子和子表</p>
+<p>通常，广义表中存储的单个元素称为 “原子”，而存储的广义表称为 “子表”。</p>
+<p>例如创建一个广义表 LS = {1,{1,2,3}} ，我们可以这样解释此广义表的构成：广义表 LS 存储了一个原子 1 和子表 {1,2,3} 。</p>
+<p>以下是广义表存储数据的一些常用形式：</p>
+<p>A = ()：A 表示一个广义表，只不过表是空的。<br>B = (e)：广义表 B 中只有一个原子 e。<br>C = (a,(b,c,d)) ：广义表 C 中有两个元素，原子 a 和子表 (b,c,d)。<br>D = (A,B,C)：广义表 D 中存有 3 个子表，分别是A、B和C。这种表示方式等同于 D = ((),(e),(b,c,d)) 。<br>E = (a,E)：广义表 E 中有两个元素，原子 a 和它本身。这是一个递归广义表，等同于：E = (a,(a,(a,…)))。</p>
+<p>注意，A = () 和 A = (()) 是不一样的。前者是空表，而后者是包含一个子表的广义表，只不过这个子表是空表。</p>
+<p>广义表的表头和表尾</p>
+<p>当广义表不是空表时，称第一个数据（原子或子表）为”表头”，剩下的数据构成的新广义表为”表尾”。<br>强调一下，除非广义表为空表，否则广义表一定具有表头和表尾，且广义表的表尾一定是一个广义表。</p>
+<p>例如在广义表中 LS={1,{1,2,3},5}  中，表头为原子 1，表尾为子表 {1,2,3}  和原子 5 构成的广义表，即 {{1,2,3},5}。</p>
+<p>再比如，在广义表 LS = {1}  中，表头为原子 1 ，但由于广义表中无表尾元素，因此该表的表尾是一个空表，用 {}  表示</p>
+<p>一般来说，广义表具有如下重要的特性：</p>
+<p>（1）广义表中的数据元素有相对次序</p>
+<p>（2）广义表的长度定义为最外层包含元素个数</p>
+<p>（3）广义表的深度定义为所含括弧的重数。其中原子的深度为0，空表的深度为1</p>
+<p>（4）广义表可以共享；一个广义表可以为其他广义表共享；这种共享广义表称为再入表</p>
+<p>（5）广义表可以是一个递归的表。一个广义表可以是自已的子表。这种广义表称为递归表。递归表的深度是无穷值,长度是有限值</p>
+<p>（6）任何一个非空广义表GL均可分解为表头head(GL) = a1和表尾tail(GL) = ( a2,…,an) 两部分。 </p>
+<p>广义表是一种不定规模的数据结构，很难为之分配具体的空间，因此创建的方法采用动态的链式方法，动态的创建空间。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tag</td>
+<td>atom/node</td>
+<td>link</td>
+</tr>
+</tbody></table>
+<p>对于每一个结点而言由如上三大部分组成，其中Tag域为标志字段，其只有两个参数，0或者1（Tag域使用int类型，在某些情况下因为只需要简单判断也可以使用更短的类型，如bool）；Atom/Node域的内容由tag标志决定，当Tag为0时表示该节点是原子结点（即存放原子数据），当Tag为1时表示该节点为指向下一个广义表的指针（即表结点），Link域存放与本元素同一层的下一个元素所在的结点地址，当本元素时所在层的最后一个元素时，Link域为NULL；</p>
+<p>链式法设计：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arduino"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> AtomType int</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">enum</span>&#123;</span>ATOM,LIST&#125;ElemTag; <span class="hljs-comment">//ATOM = 0：原子；LIST = 1:子表 </span><br><span class="hljs-comment">/*结点设计*/</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">GLNode</span>&#123;</span><br>    ElemTag tag; <span class="hljs-comment">//枚举类型的标志域，只能取定义了的枚举值</span><br>    <span class="hljs-comment">//或者直接写数字 int tag;//标志域</span><br>    <span class="hljs-class"><span class="hljs-keyword">union</span>&#123;</span>   <br>        <span class="hljs-comment">//union联合体，下面两部分只能取其一；要么取AtomType;要么取结构体ptr,ptr包括两个指针hp,tp </span><br>        AtomType atom;<br>        <span class="hljs-class"><span class="hljs-keyword">struct</span>&#123;</span><br>            <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">GLNode</span> *<span class="hljs-title">hp</span>,*<span class="hljs-title">tp</span>;</span><br>        &#125;ptr;<br>    &#125;; <br>&#125;*GList; <span class="hljs-comment">//定义广义表类型，GList为指针</span><br></code></pre></div></td></tr></table></figure>
+
+<p>下面是子表法设计：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gauss"><span class="hljs-comment">/*线性表存储之扩展线性表 = 子表法*/</span> <br>typedef <span class="hljs-keyword">struct</span> <span class="hljs-type">GLNode</span>&#123;<br>    ElemTag tag;<br>    <span class="hljs-comment">//或者直接写数字 int tag;//标志域</span><br>    <span class="hljs-built_in">union</span>&#123;<br>        AtomType atom;<br>        <span class="hljs-keyword">struct</span> <span class="hljs-type">GLNode</span> *hp;   <span class="hljs-comment">//对于列表，hp指向本列表内部第一个元素，而tp是指向本层次上的下一个元素 </span><br>    &#125;;                        <br>    <span class="hljs-keyword">struct</span> <span class="hljs-type">GLNode</span> *tp;<br>&#125; *GList;<br></code></pre></div></td></tr></table></figure>
+
+<p>对于任意一个非空广义表来说，都是由两部分组成：表头和表尾。反之，只要确定的一个广义表的表头和表尾，那么这个广义表就可以唯一确定下来。</p>
+<p>复制一个广义表，也是不断的复制表头和表尾的过程。如果表头或者表尾同样是一个广义表，依旧复制其表头和表尾。</p>
+<p>所以，复制广义表的过程，其实就是不断的递归，复制广义表中表头和表尾的过程。</p>
+<p>递归的出口有两个：</p>
+<p>如果当前遍历的数据元素为空表，则直接返回空表。<br>如果当前遍历的数据元素为该表的一个原子，那么直接复制，返回即可。</p>
+<p>在实现复制广义表的过程中，实现函数为：</p>
+<p><code>void copyGlist(Glist C, Glist *T);</code></p>
+<p>其中，Glist *T，等同于: struct GLNode* *T，此为二级指针，不是一级指针。在主函数中，调用此函数时，传入的是指针 T 的地址，而不是 T 。</p>
+<p>这里使用的是地址传递，而不是值传递。如果在这里使用值传递，会导致广义表 T 丢失结点，复制失败。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/datastruct-note05/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">datastruct-note05</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/datastruct-note03/">
+                        <span class="hidden-mobile">datastruct-note03</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

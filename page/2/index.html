@@ -218,23 +218,21 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/npm-registry-basecommond/" target="_self">
-          npm换源和常用命令
+        <a href="/2021/12/C05-function-pointer/" target="_self">
+          C05-function-pointer
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/npm-registry-basecommond/" target="_self">
+        <a href="/2021/12/C05-function-pointer/" target="_self">
           
           
             
           
-          npm 官方站点 http://www.npmjs.org/ 虽然没有被墙，但是下载第三方依赖包是从国外服务器下载，下载的速度是非常慢让人着急不说还有可能会出现异常。
-切换npm源的几种方式通过使用cnpm命令首先安装cnpm命令行工具
-1npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-安装完成后检测是否安装成功
-1c
+          C函数C语言不允许函数嵌套定义，函数名和参数列表一起构成了函数签名。意味着可以出现参数列表不同但是函数名相同的函数。
+函数声明由于程序是从上向下执行，所以函数要先声明，后调用。
+函数声明的格式非常简单，相当于去掉函数定义中的函数体，并在最后加上分号;，如下所示：dataType  functionName( dataType1 param1, dataType2 param2 ... );
+也可以
         </a>
       </p>
 
@@ -242,19 +240,12 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-28 11:58" pubdate>
-              2020-06-28
+            <time datetime="2021-12-10 23:29" pubdate>
+              2021-12-10
             </time>
           </div>
         
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/npm/">npm</a>
-            
-          </div>
         
       </div>
     </article>
@@ -266,20 +257,26 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/gits-hexo-d/" target="_self">
-          一台电脑多git账号如何部署hexo博客
+        <a href="/2021/12/C04-array-string/" target="_self">
+          C04-array-string
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/gits-hexo-d/" target="_self">
+        <a href="/2021/12/C04-array-string/" target="_self">
           
           
             
           
-          多git账号部署hexo博客如何在一台电脑上配置多个git账号可以看我的这篇博客一台电脑设置多个Git账号
-前面成功配置git账号之后，接下来就是修改hexo配置文件的git部署地址，打开你博客根目录下的_config.yml文件（注意是博客根目录下的配置文件，不是别的地方的），找到deploy项，改为如下内容：
-1234deploy:  type: git  repository: git@你在
+          C数组
+数组中每个元素的数据类型必须相同，对于int a[4];，每个元素都必须为 int类型。
+
+数组长度 length 最好是整数或者常量表达式，例如 10、20*4 等，这样在所有编译器下都能运行通过
+
+访问数组元素时，下标的取值范围为 0 ≤ index &lt; length，过大或过小都会越界，导致数组溢出，发生不可预测的情况
+
+
+数组内存是连续的。连续的内存为指针操作（通过指针来访问
         </a>
       </p>
 
@@ -287,19 +284,12 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-23 14:14" pubdate>
-              2020-06-23
+            <time datetime="2021-12-10 23:28" pubdate>
+              2021-12-10
             </time>
           </div>
         
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Git/">-Git</a>
-            
-          </div>
         
       </div>
     </article>
@@ -311,22 +301,21 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/cfg-multiple-git-accounts/" target="_self">
-          一台电脑设置多个Git账号
+        <a href="/2021/12/C03-input-output-if-for/" target="_self">
+          C03-input-output-if-for
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/cfg-multiple-git-accounts/" target="_self">
+        <a href="/2021/12/C03-input-output-if-for/" target="_self">
           
           
             
           
-          我们可能经常会用到不止一个git账号（比如一个github一个gitee），用于管理不同的项目，那怎么在一台电脑上配置两个或两个以上的git账号呢，下面介绍一下具体的方法，也算做个记录，以后忘了可以来看看。
-生成SSH Key如果之前没有生成过SSH Key的话，需要先生成，在命令行内执行以下命令：
-1ssh-keygen -t rsa -C&quot;你的github邮箱地址&quot;
-
-通常
+          C 输入 &amp; 输出输出函数：
+puts()：只能输出字符串，并且输出结束后会自动换行。putchar()：只能输出单个字符。printf()：可以输出各种类型的数据。
+输入函数：
+scanf()：和 printf() 类似，scanf() 可以输入多种类型的数据。getchar()、getche()、getch()：这三个函数都用于输入单个字符。gets()：获取一行数据，并作为字符串处理
         </a>
       </p>
 
@@ -334,8 +323,184 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-21 15:55" pubdate>
-              2020-06-21
+            <time datetime="2021-12-10 23:23" pubdate>
+              2021-12-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/C02-datatype-operators/" target="_self">
+          C02-datatype-operators
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/C02-datatype-operators/" target="_self">
+          
+          
+            
+          
+          C 数据类型C 中的类型可分为以下几种：
+
+
+
+序号
+类型与描述
+
+
+
+1
+基本类型：它们是算术类型，包括两种类型：整数类型和浮点类型。
+
+
+2
+枚举类型：它们也是算术类型，被用来定义在程序中只能赋予其一定的离散整数值的变量。
+
+
+3
+void 类型：类型说明符 void 表明没有可用的值。
+
+
+4
+派生类型：它们包括：指针类型、数组类型、结构类型、共用体类型和函数类型。
+
+
+数组类型和结构类型统
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-10 23:19" pubdate>
+              2021-12-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/C01/" target="_self">
+          C01
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/C01/" target="_self">
+          
+          
+            
+          
+          二进制、八进制、十进制、十六进制将二进制、八进制、十六进制转换为十进制二进制、八进制和十六进制向十进制转换的方法是“按权相加”。所谓“权”，也即“位权”。
+假设当前数字是 N 进制，那么：对于整数部分，从右往左看，第 i 位的位权等于Ni-1对于小数部分，恰好相反，要从左往右看，第 j 位的位权为N-j。
+更加通俗的理解是，假设一个多位数（由多个数字组成的数）某位上的数字它所表示的数值大小就是该位
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-10 23:13" pubdate>
+              2021-12-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/07/lqbz/" target="_self">
+          lqbz
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/07/lqbz/" target="_self">
+          
+          
+            
+          
+          12345678910111213141516171819202122232425262728293031                let reg = /.+?(省|市|自治区|自治州|行政区|区|镇|盟|县|旗)/g;                console.info(&quot;福建省厦门市湖里区XX街XX号&quot;.match(reg))                   
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-07-18 20:30" pubdate>
+              2021-07-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/commit-standard/" target="_self">
+          【转】Git/SVN提交代码规范
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/07/commit-standard/" target="_self">
+          
+          
+            
+          
+          12345678910feat - 新功能 featurefix - 修复 bugdocs - 文档注释style - 代码格式(不影响代码运行的变动)refactor - 重构、优化(既不增加新功能，也不是修复bug)perf - 性能优化test - 增加测试chore - 构建过程或辅助工具的变动revert - 回退build - 打包
+
+示例：
+
+原文链接：Git/SVN提交代码规范
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-18 16:03" pubdate>
+              2020-07-18
             </time>
           </div>
         
@@ -365,13 +530,71 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/tiangou-riji/" target="_self">
-          舔狗日记生成器
+        <a href="/2020/07/summernote-example/" target="_self">
+          富文本编辑器 Summernote 从入门到放弃（实例篇）
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/tiangou-riji/" target="_self">
+        <a href="/2020/07/summernote-example/" target="_self">
+          
+          
+            
+          
+          前篇把Summernote的用法和配置基本都介绍了一遍，本篇就来实现一个完整的富文本编辑器吧。
+需要引入的文件CSS
+12&lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.min.css&quot;&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;css/summernote
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-18 14:14" pubdate>
+              2020-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/HTML/">HTML</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/CSS/">CSS</a>
+            
+              <a href="/tags/HTML/">HTML</a>
+            
+              <a href="/tags/JS/">JS</a>
+            
+              <a href="/tags/%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/">富文本编辑器</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/vscode-plugins/" target="_self">
+          VScode插件
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/06/vscode-plugins/" target="_self">
           
           
             
@@ -384,8 +607,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 15:50" pubdate>
-              2020-06-17
+            <time datetime="2020-06-30 15:42" pubdate>
+              2020-06-30
             </time>
           </div>
         
@@ -401,18 +624,19 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2020/06/data-structure01/" target="_self">
-          树的遍历
+        <a href="/2020/06/live2d-download/" target="_self">
+          live2d点击下载没反应解决办法
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2020/06/data-structure01/" target="_self">
+        <a href="/2020/06/live2d-download/" target="_self">
           
           
             
           
-          
+          在Live2D官网下载Live2D Cublsm的时候，发现点击下载按钮没有反应的情况。不管点“アップデートをダウンロードする” （“Download updates”）还是“初めてダウンロードする” （“Download for the first time”），都没有反应。
+原因在打开控制台查看源代码后发现Live2D官网通过谷歌的CDN （ajax.googleapis.com）引用jque
         </a>
       </p>
 
@@ -420,234 +644,12 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
+            <time datetime="2020-06-29 21:26" pubdate>
+              2020-06-29
             </time>
           </div>
         
         
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/data-structure02/" target="_self">
-          树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/data-structure02/" target="_self">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/data-structure03/" target="_self">
-          树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/data-structure03/" target="_self">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/data-structure04/" target="_self">
-          树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/data-structure04/" target="_self">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/data-structure05/" target="_self">
-          树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/data-structure05/" target="_self">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/data-structure06/" target="_self">
-          树的遍历
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/data-structure06/" target="_self">
-          
-          
-            
-          
-          
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-17 14:01" pubdate>
-              2020-06-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-            
-          </div>
         
       </div>
     </article>
@@ -657,7 +659,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

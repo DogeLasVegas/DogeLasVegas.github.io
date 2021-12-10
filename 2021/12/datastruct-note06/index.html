@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>datastruct-note06 - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="datastruct-note06">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:51" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.8k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">datastruct-note06</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：27 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><p><a target="_blank" rel="noopener" href="https://www.dotcpp.com/course/145">https://www.dotcpp.com/course/145</a><br>图的定义</p>
+<p>一个图G是一个二元组，即序偶&lt;V,E&gt;，或记作G=&lt;V,E&gt; ，其中V是有限非空集合，称为G的顶点集,V中的元素称为顶点或结点；E称为G的边的集合，所有的边ei都属于E，都有v中的结点与之对应，称ei为G的边。</p>
+<p>图的基本常识</p>
+<p>弧头和弧尾</p>
+<p>有向图中，无箭头一端的顶点通常被称为”初始点”或”弧尾”，箭头直线的顶点被称为”终端点”或”弧头”。</p>
+<p>入度和出度</p>
+<p>对于有向图中的一个顶点 V 来说，箭头指向 V 的弧的数量为 V 的入度（InDegree，记为 ID(V)）；箭头远离 V 的弧的数量为 V 的出度（OutDegree，记为OD(V)）。</p>
+<p>(V1,V2) 和 &lt;V1,V2&gt; 的区别</p>
+<p>无向图中描述两顶点（V1 和 V2）之间的关系可以用 (V1,V2) 来表示，而有向图中描述从 V1 到 V2 的”单向”关系用 &lt;V1,V2&gt; 来表示。</p>
+<p>由于图存储结构中顶点之间的关系是用线来表示的，因此 (V1,V2) 还可以用来表示无向图中连接 V1 和 V2 的线，又称为边；同样，&lt;V1,V2&gt; 也可用来表示有向图中从 V1 到 V2 带方向的线，又称为弧。</p>
+<p>集合 VR 的含义</p>
+<p>并且，图中习惯用 VR 表示图中所有顶点之间关系的集合。例如，无向图的集合 VR={(v1,v2),(v1,v4),(v1,v3),(v3,v4)}，有向图的集合 VR={&lt;v1,v2&gt;,&lt;v1,v3&gt;,&lt;v3,v4&gt;,&lt;v4,v1&gt;}。</p>
+<p>路径和回路</p>
+<p>无论是无向图还是有向图，从一个顶点到另一顶点途径的所有顶点组成的序列（包含这两个顶点），称为一条路径。如果路径中第一个顶点和最后一个顶点相同，则此路径称为”回路”（或”环”）。</p>
+<p>并且，若路径中各顶点都不重复，此路径又被称为”简单路径”；同样，若回路中的顶点互不重复，此回路被称为”简单回路”（或简单环）。在有向图中，每条路径或回路都是有方向的。</p>
+<p>子图：指的是由图中一部分顶点和边构成的图，称为原图的子图。</p>
+<p>图存储结构的分类</p>
+<p>根据不同的特征，图又可分为完全图，连通图、稀疏图和稠密图：</p>
+<p>完全图：若图中各个顶点都与除自身外的其他顶点有关系，这样的无向图称为完全图）。同时，满足此条件的有向图则称为有向完全图）。</p>
+<p>具有 n 个顶点的完全图，图中边的数量为 n(n-1)/2；而对于具有 n 个顶点的有向完全图，图中弧的数量为 n(n-1)。</p>
+<p>稀疏图和稠密图：这两种图是相对存在的，即如果图中具有很少的边（或弧），此图就称为”稀疏图”；反之，则称此图为”稠密图”。</p>
+<p>稀疏和稠密的判断条件是：<code>e&lt;nlogn</code>，其中 e 表示图中边（或弧）的数量，n 表示图中顶点的数量。如果式子成立，则为稀疏图；反之为稠密图。</p>
+<p>无向图中，如果任意两个顶点之间都能够连通，则称此无向图为连通图。</p>
+<p>若无向图不是连通图，但图中存储某个子图符合连通图的性质，则称该子图为连通分量。这里的子图指的是图中”最大”的连通子图（也称”极大连通子图”）。</p>
+<p>有向图中，若任意两个顶点 Vi 和 Vj，满足从 Vi 到 Vj 以及从 Vj 到 Vi 都连通，也就是都含有至少一条通路，则称此有向图为强连通图。</p>
+<p>与此同时，若有向图本身不是强连通图，但其包含的最大连通子图具有强连通图的性质，则称该子图为强连通分量。</p>
+<p>对连通图进行遍历，过程中所经过的边和顶点的组合可看做是一棵普通树，通常称为生成树。</p>
+<p>连通图中，由于任意两顶点之间可能含有多条通路，遍历连通图的方式有多种，往往一张连通图可能有多种不同的生成树与之对应。</p>
+<p>连通图中的生成树必须满足以下 2 个条件：<br>包含连通图中所有的顶点；<br>任意两顶点之间有且仅有一条通路；</p>
+<p>因此，连通图的生成树具有这样的特征，即生成树中边的数量 = 顶点数 - 1。</p>
+<p>图的顺序存储结构</p>
+<p>用数组存储图时，需要使用两个数组，一个数组存放图中顶点本身的数据（一维数组），另外一个数组用于存储各顶点之间的关系（二维数组）。</p>
+<p>存储图中各顶点本身数据，使用一维数组就足够了；存储顶点之间的关系时，要记录每个顶点和其它所有顶点之间的关系，所以需要使用二维数组。</p>
+<p>不同类型的图，存储的方式略有不同，根据图有无权，可以将图划分为两大类：图和网 。</p>
+<p>图，包括无向图和有向图；网，是指带权的图，包括无向网和有向网。存储方式的不同，指的是：在使用二维数组存储图中顶点之间的关系时，如果顶点之间存在边或弧，在相应位置用 1 表示，反之用 0 表示；如果使用二维数组存储网中顶点之间的关系，顶点之间如果有边或者弧的存在，在数组的相应位置存储其权值；反之用 0 表示。</p>
+<p>它的优点是可以在O(1)时间内得到一条边是否存在，缺点是需要占用O(n^2)的空间。对于一个稀疏的图（边相对于点数的平方比较少）来说，用邻接矩阵来存储的话，成本偏高。</p>
+<p>邻接矩阵存在以下缺点</p>
+<p>a) 浪费空间—— 存稀疏图（点很多而边很少）有大量无效元素</p>
+<p>b) 浪费时间—— 统计稀疏图中一共有多少条边</p>
+<p>图的链式存储</p>
+<p>通常，图更多的是采用链表存储，具体的存储方法有 3 种，分别是邻接表、邻接多重表和十字链表。</p>
+<p>在图中，如果两个点相互连通，即通过其中一个顶点，可直接找到另一个顶点，则称它们互为邻接点。<br>邻接指的是图中顶点之间有边或者弧的存在。</p>
+<p>在常规情况下，邻接表是O(n+e)的复杂程度（n表示节点数，e表示边长），邻界矩阵则是O(n^2)的复杂程度。</p>
+<p>邻接表</p>
+<p>邻接表存储图的实现方式是，给图中的各个顶点独自建立一个链表，用节点存储该顶点，用链表中其他节点存储各自的临界点。</p>
+<p>与此同时，为了便于管理这些链表，通常会将所有链表的头节点存储到数组中（也可以用链表存储）。也正因为各个链表的头节点存储的是各个顶点，因此各链表在存储临界点数据时，仅需存储该邻接顶点位于数组中的位置下标即可。</p>
+<p>n个顶点e条边的无向图的邻接表表示中有n个顶点表结点和2e个边表结点。(换句话说，每条边（i,j）在邻接表 中出现两次：一次在关于i的邻接表中，另一次在关于j的邻接表中)。</p>
+<p>邻接表计算顶点的出度和入度</p>
+<p>使用邻接表计算无向图中顶点的入度和出度会非常简单，只需从数组中找到该顶点然后统计此链表中节点的数量即可。</p>
+<p>而使用邻接表存储有向图时，通常各个顶点的链表中存储的都是以该顶点为弧尾的邻接点，因此通过统计各顶点链表中的节点数量，只能计算出该顶点的出度，而无法计算该顶点的入度。</p>
+<p>对于利用邻接表求某顶点的入度，有两种方式：</p>
+<p>遍历整个邻接表中的节点，统计数据域与该顶点所在数组位置下标相同的节点数量，即为该顶点的入度；</p>
+<p>建立一个逆邻接表，该表中的各顶点链表专门用于存储以此顶点为弧头的所有顶点在数组中的位置下标。</p>
+<p>对于具有 n 个顶点和 e 条边的无向图，邻接表中需要存储 n 个头结点和 2e 个表结点。在图中边或者弧稀疏的时候，使用邻接表要比邻接矩阵更加节省空间。</p>
+<p>十字链表</p>
+<p>与邻接表不同，十字链表法仅适用于存储有向图和有向网。不仅如此，十字链表法还改善了邻接表计算图中顶点入度的问题。</p>
+<p>十字链表存储有向图（网）的方式与邻接表有一些相同，都以图（网）中各顶点为首元节点建立多条链表，同时为了便于管理，还将所有链表的首元节点存储到同一数组（或链表）中。</p>
+<p>首元节点中有一个数据域和两个指针域（分别用 firstin 和 firstout 表示）：</p>
+<p>firstin 指针用于连接以当前顶点为弧头的其他顶点构成的链表；<br>firstout 指针用于连接以当前顶点为弧尾的其他顶点构成的链表；<br>data 用于存储该顶点中的数据；</p>
+<p>由此可以看出，十字链表实质上就是为每个顶点建立两个链表，分别存储以该顶点为弧头的所有顶点和以该顶点为弧尾的所有顶点。</p>
+<p>注意，存储图的十字链表中，各链表中首元节点与其他节点的结构并不相同</p>
+<p>十字链表中普通节点的存储分为 5 部分内容，它们各自的作用是：</p>
+<ul>
+<li>tailvex 用于存储以首元节点为弧尾的顶点位于数组中的位置下标；</li>
+<li>headvex 用于存储以首元节点为弧头的顶点位于数组中的位置下标；</li>
+<li>hlink 指针：用于链接下一个存储以首元节点为弧头的顶点的节点；</li>
+<li>tlink 指针：用于链接下一个存储以首元节点为弧尾的顶点的节点；</li>
+<li>info 指针：用于存储与该顶点相关的信息，例如量顶点之间的权值；</li>
+</ul>
+<p>邻接多重表</p>
+<p>邻接多重表仅适用于存储无向图或无向网。</p>
+<p>邻接多重表存储无向图的方式，可看作是邻接表和十字链表的结合。同邻接表和十字链表存储图的方法相同，都是独自为图中各顶点建立一张链表，存储各顶点的节点作为各链表的首元节点，同时为了便于管理将各个首元节点存储到一个数组中。</p>
+<p>各首元节点结构为：</p>
+<ul>
+<li>data：存储此顶点的数据；</li>
+<li>firstedge：指针域，用于指向同该顶点有直接关联的存储其他顶点的节点。</li>
+</ul>
+<p>邻接多重表采用与邻接表相同的首元节点结构。但各链表中其他节点的结构与十字链表中相同，如下：</p>
+<ul>
+<li>mark：标志域，用于标记此节点是否被操作过，例如在对图中顶点做遍历操作时，为了防止多次操作同一节点，mark 域为 0 表示还未被遍历；mark 为 1 表示该节点已被遍历；</li>
+<li>ivex 和 jvex：数据域，分别存储图中各边两端的顶点所在数组中的位置下标；</li>
+<li>ilink：指针域，指向下一个存储与 ivex 有直接关联顶点的节点；</li>
+<li>jlink：指针域，指向下一个存储与 jvex 有直接关联顶点的节点；</li>
+<li>info：指针域，用于存储与该顶点有关的其他信息，比如无向网中各边的权；</li>
+</ul>
+<p>深度优先搜索（DFS）和广度优先搜索（BFS）</p>
+<p>所谓深度优先搜索，是从图中的一个顶点出发，每次遍历当前访问顶点的临界点，一直到访问的顶点没有未被访问过的临界点为止。然后采用依次回退的方式，查看来的路上每一个顶点是否有其它未被访问的临界点。访问完成后，判断图中的顶点是否已经全部遍历完成，如果没有，以未访问的顶点为起始点，重复上述过程。</p>
+<p>具体做法是：从某个点一直往深处走，走到不能往下走之后，就回退到上一步，直到找到解或把所有点走完。</p>
+<p>在实现这一个依次的访问顺序时，操作动作存储与数据结构（栈）的思想及其相似，同时也由于栈的性质，我们可以通过递归来简化栈的创建，因此DFS算法的两种做法分别时利用栈或者递归实现。</p>
+<p>算法步骤（递归或栈实现）</p>
+<p>a)访问指定起始地点。</p>
+<p>b)若当前访问顶点的邻接顶点有未被访问的顶点，就任选一个访问。如果没有就回退到最近访问的顶点，直到与起始顶点相通的所有点被遍历完。</p>
+<p>c)若途中还有顶点未被访问，则再选一个点作为起始顶点，并重复前面的步骤。</p>
+<p>深度优先搜索是一个不断回溯的过程。</p>
+<p>广度优先搜索类似于树的层次遍历。从图中的某一顶点出发，遍历每一个顶点时，依次遍历其所有的邻接点，然后再从这些邻接点出发，同样依次访问它们的邻接点。按照此过程，直到图中所有被访问过的顶点的邻接点都被访问到。</p>
+<p>最后还需要做的操作就是查看图中是否存在尚未被访问的顶点，若有，则以该顶点为起始点，重复上述遍历的过程。</p>
+<p>BFS算法和核心思路就是：从某个点一直把其邻接点走完，然后任选一个邻接点把与之邻接的未被遍历的点走完，如此反复走完所有结点。类似于树的层序遍历。</p>
+<p>BFS的核心就是要把当前在哪作为一个状态存储，并将这个状态交给队列进行入队操作，故而，算法步骤（用队列实现）</p>
+<p>a) 访问指定起始点。</p>
+<p>b) 访问当前顶点的邻接顶点有未被访问的顶点，并将之放入队列中。</p>
+<p>c) 删除队列的队首节点。访问当前队列的队首，前面的步骤。直到队列为空。</p>
+<p>d) 若若途中还有顶点未被访问，则再选一个点作为起始顶点。重复前面的步骤。（针对非连通图）</p>
+<p>深度优先搜索算法的实现运用的主要是回溯法，类似于树的先序遍历算法。广度优先搜索算法借助队列的先进先出的特点，类似于树的层次遍历。</p>
+<p>深度优先生成树和广度优先生成树</p>
+<p>在对无向图进行遍历的时候，遍历过程中所经历过的图中的顶点和边的组合，就是图的生成树或者生成森林。</p>
+<p>非连通图在进行遍历时，实则是对非连通图中每个连通分量分别进行遍历，在遍历过程经过的每个顶点和边，就构成了每个连通分量的生成树。</p>
+<p>非连通图中，多个连通分量构成的多个生成树为非连通图的生成森林。</p>
+<p>非连通图在遍历生成森林时，可以采用孩子兄弟表示法将森林转化为一整棵二叉树进行存储。</p>
+<p>非连通图采用广度优先搜索算法进行遍历时，经过的顶点以及边的集合为该图的广度优先生成森林。</p>
+<p>重连通图</p>
+<p>在无向图中，如果任意两个顶点之间含有不止一条通路，这个图就被称为重连通图。在重连通图中，在删除某个顶点及该顶点相关的边后，图中各顶点之间的连通性也不会被破坏。</p>
+<p>在一个无向图中，如果删除某个顶点及其相关联的边后，原来的图被分割为两个及以上的连通分量，则称该顶点为无向图中的一个关节点（或者“割点”）。</p>
+<p>重连通图其实就是没有关节点的连通图。</p>
+<p>在重连通图中，只删除一个顶点及其相关联的边，肯定不会破坏其连通性。如果一味地做删除顶点的操作，直到删除 K 个顶点及其关联的边后，图的连通性才遭到破坏，则称此重连通图的连通度为 K 。</p>
+<p>判断一个图是否是重连通图</p>
+<p>对于任意一个连通图来说，都可以通过深度优先搜索算法获得一棵深度优先生成树，树中的虚线表示遍历生成树时未用到的边，简称“回边”。也就是图中有，但是遍历时没有用到，生成树中用虚线表示出来。</p>
+<p>在深度优先生成树中，图中的关节点有两种特性：</p>
+<p>首先判断整棵树的树根结点，如果树根有两条或者两条以上的子树，则该顶点肯定是关节点。因为一旦树根丢失，生成树就会变成森林。</p>
+<p>然后判断生成树中的每个非叶子结点，以该结点为根结点的每棵子树中如果有结点的回边与此非叶子结点的祖宗结点相关联，那么此非叶子结点就不是关节点；反之，就是关节点。</p>
+<p>注意：必须是和该非叶子结点的祖宗结点（不包括结点本身）相关联，才说明此结点不是关节点。</p>
+<p>所以，判断一个图是否是重连通图，也可以转变为：判断图中是否有关节点，如果没有关节点，证明此图为重连通图；反之则不是。</p>
+<p>AOE网</p>
+<p>AOE 网是在 AOV 网的基础上，其中每一个边都具有各自的权值，是一个有向无环网。其中权值表示活动持续的时间。</p>
+<p>起始点是入度为 0 的点，称为“源点”；结束点是出度为 0 的点，称为“汇点”。这条最长的路径，被称为”关键路径“。</p>
+<p>为了求出一个给定 AOE 网的关键路径，需要知道以下 4 个统计数据：</p>
+<p>对于 AOE 网中的顶点有两个时间：最早发生时间（用 Ve(j) 表示）和最晚发生时间（用 Vl(j) 表示）；</p>
+<p>对于边来说，也有两个时间：最早开始时间（用 e(i) 表示）和最晚开始时间（ l(i) 表示）。</p>
+<p>Ve(j)：对于 AOE 网中的任意一个顶点来说，从源点到该点的最长路径代表着该顶点的最早发生时间，通常用 Ve(j) 表示。</p>
+<p>Vl(j)：表示在不推迟整个工期的前提下，事件 Vk 允许的最晚发生时间。</p>
+<p>e(i)：表示活动 ai 的最早开始时间，如果活动 ai 是由弧 &lt;Vk,Vj&gt; 表示的，那么活动 ai 的最早开始的时间就等于时间 Vk 的最早发生时间，也就是说：e[i] = ve[k]。</p>
+<p>l(i)：表示活动 ai 的最晚开始时间，如果活动 ai 是由弧 &lt;Vk,Vj&gt; 表示，ai 的最晚开始时间的设定要保证 Vj 的最晚发生时间不拖后。所以，l[i]=Vl[j]-len&lt;Vk,Vj&gt;。</p>
+<p>在得知以上四种统计数据后，就可以直接求得 AOE 网中关键路径上的所有的关键活动，方法是：对于所有的边来说，如果它的最早开始时间等于最晚开始时间，称这条边所代表的活动为关键活动。由关键活动构成的路径为关键路径。</p>
+<p>最小生成树</p>
+<p>最小生成树（又名：最小权重生成树）</p>
+<p>概念：将给出的所有点连接起来（即从一个点可到任意一个点），且连接路径之和最小的图叫最小生成树。最小生成树属于一种树形结构（树形结构是一种特殊的图），或者说是直链型结构，因为当n个点相连，且路径和最短，那么将它们相连的路一定是n-1条。</p>
+<p>普利姆(Prim)算法</p>
+<p>普利姆(Prim)算法求最小生成树，也就是在包含n个顶点的连通图中，找出只有(n-1)条边包含所有n个顶点的连通子图，也就是所谓的极小连通子图</p>
+<p>具体过程如下：</p>
+<p>(1)设G=(V,E)是连通网，T=(U,D)是最小生成树，V,U是顶点集合，E,D是边的集合 </p>
+<p>(2)若从顶点u开始构造最小生成树，则从集合V中取出顶点u放入集合U中，标记顶点v的visited[u]=1</p>
+<p>(3)若集合U中顶点ui与集合V-U中的顶点vj之间存在边，则寻找这些边中权值最小的边，但不能构成回路，将顶点vj加入集合U中，将边（ui,vj）加入集合D中，标记visited[vj]=1</p>
+<p>(4)重复步骤②，直到U与V相等，即所有顶点都被标记为访问过，此时D中有n-1条边</p>
+<p>克鲁斯卡尔(Kruskal)算法</p>
+<p>克鲁斯卡尔算法是一种用来寻找最小生成树的算法（用来求加权连通图的最小生成树的算法）。在剩下的所有未选取的边中，找最小边，如果和已选取的边构成回路，则放弃，选取次小边。</p>
+<p>而具体的操作过程为：</p>
+<p>a) 将图的所有连接线去掉，只剩顶点</p>
+<p>b) 从图的边集数组中找到权值最小的边，将边的两个顶点连接起来</p>
+<p>c)  继续寻找权值最小的边，将两个顶点之间连接起来，如果选择的边使得最小生成树出现了环路，则放弃该边，选择权值次小的边</p>
+<p>d) 直到所有的顶点都被连接在一起并且没有环路，最小生成树就生成了。</p>
+<p>两个核心问题</p>
+<ul>
+<li><p>问题一 对图的所有边按照权值大小进行排序。</p>
+</li>
+<li><p>问题二 将边添加到最小生成树中时，怎么样判断是否形成了回路。</p>
+</li>
+</ul>
+<p>问题一直接采用排序算法进行排序即可。</p>
+<p>问题二的核心思想是记录处理，处理方式是：记录顶点在”最小生成树”中的终点，顶点的终点是”在最小生成树中与它连通的最大顶点”。然后每次需要将一条边添加到最小生存树时，判断该边的两个顶点的终点是否重合，重合的话则会构成回路。</p>
+<p>最短路径</p>
+<p>何为最短路径</p>
+<p>最短路径问题是图论研究中的一个经典算法问题，旨在寻找图（由结点和路径组成的）中两结点之间的最短路径，大致可以分为如下几种问题，可无论如何分类问题，其本质思想还是不变的，即，求两点间的最短距离。</p>
+<p>a) 确定起点的最短路径问题 - 即已知起始结点，求最短路径的问题。</p>
+<p>b) 确定终点的最短路径问题 - 与确定起点的问题相反，该问题是已知终结结点，求最短路径的问题。在无向图中该问题与确定起点的问题完全等同，在有向图中该问题等同于把所有路径方向反转的确定起点的问题。</p>
+<p>c) 确定起点终点的最短路径问题 - 即已知起点和终点，求两结点之间的最短路径。</p>
+<p>d) 全局最短路径问题 - 求图中所有的最短路径。</p>
+<p>迪杰斯特拉(Dijkstra)算法</p>
+<p><a target="_blank" rel="noopener" href="https://www.dotcpp.com/oj/ueditor/php/upload/image/20191212/1576142323256715.png">https://www.dotcpp.com/oj/ueditor/php/upload/image/20191212/1576142323256715.png</a></p>
+<p>如上图，迪杰斯特拉算法的核心思路是：</p>
+<ol>
+<li><p>指定一个节点，例如我们要计算 ‘A’ 到其他节点的最短路径</p>
+</li>
+<li><p>引入两个集合（S、U），S集合包含已求出的最短路径的点（以及相应的最短长度），U集合包含未求出最短路径的点（以及A到该点的路径，注意 如上图所示，A-&gt;C由于没有直接相连 初始时为∞）</p>
+</li>
+<li><p>初始化两个集合，S集合初始时 只有当前要计算的节点，A-&gt;A = 0，</p>
+</li>
+<li><p>U集合初始时为 A-&gt;B = 4, A-&gt;C = ∞, A-&gt;D = 2, A-&gt;E = ∞</p>
+</li>
+<li><p>从U集合中找出路径最短的点，加入S集合，例如 A-&gt;D = 2</p>
+</li>
+<li><p>更新U集合路径，if ( ‘D 到 B,C,E 的距离’ + ‘AD 距离’ &lt; ‘A 到 B,C,E 的距离’ ) 则更新U</p>
+</li>
+<li><p>循环执行 4、5 两步骤，直至遍历结束，得到A 到其他节点的最短路径</p>
+</li>
+</ol>
+<p>弗洛伊德(Floyd)算法</p>
+<p>弗洛伊德算法的思路是：首先初始化距离矩阵，然后从第一个点开始逐渐更新矩阵点值。d[i][j]表示从i点到j点的距离。第k次更新时，判断d[i][k]+d[k][j]与d[i][j]的大小，如果前者小，则更新这个值，否则不变。</p>
+<p>这个算法的核心点在于去往每一个点我们所要尽力的每一个点的记录</p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>线性（顺序）查找</p>
+<p>顺序查找的查找过程为：从表中的最后一个数据元素开始，逐个同记录的关键字做比较，如果匹配成功，则查找成功；反之，如果直到表中第一个关键字查找完也没有成功匹配，则查找失败。</p>
+<p>顺序查找的性能分析<br><a target="_blank" rel="noopener" href="http://data.biancheng.net/view/54.html">http://data.biancheng.net/view/54.html</a><br>查找操作的性能分析主要考虑其时间复杂度，而整个查找过程其实大部分时间花费在关键字和查找表中的数据进行比较上。</p>
+<p>所以查找算法衡量好坏的依据为：查找成功时，查找的关键字和查找表中的数据元素中进行过比较的个数的平均值，称为平均查找长度（Average Search Length，用 ASL 表示）。</p>
+<p>例如，对于具有 n 个数据元素的查找表，查找成功的平均查找长度的计算公式为：</p>
+<p>Pi 为第 i 个数据元素被查找的概率，所有元素被查找的概率的和为 1；Ci 表示在查找到第 i 个数据元素之前已进行过比较的次数。若表中有 n 个数据元素，查找第一个元素时需要比较 n 次；查找最后一个元素时需要比较 1 次，所以有 Ci = n – i + 1 。<br>一般情况，表中各数据元素被查找的概率是未知的。假设含有 n 个数据元素的查找表中，各数据被查找的概率是相同的，则：</p>
+<p>换算后，得：</p>
+<p>如果对于查找表中各个数据元素有可能被查找的概率提前已知，就应该根据其查找概率的大小对查找表中的数据元素进行适当的调整：被查找概率越大，离查找出发点 i 越近；反之，越远。这样可以适当的减少查找操作中的比较次数。</p>
+<p>上边的平均查找长度是在假设查找算法每次都成功的前提下得出的。而对于查找算法来说，查找成功和查找失败的概率是相同的。所以，查找算法的平均查找长度应该为查找成功时的平均查找长度加上查找失败时的平均查找长度。</p>
+<p>对于含有 n 个数据的表来说，每次查找失败，比较的次数都是 n+1。所以查找算法的平均查找长度的计算公式为：</p>
+<p>折半查找（二分查找）</p>
+<p>它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列，注意必须要是有序排列，但有一种特殊情况可以不必须有序排列，即商品选取，从一堆标准重量为10的商品中查找出唯一的次品，这种特殊的数据情况也可以使用二分查找。</p>
+<p>折半查找的性能分析</p>
+<p>折半查找的运行过程可以用二叉树来描述，这棵树通常称为“判定树”。时间复杂度可以表示O(log2n) </p>
+<p>对于具有 n 个结点（查找表中含有 n 个关键字）的判定树，它的层次数至多为：log2n + 1（如果结果不是整数，则做取整操作，例如： log211 +1 = 3 + 1 = 4 ）。</p>
+<p>同时，在查找表中各个关键字被查找概率相同的情况下，折半查找的平均查找长度为：ASL = log2(n+1) – 1。</p>
+<p>分块查找</p>
+<p>分块查找是折半查找和顺序查找的一种改进方法，分块查找由于只要求索引表是有序的，对块内节点没有排序要求，因此特别适合于节点动态变化的情况，其核心有二索引表，二是分块处理。</p>
+<p>分块查找要求把一个大的线性表分解成若干块，每块中的节点可以任意存放，但块与块之间必须排序。假设是按关键码值非递减的，那么这种块与块之间必须满足已排序要求，实际上就是对于任意的i，第i块中的所有节点的关键码值都必须小于第i+1块中的所有节点的关键码值。此外，还要建立一个索引表，把每块中的最大关键码值作为索引表的关键码值，按块的顺序存放到一个辅助数组中，显然这个辅助数组是按关键码值费递减排序的。查找时，首先在索引表中进行查找，确定要找的节点所在的块。由于索引表是排序的，因此，对索引表的查找可以采用顺序查找或折半查找；然后，在相应的块中采用顺序查找，即可找到对应的节点。</p>
+<p>动态查找-二叉排序树</p>
+<p>该树属于一种输入数据就默认产生一种顺序的数据结构</p>
+<p>二叉排序树要么是空二叉树，要么具有如下特点：</p>
+<ul>
+<li>二叉排序树中，如果其根结点有左子树，那么左子树上所有结点的值都小于根结点的值；</li>
+<li>二叉排序树中，如果其根结点有右子树，那么右子树上所有结点的值都大小根结点的值；</li>
+<li>二叉排序树的左右子树也要求都是二叉排序树；</li>
+</ul>
+<p>即对于每一个根结点，其左孩子永远小于根，右孩子永远大于根。</p>
+<p>使用二叉排序树查找关键字</p>
+<p>二叉排序树中查找某关键字时，查找过程类似于次优二叉树，在二叉排序树不为空树的前提下，首先将被查找值同树的根结点进行比较，会有 3 种不同的结果：</p>
+<ul>
+<li>如果相等，查找成功；</li>
+<li>如果比较结果为根结点的关键字值较大，则说明该关键字可能存在其左子树中；</li>
+<li>如果比较结果为根结点的关键字值较小，则说明该关键字可能存在其右子树中；</li>
+</ul>
+<p>即考虑如果树是空的，则查找结束，无匹配。如果被查找的值和根结点的值相等，查找成功。否则就在子树中继续查找。如果被查找的值小于根结点的值就选择左子树，大于根结点的值就选择右子树。</p>
+<p>二叉排序树中插入关键字</p>
+<p>二叉排序树本身是动态查找表的一种表示形式，有时会在查找过程中插入或者删除表中元素，当因为查找失败而需要插入数据元素时，该数据元素的插入位置一定位于二叉排序树的叶子结点，并且一定是查找失败时访问的最后一个结点的左孩子或者右孩子。</p>
+<p>二叉排序树中删除关键字</p>
+<p>在查找过程中，如果在使用二叉排序树表示的动态查找表中删除某个数据元素时，需要在成功删除该结点的同时，依旧使这棵树为二叉排序树。</p>
+<p>假设要删除的为结点 p，则对于二叉排序树来说，需要根据结点 p 所在不同的位置作不同的操作，有以下 3 种可能：</p>
+<p>1、结点 p 为叶子结点，此时只需要删除该结点，并修改其双亲结点的指针即可；<br>2、结点 p 只有左子树或者只有右子树，此时只需要将其左子树或者右子树直接变为结点 p 双亲结点的左子树即可；<br>3、结点 p 左右子树都有，此时有两种处理方式：</p>
+<p>1）令结点 p 的左子树为其双亲结点的左子树；结点 p 的右子树为其自身直接前驱结点的右子树</p>
+<p>2）用结点 p 的直接前驱（或直接后继）来代替结点 p，同时在二叉排序树中对其直接前驱（或直接后继）做删除操作。</p>
+<p>使用二叉排序树在查找表中做查找操作的时间复杂度同建立的二叉树本身的结构有关。即使查找表中各数据元素完全相同，但是不同的排列顺序，构建出的二叉排序树大不相同。</p>
+<p>使用二叉排序树实现动态查找操作的过程，实际上就是从二叉排序树的根结点到查找元素结点的过程，所以时间复杂度同被查找元素所在的树的深度（层次数）有关。</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/datastruct-note05/">
+                        <span class="hidden-mobile">datastruct-note05</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

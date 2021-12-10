@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>C05-function-pointer - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C05-function-pointer">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:29" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.7k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C05-function-pointer</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="C函数"><a href="#C函数" class="headerlink" title="C函数"></a>C函数</h2><p>C语言不允许函数嵌套定义，函数名和参数列表一起构成了函数签名。意味着可以出现参数列表不同但是函数名相同的函数。</p>
+<h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><p>由于程序是从上向下执行，所以函数要先声明，后调用。</p>
+<p>函数声明的格式非常简单，相当于去掉函数定义中的函数体，并在最后加上分号;，如下所示：<br><code>dataType  functionName( dataType1 param1, dataType2 param2 ... );</code></p>
+<p>也可以不写形参，只写数据类型：<br><code>dataType  functionName( dataType1, dataType2 ... );</code></p>
+<p>函数声明给出了函数名、返回值类型、参数列表（重点是参数类型）等与该函数有关的信息，称为函数原型（Function Prototype）。函数原型的作用是告诉编译器与该函数有关的信息，让编译器知道函数的存在，以及存在的形式，即使函数暂时没有定义，编译器也知道如何使用它。</p>
+<p>对于多个文件的程序，通常是将函数定义放到源文件（.c文件）中，将函数的声明放到头文件（.h文件）中，使用函数时引入对应的头文件就可以，编译器会在链接阶段找到函数体。</p>
+<h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>如果函数要使用参数，则必须声明接受参数值的变量。这些变量称为函数的形式参数。</p>
+<p>形式参数就像函数内的其他局部变量，在进入函数时被创建，退出函数时被销毁。</p>
+<p>当调用函数时，有两种向函数传递参数的方式：</p>
+<table>
+<thead>
+<tr>
+<th>调用类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传值调用</td>
+<td>该方法把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数不会影响实际参数。</td>
+</tr>
+<tr>
+<td>引用调用</td>
+<td>通过指针传递方式，形参为指向实参地址的指针，当对形参的指向操作时，就相当于对实参本身进行的操作。</td>
+</tr>
+</tbody></table>
+<p>默认情况下，C 使用传值调用来传递参数。一般来说，这意味着函数内的代码不能改变用于调用函数的实际参数。</p>
+<ol>
+<li>值传递</li>
+</ol>
+<p>向函数传递参数的传值调用方法，把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数不会影响实际参数。</p>
+<p>默认情况下，C 语言使用传值调用方法来传递参数。一般来说，这意味着函数内的代码不会改变用于调用函数的实际参数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> temp;<br>    temp = x;<br>    x = y;<br>    y = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[] )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">int</span> b = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">swap</span>(a, b); <span class="hljs-comment">//调用交换函数</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;交换结果为 a = %d, b = %d\n&quot;</span>,a,b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>由于值传递是单向传递，传递过程中只是改变了形参的数值，并未改变实参的数值，因此并不会改变a和b原有的值。</p>
+<ol start="2">
+<li>指针传递</li>
+</ol>
+<p>通过引用传递方式，形参为指向实参地址的指针，当对形参的指向操作时，就相当于对实参本身进行的操作。</p>
+<p>传递指针可以让多个函数访问指针所引用的对象，而不用把对象声明为全局可访问。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x, <span class="hljs-keyword">int</span> *y)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x, <span class="hljs-keyword">int</span> *y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> temp;<br>    temp = *x;<br>    *x = *y;<br>    *y = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[] )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">int</span> b = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">swap</span>(&amp;a, &amp;b); <span class="hljs-comment">//调用交换函数</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;交换结果为 a = %d, b = %d\n&quot;</span>,a,b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>指针传递过程中，将a和b的地址分别传递给了x和y，在函数体内部改变了a、b所在地址的值，所以交换了a、b的数值。</p>
+<p>另外还有一种方式是引用传递：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;x, <span class="hljs-keyword">int</span> &amp;y)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;x, <span class="hljs-keyword">int</span> &amp;y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> temp;<br>    temp = x;<br>    x = y;<br>    y = temp;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[] )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">int</span> b = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">swap</span>(a, b); <span class="hljs-comment">//调用交换函数</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;交换结果为 a = %d, b = %d\n&quot;</span>,a,b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>引用传递中，在调用swap(a, b);时函数会用a、b分别代替x、y，即x、y分别引用了a、b变量，这样函数体中实际参与运算的其实就是实参a、b本身，因此也能达到交换数值的目的。</p>
+<p>注：严格来说，C语言中是没有引用传递，这是C++中语言特性，因此在.c文件中使用引用传递会导致程序编译出错。</p>
+<p>指针传递和引用传递之所以能改变传递参数变量的值，是因为函数改变的不是传递进来的指针本身，而是指针指向的值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x, <span class="hljs-keyword">int</span> *y)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *x, <span class="hljs-keyword">int</span> *y)</span></span>&#123;<br>    <span class="hljs-keyword">int</span> temp;<br>    <span class="hljs-comment">//这里操作的是指针指向的值 而不是指针</span><br>    temp = *x;<br>    *x = *y;<br>    *y = temp;<br><span class="hljs-comment">//   倘若直接交换指针 a、b的值不会交换</span><br><span class="hljs-comment">//    temp = x;</span><br><span class="hljs-comment">//    x = y;</span><br><span class="hljs-comment">//    y = temp;</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[] )</span></span>&#123;<br>    <span class="hljs-keyword">int</span> a = <span class="hljs-number">5</span>;<br>    <span class="hljs-keyword">int</span> b = <span class="hljs-number">10</span>;<br>    <span class="hljs-built_in">swap</span>(&amp;a, &amp;b); <span class="hljs-comment">//调用交换函数</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;交换结果为 a = %d, b = %d\n&quot;</span>,a,b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>关于 main 函数的参数</strong></p>
+<p>main() 函数是主函数，它可以调用其它函数，而不允许被其它函数调用。因此，C程序的执行总是从 main() 函数开始，完成对其它函数的调用后再返回到 main() 函数，最后由 main() 函数结束整个程序。</p>
+<p>main() 函数可以带参数也可以不带参数，<br>不带参数形式为：<code>int main()</code></p>
+<p>带参形式如下：<br><code>int main( int argc, char *argv[] )</code><br>上面的代码中 main 函数带了参数。<br>argc 和 argv 是 main 函数的形式参数。变量名称argc和argv是常规的名称，当然也可以换成其他名称。</p>
+<p>这两个形式参数的类型是系统规定的。如果 main 函数要带参数，就是这两个类型的参数；否则main函数就没有参数。</p>
+<p><strong>内部函数和外部函数</strong></p>
+<p>根据函数能否被其他源文件调用，将函数区分为内部函数和外部函数。</p>
+<p>内部函数<br>如果一个函数只能被本文件中其他函数所调用，它称为内部函数。在定义内部函数时，在函数名和函数类型的前面加 static，即</p>
+<p>static 类型名 函数名 （形参表）<br>例如，函数的首行：</p>
+<p>static int max(int a,int b)<br>内部函数又称静态函数。使用内部函数，可以使函数的作用域只局限于所在文件。即使在不同的文件中有同名的内部函数，也互不干扰。提高了程序的可靠性。</p>
+<p>外部函数<br>如果在定义函数时，在函数的首部的最左端加关键字 extern，则此函数是外部函数，可供其它文件调用。</p>
+<p>如函数首部可以为</p>
+<p>extern int max (int a,int b)<br>C 语言规定，如果在定义函数时省略 extern，则默认为外部函数。</p>
+<p>在需要调用此函数的其他文件中，需要对此函数作声明（不要忘记，即使在本文件中调用一个函数，也要用函数原型来声明）。在对此函数作声明时，要加关键字 extern，表示该函数是在其他文件中定义的外部函数。</p>
+<p><strong>可变参数</strong></p>
+<p>要使用可变参数，需要引入 stdarg.h 头文件，该文件提供了实现可变参数功能的函数和宏。具体步骤如下：</p>
+<ul>
+<li>定义一个函数，最后一个参数为省略号，省略号前面可以设置自定义参数。</li>
+<li>在函数定义中创建一个 va_list 类型变量，该类型是在 stdarg.h 头文件中定义的。</li>
+<li>使用 int 参数和 va_start 宏来初始化 va_list 变量为一个参数列表。宏 va_start 是在 stdarg.h 头文件中定义的。</li>
+<li>使用 va_arg 宏和 va_list 变量来访问参数列表中的每个项。</li>
+<li>使用宏 va_end 来清理赋予 va_list 变量的内存。</li>
+</ul>
+<p>下面是一个实例，一个带有可变数量参数的函数，并返回它们的平均值：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdarg.h&gt;</span></span><br> <br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">average</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num,...)</span></span>&#123;<br>    va_list valist;<br>    <span class="hljs-keyword">double</span> sum = <span class="hljs-number">0.0</span>;<br>    <span class="hljs-keyword">int</span> i;<br> <br>    <span class="hljs-comment">/* 为 num 个参数初始化 valist */</span><br>    <span class="hljs-built_in">va_start</span>(valist, num);<br> <br>    <span class="hljs-comment">/* 访问所有赋给 valist 的参数 */</span><br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; num; i++)<br>    &#123;<br>       sum += <span class="hljs-built_in">va_arg</span>(valist, <span class="hljs-keyword">int</span>);<br>    &#125;<br>    <span class="hljs-comment">/* 清理为 valist 保留的内存 */</span><br>    <span class="hljs-built_in">va_end</span>(valist);<br> <br>    <span class="hljs-keyword">return</span> sum/num;<br>&#125;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Average of 2, 3, 4, 5 = %f\n&quot;</span>, <span class="hljs-built_in">average</span>(<span class="hljs-number">4</span>, <span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>));<br>   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Average of 5, 10, 15 = %f\n&quot;</span>, <span class="hljs-built_in">average</span>(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>));<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>注意，函数 average() 最后一个参数写成省略号，即三个点号（…），省略号之前的那个参数是 int，代表了要传递的可变参数的总数。</p>
+<p>当上面的代码被编译和执行时，它会产生下列结果。应该指出的是，函数 average() 被调用两次，每次第一个参数都是表示被传的可变参数的总数。省略号被用来传递可变数量的参数。</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">Average</span> of <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span> = <span class="hljs-number">3</span>.<span class="hljs-number">500000</span><br><span class="hljs-attribute">Average</span> of <span class="hljs-number">5</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span> = <span class="hljs-number">10</span>.<span class="hljs-number">000000</span><br></code></pre></div></td></tr></table></figure>
+
+<p>参数说明：</p>
+<p>va_list: 用来保存宏va_start、va_arg和va_end所需信息的一种类型。为了访问变长参数列表中的参数，必须声明 va_list 类型的一个对象，定义： typedef char * va_list;</p>
+<p>va_start: 访问变长参数列表中的参数之前使用的宏，它初始化用 va_list 声明的对象，初始化结果供宏 va_arg 和 va_end 使用；</p>
+<p>va_arg: 展开成一个表达式的宏，该表达式具有变长参数列表中下一个参数的值和类型。每次调用 va_arg 都会修改用 va_list 声明的对象，从而使该对象指向参数列表中的下一个参数；</p>
+<p>va_end: 该宏使程序能够从变长参数列表用宏 va_start 引用的函数中正常返回。</p>
+<h3 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h3><p>内联函数是指用inline关键字修饰的函数。在类内定义的函数被默认成内联函数。内联函数从源代码层看，有函数的结构，而在编译后，却不具备函数的性质。</p>
+<p>内联扩展是用来消除函数调用时的时间开销。它通常用于频繁执行的函数，对于小内存空间的函数非常受益。</p>
+<p>使用内联函数的时候要注意：</p>
+<p>递归函数不能定义为内联函数<br>内联函数一般适合于不存在while和switch等复杂的结构且只有1~5条语句的小函数上，否则编译系统将该函数视为普通函数。<br>内联函数只能先定义后使用，否则编译系统也会把它认为是普通函数。<br>对内联函数不能进行异常的接口声明。</p>
+<p>示例：一个简单的交换函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> *b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = *a;<br>    *a = *b;<br>    *b = t;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="C指针"><a href="#C指针" class="headerlink" title="C指针"></a>C指针</h2><p>定义指针变量时必须带<em>，给指针变量赋值时不能带</em>。</p>
+<p>使用指针是间接获取数据（要先通过地址取得指针本身的值，这个值是指针指向变量的地址，然后再通过这个值取得指向变量的数据），使用变量名是直接获取数据，前者比后者的代价要高。</p>
+<h3 id="关于-和-amp-的谜题"><a href="#关于-和-amp-的谜题" class="headerlink" title="关于 * 和 &amp; 的谜题"></a>关于 * 和 &amp; 的谜题</h3><p>假设有一个 int 类型的变量 a，pa 是指向它的指针，那么<code>*&amp;a</code>和<code>&amp;*pa</code>分别是什么意思呢？</p>
+<p><code>*&amp;a</code>可以理解为<code>*(&amp;a)</code>，&amp;a表示取变量 a 的地址（等价于 pa），<code>*(&amp;a)</code>表示取这个地址上的数据（等价于 <code>*pa</code>），绕来绕去，又回到了原点，<code>*&amp;a</code>仍然等价于 a。</p>
+<p><code>&amp;*pa</code>可以理解为<code>&amp;(*pa)</code>，<code>*pa</code>表示取得 pa 指向的数据（等价于 a），<code>&amp;(*pa)</code>表示数据的地址（等价于 &amp;a），所以<code>&amp;*pa</code>等价于 pa。</p>
+<h3 id="对星号-的总结"><a href="#对星号-的总结" class="headerlink" title="对星号*的总结"></a>对星号*的总结</h3><p>目前星号*主要有三种用途：<br>表示乘法，例如int a = 3, b = 5, c;  c = a * b;，这是最容易理解的。<br>表示定义一个指针变量，以和普通变量区分开，例如int a = 100;  int *p = &a;。<br>表示获取指针指向的数据，是一种间接操作，例如int a, b, *p = &a;  *p = 100;  b = *p;。</p>
+<h3 id="指针的算术运算"><a href="#指针的算术运算" class="headerlink" title="指针的算术运算"></a>指针的算术运算</h3><p>指针变量保存的是地址，而地址本质上是一个整数，所以指针变量可以进行部分运算，例如加法、减法、比较等，</p>
+<p>指针的每一次递增，它其实会指向下一个元素的存储单元。<br>指针的每一次递减，它都会指向前一个元素的存储单元。<br>指针在递增和递减时跳跃的字节数取决于指针所指向变量数据类型长度，比如 int 就是 4 个字节。</p>
+<p>当对指针变量进行比较运算时，比较的是指针变量本身的值，也就是数据的地址。如果地址相等，那么两个指针就指向同一份数据，否则就指向不同的数据。</p>
+<p>另外需要说明的是，不能对指针变量进行乘法、除法、取余等其他运算，除了会发生语法错误，也没有实际的含义。</p>
+<h3 id="指针数组与数组指针"><a href="#指针数组与数组指针" class="headerlink" title="指针数组与数组指针"></a>指针数组与数组指针</h3><p><strong>空 （NULL） 指针</strong></p>
+<p>在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为空指针。</p>
+<p>NULL 指针是一个定义在标准库中的值为零的常量。</p>
+<p>在大多数的操作系统上，程序不允许访问地址为 0 的内存，因为该内存是操作系统保留的。然而，内存地址 0 有特别重要的意义，它表明该指针不指向一个可访问的内存位置。但按照惯例，如果指针包含空值（零值），则假定它不指向任何东西。</p>
+<p>所有指针在创建时都要初始化，如果不知道他指向什么就将 0 赋值给他。必须初始化指针，没有被初始化的指针被称为失控指针(野指针）。</p>
+<p><strong>指针数组</strong></p>
+<p>指针数组：指针数组可以说成是”指针的数组”，首先这个变量是一个数组。</p>
+<p>其次，”指针”修饰这个数组，意思是说这个数组的所有元素都是指针类型，数组中每个元素都指向一个地址。</p>
+<p>在 32 位系统中，指针占四个字节。数组名是一个指向数组中第一个元素的常量指针。</p>
+<p>例：<code>int *a[3]</code>，[] 的优先级高于 * ，所以这是一个数组，而 * 修饰数组，所以是指针数组，数组的元素是整型的指针。</p>
+<p><strong>数组指针</strong></p>
+<p>数组指针：数组指针可以说成是”数组的指针”，首先这个变量是一个指针。</p>
+<p>如果一个指针指向了数组，我们就称它为数组指针（Array Pointer）。</p>
+<p>其次，”数组”修饰这个指针，意思是说这个指针存放着一个数组的首地址，或者说这个指针指向一个数组的首地址。</p>
+<p>例：<code>int (*a)[3]</code>，同样的方式，首先括号的优先级最高，所以 *a 是指针，而 [] 修饰 *a ，所以是数组指针，一个指向 3 个元素的一维数组指针。</p>
+<p>根据上面的解释，可以了解到指针数组和数组指针的区别，因为二者根本就是两种类型的变量。</p>
+<p>有了数组指针，就有两种方式访问数组元素，一种是使用下标，另外一种是使用指针。</p>
+<ol>
+<li>使用下标<br>也就是采用 arr[i] 的形式访问数组元素。如果 p 是指向数组 arr 的指针，那么也可以使用 p[i] 来访问数组元素，它等价于 arr[i]。</li>
+<li>使用指针<br>也就是使用 *(p+i) 的形式访问数组元素。另外数组名本身也是指针，也可以使用 *(arr+i) 来访问数组元素，它等价于 *(p+i)。</li>
+</ol>
+<p>不管是数组名还是数组指针，都可以使用上面的两种方式来访问数组元素。不同的是，数组名是常量，它的值不能改变，而数组指针是变量（除非特别指明它是常量），它的值可以任意改变。也就是说，数组名只能指向数组的开头，而数组指针可以先指向数组开头，再指向其他元素。</p>
+<p><strong>关于数组指针的谜题</strong></p>
+<p>假设 p 是指向数组 arr 中第 n 个元素的指针，那么 <em>p++、</em>++p、(*p)++ 分别是什么意思呢？</p>
+<p>*p++ 等价于 *(p++)，表示先取得第 n 个元素的值，再将 p 指向下一个元素，上面已经进行了详细讲解。</p>
+<p>*++p 等价于 *(++p)，会先进行 ++p 运算，使得 p 的值增加，指向下一个元素，整体上相当于 *(p+1)，所以会获得第 n+1 个数组元素的值。</p>
+<p>(*p)++ 就非常简单了，会先取得第 n 个元素的值，再对该元素的值加 1。假设 p 指向第 0  个元素，并且第 0 个元素的值为 99，执行完该语句后，第 0  个元素的值就会变为 100。</p>
+<h3 id="字符串指针"><a href="#字符串指针" class="headerlink" title="字符串指针"></a>字符串指针</h3><p>C语言有两种表示字符串的方法，一种是字符数组，另一种是直接使用一个指针指向字符串，即字符串常量。</p>
+<p>两者最根本的区别是在内存中的存储区域不一样，字符数组存储在全局数据区或栈区，第二种形式的字符串存储在常量区。全局数据区和栈区的字符串（也包括其他数据）有读取和写入的权限，而常量区的字符串（也包括其他数据）只有读取权限，没有写入权限。</p>
+<p>内存权限的不同导致的一个明显结果就是，字符数组在定义后可以读取和修改每个字符，而对于第二种形式的字符串，一旦被定义后就只能读取不能修改，任何对它的赋值都是错误的。</p>
+<h3 id="函数指针（指向函数的指针）"><a href="#函数指针（指向函数的指针）" class="headerlink" title="函数指针（指向函数的指针）"></a>函数指针（指向函数的指针）</h3><p>一个函数在编译之后，会占据一部分内存，而它的函数名，就是这段函数的首地址。</p>
+<p>可以把一个指针声明成为一个指向函数的指针。</p>
+<p>C 语言规定函数名会被转换为指向这个函数的指针，除非这个函数名作为 &amp; 操作符或 sizeof 操作符的操作数(注意：函数名用于 sizeof 的操作数是非法的)。也就是说 f = test; 中 test 被自动转换为 &amp;test，而 f = &test; 中已经显示使用了 &amp;test，所以 test 就不会再发生转换了。因此直接引用函数名等效于在函数名上应用 &amp; 运算符，两种方法都会得到指向该函数的指针。</p>
+<p>指向函数的指针必须初始化，或者具有 0 值，才能在函数调用中使用。</p>
+<p>与数组一样：</p>
+<p>（1）禁止对指向函数的指针进行自增运算++<br>（2）禁止对函数名赋值，函数名也不能用于进行算术运算。</p>
+<h3 id="传递指针给函数"><a href="#传递指针给函数" class="headerlink" title="传递指针给函数"></a>传递指针给函数</h3><p>传递指针给函数，只需要简单地声明函数参数为指针类型即可。<br>通过传递指针给函数，可以直接修改原参数（实参），而不是引用实参到形参。</p>
+<p>下面是一个函数指针形式的传递，实质却是地址传递的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> **b)</span></span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *a, <span class="hljs-keyword">int</span> **b)</span></span><br><span class="hljs-function"></span>&#123;<br>   (*a)++;<br>   (*b)++;<span class="hljs-comment">//这里虽然传进来的是指针的形式，但其实是指针c的地址，</span><br>          <span class="hljs-comment">//可以认为这里本质还是值传递，只不过这个值是地址值</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a[<span class="hljs-number">2</span>] = &#123;<span class="hljs-number">10</span>, <span class="hljs-number">20</span>&#125;;<br>    <span class="hljs-keyword">int</span> *b = &amp;a[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">int</span> *c = a+<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">int</span> **d = &amp;c;<br>    <br>    <span class="hljs-built_in">func1</span>(b, d);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a[0] = %d   a[1] = %d\n&quot;</span>, a[<span class="hljs-number">0</span>], a[<span class="hljs-number">1</span>]);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>执行结果：a[0] = 11 a[1] = 20</p>
+<p>由上可知，虽然传递参数时，是以指针形式进行的，但有时候会发现其实还是值传递，是地址值的传递，特别是在多维数组进行参数传递的时候，特别容易出现这种情况。</p>
+<h3 id="从函数返回指针"><a href="#从函数返回指针" class="headerlink" title="从函数返回指针"></a>从函数返回指针</h3><p>C语言允许函数的返回值是一个指针（地址），这样的函数称为<strong>指针函数</strong>，用指针作为函数返回值时需要注意的一点是，函数运行结束后会销毁在它内部定义的所有局部数据，包括局部变量、局部数组和形式参数，函数返回的指针请尽量不要指向这些数据，C语言没有任何机制来保证这些数据会一直有效，它们在后续使用过程中可能会引发运行时错误。</p>
+<p>C 不支持在调用函数时返回局部变量的地址，除非定义局部变量为 static 变量。</p>
+<p>因为局部变量是存储在内存的栈区内，当函数调用结束后，局部变量所占的内存地址便被释放了，因此当其函数执行完毕后，函数内的变量便不再拥有那个内存地址，所以不能返回其指针。</p>
+<p>除非将其变量定义为 static 变量，static 变量的值存放在内存中的静态数据区，不会随着函数执行的结束而被清除，故能返回其地址。</p>
+<h3 id="二级指针-指向指针的指针"><a href="#二级指针-指向指针的指针" class="headerlink" title="二级指针(指向指针的指针)"></a>二级指针(指向指针的指针)</h3><p>如果一个指针指向的是另外一个指针，我们就称它为二级指针，或者指向指针的指针。</p>
+<p>当我们定义一个指向指针的指针时，第一个指针包含了第二个指针的地址，第二个指针指向包含实际值的位置。</p>
+<h3 id="二维数组指针（指向二维数组的指针）"><a href="#二维数组指针（指向二维数组的指针）" class="headerlink" title="二维数组指针（指向二维数组的指针）"></a>二维数组指针（指向二维数组的指针）</h3><p>对指针进行加法（减法）运算时，它前进（后退）的步长与它指向的数据类型有关，p 指向的数据类型是int [4]，那么p+1就前进 4×4 = 16 个字节，p-1就后退 16 个字节，这正好是数组 a 所包含的每个一维数组的长度。也就是说，p+1会使得指针指向二维数组的下一行，p-1会使得指针指向数组的上一行。</p>
+<ol>
+<li><p>p指向数组 a 的开头，也即第 0 行；p+1前进一行，指向第 1 行。</p>
+</li>
+<li><p>*(p+1)表示取地址上的数据，也就是整个第 1 行数据。注意是一行数据，是多个数据，不是第 1 行中的第 0 个元素</p>
+</li>
+<li><p>*(p+1)+1表示第 1 行第 1 个元素的地址。</p>
+</li>
+</ol>
+<p>*(p+1)单独使用时表示的是第 1 行数据，放在表达式中会被转换为第 1 行数据的首地址，也就是第 1 行第 0 个元素的地址，因为使用整行数据没有实际的含义，编译器遇到这种情况都会转换为指向该行第 0 个元素的指针；就像一维数组的名字，在定义时或者和 sizeof、&amp; 一起使用时才表示整个数组，出现在表达式中就会被转换为指向数组第 0 个元素的指针。</p>
+<ol start="4">
+<li><em>(</em>(p+1)+1)表示第 1 行第 1 个元素的值。很明显，增加一个 * 表示取地址上的数据。</li>
+</ol>
+<p>根据上面的结论，可以很容易推出以下的等价关系：<br>a+i == p+i<br>a[i] == p[i] == *(a+i) == *(p+i)<br>a[i][j] == p[i][j] == *(a[i]+j) == *(p[i]+j) == <em>(</em>(a+i)+j) == <em>(</em>(p+i)+j)</p>
+<h3 id="指针数组和二维数组指针的区别"><a href="#指针数组和二维数组指针的区别" class="headerlink" title="指针数组和二维数组指针的区别"></a>指针数组和二维数组指针的区别</h3><p>指针数组和二维数组指针在定义时非常相似，只是括号的位置不同：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">int</span> *(p<span class="hljs-number">1</span>[<span class="hljs-number">5</span>]);  //指针数组，可以去掉括号直接写作 int *p<span class="hljs-number">1</span>[<span class="hljs-number">5</span>];<br><span class="hljs-attribute">int</span> (*p<span class="hljs-number">2</span>)[<span class="hljs-number">5</span>];  //二维数组指针，不能去掉括号<br></code></pre></div></td></tr></table></figure>
+
+<p>指针数组和二维数组指针有着本质上的区别：指针数组是一个数组，只是每个元素保存的都是指针，以上面的 p1 为例，在32位环境下它占用 4×5 = 20 个字节的内存。二维数组指针是一个指针，它指向一个二维数组，以上面的 p2 为例，它占用 4 个字节的内存。</p>
+<p>常见指针变量的定义<br>定  义    含  义<br>int *p;    p 可以指向 int 类型的数据，也可以指向类似 int arr[n] 的数组。<br>int **p;    p 为二级指针，指向 int * 类型的数据。<br>int *p[n];    p 为指针数组。[ ] 的优先级高于 *，所以应该理解为 int *(p[n]);<br>int (*p)[n];    p 为二维数组指针。<br>int *p();    p 是一个函数，它的返回值类型为 int *。<br>int (*p)();    p 是一个函数指针，指向原型为 int func() 的函数。</p>
+<ol>
+<li><p>指针变量可以进行加减运算，例如p++、p+i、p-=i。指针变量的加减运算并不是简单的加上或减去一个整数，而是跟指针指向的数据类型有关。</p>
+</li>
+<li><p>给指针变量赋值时，要将一份数据的地址赋给它，不能直接赋给一个整数，例如int *p = 1000;是没有意义的，使用过程中一般会导致程序崩溃。</p>
+</li>
+<li><p>使用指针变量之前一定要初始化，否则就不能确定指针指向哪里，如果它指向的内存没有使用权限，程序就崩溃了。对于暂时没有指向的指针，建议赋值NULL。</p>
+</li>
+<li><p>两个指针变量可以相减。如果两个指针变量指向同一个数组中的某个元素，那么相减的结果就是两个指针之间相差的元素个数。</p>
+</li>
+<li><p>数组也是有类型的，数组名的本意是表示一组类型相同的数据。在定义数组时，或者和 sizeof、&amp; 运算符一起使用时数组名才表示整个数组，表达式中的数组名会被转换为一个指向数组的指针。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/c-pointer-detail.html">https://www.runoob.com/w3cnote/c-pointer-detail.html</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/C06-struct-union-bitfield/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C06-struct-union-bitfield</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/C04-array-string/">
+                        <span class="hidden-mobile">C04-array-string</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>C04-array-string - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C04-array-string">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:28" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C04-array-string</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="C数组"><a href="#C数组" class="headerlink" title="C数组"></a>C数组</h2><ol>
+<li><p>数组中每个元素的数据类型必须相同，对于<code>int a[4];</code>，每个元素都必须为 int类型。</p>
+</li>
+<li><p>数组长度 length 最好是整数或者常量表达式，例如 10、20*4 等，这样在所有编译器下都能运行通过</p>
+</li>
+<li><p>访问数组元素时，下标的取值范围为 0 ≤ index &lt; length，过大或过小都会越界，导致数组溢出，发生不可预测的情况</p>
+</li>
+</ol>
+<p>数组内存是连续的。连续的内存为指针操作（通过指针来访问数组元素）和内存处理（整块内存的复制、写入等）提供了便利，这使得数组可以作为缓存（临时存储数据的一块内存）使用。</p>
+<p>在我们没有明确数组的元素个数时，在程序中想知道数组单元个数可以使用 sizeof(a)/sizeof(a[0]), sizeof(a) 是得到数组 a 的大小，sizeof(a[0]) 是得到数组 a 中单个元素的大小（因此可以不必要是a[0],a[i]都行），例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc,<span class="hljs-keyword">char</span> *grgv[])</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> a[]=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>&#125;;<br>    <span class="hljs-keyword">int</span> b;<br>    b=<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(a)/<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(a[<span class="hljs-number">0</span>]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;数组元素个数为：%d&quot;</span>,b);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h3><p>可以先定义数组再给数组赋值，也可以在定义数组的同时赋值，例如：<br><code>int a[4] = &#123;20, 345, 700, 22&#125;;</code><br>数组元素的值由’{ }’包围，各个值之间以’,’分隔。</p>
+<p>对于数组的初始化需要注意以下几点：</p>
+<ol>
+<li>可以只给部分元素赋值。当{ }中值的个数少于元素个数时，只给前面部分元素赋值。例如：<br><code>int a[10]=&#123;12, 19, 22 , 993, 344&#125;;</code><br>表示只给 a[0]~a[4] 5个元素赋值，而后面 5 个元素自动初始化为 0。</li>
+</ol>
+<p>当赋值的元素少于数组总体元素的时候，剩余的元素自动初始化为 0：<br>对于short、int、long，就是整数 0；<br>对于char，就是字符 ‘\0’；<br>对于float、double，就是小数 0.0。</p>
+<p>我们可以通过下面的形式将数组的所有元素初始化为 0：<br><code>int nums[10] = &#123;0&#125;;</code><br><code>char str[10] = &#123;0&#125;;</code><br><code>float scores[10] = &#123;0.0&#125;;</code><br>由于剩余的元素会自动初始化为 0，所以只需要给第 0 个元素赋值为 0 即可。</p>
+<ol start="2">
+<li><p>只能给元素逐个赋值，不能给数组整体赋值。例如给 10 个元素全部赋值为 1，只能写作：<br><code>int a[10] = &#123;1, 1, 1, 1, 1, 1, 1, 1, 1, 1&#125;;</code><br>而不能写作：<br><code>int a[10] = 1;</code></p>
+</li>
+<li><p>如给全部元素赋值，那么在定义数组时可以不给出数组长度。例如：<br><code>int a[] = &#123;1, 2, 3, 4, 5&#125;;</code><br>等价于<br><code>int a[5] = &#123;1, 2, 3, 4, 5&#125;;</code></p>
+</li>
+<li><p>如果省略掉数组的大小，数组的大小则为初始化时元素的个数。例如：<br><code>int a[] = &#123;1, 2, 3&#125;;</code>得到一个有三个元素的数组</p>
+</li>
+</ol>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p><strong>对于二维数组的初始化要注意以下几点</strong>：</p>
+<ol>
+<li>可以只对部分元素赋值，未赋值的元素自动取“零”值。例如：<br><code>int a[3][3] = &#123;&#123;1&#125;, &#123;2&#125;, &#123;3&#125;&#125;;</code><br>是对每一行的第一列元素赋值，未赋值的元素的值为 0。赋值后各元素的值为：<br>1  0  0<br>2  0  0<br>3  0  0</li>
+</ol>
+<p>再如：<br><code>int a[3][3] = &#123;&#123;0,1&#125;, &#123;0,0,2&#125;, &#123;3&#125;&#125;;</code><br>赋值后各元素的值为：<br>0  1  0<br>0  0  2<br>3  0  0</p>
+<ol start="2">
+<li><p>如果对全部元素赋值，那么第一维的长度可以不给出。例如：<br><code>int a[3][3] = &#123;1, 2, 3, 4, 5, 6, 7, 8, 9&#125;;</code><br>可以写为：<br><code>int a[][3] = &#123;1, 2, 3, 4, 5, 6, 7, 8, 9&#125;;</code></p>
+</li>
+<li><p>二维数组可以看作是由一维数组嵌套而成的；如果一个数组的每个元素又是一个数组，那么它就是二维数组。当然，前提是各个元素的类型必须相同。根据这样的分析，一个二维数组也可以分解为多个一维数组，C语言允许这种分解。</p>
+</li>
+</ol>
+<p>例如，二维数组a[3][4]可分解为三个一维数组，它们的数组名分别为 a[0]、a[1]、a[2]。</p>
+<p>这三个一维数组可以直接拿来使用。这三个一维数组都有 4 个元素，比如，一维数组 a[0] 的元素为 a[0][0]、a[0][1]、a[0][2]、a[0][3]。</p>
+<p>二维数组在逻辑上是方阵，由行和列组成。</p>
+<p>但是二维数组在物理上是线性的，按行来依次进行存放，内存是连续的。</p>
+<p>二维数组名即首行的地址，C 语言中的地址一般均是空间首地址。故二维数组名是首行首地址，该数组名加 1 表示跳过一整行，到达第二行的首地址，以此类推。</p>
+<p>二维数组名加 1 表示跳过一个对象（一行）的空间，为下一个对象（下一行）的地址。即跳过一个对象所有属性（一行中所有列元素）对应的空间，到达下一个对象（下一行）的起始位置。</p>
+<h3 id="传递数组给函数"><a href="#传递数组给函数" class="headerlink" title="传递数组给函数"></a>传递数组给函数</h3><p>有三种方式可以向函数传递数组</p>
+<p>方式 1<br>形式参数是一个指针（您可以在下一章中学习到有关指针的知识）：</p>
+<p><code>void myFunction(int *param)&#123;&#125;</code></p>
+<p>方式 2<br>形式参数是一个已定义大小的数组：</p>
+<p><code>void myFunction(int param[10])&#123;...&#125;</code></p>
+<p>方式 3<br>形式参数是一个未定义大小的数组：</p>
+<p><code>void myFunction(int param[])&#123;...&#125;</code></p>
+<p><strong>二维数组传递给函数</strong></p>
+<p>方法1: 第一维的长度可以不指定，但必须指定第二维的长度：</p>
+<p><code>void print_a(int a[][5], int n, int m)</code><br>方法2: 指向一个有5个元素一维数组的指针：</p>
+<p><code>void print_b(int (*a)[5], int n, int m)</code><br>方法3: 利用数组是顺序存储的特性,通过降维来访问原数组!</p>
+<p><code>void print_c(int *a, int n, int m)</code></p>
+<figure class="highlight markdown"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs markdown"><span class="hljs-section">#include <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">stdio.h</span>&gt;</span></span></span><br>/<span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-emphasis">*</span><br><span class="hljs-emphasis">*</span> 方法1: 第一维的长度可以不指定<br><span class="hljs-bullet">*</span>        但必须指定第二维的长度<br><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-emphasis">*/ </span><br><span class="hljs-emphasis">void print_a(int a[][5], int n, int m)&#123; </span><br><span class="hljs-emphasis">    int i, j;</span><br><span class="hljs-emphasis">    for(i = 0; i &lt; n; i++) &#123;</span><br><span class="hljs-emphasis">        for(j = 0; j &lt; m; j++) </span><br><span class="hljs-emphasis">            printf(&quot;%d &quot;, a[<span class="hljs-string">i</span>][<span class="hljs-symbol">j</span>]); </span><br><span class="hljs-emphasis">        printf(&quot;\n&quot;); </span><br><span class="hljs-emphasis">    &#125; </span><br><span class="hljs-emphasis">&#125; </span><br><span class="hljs-emphasis"></span><br><span class="hljs-emphasis">/<span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span>*</span> <br><span class="hljs-bullet">*</span> 方法2: 指向一个有5个元素一维数组的指针<br><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-strong">****</span><span class="hljs-emphasis">*/ </span><br><span class="hljs-emphasis">void print_b(int (*</span>a)[5], int n, int m) &#123; <br><span class="hljs-code">    int i, j;</span><br><span class="hljs-code">    for(i = 0; i &lt; n; i++) &#123; </span><br><span class="hljs-code">        for(j = 0; j &lt; m; j++) </span><br><span class="hljs-code">            printf(&quot;%d &quot;, a[i][j]);</span><br><span class="hljs-code">        printf(&quot;\n&quot;); </span><br><span class="hljs-code">    &#125; </span><br><span class="hljs-code">&#125;</span><br><span class="hljs-code"></span><br><span class="hljs-code">/*********************************** </span><br><span class="hljs-code">* 方法3: 利用数组是顺序存储的特性, </span><br><span class="hljs-code">*       通过降维来访问原数组!</span><br><span class="hljs-code">***********************************/ </span><br><span class="hljs-code">void print_c(int *a, int n, int m) &#123; </span><br><span class="hljs-code">    int i, j; </span><br><span class="hljs-code">    for(i = 0; i &lt; n; i++) &#123; </span><br><span class="hljs-code">        for(j = 0; j &lt; m; j++) </span><br><span class="hljs-code">            printf(&quot;%d &quot;, *(a + i*m + j));</span><br><span class="hljs-code">        printf(&quot;\n&quot;); </span><br><span class="hljs-code">    &#125; </span><br><span class="hljs-code">&#125;</span><br><span class="hljs-code">int main(void) </span><br><span class="hljs-code">&#123; </span><br><span class="hljs-code">    int a[5][5] = &#123;&#123;1, 2&#125;, &#123;3, 4, 5&#125;, &#123;6&#125;, &#123;7&#125;, &#123;0, 8&#125;&#125;; </span><br><span class="hljs-code"></span><br><span class="hljs-code">    printf(&quot;\n方法1:\n&quot;);   </span><br><span class="hljs-code">    print_a(a, 5, 5); </span><br><span class="hljs-code"></span><br><span class="hljs-code">    printf(&quot;\n方法2:\n&quot;);   </span><br><span class="hljs-code">    print_b(a, 5, 5);   </span><br><span class="hljs-code"></span><br><span class="hljs-code">    printf(&quot;\n方法3:\n&quot;);   </span><br><span class="hljs-code">    print_c(&amp;a[0][0], 5, 5); </span><br><span class="hljs-code"></span><br><span class="hljs-code">//    getch(); </span><br><span class="hljs-code">    return 0; </span><br><span class="hljs-code">&#125; </span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="从函数返回数组"><a href="#从函数返回数组" class="headerlink" title="从函数返回数组"></a>从函数返回数组</h3><p>C 语言不允许返回一个完整的数组作为函数的参数。但是可以通过指定不带索引的数组名来返回一个指向数组的指针。<br>如果想要从函数返回一个一维数组，必须先声明一个返回指针的函数，如下：</p>
+<p><code>int * myFunction()&#123;...&#125;</code></p>
+<p>另外，C 不支持在函数外返回局部变量的地址，除非定义局部变量为 static 变量。</p>
+<p>下面的函数，它会生成 10 个随机数，并使用数组来返回它们</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span><br> <br><span class="hljs-comment">/* 要生成和返回随机数的函数 */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> * <span class="hljs-title">getRandom</span><span class="hljs-params">( )</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>  r[<span class="hljs-number">10</span>];<br>  <span class="hljs-keyword">int</span> i;<br> <br>  <span class="hljs-comment">/* 设置种子 */</span><br>  <span class="hljs-built_in">srand</span>( (<span class="hljs-keyword">unsigned</span>)<span class="hljs-built_in">time</span>( <span class="hljs-literal">NULL</span> ) );<br>  <span class="hljs-keyword">for</span> ( i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; ++i)<br>  &#123;<br>     r[i] = <span class="hljs-built_in">rand</span>();<br>     <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;r[%d] = %d\n&quot;</span>, i, r[i]);<br> <br>  &#125;<br> <br>  <span class="hljs-keyword">return</span> r;<br>&#125;<br> <br><span class="hljs-comment">/* 要调用上面定义函数的主函数 */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>   <span class="hljs-comment">/* 一个指向整数的指针 */</span><br>   <span class="hljs-keyword">int</span> *p;<br>   <span class="hljs-keyword">int</span> i;<br> <br>   p = <span class="hljs-built_in">getRandom</span>();<br>   <span class="hljs-keyword">for</span> ( i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ )<br>   &#123;<br>       <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;*(p + %d) : %d\n&quot;</span>, i, *(p + i));<br>   &#125;<br> <br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>srand((unsigned)time(NULL))是初始化随机函数种子：</p>
+<p> 1、是拿当前系统时间作为种子，由于时间是变化的，种子变化，可以产生不相同的随机数。计算机中的随机数实际上都不是真正的随机数，如果两次给的种子一样，是会生成同样的随机序列的。 所以，一般都会以当前的时间作为种子来生成随机数，这样更加的随机。<br> 2、使用时，参数可以是unsigned型的任意数据，比如srand（10）；<br> 3、如果不使用srand，用rand（）产生的随机数，在多次运行，结果是一样的。</p>
+<h2 id="C字符串"><a href="#C字符串" class="headerlink" title="C字符串"></a>C字符串</h2><p>用来存放字符的数组称为字符数组，例如：</p>
+<p><code>char str[6] = &#123;&#39;H&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39;\0&#39;&#125;;</code></p>
+<p>C语言规定，可以将字符串直接赋值给字符数组，例如：</p>
+<p><code>char str[10] = &#123;&quot;Hello&quot;&#125;;</code><br><code>char str[10] = &quot;Hello&quot;; </code></p>
+<p>为了方便，也可以不指定数组长度：</p>
+<p><code>char str[] = &#123;&quot;Hello&quot;&#125;;</code><br><code>char str[] = &quot;Hello&quot;;</code></p>
+<p>在C语言中，字符串总是以’\0’作为结尾，所以’\0’也被称为字符串结束标志，或者字符串结束符。</p>
+<p>‘\0’是 ASCII 码表中的第 0 个字符，英文称为 NUL，中文称为“空字符”。该字符既不能显示，也没有控制功能，输出该字符不会有任何效果，它在C语言中唯一的作用就是作为字符串结束标志。</p>
+<p>用” “包围的字符串会自动在末尾添加’\0’，但逐个字符地给数组赋值并不会自动添加’\0’。</p>
+<p>如果没有在字符数组最后增加 \0 的话输出结果有误：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta"><span class="hljs-comment">// 初始化字符串</span><br><span class="hljs-built_in">char</span> <span class="hljs-built_in">str</span>[<span class="hljs-number">5</span>] = &#123; <span class="hljs-string">&#x27;H&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;l&#x27;</span>, <span class="hljs-string">&#x27;l&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span> &#125;;<br>printf(<span class="hljs-string">&quot;Greeting message: %s\n&quot;</span>, <span class="hljs-built_in">str</span>);<br></code></pre></div></td></tr></table></figure>
+
+<p>输出结果:</p>
+<p><code>Greeting message: Hello烫烫烫?侵7(?╔?╚╔╔</code></p>
+<p>可以手动在初始化字符串之后加上’\0’，也可以这样做：</p>
+<p><code>char str[30] = &#123;0&#125;;  //将所有元素都初始化为 0，或者说 &#39;\0&#39;</code>，然后再给字符串数组赋值。</p>
+<h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><p>所谓字符串长度，就是字符串包含了多少个字符（不包括最后的结束符’\0’）。例如”abc”的长度是 3，而不是 4。</p>
+<p>sizeof 计算的是变量的大小；strlen 返回的是该字符串的长度，遇到 \0 结束，\0 本身不计算在内；前者不受字符 \0 影响，后者以 \0 作为长度判定依据。</p>
+<p>在C语言中，我们使用string.h头文件中的 strlen() 函数来求字符串的长度，它的用法为：<br><code>length strlen(strname);</code></p>
+<p>strname 是字符串的名字，或者字符数组的名字；length 是使用 strlen() 后得到的字符串长度，是一个整数。</p>
+<p>下面是一个输出str字符串长度的例子</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span>  <span class="hljs-comment">//记得引入该头文件</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">char</span> str[] = <span class="hljs-string">&quot;hello world&quot;</span>;<br>    <span class="hljs-keyword">long</span> len = <span class="hljs-built_in">strlen</span>(str);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The lenth of the string is %ld.\n&quot;</span>, len);<br>   <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="字符串的输入和输出"><a href="#字符串的输入和输出" class="headerlink" title="字符串的输入和输出"></a>字符串的输入和输出</h3><p><strong>字符串的输出</strong></p>
+<p>在C语言中，有两个函数可以在控制台上输出字符串，它们分别是：<br>puts()：输出字符串并自动换行，该函数只能输出字符串。<br>printf()：通过格式控制符%s输出字符串，不能自动换行。除了字符串，printf() 还能输出其他类型的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">char</span> str[] = <span class="hljs-string">&quot;hello world&quot;</span>;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, str);  <span class="hljs-comment">//通过字符串名字输出</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, <span class="hljs-string">&quot;hello world&quot;</span>);  <span class="hljs-comment">//直接输出</span><br>    <span class="hljs-built_in">puts</span>(str);  <span class="hljs-comment">//通过字符串名字输出</span><br>    <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;hello world&quot;</span>);  <span class="hljs-comment">//直接输出</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>字符串的输入</strong></p>
+<p>在C语言中，有两个函数可以让用户从键盘上输入字符串，它们分别是：<br>scanf()：通过格式控制符%s输入字符串。除了字符串，scanf() 还能输入其他类型的数据。<br>gets()：直接输入字符串，并且只能输入字符串。</p>
+<p>但是，scanf() 和 gets() 是有区别的：<br>scanf() 读取字符串时以空格为分隔，遇到空格就认为当前字符串结束了，所以无法读取含有空格的字符串。<br>gets() 认为空格也是字符串的一部分，只有遇到回车键时才认为字符串输入结束，所以，不管输入了多少个空格，只要不按下回车键，对 gets() 来说就是一个完整的字符串。换句话说，gets() 用来读取一整行字符串。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">char</span> str1[<span class="hljs-number">30</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-keyword">char</span> str2[<span class="hljs-number">30</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-keyword">char</span> str3[<span class="hljs-number">30</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>    <span class="hljs-comment">//gets() 用法</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input a string: &quot;</span>);<br>    <span class="hljs-built_in">gets</span>(str1);<br>    <span class="hljs-comment">//scanf() 用法</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Input a string: &quot;</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, str2);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>, str3);<br>   <br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\nstr1: %s\n&quot;</span>, str1);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;str2: %s\n&quot;</span>, str2);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;str3: %s\n&quot;</span>, str3);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<h3 id="常用的操作字符串函数"><a href="#常用的操作字符串函数" class="headerlink" title="常用的操作字符串函数"></a>常用的操作字符串函数</h3><p>序号    函数 &amp; 目的<br>1    strcpy(s1, s2);<br>复制字符串 s2 到字符串 s1，strcpy() 会把 s2 中的字符串拷贝到 s1 中，字符串结束标志’\0’也一同拷贝，将 s2 复制到 s1 后，s1 中原来的内容就被覆盖了。另外，strcpy() 要求 s1 要有足够的长度，否则不能全部装入所拷贝的字符串。<br>2    strcat(s1, s2);<br>连接字符串 s2 到字符串 s1 的末尾，strcat() 将把 s2 连接到 s1 后面，并删除原来 s1 最后的结束标志’\0’。所以 s1 必须足够长，要能够同时容纳 s1 和 s2，否则会越界（超出范围）。<br>strcat() 的返回值为 s1 的地址。<br>3    strlen(s1);<br>返回字符串 s1 的长度。<br>4    strcmp(s1, s2);<br>返回值：如果 s1 和 s2 是相同的，则返回 0；如果 s1&lt;s2 则返回小于 0；如果 s1&gt;s2 则返回大于 0。<br>5    strchr(s1, ch);<br>返回一个指针，指向字符串 s1 中字符 ch 的第一次出现的位置。<br>6    strstr(s1, s2);<br>返回一个指针，指向字符串 s1 中字符串 s2 的第一次出现的位置。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/C05-function-pointer/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C05-function-pointer</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/C03-input-output-if-for/">
+                        <span class="hidden-mobile">C03-input-output-if-for</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

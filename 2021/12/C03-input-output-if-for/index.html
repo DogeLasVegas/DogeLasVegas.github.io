@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>C03-input-output-if-for - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C03-input-output-if-for">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:23" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.5k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C03-input-output-if-for</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="C-输入-amp-输出"><a href="#C-输入-amp-输出" class="headerlink" title="C 输入 &amp; 输出"></a>C 输入 &amp; 输出</h2><p><strong>输出函数</strong>：</p>
+<p>puts()：只能输出字符串，并且输出结束后会自动换行。<br>putchar()：只能输出单个字符。<br>printf()：可以输出各种类型的数据。</p>
+<p><strong>输入函数</strong>：</p>
+<p>scanf()：和 printf() 类似，scanf() 可以输入多种类型的数据。<br>getchar()、getche()、getch()：这三个函数都用于输入单个字符。<br>gets()：获取一行数据，并作为字符串处理。</p>
+<h3 id="getchar-amp-putchar-函数"><a href="#getchar-amp-putchar-函数" class="headerlink" title="getchar() &amp; putchar() 函数"></a>getchar() &amp; putchar() 函数</h3><p>int getchar(void) 函数从屏幕读取下一个可用的字符，并把它返回为一个整数。这个函数在同一个时间内只会读取一个单一的字符。在循环内使用这个方法，可以从屏幕上读取多个字符。</p>
+<p>int putchar(int c) 函数把字符输出到屏幕上，并返回相同的字符。这个函数在同一个时间内只会输出一个单一的字符。在循环内使用这个方法，可以在屏幕上输出多个字符。</p>
+<p>实例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( )</span></span><br><span class="hljs-function"></span>&#123;<br>   <span class="hljs-keyword">int</span> c;<br> <br>   <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Enter a value :&quot;</span>);<br>   c = <span class="hljs-built_in">getchar</span>( );<br> <br>   <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;\nYou entered: &quot;</span>);<br>   <span class="hljs-built_in">putchar</span>( c );<br>   <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;\n&quot;</span>);<br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>当输入一个文本并按下回车键时，程序会继续并只会读取一个单一的字符，显示如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">$./<span class="hljs-selector-tag">a</span>.out<br>Enter <span class="hljs-selector-tag">a</span> value :hello<br><br>You entered: h<br></code></pre></div></td></tr></table></figure>
+
+<p>其他输入单个字符的函数：</p>
+<p>（1）getche()<br>getche() 没有缓冲区，输入一个字符后会立即读取，不用等待用户按下回车键，这是它和 scanf()、getchar() 的最大区别。</p>
+<p>注意，getche() 位于 conio.h 头文件中，而这个头文件是 Windows 特有的，Linux 和 Mac OS 下没有包含该头文件。换句话说，getche() 并不是标准函数，默认只能在 Windows 下使用，不能在 Linux 和 Mac OS 下使用。</p>
+<p>（2）getch()<br>getch() 也没有缓冲区，输入一个字符后会立即读取，不用按下回车键，这一点和 getche() 相同。getch() 的特别之处是它没有回显，看不到输入的字符。所谓回显，就是在控制台上显示出用户输入的字符；没有回显，就不会显示用户输入的字符，就好像根本没有输入一样。（在某些特殊情况下，不希望有回显，比如输入密码时）</p>
+<p>示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;conio.h&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">char</span> c = <span class="hljs-built_in">getch</span>();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;c: %c\n&quot;</span>, c);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>输入一个字符后，getch() 会立即读取完毕，接着继续执行 printf() 将字符输出。但是由于 getch() 没有回显，看不到输入的字符，所以控制台上最终显示的内容为c: 所输入的字符（如：a）。</p>
+<p>注意，和 getche() 一样，getch() 也位于 conio.h 头文件中，也不是标准函数，默认只能在 Windows 下使用，不能在 Linux 和 Mac OS 下使用。</p>
+<p>三个输入字符函数对比：</p>
+<p>函数    缓冲区    头文件    回显    适用平台<br>getchar()    有    stdio.h    有    Windows、Linux、Mac OS 等所有平台<br>getche()    无    conio.h    有    Windows<br>getch()    无    conio.h    无    Windows</p>
+<h3 id="gets-amp-puts-函数"><a href="#gets-amp-puts-函数" class="headerlink" title="gets() &amp; puts() 函数"></a>gets() &amp; puts() 函数</h3><p>char *gets(char *s) 函数从 stdin（标准输入） 读取一行到 s 所指向的缓冲区，直到一个终止符或 EOF。</p>
+<p>int puts(const char *s) 函数把字符串 s 和一个尾随的换行符写入到 stdout（标准输出）。</p>
+<p>实例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( )</span></span><br><span class="hljs-function"></span>&#123;<br>   <span class="hljs-keyword">char</span> str[<span class="hljs-number">100</span>];<br> <br>   <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;Enter a value :&quot;</span>);<br>   <span class="hljs-built_in">gets</span>( str );<br> <br>   <span class="hljs-built_in">printf</span>( <span class="hljs-string">&quot;\nYou entered: &quot;</span>);<br>   <span class="hljs-built_in">puts</span>( str );<br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>当上面的代码被编译和执行时，它会等待用户输入一些文本，当输入一个文本并按下回车键时，程序会继续并读取一整行直到该行结束，显示如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs stylus">$./<span class="hljs-selector-tag">a</span>.out<br>Enter <span class="hljs-selector-tag">a</span> value :hello<br><br>You entered: hello<br></code></pre></div></td></tr></table></figure>
+
+<p>注意：gets函数由于没有指定输入字符大小，所以会无限读取，一旦输入的字符大于数组长度，就会发生内存越界，从而造成程序崩溃或其他数据的错误。</p>
+<p>gets() 是有缓冲区的，每次按下回车键，就代表当前输入结束了，gets() 开始从缓冲区中读取内容，这一点和 scanf() 是一样的。gets() 和 scanf() 的主要区别是：</p>
+<p>scanf() 读取字符串时以空格为分隔，遇到空格就认为当前字符串结束了，所以无法读取含有空格的字符串。<br>gets() 认为空格也是字符串的一部分，只有遇到回车键时才认为字符串输入结束，所以，不管输入了多少个空格，只要不按下回车键，对 gets() 来说就是一个完整的字符串。</p>
+<p>也就是说，gets() 能读取含有空格的字符串，而 scanf() 不能。</p>
+<p>另外在linux系统下不支持 gets 与 puts, 需要用 fgets 和 fputs。</p>
+<p><strong>gets()与fgets()</strong><br><strong>gets()</strong><br>gets函数原型：char<em>gets(char</em>buffer);//读取字符到数组：gets(str);str为数组名。</p>
+<p>gets函数功能：从键盘上输入字符，直至接受到换行符或EOF时停止，并将读取的结果存放在buffer指针所指向的字符数组中。</p>
+<p>读取的换行符被转换为null值，做为字符数组的最后一个字符，来结束字符串。</p>
+<p>注意：gets函数由于没有指定输入字符大小，所以会无限读取，一旦输入的字符大于数组长度，就会发生内存越界，从而造成程序崩溃或其他数据的错误。</p>
+<p><strong>fgets()</strong><br>fgets函数原型：char *fgets(char *s, int n, FILE *stream);//我们平时可以这么使用：fgets(str, sizeof(str), stdin);</p>
+<p>其中str为数组首地址，sizeof(str)为数组大小，stdin表示我们从键盘输入数据。</p>
+<p>fgets函数功能：从文件指针stream中读取字符，存到以s为起始地址的空间里，直到读完N-1个字符，或者读完一行。</p>
+<p>注意：调用fgets函数时，最多只能读入n-1个字符。读入结束后，系统将自动在最后加’\0’，并以str作为函数值返回。</p>
+<h3 id="scanf-和-printf-函数"><a href="#scanf-和-printf-函数" class="headerlink" title="scanf() 和 printf() 函数"></a>scanf() 和 printf() 函数</h3><p>格式控制符：<br>格式控制符    说明<br>%c    输出一个单一的字符<br>%hd、%d、%ld    以十进制、有符号的形式输出 short、int、long 类型的整数<br>%hu、%u、%lu    以十进制、无符号的形式输出 short、int、long 类型的整数<br>%ho、%o、%lo    以八进制、不带前缀、无符号的形式输出 short、int、long 类型的整数<br>%#ho、%#o、%#lo    以八进制、带前缀、无符号的形式输出 short、int、long 类型的整数<br>%hx、%x、%lx<br>%hX、%X、%lX    以十六进制、不带前缀、无符号的形式输出 short、int、long 类型的整数。如果 x 小写，那么输出的十六进制数字也小写；如果 X 大写，那么输出的十六进制数字也大写。<br>%#hx、%#x、%#lx<br>%#hX、%#X、%#lX    以十六进制、带前缀、无符号的形式输出 short、int、long 类型的整数。如果 x 小写，那么输出的十六进制数字和前缀都小写；如果 X 大写，那么输出的十六进制数字和前缀都大写。<br>%f、%lf    以十进制的形式输出 float、double 类型的小数<br>%e、%le<br>%E、%lE    以指数的形式输出 float、double 类型的小数。如果 e 小写，那么输出结果中的 e 也小写；如果 E 大写，那么输出结果中的 E 也大写。<br>%g、%lg<br>%G、%lG    以十进制和指数中较短的形式输出 float、double 类型的小数，并且小数部分的最后不会添加多余的 0。如果 g 小写，那么当以指数形式输出时 e 也小写；如果 G 大写，那么当以指数形式输出时 E 也大写。<br>%s    输出一个字符串</p>
+<p>printf() 格式控制符的完整形式如下：<br>%[flag][width][.precision]type</p>
+<ol>
+<li>type 表示输出类型，比如 %d、%f、%c、%lf，type 就分别对应 d、f、c、lf；再如，%-9d中 type 对应 d。</li>
+</ol>
+<p>type 这一项必须有，这意味着输出时必须要知道是什么类型。</p>
+<ol start="2">
+<li>width 表示最小输出宽度，也就是至少占用几个字符的位置；例如，%-9d中 width 对应 9，表示输出结果最少占用 9 个字符的宽度。</li>
+</ol>
+<p>当输出结果的宽度不足 width 时，以空格补齐（如果没有指定对齐方式，默认会在左边补齐空格）；当输出结果的宽度超过 width 时，width 不再起作用，按照数据本身的宽度来输出。</p>
+<ol start="3">
+<li>.precision 表示输出精度，也就是小数的位数。<br>当小数部分的位数大于 precision 时，会按照四舍五入的原则丢掉多余的数字；<br>当小数部分的位数小于 precision 时，会在后面补 0。</li>
+</ol>
+<p>另外，.precision 也可以用于整数和字符串，但是功能却是相反的：<br>用于整数时，.precision 表示最小输出宽度。与 width 不同的是，整数的宽度不足时会在左边补 0，而不是补空格。<br>用于字符串时，.precision 表示最大输出宽度，或者说截取字符串。当字符串的长度大于 precision 时，会截掉多余的字符；当字符串的长度小于 precision 时，.precision 就不再起作用。</p>
+<ol start="4">
+<li>flag 是标志字符。例如，%#x中 flag 对应 #，%-9d中 flags 对应-。下表列出了 printf() 可以用的 flag：<br>标志字符    含  义</li>
+</ol>
+<ul>
+<li>   -表示左对齐。如果没有，就按照默认的对齐方式，默认一般为右对齐。</li>
+</ul>
+<ul>
+<li> 用于整数或者小数，表示输出符号（正负号）。如果没有，那么只有负数才会输出符号。<br>空格    用于整数或者小数，输出值为正时冠以空格，为负时冠以负号。<br>‘#’<br>对于八进制（%o）和十六进制（%x / %X）整数，# 表示在输出时添加前缀；八进制的前缀是 0，十六进制的前缀是 0x / 0X。<br>对于小数（%f / %e / %g），# 表示强迫输出小数点。如果没有小数部分，默认是不输出小数点的，加上 # 以后，即使没有小数部分也会带上小数点。</li>
+</ul>
+<p>scanf() 读取字符串时以空格为分隔，遇到空格就认为当前字符串结束了，所以无法读取含有空格的字符串</p>
+<p>scanf() 格式控制符汇总<br>格式控制符    说明<br>%c    读取一个单一的字符<br>%hd、%d、%ld    读取一个十进制整数，并分别赋值给 short、int、long 类型<br>%ho、%o、%lo    读取一个八进制整数（可带前缀也可不带），并分别赋值给 short、int、long 类型<br>%hx、%x、%lx    读取一个十六进制整数（可带前缀也可不带），并分别赋值给 short、int、long 类型<br>%hu、%u、%lu    读取一个无符号整数，并分别赋值给 unsigned short、unsigned int、unsigned long 类型<br>%f、%lf    读取一个十进制形式的小数，并分别赋值给 float、double 类型<br>%e、%le    读取一个指数形式的小数，并分别赋值给 float、double 类型<br>%g、%lg    既可以读取一个十进制形式的小数，也可以读取一个指数形式的小数，并分别赋值给 float、double 类型<br>%s    读取一个字符串（以空白符为结束）</p>
+<p>Windows、Unix、Mac不同操作系统的换行问题 回车符\r和换行符\n<br>一、概念：</p>
+<p>换行符‘\n’和回车符‘\r’</p>
+<p>（1）换行符就是另起一行  — ‘\n’ 10 换行（newline）</p>
+<p>（2）回车符就是回到一行的开头 — ‘\r’ 13 回车（return）</p>
+<p>所以我们平时编写文件的回车符应该确切来说叫做回车换行符  </p>
+<p>CR: 回车(Carriage Return) \rLF: 换行(Line Feed) \n</p>
+<p>二、应用：</p>
+<p>（1）在微软的MS-DOS和Windows中，使用“回车CR(‘\r’)”和“换行LF(‘\n’)”两个字符作为换行符;</p>
+<p>（2）Windows系统里面，每行结尾是 回车+换行(CR+LF)，即“\r\n”；</p>
+<p>（3）Unix系统里，每行结尾只有 换行LF，即“\n”；</p>
+<p>（4）Mac系统里，每行结尾是 回车CR 即’\r’。</p>
+<p>Mac OS 9 以及之前的系统的换行符是 CR，从 Mac OS X （后来改名为“OS X”）开始的换行符是 LF即‘\n’，和Unix/Linux统一了。</p>
+<p>三、影响：</p>
+<p>（1）一个直接后果是，Unix/Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</p>
+<p>（2）而Windows里的文件在Unix/Mac下打开的话，在每行的结尾可能会多出一个^M符号。</p>
+<p>（3）Linux保存的文件在windows上用记事本看的话会出现黑点。</p>
+<p>四、可以相互转换：</p>
+<p>在linux下，命令unix2dos 是把linux文件格式转换成windows文件格式，命令dos2unix 是把windows格式转换成linux文件格式。</p>
+<p>在不同平台间使用FTP软件传送文件时, 在ascii文本模式传输模式下, 一些FTP客户端程序会自动对换行格式进行转换. 经过这种传输的文件字节数可能会发生变化.</p>
+<p> 如果你不想ftp修改原文件, 可以使用bin模式(二进制模式)传输文本。</p>
+<p>一个程序在windows上运行就生成CR/LF换行格式的文本文件，而在Linux上运行就生成LF格式换行的文本文件。</p>
+<h2 id="C判断-amp-循环"><a href="#C判断-amp-循环" class="headerlink" title="C判断 &amp; 循环"></a>C判断 &amp; 循环</h2><p>switch 语句注意点：</p>
+<p>switch 语句中的 expression 是一个常量表达式，必须是一个整型或枚举类型。</p>
+<p>在一个 switch 中可以有任意数量的 case 语句。每个 case 后跟一个要比较的值和一个冒号。</p>
+<p>case 后要比较的值 必须与 switch 中的变量具有相同的数据类型，且必须是一个常量或字面量。</p>
+<p>当被测试的变量等于 case 中的常量时，case 后跟的语句将被执行，即会执行该分支以及后面所有分支的语句，直到遇到 break 语句为止。当遇到 break 语句时，switch 终止，控制流将跳转到 switch 语句后的下一行，也就是说，整个 switch 执行结束了，接着会执行整个 switch 后面的代码。</p>
+<p>不是每一个 case 都需要包含 break。如果 case 语句不包含 break，控制流将会 继续 后续的 case，直到遇到 break 为止。</p>
+<p>一个 switch 语句可以有一个可选的 default case，出现在 switch 的结尾。default case 可用于在上面所有 case 都不为真时执行一个任务。当没有 default 时，如果所有 case 都匹配失败，那么就什么都不执行。由于 default 是最后一个分支，匹配后不会再执行其他分支，所以default中的 break 语句不是必需的。</p>
+<h3 id="循环类型"><a href="#循环类型" class="headerlink" title="循环类型"></a>循环类型</h3><p>循环类型    描述<br>while 循环    当给定条件为真时，重复语句或语句组。它会在执行循环主体之前测试条件。<br>for 循环    多次执行一个语句序列，简化管理循环变量的代码。<br>do…while 循环    除了它是在循环主体结尾测试条件外，其他与 while 语句类似。<br>嵌套循环    您可以在 while、for 或 do..while 循环内使用一个或多个循环。</p>
+<p>C语言for循环中的三个表达式<br>for 循环中的“表达式1（初始化条件）”、“表达式2(循环条件)”和“表达式3（自增或自减）”都是可选项，都可以省略（但分号;必须保留）。</p>
+<ol>
+<li>省略了“表达式2(循环条件)”，如果不做其它处理就会成为死循环。</li>
+<li>省略了“表达式3(自增或自减)”，就不会修改“表达式2(循环条件)”中的变量，这时可在循环体中加入修改变量的语句。</li>
+<li>省略了“表达式1(初始化语句)”和“表达式3(自增或自减)” 例如：</li>
+</ol>
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta"><span class="hljs-keyword">for</span>( ; i&lt;=<span class="hljs-number">100</span> ; )&#123;<br>    <span class="hljs-keyword">sum</span>=<span class="hljs-keyword">sum</span>+i;<br>    i++;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>相当于：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs axapta"><span class="hljs-keyword">while</span>(i&lt;=<span class="hljs-number">100</span>)&#123;<br>    <span class="hljs-keyword">sum</span>=<span class="hljs-keyword">sum</span>+i;<br>    i++;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<ol start="4">
+<li>3个表达式可以同时省略。例如：<br><code>for( ; ; )</code>  语句 相当于： <code>while(1)</code>  语句</li>
+<li>“表达式1”可以是初始化语句，也可以是其他语句。例如：<br><code>for( sum=0; i&lt;=100; i++ )  sum=sum+i;</code></li>
+<li>“表达式2”一般是关系表达式或逻辑表达式，但也可是数值或字符，只要其值非零，就执行循环体。例如：<br><code>for( i=0; (c=getchar())!=&#39;\n&#39;; i+=c );</code></li>
+</ol>
+<p>do…while 循环</p>
+<p>不像 for 和 while 循环，它们是在循环头部测试循环条件。在 C 语言中，do…while 循环是在循环的尾部检查它的条件。<br>do…while 循环与 while 循环类似，但是 do…while 循环会确保至少执行一次循环。</p>
+<h3 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h3><p>控制语句    描述<br>break 语句    终止循环或 switch 语句，程序流将继续执行紧接着循环或 switch 的下一条语句。<br>continue 语句    告诉一个循环体立刻停止本次循环迭代，重新开始下次循环迭代。<br>goto 语句    将控制转移到被标记的语句。但是不建议在程序中使用 goto 语句。</p>
+<p>C 语言中 break 语句有以下两种用法：<br>当 break 语句出现在一个循环内时，循环会立即终止，且程序流将继续执行紧接着循环的下一条语句。<br>它也可用于终止 switch 语句中的一个 case。<br>另外如果使用的是嵌套循环（即一个循环内嵌套另一个循环），break 语句会停止执行最内层的循环，然后开始执行该块之后的下一行代码，即在多层循环中，一个 break 语句只向外跳一层。</p>
+<p>continue 语句的作用是跳过循环体中剩余的语句而强制进入下一次循环。<br>对于 for 循环，continue 语句执行后自增语句仍然会执行。对于 while 和 do…while 循环，continue 语句重新执行条件判断语句。</p>
+<p>C 语言中的 goto 语句允许把控制无条件转移到同一函数内的被标记的语句。但不建议使用 goto 语句。因为它使得程序的控制流难以跟踪，使程序难以理解和难以修改。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/C04-array-string/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C04-array-string</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/C02-datatype-operators/">
+                        <span class="hidden-mobile">C02-datatype-operators</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

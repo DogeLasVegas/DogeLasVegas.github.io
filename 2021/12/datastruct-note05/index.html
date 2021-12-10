@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>datastruct-note05 - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="datastruct-note05">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:50" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">datastruct-note05</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：28 分钟前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><p>树的定义：n个节点组成的有限集合。n=0，空树；n&gt;0,1个根节点，m个互不相交的有限集，每个子集为根的子树。</p>
+<p>树的基本术语</p>
+<p>节点的度：树中某个节点的子树的个数。</p>
+<p>树的度：树中各节点的度的最大值。</p>
+<p>树根结点（简称“根结点”）：每一个非空树都有且只有一个被称为根的结点。</p>
+<p>分支节点：度不为零的节点。</p>
+<p>叶子节点：度为零的节点。</p>
+<p>路径：i-&gt;j；路径长度：路径经过节点数目减1。</p>
+<p>孩子节点：某节点的后继节点；<br>双亲节点：该节点为其孩子节点的双亲节点（父母节点）；<br>兄弟节点：同一双亲的孩子节点；<br>子孙节点：某节点所有子树中的节点；<br>祖先节点：从树节点到该节点的路径上的节点。</p>
+<p>节点的层次：根节点为第一层（以此类推）；</p>
+<p>树的高度：树中节点的最大层次。</p>
+<p>有序树：树中节点子树按次序从左向右安排，次序不能改变；无序树：与之相反</p>
+<p>空树：如果集合本身为空，那么构成的树就被称为空树。空树中没有结点。</p>
+<p>森林：互不相交的树的集合。</p>
+<p>树的性质</p>
+<p>树的节点树为所有节点度数加1（加根节点）。</p>
+<p>度为m的树中第i层最多有m^(i-1)个节点。</p>
+<p>高度为h的m次树至多(m^h-1)/(m-1)个节点。</p>
+<p>具有n个节点的m次树的最小高度为logm( n(m-1) + 1 )  向上取整。</p>
+<p><strong>二叉树</strong></p>
+<p>二叉树是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左子树和右子树组成，本身是有序树。</p>
+<p><strong>二叉树的特点</strong></p>
+<p>1）每个结点最多有两棵子树，所以二叉树中不存在度大于2的结点，即只能是 0、1 或者 2。</p>
+<p>2）左子树和右子树是有顺序的，次序不能任意颠倒。</p>
+<p>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树。</p>
+<p><strong>二叉树的性质</strong></p>
+<p>经过前人的总结，二叉树具有以下几个性质：</p>
+<ol>
+<li>二叉树中，第 i 层最多有 2^(i-1) 个结点。</li>
+<li>深度为k的二叉树至多有2^k-1个结点(k≥1)。</li>
+<li>包含n个结点的二叉树的高度至少为log2(n+1)。</li>
+<li>在任意一棵二叉树中，若终端结点数（叶子结点数）为 n0，度为 2 的结点数为 n2，则 n0=n2+1。</li>
+</ol>
+<p>性质4 的计算方法为：对于一个二叉树来说，除了度为 0 的叶子结点和度为 2 的结点，剩下的就是度为 1 的结点（设为 n1），那么总结点 n=n0+n1+n2。<br>同时，对于每一个结点来说都是由其父结点分支表示的，假设树中分枝数为 B，那么总结点数 n=B+1。而分枝数是可以通过 n1 和 n2 表示的，即 B=n1+2<em>n2。所以，n 用另外一种方式表示为 n=n1+2</em>n2+1。<br>两种方式得到的 n 值组成一个方程组，就可以得出 n0=n2+1。</p>
+<p>斜树：所有的结点都只有左子树的二叉树叫左斜树。所有结点都是只有右子树的二叉树叫右斜树。这两者统称为斜树。</p>
+<p>满二叉树：在一棵二叉树中。如果所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上，这样的二叉树称为满二叉树。</p>
+<p>满二叉树的特点有：</p>
+<p>1）叶子只能出现在最下一层。出现在其它层就不可能达成平衡。</p>
+<p>2）非叶子结点的度一定是2。</p>
+<p>3）在同样深度的二叉树中，满二叉树的结点个数最多，叶子数最多。</p>
+<p>满二叉树除了满足普通二叉树的性质，还具有以下性质：</p>
+<ol>
+<li>满二叉树中第 i 层的节点数为 2^(n-1) 个。</li>
+<li>深度为 k 的满二叉树必有 2^k-1 个节点 ，叶子数为 2^(k-1)。</li>
+<li>满二叉树中不存在度为 1 的节点，每一个分支点中都两棵深度相同的子树，且叶子节点都在最底层。</li>
+<li>具有 n 个节点的满二叉树的深度为 log2(n+1)。</li>
+</ol>
+<p>完全二叉树：对一颗具有n个结点的二叉树按层编号，如果编号为i(1&lt;=i&lt;=n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中位置完全相同，则这棵二叉树称为完全二叉树。<br>（如果二叉树中除去最后一层节点为满二叉树，且最后一层的结点依次从左到右分布，则此二叉树被称为完全二叉树。）</p>
+<p>完全二叉树除了具有普通二叉树的性质，它自身也具有一些独特的性质，比如说，n 个结点的完全二叉树的深度为 ⌊log2n⌋+1。</p>
+<p><code>⌊log2n⌋ 表示取小于 log2n 的最大整数。例如，⌊log24⌋ = 2，而 ⌊log25⌋ 结果也是 2。</code></p>
+<p>对于任意一个完全二叉树来说，如果将含有的结点按照层次从左到右依次标号，对于任意一个结点 i ，完全二叉树还有以下几个结论成立：</p>
+<ol>
+<li>当 i&gt;1 时，父亲结点为结点 [i/2] 。（i=1 时，表示的是根结点，无父亲结点）</li>
+<li>如果 2<em>i&gt;n（总结点的个数） ，则结点 i 肯定没有左孩子（为叶子结点）；否则其左孩子是结点 2</em>i 。</li>
+<li>如果 2<em>i+1&gt;n ，则结点 i 肯定没有右孩子；否则右孩子是结点 2</em>i+1 。</li>
+</ol>
+<p><strong>二叉树的顺序存储和链式存储</strong></p>
+<p>如果想顺序存储普通二叉树，需要提前将普通二叉树转化为完全二叉树。普通二叉树转完全二叉树的方法很简单，只需给二叉树额外添加一些节点，将其”拼凑”成完全二叉树即可。</p>
+<p>完全二叉树的顺序存储，仅需从根节点开始，按照层次依次将树中节点存储到数组即可。</p>
+<p>从顺序表中还原完全二叉树也很简单。我们知道，完全二叉树具有这样的性质，将树中节点按照层次并从左到右依次标号（1,2,3,…），若节点 i 有左右孩子，则其左孩子节点为 2<em>i，右孩子节点为 2</em>i+1。此性质可用于还原数组中存储的完全二叉树。</p>
+<p>一棵普通的二叉树，若将其采用链式存储，则只需从树的根节点开始，将各个节点及其左右孩子使用链表存储即可。</p>
+<p>一颗二叉树的结点设计一定要有如下内容：</p>
+<p>a)结点元素，data域，用来存储数据，其可以是int，char等基本的类型，同时也可以是struct等这些复杂的复合数据类型。</p>
+<p>b)左孩子结点，left指针，总是用来指向当前结点的下一层的左边结点，其属于一种指针。</p>
+<p>c)右孩子结点，right指针，总是用来指向当前结点的下一层的右边结点，其属于一种指针。</p>
+<p>d)父结点（可选），parent指针，总是指向当前结点的前一个结点，简称父亲结点，其不属于必须结点设计，省略掉可以达到节省内存的效果，而使用则可以更方便进行定向搜索，本案例中不使用父节点。</p>
+<p>以上就是一颗二叉树的结点设计，除此之外，我们使用一棵树的时候需要建立一颗树根，由这个“根”，来进行逐步的向下构建。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">其设计代码可以表示为：<br><br>//树的结点<br>typedef struct <span class="hljs-keyword">node</span><span class="hljs-title">&#123;</span><br><span class="hljs-title">    int</span> data;<br>    struct <span class="hljs-keyword">node</span><span class="hljs-title">* left</span>;<br>    struct <span class="hljs-keyword">node</span><span class="hljs-title">* right</span>;<br>    // struct <span class="hljs-keyword">node</span> <span class="hljs-title">*parent</span>;<br>&#125; <span class="hljs-keyword">Node</span><span class="hljs-title">;</span><br><span class="hljs-title">  </span><br><span class="hljs-title">//树根</span><br><span class="hljs-title">typedef</span> struct &#123;<br>    <span class="hljs-keyword">Node</span><span class="hljs-title">* root</span>;<br>&#125; Tree;<br></code></pre></div></td></tr></table></figure>
+
+<p><strong>二叉树的遍历</strong></p>
+<p>先序遍历：根左右</p>
+<p>中序遍历：左根右</p>
+<p>后序遍历：左右根</p>
+<p>二叉树先序遍历的实现思想是：</p>
+<p>访问根节点；访问当前节点的左子树；若当前节点无左子树，则访问当前节点的右子树；</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">//树的先序遍历 Preorder traversal递归实现<br>void preorder(<span class="hljs-keyword">Node</span><span class="hljs-title">* node</span>)&#123;<br>    if (<span class="hljs-keyword">node</span> <span class="hljs-title">!= NULL</span>)&#123;<br>        printf(<span class="hljs-string">&quot;%d &quot;</span>,<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;data</span>);//调用操作结点数据的函数方法<br>        preorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;left</span>);//访问该结点的左孩子<br>        preorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;right</span>);//访问该结点的右孩子<br>    &#125;<br>    //如果结点为空，返回上一层<br>    return;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>而递归的底层实现依靠的是栈存储结构，因此，二叉树的先序遍历既可以直接采用递归思想实现，也可以使用栈的存储结构模拟递归的思想实现。</p>
+<p>二叉树中序遍历的实现思想是：访问当前节点的左子树；访问根节点；访问当前节点的右子树；</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">//树的中序遍历 <span class="hljs-keyword">In</span>-<span class="hljs-keyword">order</span> <span class="hljs-title">traversal</span>递归实现<br>void inorder(<span class="hljs-keyword">Node</span><span class="hljs-title">* node</span>)&#123;<br>    if (<span class="hljs-keyword">node</span> <span class="hljs-title">!= NULL</span>)&#123;<br>        inorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;left</span>);//访问该结点的左孩子<br>        printf(<span class="hljs-string">&quot;%d &quot;</span>,<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;data</span>);//调用操作结点数据的函数方法<br>        inorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;right</span>);//访问该结点的右孩子<br>    &#125;<br>    //如果结点为空，返回上一层<br>    return;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>中序遍历的非递归方式实现思想是：从根结点开始，遍历左孩子同时压栈，当遍历结束，说明当前遍历的结点没有左孩子，从栈中取出来调用操作函数，然后访问该结点的右孩子，继续以上重复性的操作。<br>除此之外，还有另一种实现思想：中序遍历过程中，只需将每个结点的左子树压栈即可，右子树不需要压栈。当结点的左子树遍历完成后，只需要以栈顶结点的右孩子为根结点，继续循环遍历即可。</p>
+<p>二叉树后序遍历的实现思想是：从根节点出发，依次遍历各节点的左右子树，直到当前节点左右子树遍历完成后，才访问该节点元素。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs crmsh">//树的后序遍历 Post-<span class="hljs-keyword">order</span> <span class="hljs-title">traversal</span>递归实现<br>void postorder(<span class="hljs-keyword">Node</span><span class="hljs-title">* node</span>)&#123;<br>    if (<span class="hljs-keyword">node</span> <span class="hljs-title">!= NULL</span>)&#123;<br>        postorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;left</span>);//访问该结点的左孩子<br>        postorder(<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;right</span>);//访问该结点的右孩子<br>        printf(<span class="hljs-string">&quot;%d &quot;</span>,<span class="hljs-keyword">node</span><span class="hljs-title">-&gt;data</span>);//调用操作结点数据的函数方法<br>    &#125;<br>    //如果结点为空，返回上一层<br>    return;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>后序遍历是在遍历完当前结点的左右孩子之后，才调用操作函数，所以需要在操作结点进栈时，为每个结点配备一个标志位。当遍历该结点的左孩子时，设置当前结点的标志位为 0，进栈；当要遍历该结点的右孩子时，设置当前结点的标志位为 1，进栈。这样，当遍历完成，该结点弹栈时，查看该结点的标志位的值：如果是 0，表示该结点的右孩子还没有遍历；反之如果是 1，说明该结点的左右孩子都遍历完成，可以调用操作函数。</p>
+<p><strong>二叉树层次遍历</strong></p>
+<p>按照二叉树中的层次从左到右依次遍历每层中的结点。具体的实现思路是：通过使用队列的数据结构，从树的根结点开始，依次将其左孩子和右孩子入队。而后每次队列中一个结点出队，都将其左孩子和右孩子入队，直到树中所有结点都出队，出队结点的先后顺序就是层次遍历的最终结果。</p>
+<p>通常，普通树的存储具有普通树结构数据的方法有 3 种：</p>
+<p>双亲表示法；孩子表示法；孩子兄弟表示法；</p>
+<p>双亲表示法采用顺序表（也就是数组）存储普通树，其实现的核心思想是：顺序存储各个节点的同时，给各节点附加一个记录其父节点位置的变量。<br>注意，根节点没有父节点（父节点又称为双亲节点），因此根节点记录父节点位置的变量通常置为 -1。</p>
+<p>孩子表示法存储普通树采用的是 “顺序表+链表” 的组合结构，其存储过程是：从树的根节点开始，使用顺序表依次存储树中各个节点，需要注意的是，与双亲表示法不同，孩子表示法会给各个节点配备一个链表，用于存储各节点的孩子节点位于顺序表中的位置。<br>如果节点没有孩子节点（叶子节点），则该节点的链表为空链表。</p>
+<p>孩子兄弟表示法，采用的是链式存储结构，其存储树的实现思想是：从树的根节点开始，依次用链表存储各个节点的孩子节点和兄弟节点。</p>
+<p>因此，该链表中的节点应包含以下 3 部分内容：<br>节点的值；指向孩子节点的指针；指向兄弟节点的指针；</p>
+<p>表示节点结构代码为：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs gauss"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ElemType char</span><br>typedef <span class="hljs-keyword">struct</span> <span class="hljs-type">CSNode</span>&#123;<br>    ElemType data;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-type">CSNode</span> * firstchild,*nextsibling;<br>&#125;CSNode,*CSTree;<br></code></pre></div></td></tr></table></figure>
+
+<p>可以得出这样一个结论，即通过孩子兄弟表示法，任意一棵普通树都可以相应转化为一棵二叉树，换句话说，任意一棵普通树都有唯一的一棵二叉树于其对应。</p>
+<p>因此，孩子兄弟表示法可以作为将普通树转化为二叉树的最有效方法，通常又被称为”二叉树表示法”或”二叉链表表示法”。</p>
+<p><strong>树与森林</strong></p>
+<p>树转换成二叉树</p>
+<p>操作过程如下：</p>
+<p>加线：在兄弟（即同一层之间的孩子）之间加一连线</p>
+<p>抹线：对每个结点，除了其第一个孩子外，除去其与其余孩子之间的连线</p>
+<p>旋转：以树的根结点为轴心，将整树顺时针转45°</p>
+<p>注意：树转换成二叉树其右子树一定为空</p>
+<p>二叉树转换成树</p>
+<p>加线：若p结点是双亲结点的左孩子，则将p的右孩子，右孩子的右孩子，……沿分支找到的所有右孩子，都与p的双亲用线连起来</p>
+<p>抹线：抹掉原二叉树中双亲与右孩子之间的连线</p>
+<p>调整：将结点按层次排列，形成树结构</p>
+<p>森林转换成二叉树</p>
+<p>将各棵树分别转换成二叉树</p>
+<p>将每棵树的根结点用线相连</p>
+<p>以第一棵树根结点为二叉树的根，再以根结点为轴心，顺时针旋转，构成二叉树型结构</p>
+<p>二叉树转换成森林</p>
+<p>抹线：将二叉树中根结点与其右孩子连线，及沿右分支搜索到的所有右孩子间连线全部抹掉，使之变成孤立的二叉树</p>
+<p>还原：将孤立的二叉树还原成树（二叉树→树）</p>
+<p><strong>哈夫曼树</strong></p>
+<p>哈夫曼树（Huffman Tree），又名：最优二叉树，赫夫曼树</p>
+<p>其标准含义是：给定N个权值作为N个叶子结点，构造一棵二叉树，若该树的带权路径长度达到最小，称这样的二叉树为最优二叉树，也称为哈夫曼树。哈夫曼树是带权路径长度最短的树，权值较大的结点离根较近。</p>
+<p>哈夫曼树相关的几个名词</p>
+<p>a) 路径：在一棵树中，一个结点到另一个结点之间的通路，称为路径。</p>
+<p>b) 路径长度：在一条路径中，每经过一个结点，路径长度都要加 1 。例如在一棵树中，规定根结点所在层数为1层，那么从根结点到第 i 层结点的路径长度为 i - 1 。</p>
+<p>c) 结点的权：给每一个结点赋予一个新的数值，被称为这个结点的权。</p>
+<p>d) 结点的带权路径长度：指的是从根结点到该结点之间的路径长度与该结点的权的乘积。</p>
+<p>e)  树的带权路径长度为树中所有叶子结点的带权路径长度之和。通常记作 “WPL”。</p>
+<p>在构建哈夫曼树时，只需要遵循一个原则，那就是权重越大的结点距离树根越近。</p>
+<p>首先，选出我们数据中最小的两个数据，构建成二叉树的左孩子和右孩子，而根的数据为两者之和</p>
+<p>其次，将刚才合成的数据作为右孩子，左孩子从未处理的数据中选出最小的一个，作为左孩子，他们的根同样为左右孩子的权值和</p>
+<p>不断重复上述的步骤，直到将所有的数据全部处理完并构建出二叉树，这棵二叉树就是我们的哈夫曼树。</p>
+<p>哈夫曼树的结点结构</p>
+<p>其代码表示为：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-comment">//哈夫曼树结点结构</span><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span><br>    <span class="hljs-keyword">int</span> weight; <span class="hljs-comment">//结点权重</span><br>    <span class="hljs-keyword">int</span> parent, left, right;    <span class="hljs-comment">//父结点、左孩子、右孩子在数组中的位置下标</span><br>&#125; HTNode, *HuffmanTree;<br></code></pre></div></td></tr></table></figure>
+
+<p>构建哈夫曼树时，需要每次根据各个结点的权重值，筛选出其中值最小的两个结点，然后构建二叉树。</p>
+<p>查找权重值最小的两个结点的思想是：从数组起始位置开始，首先找到两个无父结点的结点（说明还未使用其构建成树），然后和后续无父结点的结点依次做比较，有两种情况需要考虑：</p>
+<p>如果比两个结点中较小的那个还小，就保留这个结点，删除原来较大的结点；<br>如果介于两个结点权重值之间，替换原来较大的结点；</p>
+<p>哈夫曼编码(Huffman Coding)，又称霍夫曼编码，是一种编码方式，可变字长编码(VLC)的一种。哈夫曼编码就是在哈夫曼树的基础上构建的，这种编码方式最大的优点就是用最少的字符包含最多的信息内容。霍夫曼编码是一种无前缀编码。解码时不会混淆。其主要应用在数据压缩，加密解密等场合，也包括文件传输的场合。</p>
+<p>根据发送信息的内容，通过统计文本中相同字符的个数作为每个字符的权值，建立哈夫曼树。对于树中的每一个子树，统一规定其左孩子标记为 0 ，右孩子标记为 1 。这样，用到哪个字符时，从哈夫曼树的根结点开始，依次写出经过结点的标记，最终得到的就是该结点的哈夫曼编码。</p>
+<p>文本中字符出现的次数越多，在哈夫曼树中的体现就是越接近树根。编码的长度越短。</p>
+<p>使用程序求哈夫曼编码有两种方法：</p>
+<p>从叶子结点一直找到根结点，逆向记录途中经过的标记。</p>
+<p>从根结点出发，一直到叶子结点，记录途中经过的标记。</p>
+<p>n 个结点可以构建多少种形态不同的二叉树。</p>
+<p>每一棵普通树对应的都是一棵没有右子树的二叉树，所以对于 n 个结点的树来说，树的形态改变是因为除了根结点之外的其它结点改变形态得到的，所以，n 个结点构建的形态不同的树与之对应的是 n-1 个结点构建的形态不同的二叉树。</p>
+<p>如果 tn 表示 n 个结点构建的形态不同的树的数量，bn 表示 n 个结点构建的形态不同的二叉树的数量，则两者之间有这样的关系：tn=bn-1。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/datastruct-note06/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">datastruct-note06</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/datastruct-note04/">
+                        <span class="hidden-mobile">datastruct-note04</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

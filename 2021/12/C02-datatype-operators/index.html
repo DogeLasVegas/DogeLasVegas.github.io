@@ -1,0 +1,780 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/-221011ca0d9ca71f.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="DogeLasVegas">
+  <meta name="keywords" content="">
+  
+  <title>C02-datatype-operators - 性感咸鱼，在线翻身</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/hybrid.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>道格拉斯维加斯</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-brush"></i>
+                养馬場
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/index.html">
+                    <i class="iconfont icon-pen"></i>
+                    撑了
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collect/other">
+                    <i class="iconfont icon-pen"></i>
+                    没饱
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/dogelasvegas/blog-img/page-bgimg/loadingpic160.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C02-datatype-operators">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-10 23:19" pubdate>
+        2021年12月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.9k 字
+    </span>
+  
+
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C02-datatype-operators</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：1 小时前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="C-数据类型"><a href="#C-数据类型" class="headerlink" title="C 数据类型"></a>C 数据类型</h2><p>C 中的类型可分为以下几种：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型与描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>基本类型：它们是算术类型，包括两种类型：整数类型和浮点类型。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>枚举类型：它们也是算术类型，被用来定义在程序中只能赋予其一定的离散整数值的变量。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>void 类型：类型说明符 void 表明没有可用的值。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>派生类型：它们包括：指针类型、数组类型、结构类型、共用体类型和函数类型。</td>
+</tr>
+</tbody></table>
+<p>数组类型和结构类型统称为聚合类型。函数的类型指的是函数返回值的类型。</p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>数据长度（Length），是指数据占用多少个字节。占用的字节越多，能存储的数据就越多，对于数字来说，值就会更大，反之能存储的数据就有限。</p>
+<p>说  明    字符型    短整型    整型    长整型    单精度浮点型    双精度浮点型    无类型<br>数据类型    char    short    int    long    float    double    void<br>长  度    1    2    4    4    4    8</p>
+<p>void 类型指定没有可用的值。它通常用于以下三种情况下：</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>类型与描述</th>
+</tr>
+</thead>
+</table>
+<p>| 1 |函数返回为空<br>C 中有各种函数都不返回值，或者您可以说它们返回空。不返回值的函数的返回类型为空。例如 void exit (int status);|<br>| 2 |函数参数为空<br>C 中有各种函数不接受任何参数。不带参数的函数可以接受一个 void。例如 int rand(void);|<br>| 3 |指针指向 void<br>类型为 void * 的指针代表对象的地址，而不是类型。例如，内存分配函数 void *malloc( size_t size ); 返回指向 void 的指针，可以转换为任何数据类型。|</p>
+<p>1、数据类型转换：C 语言中如果一个表达式中含有不同类型的常量和变量，在计算时，会将它们自动转换为同一种类型；在 C 语言中也可以对数据类型进行强制转换；</p>
+<p>2、自动转换规则：<br> a）浮点数赋给整型，该浮点数小数被舍去；<br> b）整数赋给浮点型，数值不变，但是被存储到相应的浮点型变量中；</p>
+<p>3、强制类型转换形式: (类型说明符)(表达式)</p>
+<h3 id="整型的长度"><a href="#整型的长度" class="headerlink" title="整型的长度"></a>整型的长度</h3><p>在 16 位环境下，short 的长度为 2 个字节，int 也为 2 个字节，long 为 4 个字节。16 位环境多用于单片机和低级嵌入式系统，在PC和服务器上已经见不到了。</p>
+<p>对于 32 位的 Windows、Linux 和 Mac OS，short 的长度为 2 个字节，int 为 4 个字节，long 也为 4 个字节。PC和服务器上的 32 位系统占有率也在慢慢下降，嵌入式系统使用 32 位越来越多。</p>
+<p>在 64 位环境下，不同的操作系统会有不同的结果，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>short</th>
+<th>int</th>
+<th>long</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Win64（64位 Windows）</td>
+<td>2</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>类Unix系统（包括 Unix、Linux、Mac OS、BSD、Solaris 等）</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<p>除了C语言，Java、C++、C#等在定义变量时也必须指明数据类型，这样的编程语言称为强类型语言。而PHP、JavaScript等在定义变量时不必指明数据类型，编译系统会自动推演，这样的编程语言称为弱类型语言。</p>
+<p>强类型语言一旦确定了数据类型，就不能再赋给其他类型的数据，除非对数据类型进行转换。弱类型语言没有这种限制，一个变量，可以先赋给一个整数，然后再赋给一个字符串。</p>
+<p>C中二进制数、八进制数和十六进制数的表示</p>
+<p>（1） 二进制<br>二进制由 0 和 1 两个数字组成，使用时必须以0b或0B（不区分大小写）开头<br>标准的C语言并不支持上面的二进制写法，只是有些编译器自己进行了扩展，才支持二进制数字。换句话说，并不是所有的编译器都支持二进制数字，只有一部分编译器支持，并且跟编译器的版本有关系。</p>
+<p>（2） 八进制<br>八进制由 0~7 八个数字组成，使用时必须以0开头（注意是数字 0，不是字母 o）</p>
+<p>（3） 十六进制<br>十六进制由数字 0<del>9、字母 A</del>F 或 a~f（不区分大小写）组成，使用时必须以0x或0X（不区分大小写）开头</p>
+<p>二进制数、八进制数和十六进制数的输出</p>
+<div class="hljs code-wrapper"><pre><code> short    int    long    unsigned short    unsigned int    unsigned long
+</code></pre></div>
+<p>八进制    –    –    –    %ho    %o    %lo<br>十进制    %hd    %d    %ld    %hu    %u    %lu<br>十六进制    –    –    –    %hx 或者 %hX    %x 或者 %X    %lx 或者 %lX</p>
+<p>十六进制数字的表示用到了英文字母，有大小写之分，要在格式控制符中体现出来：<br>%hx、%x 和 %lx 中的x小写，表明以小写字母的形式输出十六进制数；<br>%hX、%X 和 %lX 中的X大写，表明以大写字母的形式输出十六进制数。</p>
+<p>当以有符号数的形式输出时，printf 会读取数字所占用的内存，并把最高位作为符号位，把剩下的内存作为数值位；<br>当以无符号数的形式输出时，printf 也会读取数字所占用的内存，并把所有的内存都作为数值位对待。</p>
+<h3 id="小数的输出"><a href="#小数的输出" class="headerlink" title="小数的输出"></a>小数的输出</h3><p>%f 以十进制形式输出 float 类型；<br>%lf 以十进制形式输出 double 类型；<br>%e 以指数形式输出 float 类型，输出结果中的 e 小写；<br>%E 以指数形式输出 float 类型，输出结果中的 E 大写；<br>%le 以指数形式输出 double 类型，输出结果中的 e 小写；<br>%lE 以指数形式输出 double 类型，输出结果中的 E 大写。<br>%g 会对比小数的十进制形式和指数形式，以最短的方式来输出小数，让输出结果更加简练。<br>%g 默认最多保留六位有效数字，包括整数部分和小数部分；%f 和 %e 默认保留六位小数，只包括小数部分。<br>%g 不会在最后强加 0 来凑够有效数字的位数，而 %f 和 %e 会在最后强加 0 来凑够小数部分的位数。<br>除了 %g，还有 %lg、%G、%lG：<br>%g 和 %lg 分别用来输出 float 类型和 double 类型，并且当以指数形式输出时，e小写。<br>%G 和 %lG 也分别用来输出 float 类型和 double 类型，只是当以指数形式输出时，E大写。</p>
+<p>在C中，一个数字是有默认类型的：对于整数，默认是 int 类型；对于小数，默认是 double 类型。<br>如果不想让数字使用默认的类型，那么可以给数字加上后缀，手动指明类型：<br>在整数后面紧跟 l 或者 L（不区分大小写）表明该数字是 long 类型；<br>在小数后面紧跟 f 或者 F（不区分大小写）表明该数字是 float 类型。</p>
+<p>在C语言中，整数和小数之间可以相互赋值：<br>将一个整数赋值给小数类型，在小数点后面加 0 就可以，加几个都无所谓。<br>将一个小数赋值给整数类型，就得把小数部分丢掉，只能取整数部分，这会改变数字本来的值。注意是直接丢掉小数部分，而不是按照四舍五入取近似值。</p>
+<h3 id="enum-枚举"><a href="#enum-枚举" class="headerlink" title="enum(枚举)"></a>enum(枚举)</h3><p>枚举是 C 语言中的一种基本数据类型。</p>
+<p>枚举语法定义格式为：</p>
+<p><code>enum　枚举名　&#123;枚举元素1,枚举元素2,……&#125;;</code></p>
+<p>注意：第一个枚举成员的默认值为整型的 0，后续枚举成员的值在前一个成员上加 1。</p>
+<p>可以在定义枚举类型时改变枚举元素的值：</p>
+<p><code>enum season &#123;spring, summer=3, autumn, winter&#125;;</code></p>
+<p>没有指定值的枚举元素，其值为前一元素加 1。也就说 spring 的值为 0，summer 的值为 3，autumn 的值为 4，winter 的值为 5</p>
+<p><strong>枚举变量的定义</strong></p>
+<p>可以通过以下三种方式来定义枚举变量</p>
+<p>1、先定义枚举类型，再定义枚举变量</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DAY</span></span><br><span class="hljs-class"></span>&#123;<br>      MON=<span class="hljs-number">1</span>, TUE, WED, THU, FRI, SAT, SUN<br>&#125;;<br><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DAY</span> <span class="hljs-title">day</span></span>;<br></code></pre></div></td></tr></table></figure>
+
+<p>2、定义枚举类型的同时定义枚举变量</p>
+<figure class="highlight capnproto"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs capnproto"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DAY</span></span><br><span class="hljs-class"></span>&#123;<br>      MON=<span class="hljs-number">1</span>, TUE, WED, THU, FRI, SAT, SUN<br>&#125; day;<br></code></pre></div></td></tr></table></figure>
+
+<p>3、省略枚举名称，直接定义枚举变量</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">enum</span></span><br><span class="hljs-class"></span>&#123;<br>      MON=<span class="hljs-number">1</span>, TUE, WED, THU, FRI, SAT, SUN<br>&#125; day;<br></code></pre></div></td></tr></table></figure>
+
+<p>需要注意的两点是：</p>
+<ol>
+<li><p>枚举列表中的 Mon、Tue、Wed 这些标识符的作用范围是全局的（严格来说是 main() 函数内部），不能再定义与它们名字相同的变量。</p>
+</li>
+<li><p>Mon、Tue、Wed 等都是常量，不能对它们赋值，只能将它们的值赋给其他的变量。</p>
+</li>
+</ol>
+<p>枚举和宏其实非常类似：宏在预处理阶段将名字替换成对应的值，枚举在编译阶段将名字替换成对应的值。我们可以将枚举理解为编译阶段的宏。</p>
+<p>在C 语言中，枚举类型是被当做 int 或者 unsigned int 类型来处理的，所以按照 C 语言规范是没有办法遍历枚举类型的。</p>
+<p>不过在一些特殊的情况下，枚举类型必须连续是可以实现有条件的遍历。</p>
+<p>以下实例使用 for 来遍历枚举的元素：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br> <br><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">DAY</span></span><br><span class="hljs-class">&#123;</span><br>      MON=<span class="hljs-number">1</span>, TUE, WED, THU, FRI, SAT, SUN<br>&#125; day;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 遍历枚举元素</span><br>    <span class="hljs-keyword">for</span> (day = MON; day &lt;= SUN; day++) &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;枚举元素：%d \n&quot;</span>, day);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>以上实例输出结果为：</p>
+<p>枚举元素：1<br>枚举元素：2<br>枚举元素：3<br>枚举元素：4<br>枚举元素：5<br>枚举元素：6<br>枚举元素：7</p>
+<p>以下枚举类型不连续，这种枚举无法遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">enum</span></span><br><span class="hljs-class"></span>&#123;<br>    ENUM_0,<br>    ENUM_10 = <span class="hljs-number">10</span>,<br>    ENUM_11<br>&#125;;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="C语言的字符类型"><a href="#C语言的字符类型" class="headerlink" title="C语言的字符类型"></a>C语言的字符类型</h2><p>字符类型由单引号’ ‘包围，字符串由双引号” “包围。</p>
+<p>输出 char 类型的字符有两种方法，分别是：<br>使用专门的字符输出函数 putchar，每次只能输出一个字符，输出多个字符需要调用多次。<br>使用通用的格式化输出函数 printf，char 对应的格式控制符是%c。</p>
+<p>在 C 语言中没有专门的字符串类型，因此双引号内的字符串会被存储到一个数组中，这个字符串代表指向这个数组起始字符的指针；</p>
+<p>而单引号中的内容是一个 char 类型，是一个字符，这个字符对应的是 ASCII 表中的序列值。</p>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>转义字符以\或者\x开头，以\开头表示后跟八进制形式的编码值，以\x开头表示后跟十六进制形式的编码值。</p>
+<p>转义字符的初衷是用于 ASCII 编码，所以它的取值范围有限：<br>八进制形式的转义字符最多后跟三个数字，也即\ddd，最大取值是\177；<br>十六进制形式的转义字符最多后跟两个数字，也即\xdd，最大取值是\x7f。</p>
+<p>转义字符    意义    ASCII码值（十进制）<br>\a    响铃(BEL)    007<br>\b    退格(BS) ，将当前位置移到前一列    008<br>\f    换页(FF)，将当前位置移到下页开头    012<br>\n    换行(LF) ，将当前位置移到下一行开头    010<br>\r    回车(CR) ，将当前位置移到本行开头    013<br>\t    水平制表(HT)     009<br>\v    垂直制表(VT)    011<br>&#39;    单引号    039<br>&quot;    双引号    034<br>\    反斜杠    092</p>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p><strong>自动类型转换</strong></p>
+<ol>
+<li>将一种类型的数据赋值给另外一种类型的变量时就会发生自动类型转换，例如：<br>float f = 100;</li>
+</ol>
+<p>100 是 int 类型的数据，需要先转换为 float 类型才能赋值给变量 f。再如：<br>int n = f;</p>
+<p>f 是 float 类型的数据，需要先转换为 int 类型才能赋值给变量 n。</p>
+<p>在赋值运算中，赋值号两边的数据类型不同时，需要把右边表达式的类型转换为左边变量的类型，这可能会导致数据失真，或者精度降低；所以说，自动类型转换并不一定是安全的。对于不安全的类型转换，编译器一般会给出警告。</p>
+<ol start="2">
+<li>在不同类型的混合运算中，编译器也会自动地转换数据类型，将参与运算的所有数据先转换为同一种类型，然后再进行计算。转换的规则如下：<br>转换按数据长度增加的方向进行，以保证数值不失真，或者精度不降低。例如，int 和 long 参与运算时，先把 int 类型的数据转成 long 类型后再进行运算。<br>所有的浮点运算都是以双精度进行的，即使运算中只有 float 类型，也要先转换为 double 类型，才能进行运算。<br>char 和 short 参与运算时，必须先转换成 int 类型。</li>
+</ol>
+<p><strong>强制类型转换</strong></p>
+<p>强制类型转换的格式为：<br>(type_name) expression<br>type_name为新类型名称，expression为表达式。例如：</p>
+<p>(float) a;  //将变量 a 转换为 float 类型<br>(int)(x+y);  //把表达式 x+y 的结果转换为 int 整型<br>(float) 100;  //将数值 100（默认为int类型）转换为 float 类型</p>
+<p><strong>整数提升</strong><br>整数提升是指把小于 int 或 unsigned int 的整数类型转换为 int 或 unsigned int 的过程。</p>
+<p><strong>常用的算术转换</strong><br>常用的算术转换是隐式地把值强制转换为相同的类型。编译器首先执行整数提升，如果操作数类型不同，则它们会被转换为下列层次中出现的最高层次的类型：<br><img src="https://www.runoob.com/wp-content/uploads/2014/08/usual_arithmetic_conversion.png" srcset="/img/loading.gif" lazyload alt="类型转换"></p>
+<p><strong>类型转换只是临时性的</strong><br>无论是自动类型转换还是强制类型转换，都只是为了本次运算而进行的临时性转换，转换的结果也会保存到临时的内存空间，不会改变数据本来的类型或者值。</p>
+<h2 id="C-存储类"><a href="#C-存储类" class="headerlink" title="C 存储类"></a>C 存储类</h2><p>存储类定义 C 程序中变量/函数的范围（可见性）和生命周期。这些说明符放置在它们所修饰的类型之前。下面列出 C 程序中可用的存储类：</p>
+<ul>
+<li>auto</li>
+<li>register</li>
+<li>static</li>
+<li>extern</li>
+</ul>
+<h3 id="auto-存储类"><a href="#auto-存储类" class="headerlink" title="auto 存储类"></a>auto 存储类</h3><p>auto 存储类是所有局部变量默认的存储类，auto 只能用在函数内，即 auto 只能修饰局部变量，因可以省略, 几乎没人使用。<br>    {<br>    int mount;<br>    auto int month;<br>    }<br>上面的实例定义了两个带有相同存储类的变量，即类型前不带修饰符默认为auto存储类。</p>
+<h3 id="register-存储类"><a href="#register-存储类" class="headerlink" title="register 存储类"></a>register 存储类</h3><p>register 存储类用于定义存储在寄存器中而不是 RAM 中的局部变量。这意味着变量的最大尺寸等于寄存器的大小（通常是一个字），且不能对它应用一元的 ‘&amp;’ 运算符（因为它没有内存位置）。</p>
+<p>寄存器只用于需要快速访问的变量，比如计数器。还应注意的是，定义 ‘register’ 并不意味着变量将被存储在寄存器中，它意味着变量可能存储在寄存器中，这取决于硬件和实现的限制。</p>
+<h3 id="static-存储类"><a href="#static-存储类" class="headerlink" title="static 存储类"></a>static 存储类</h3><p>static 存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要在每次它进入和离开作用域时进行创建和销毁。因此，使用 static 修饰局部变量可以在函数调用之间保持局部变量的值。</p>
+<p>static 修饰符也可以应用于全局变量。当 static 修饰全局变量时，会使变量的作用域限制在声明它的文件内。</p>
+<p>所有未加 static 前缀的全局变量和函数都具有全局可见性，其它的源文件也能访问。如果加了 static，就会对其它源文件隐藏。利用这一特性可以在不同的文件中定义同名函数和同名变量，而不必担心命名冲突。</p>
+<p>全局声明的一个 static 变量或方法可以被任何函数或方法调用，只要这些方法出现在跟 static 变量或方法同一个文件中。</p>
+<p>（1）在修饰变量的时候，static 修饰的静态局部变量只执行初始化一次，而且延长了局部变量的生命周期，直到程序运行结束以后才释放。</p>
+<p>（2）static 修饰全局变量的时候，这个全局变量只能在本文件中访问，不能在其它文件中访问，即便是 extern 外部声明也不可以。</p>
+<p>（3）static 修饰一个函数，则这个函数的只能在本文件中调用，不能被其他文件调用。static 修饰的变量存放在全局数据区的静态变量区，包括全局静态变量和局部静态变量，都在全局数据区分配内存。初始化的时候自动初始化为 0。在静态数据区，内存中所有的字节默认值都是 0x00。</p>
+<p>（4）不想被释放的时候，可以使用static修饰。比如修饰函数中存放在栈空间的数组。如果不想让这个数组在函数调用结束释放可以使用 static 修饰。</p>
+<p>（5）考虑到数据安全性（当程序想要使用全局变量的时候应该先考虑使用 static）。</p>
+<p>以下实例演示了 static 修饰全局变量和局部变量的应用：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-comment">/* 函数声明 */</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;<br><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> count=<span class="hljs-number">10</span>;        <span class="hljs-comment">/* 全局变量 - static 是默认的 */</span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br><span class="hljs-keyword">while</span> (count--) &#123;<br>    <span class="hljs-built_in">func1</span>();<br>&#125;<br><span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>&#123;<br><span class="hljs-comment">/* &#x27;thingy&#x27; 是 &#x27;func1&#x27; 的局部变量 - 只初始化一次</span><br><span class="hljs-comment">* 每次调用函数 &#x27;func1&#x27; &#x27;thingy&#x27; 值不会被重置。</span><br><span class="hljs-comment">*/</span>                <br><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> thingy=<span class="hljs-number">5</span>;<br>thingy++;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot; thingy 为 %d ， count 为 %d\n&quot;</span>, thingy, count);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>实例中 count 作为全局变量可以在函数内使用，thingy 使用 static 修饰后，不会在每次调用时重置。<br>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">6</span> ， count 为 <span class="hljs-number">9</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">7</span> ， count 为 <span class="hljs-number">8</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">8</span> ， count 为 <span class="hljs-number">7</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">9</span> ， count 为 <span class="hljs-number">6</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">10</span> ， count 为 <span class="hljs-number">5</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">11</span> ， count 为 <span class="hljs-number">4</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">12</span> ， count 为 <span class="hljs-number">3</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">13</span> ， count 为 <span class="hljs-number">2</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">14</span> ， count 为 <span class="hljs-number">1</span><br><span class="hljs-attribute">thingy</span> 为 <span class="hljs-number">15</span> ， count 为 <span class="hljs-number">0</span><br></code></pre></div></td></tr></table></figure>
+
+<h3 id="extern-存储类"><a href="#extern-存储类" class="headerlink" title="extern 存储类"></a>extern 存储类</h3><p>extern 存储类用于提供一个全局变量的引用，全局变量对所有的程序文件都是可见的。使用 extern 时，对于无法初始化的变量，会把变量名指向一个之前定义过的存储位置。</p>
+<p>在有多个文件且定义了一个可以在其他文件中使用的全局变量或函数时，可以在其他文件中使用 extern 来得到已定义的变量或函数的引用。可以这么理解，extern 是用来在另一个文件中声明一个全局变量或函数。</p>
+<p>extern 修饰符通常用于当有两个或多个文件共享相同的全局变量或函数的时候，如下所示：</p>
+<p>第一个文件：main.c</p>
+<p>实例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">int</span> count ;<br><span class="hljs-function"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write_extern</span><span class="hljs-params">()</span></span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>count = <span class="hljs-number">5</span>;<br><span class="hljs-built_in">write_extern</span>();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>第二个文件：support.c</p>
+<p>实例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> count;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">write_extern</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br><span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;count is %d\n&quot;</span>, count);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>在这里，第二个文件中的 extern 关键字用于声明已经在第一个文件 main.c 中定义的 count。现在 ，编译这两个文件，如下所示：</p>
+<p> $ gcc main.c support.c<br>这会产生 a.out 可执行程序，当程序被执行时，它会产生下列结果：</p>
+<div class="hljs code-wrapper"><pre><code>count is 5
+</code></pre></div>
+<p><strong>静态全局变量与普通全局变量的区别：</strong></p>
+<p>全局变量(外部变量)的说明之前再冠以static 就构成了静态的全局变量。</p>
+<p>全局变量本身就是静态存储方式，静态全局变量当然也是静态存储方式，这两者在存储方式上并无不同。</p>
+<p>这两者的区别在于非静态全局变量的作用域是整个源程序， 当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。 而静态全局变量则限制了其作用域， 即只在定义该变量的源文件内有效， 在同一源程序的其它源文件中不能使用它。</p>
+<p><strong>C 语言中全局变量、局部变量、静态全局变量、静态局部变量的区别</strong><br><strong>从作用域看：</strong></p>
+<p>1、全局变量具有全局作用域。全局变量只需在一个源文件中定义，就可以作用于所有的源文件。当然，其他不包含全局变量定义的源文件需要用extern 关键字再次声明这个全局变量。</p>
+<p>2、静态局部变量具有局部作用域，它只被初始化一次，自从第一次被初始化直到程序运行结束都一直存在，它和全局变量的区别在于全局变量对所有的函数都是可见的，而静态局部变量只对定义自己的函数体始终可见。</p>
+<p>3、局部变量也只有局部作用域，它是自动对象（auto），它在程序运行期间不是一直存在，而是只在函数执行期间存在，函数的一次调用执行结束后，变量被撤销，其所占用的内存也被收回。</p>
+<p>4、静态全局变量也具有全局作用域，它与全局变量的区别在于如果程序包含多个文件的话，它作用于定义它的文件里，不能作用到其它文件里，即被static关键字修饰过的变量具有文件作用域。这样即使两个不同的源文件都定义了相同名字的静态全局变量，它们也是不同的变量。</p>
+<p><strong>从分配内存空间看：</strong></p>
+<p>1、全局变量，静态局部变量，静态全局变量都在静态存储区分配空间，而局部变量在栈里分配空间</p>
+<p>2、全局变量本身就是静态存储方式， 静态全局变量当然也是静态存储方式。这两者在存储方式上并无不同。这两者的区别虽在于非静态全局变量的作用域是整个源程序，当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。而静态全局变量则限制了其作用域，即只在定义该变量的源文件内有效，在同一源程序的其它源文件中不能使用它。由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数公用，因此可以避免在其它源文件中引起错误。</p>
+<p> 1)静态变量会被放在程序的静态数据存储区(全局可见)中，这样可以在下一次调用的时候还可以保持原来的赋值。这一点是它与堆栈变量和堆变量的区别。<br> 2)变量用static告知编译器，自己仅仅在变量的作用范围内可见。这一点是它与全局变量的区别。<br>从以上分析可以看出， 把局部变量改变为静态变量后是改变了它的存储方式即改变了它的生存期。把全局变量改变为静态变量后是改变了它的作用域，限制了它的使用范围。因此static 这个说明符在不同的地方所起的作用是不同的。应予以注意。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>算术运算符<br>关系运算符<br>逻辑运算符<br>位运算符<br>赋值运算符<br>其他运算符</p>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>下表显示了 C 语言支持的所有算术运算符。假设变量 A 的值为 10，变量 B 的值为 20，则：</p>
+<p>运算符    描述    实例</p>
+<ul>
+<li>   把两个操作数相加    A + B 将得到 30</li>
+</ul>
+<ul>
+<li>   从第一个操作数中减去第二个操作数    A - B 将得到 -10</li>
+</ul>
+<ul>
+<li> 把两个操作数相乘    A * B 将得到 200<br>/    分子除以分母    B / A 将得到 2<br>%    取模运算符，整除后的余数    B % A 将得到 0</li>
+</ul>
+<p>  ++    自增运算符，整数值增加 1    A++ 将得到 11<br>  –    自减运算符，整数值减少 1    A– 将得到 9</p>
+<p>对除法的补充</p>
+<p>当除数和被除数都是整数时，运算结果也是整数；如果不能整除，那么就直接丢掉小数部分，只保留整数部分，这跟将小数赋值给整数类型是一个道理。<br>一旦除数和被除数中有一个是小数，那么运算结果也是小数，并且是 double 类型的小数。</p>
+<p>对取余的补充</p>
+<p>C语言中的取余运算只能针对整数，也就是说，% 的两边都必须是整数，不能出现小数，否则编译器会报错。</p>
+<p>另外，余数可以是正数也可以是负数，由 % 左边的整数决定：<br>如果 % 左边是正数，那么余数也是正数；<br>如果 % 左边是负数，那么余数也是负数。</p>
+<p>自增/自减补充</p>
+<p>a++ 与 ++a 区别在于一个后加，一个先加。</p>
+<p>a++ 输出 a 的值再自加，缓存 a 自加后的结果，用于下次进行与 a 相关的计算，即先进行其他操作，再进行自增运算。</p>
+<p>++a 则相当于 a+1，即先进行自增运算，再进行其他操作。</p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h3><p>假设变量 A 的值为 10，变量 B 的值为 20，则：</p>
+<p>运算符    描述    实例<br>==    检查两个操作数的值是否相等，如果相等则条件为真。    (A == B) 为假。<br>!=    检查两个操作数的值是否相等，如果不相等则条件为真。    (A != B) 为真。</p>
+<blockquote>
+<div class="hljs code-wrapper"><pre><code>   检查左操作数的值是否大于右操作数的值，如果是则条件为真。    (A &gt; B) 为假。
+</code></pre></div>
+<p>   &lt;    检查左操作数的值是否小于右操作数的值，如果是则条件为真。    (A &lt; B) 为真。<br>   =    检查左操作数的值是否大于或等于右操作数的值，如果是则条件为真。    (A &gt;= B) 为假。<br>   &lt;=    检查左操作数的值是否小于或等于右操作数的值，如果是则条件为真。    (A &lt;= B) 为真。</p>
+</blockquote>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>假设变量 A 的值为 1，变量 B 的值为 0，则：</p>
+<p>运算符    描述    实例<br>&amp;&amp;    称为逻辑与运算符。如果两个操作数都非零，则条件为真。    (A &amp;&amp; B) 为假。<br>||    称为逻辑或运算符。如果两个操作数中有任意一个非零，则条件为真。    (A || B) 为真。<br>!    称为逻辑非运算符。用来逆转操作数的逻辑状态。如果条件为真则逻辑非运算符将使其为假。    !(A &amp;&amp; B) 为真。</p>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><p>位运算符作用于位，并逐位执行操作。&amp;、 | 和 ^ 的真值表如下所示：</p>
+<p>p    q    p &amp; q    p | q    p ^ q<br>0    0    0    0    0<br>0    1    0    1    1<br>1    1    1    1    0<br>1    0    0    1    1</p>
+<p>运算符    描述    实例<br>&amp;<br>按位与操作，按二进制位进行”与”运算。运算规则：</p>
+<p>0&amp;0=0;<br>0&amp;1=0;<br>1&amp;0=0;<br>1&amp;1=1;    (A &amp; B) 将得到 12，即为 0000 1100<br>|<br>按位或运算符，按二进制位进行”或”运算。运算规则：</p>
+<p>0|0=0;<br>0|1=1;<br>1|0=1;<br>1|1=1;    (A | B) 将得到 61，即为 0011 1101<br>^<br>异或运算符，按二进制位进行”异或”运算。运算规则：</p>
+<p>0^0=0;<br>0^1=1;<br>1^0=1;<br>1^1=0;    (A ^ B) 将得到 49，即为 0011 0001<br>~<br>取反运算符，按二进制位进行”取反”运算。运算规则：</p>
+<p><del>1=-2;<br>~0=-1;    (</del>A ) 将得到 -61，即为 1100 0011，一个有符号二进制数的补码形式。<br>&lt;&lt;    二进制左移运算符。将一个运算对象的各二进制位全部左移若干位（左边的二进制位丢弃，右边补0）。    A &lt;&lt; 2 将得到 240，即为 1111 0000</p>
+<blockquote>
+<blockquote>
+<div class="hljs code-wrapper"><pre><code>   二进制右移运算符。将一个数的各二进制位全部右移若干位，正数左补0，负数左补1，右边丢弃。A &gt;&gt; 2 将得到 15，即为 0000 1111
+</code></pre></div>
+</blockquote>
+</blockquote>
+<p>下面的实例包含 C 语言中所有可用的位运算符：</p>
+<p>实例：</p>
+<figure class="highlight perl"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs perl"><span class="hljs-comment">#include &lt;stdio.h&gt;</span><br> <br><span class="hljs-keyword">int</span> main()<br>&#123;<br> <br>   unsigned <span class="hljs-keyword">int</span> a = <span class="hljs-number">60</span>;    <span class="hljs-regexp">/* 60 = 0011 1100 */</span>  <br>   unsigned <span class="hljs-keyword">int</span> b = <span class="hljs-number">13</span>;    <span class="hljs-regexp">/* 13 = 0000 1101 */</span><br>   <span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>;           <br> <br>   c = a &amp; b;       <span class="hljs-regexp">/* 12 = 0000 1100 */</span> <br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 1 - c 的值是 %d\n&quot;</span>, c );<br> <br>   c = a | b;       <span class="hljs-regexp">/* 61 = 0011 1101 */</span><br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 2 - c 的值是 %d\n&quot;</span>, c );<br> <br>   c = a ^ b;       <span class="hljs-regexp">/* 49 = 0011 0001 */</span><br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 3 - c 的值是 %d\n&quot;</span>, c );<br> <br>   c = ~a;          <span class="hljs-regexp">/*-61 = 1100 0011 */</span><br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 4 - c 的值是 %d\n&quot;</span>, c );<br> <br>   c = a &lt;&lt; <span class="hljs-number">2</span>;     <span class="hljs-regexp">/* 240 = 1111 0000 */</span><br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 5 - c 的值是 %d\n&quot;</span>, c );<br> <br>   c = a &gt;&gt; <span class="hljs-number">2</span>;     <span class="hljs-regexp">/* 15 = 0000 1111 */</span><br>   <span class="hljs-keyword">printf</span>(<span class="hljs-string">&quot;Line 6 - c 的值是 %d\n&quot;</span>, c );<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<p>Line 1 - c 的值是 12<br>Line 2 - c 的值是 61<br>Line 3 - c 的值是 49<br>Line 4 - c 的值是 -61<br>Line 5 - c 的值是 240<br>Line 6 - c 的值是 15</p>
+<p><strong>位运算的一些应用：</strong></p>
+<p>利用异或 ^ 来交换两个数的值，而且不引入其他变量。</p>
+<p>unsigned int a=60;  //0011 1100<br>unsigned int b=13;  //0000 1101<br>a=a^b;              //a=a^b=0011 0001<br>b=a^b;              //b=a^b=0011 1100  相当于b1=(a^b)^b<br>a=a^b;              //a=a^b=0000 1101  相当于a1=(a^b)^((a^b)^b)</p>
+<p>实例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">( )</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> a=<span class="hljs-number">60</span>;         <span class="hljs-comment">//0011 1100</span><br>    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> b=<span class="hljs-number">13</span>;         <span class="hljs-comment">//0000 1101</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a=%d,b=%d&quot;</span>,a,b);   <span class="hljs-comment">//输出a，b的值</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    a=a^b;                     <span class="hljs-comment">//a=a^b=0011 0001</span><br>    b=a^b;                     <span class="hljs-comment">//b=a^b=0011 1100</span><br>    a=a^b;                     <span class="hljs-comment">//a=a^b=0000 1101</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;a=%d,b=%d&quot;</span>,a,b);   <span class="hljs-comment">//输出a，b的值</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">a</span>=<span class="hljs-number">60</span>，b=<span class="hljs-number">13</span>；<br><span class="hljs-attr">a</span>=<span class="hljs-number">13</span>，b=<span class="hljs-number">60</span><span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>仅用一行代码实现的方法：<code>a^=b^=a^=b;</code> 其等价于：</p>
+<figure class="highlight ini"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">a</span>=a^b<span class="hljs-comment">;</span><br><span class="hljs-attr">b</span>=a^b<span class="hljs-comment">;</span><br><span class="hljs-attr">a</span>=a^b<span class="hljs-comment">;</span><br></code></pre></div></td></tr></table></figure>
+
+<p>当然，这种利用位运算的交换方法只适用于整型变量，不能用于浮点型变量</p>
+<p>利用位与 &amp; 运算，判断一个整数是否是2的整数次幂。</p>
+<p>二进制数的位权是以2为底的幂，如果一个整数 m 是 2 的 n 次幂，那么转换为二进制之后只有最高位为 1，其余位置为 0，再观察 m-1 转换为二进制后的形式以及 m&amp;(m-1) 的结果，例如：</p>
+<p>2 –&gt; 0000 0010        1 –&gt; 0000 0001        2&amp;1 –&gt; 0000 0010 &amp; 0000 0001 = 0<br>4 –&gt; 0000 0100        3 –&gt; 0000 0011        4&amp;3 –&gt; 0000 0100 &amp; 0000 0011 = 0<br>8 –&gt; 0000 1000        7 –&gt; 0000 0111        8&amp;7 –&gt; 0000 1000 &amp; 0000 0111 = 0<br>可以看出所有的 1 完美的错过了，根据位与的特点可知 m&amp;(m-1) 的结果为 0。</p>
+<p>如果整数 m 不是 2 的 n 次幂，结果会怎样呢？例如 m=9 时：</p>
+<p>9 –&gt; 0000 1001        8 –&gt; 0000 1000        9&amp;8 –&gt; 0000 1001 &amp; 0000 1000 != 0<br>利用这一特点，即可判断一个整数是否是2的整数次幂。</p>
+<p>示例：</p>
+<figure class="highlight dart"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs dart">#include &lt;stdio.h&gt;<br><br><span class="hljs-built_in">int</span> <span class="hljs-built_in">num</span>;<br><span class="hljs-built_in">int</span> func(<span class="hljs-built_in">int</span> <span class="hljs-built_in">num</span>)<br>&#123;<br>    <span class="hljs-keyword">if</span> ((<span class="hljs-built_in">num</span>&gt;<span class="hljs-number">0</span>)&amp;&amp;(<span class="hljs-built_in">num</span>&amp;(<span class="hljs-built_in">num</span><span class="hljs-number">-1</span>))==<span class="hljs-number">0</span>)<br>    &#123;<br>        printf(<span class="hljs-string">&quot;%d是2的整数次幂&quot;</span>,<span class="hljs-built_in">num</span>);<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        printf(<span class="hljs-string">&quot;%d不是2的整数次幂&quot;</span>,<span class="hljs-built_in">num</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span>((<span class="hljs-built_in">num</span>&gt;<span class="hljs-number">0</span>)&amp;&amp;(<span class="hljs-built_in">num</span>&amp;(<span class="hljs-built_in">num</span><span class="hljs-number">-1</span>))==<span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-built_in">int</span> main()<br>&#123;<br>    printf(<span class="hljs-string">&quot;请输入要查询的数\n&quot;</span>);<br>    scanf(<span class="hljs-string">&quot;%d&quot;</span>,&amp;<span class="hljs-built_in">num</span>);<br>    func(<span class="hljs-built_in">num</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>返回值为 1，则输入的正整数为 2 的整数次幂，返回值为 0 则不是。</p>
+<p>不同长度的数据进行位运算</p>
+<p>如果两个不同长度的数据进行位运算时，系统会将二者按右端对齐，然后进行位运算。</p>
+<p>以“与”运算为例说明如下：我们知道在 C 语言中 long 型占 4 个字节，int 型占 2 个字节，如果一个 long 型数据与一个 int 型数据进行“与”运算，右端对齐后，左边不足的位依下面三种情况补足:</p>
+<p> （1）如果整型数据为正数，左边补 16 个 0。<br> （2）如果整型数据为负数，左边补 16 个 1。<br> （3）如果整形数据为无符号数，左边也补 16 个 0。</p>
+<p>在计算机中，负数以其正值的补码形式表达</p>
+<p>原码：一个整数，按照绝对值大小转换成的二进制数，称为原码。</p>
+<p>反码：将二进制数按位取反，所得的新二进制数称为原二进制数的反码。</p>
+<p>补码：反码加1称为补码。</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>=    简单的赋值运算符，把右边操作数的值赋给左边操作数    C = A + B 将把 A + B 的值赋给 C<br>+=    加且赋值运算符，把右边操作数加上左边操作数的结果赋值给左边操作数    C += A 相当于 C = C + A<br>-=    减且赋值运算符，把左边操作数减去右边操作数的结果赋值给左边操作数    C -= A 相当于 C = C - A<br>*=    乘且赋值运算符，把右边操作数乘以左边操作数的结果赋值给左边操作数    C *= A 相当于 C = C * A<br>/=    除且赋值运算符，把左边操作数除以右边操作数的结果赋值给左边操作数    C /= A 相当于 C = C / A<br>%=    求模且赋值运算符，求两个操作数的模赋值给左边操作数    C %= A 相当于 C = C % A<br>&lt;&lt;=    左移且赋值运算符    C &lt;&lt;= 2 等同于 C = C &lt;&lt; 2</p>
+<blockquote>
+<blockquote>
+<p>=    右移且赋值运算符    C &gt;&gt;= 2 等同于 C = C &gt;&gt; 2<br>&amp;=    按位与且赋值运算符    C &amp;= 2 等同于 C = C &amp; 2<br>^=    按位异或且赋值运算符    C ^= 2 等同于 C = C ^ 2<br>|=    按位或且赋值运算符    C |= 2 等同于 C = C | 2</p>
+</blockquote>
+</blockquote>
+<h3 id="其他运算符"><a href="#其他运算符" class="headerlink" title="其他运算符"></a>其他运算符</h3><p>运算符    描述    实例<br>sizeof()    返回变量的大小。    sizeof(a) 将返回 4，其中 a 是整数。<br>&amp;    返回变量的地址。    &a; 将给出变量的实际地址。</p>
+<ul>
+<li> 指向一个变量。    *a; 将指向一个变量。<br>? :    条件表达式（C中唯一一个三目运算符）    如果条件为真 ? 则值为 X : 否则值为 Y</li>
+</ul>
+<h3 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h3><p>c语言中运算符优先级的总结：</p>
+<p>初等运算符&gt;单目运算符&gt;算术运算符&gt;关系运算符&gt;逻辑运算符&gt;条件运算符&gt;赋值运算符</p>
+<p>初等运算符有：（）、[ ]、-&gt;、.  (后两者均为结构体成员运算符)；<br>单目运算符有：！、~、++、–、sizeof、&amp;、<em>；<br>算术运算符有：</em>、/、+、-、&lt;&lt;、&gt;&gt;;<br>关系运算符有：&lt;、&lt;=、&gt;、&gt;=、==、!=、&amp;、^、|；(此栏排列仍有优先级顺序哦);<br>逻辑运算符有：&amp;&amp;、||；<br>条件运算符有：？：（即三目运算符）;<br>赋值运算符有：=、+=、-=、*=、/=、%=、&gt;&gt;=、&lt;&lt;=；等<br>另外，单目运算符的优先级都高于双目运算符。</p>
+<p>C语言中大多数运算符的结合性都是从左往右，只有三个运算符是从右往左的。一个是单目运算符，另一个是三目运算符，还有一个就是双目运算符中的赋值运算符=。双目运算符中只有赋值运算符的结合性是从右往左的，其他的都是从左往右</p>
+<p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/161.html">http://c.biancheng.net/view/161.html</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/C03-input-output-if-for/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C03-input-output-if-for</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/C01/">
+                        <span class="hidden-mobile">C01</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81MDkyMy8yNzQwNQ==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
